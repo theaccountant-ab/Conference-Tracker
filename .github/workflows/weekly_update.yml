@@ -3,24 +3,32 @@ name: Weekly Conference Update
 on:
   schedule:
     - cron: '0 0 * * 0' # Midnight every Sunday
-  workflow_dispatch: # Allows you to trigger it manually for testing
+  workflow_dispatch: 
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    # This line tells GitHub to use the new Node 24 environment immediately
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
-      - uses: actions/checkout@v4
+      # Updated from @v4 to @v4.2.2 (or higher) to support Node 24
+      - uses: actions/checkout@v4.2.2
+      
+      # Updated from @v4 to @v6 to support Node 24
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.10'
       
       - name: Install Dependencies
-        run: pip install gspread google-auth trafilatura google-generativeai
+        run: pip install gspread google-auth trafilatura google-generativeai requests
 
       - name: Run Script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
         run: python scraper.py
