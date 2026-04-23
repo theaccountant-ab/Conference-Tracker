@@ -23,53 +23,65 @@ sheet = gc.open_by_key(SHEET_ID).sheet1
 
 def get_conference_info(url):
     try:
-        # Fetch webpage content
         downloaded = trafilatura.fetch_url(url)
-        content = trafilatura.extract(downloaded)
-        if not content: return ["Error: No content found"] * 6
+        content = trafilatura.extract(downloaded, include_links=True) # Tell it to include links
+        if not content: return ["Error: Page unreadable"] + ([""] * 6)
 
-        # AI Prompt
         prompt = f"""
-        Extract the following conference details from the text below:
+        Extract these conference details from the text:
         - Name
         - Location
-        - Status (Choose one: 'Submission', 'Participation Only', or 'Ended')
-        - Submission Deadline (YYYY-MM-DD)
+        - Status (Submission, Participation Only, or Ended)
+        - Deadline (YYYY-MM-DD)
         - Start Date (YYYY-MM-DD)
         - End Date (YYYY-MM-DD)
+        
+        CRITICAL: If the conference on this page has 'Ended', look through the text/links 
+        for a URL to the NEXT year's conference (e.g., if this is the 25th, look for the 26th).
+        
+        Return strictly JSON:
+        {{
+          "Name": "...",
+          "Location": "...",
+          "Status": "...",
+          "Deadline": "...",
+          "Start Date": "...",
+          "End Date": "...",
+          "New_URL": "Provide the URL to next year's page ONLY if found, otherwise null"
+        }}
 
         Text: {content[:5000]}
-        Return strictly JSON format.
         """
         
         response = model.generate_content(prompt)
-        # Clean the response string to get valid JSON
-        raw_text = response.text.replace('```json', '').replace('```', '').strip()
-        data = json.loads(raw_text)
+        clean_json = response.text.replace('```json', '').replace('```', '').strip()
+        data = json.loads(clean_json)
 
-        return [
-            data.get('Name', 'N/A'),
-            data.get('Location', 'N/A'),
-            data.get('Status', 'N/A'),
-            data.get('Submission Deadline', 'N/A'),
-            data.get('Start Date', 'N/A'),
-            data.get('End Date', 'N/A')
-        ]
+        return {
+            "row_data": [
+                data.get('Name', 'N/A'),
+                data.get('Location', 'N/A'),
+                data.get('Status', 'N/A'),
+                data.get('Deadline', 'N/A'),
+                data.get('Start Date', 'N/A'),
+                data.get('End Date', 'N/A')
+            ],
+            "new_url": data.get('New_URL')
+        }
     except Exception as e:
-        return [f"Error: {str(e)}"] + ([""] * 5)
+        return {"row_data": [f"Error: {str(e)}"] + ([""] * 5), "new_url": None}
 
-# 2. Execution
-urls = sheet.col_values(1)[1:]  # Column A, ignore header
-
+# --- Inside the execution loop ---
 for i, url in enumerate(urls):
-    print(f"Scraping {i+1}/{len(urls)}: {url}")
+    row_idx = i + 2
     result = get_conference_info(url)
     
-    # Update Sheet (Columns B to G)
-    row_idx = i + 2
-    sheet.update(range_name=f'B{row_idx}:G{row_idx}', values=[result])
+    # 1. Update the Data (Columns B-G)
+    sheet.update(range_name=f'B{row_idx}:G{row_idx}', values=[result["row_data"]])
     
-    # Stay within free-tier rate limits (15 requests per minute)
-    time.sleep(5) 
+    # 2. SELF-HEALING: If AI found a new year's link, update Column A for next time!
+    if result["new_url"]:
+        sheet.update_acell(f'A{row_idx}', result["new_url"])
+        print(f"Updated URL to: {result['new_url']}")
 
 print("Finished!")
