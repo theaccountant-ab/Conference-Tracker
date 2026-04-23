@@ -3,46 +3,61 @@ import json
 import time
 import gspread
 import trafilatura
-import google.generativeai as genai
+from google import genai
 from google.oauth2.service_account import Credentials
 from duckduckgo_search import DDGS
 
-# 1. Setup
+# 1. Setup API Keys and Sheet
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 GOOGLE_CREDS = json.loads(os.environ["GOOGLE_CREDENTIALS"])
 SHEET_ID = os.environ["GOOGLE_SHEET_ID"]
 
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Initialize Gemini Client
+client = genai.Client(api_key=GEMINI_API_KEY)
 
+# Initialize Google Sheets
 scope = ['https://www.googleapis.com/auth/spreadsheets']
 creds = Credentials.from_service_account_info(GOOGLE_CREDS, scopes=scope)
 gc = gspread.authorize(creds)
 sheet = gc.open_by_key(SHEET_ID).sheet1
 
-def find_latest_url(conference_name):
-    """Searches the web for the best URL for the conference name."""
+def search_duckduckgo(query):
+    """Searches DuckDuckGo for the conference website."""
+    search_query = f"{query} conference official website 2026"
     try:
-        query = f"{conference_name} official conference website 2026"
         with DDGS() as ddgs:
-            results = list(ddgs.text(query, max_results=3))
+            results = list(ddgs.text(search_query, max_results=3))
             if results:
-                # Returns the first URL found
                 return results[0]['href']
     except Exception as e:
-        print(f"Search failed for {conference_name}: {e}")
+        print(f"DuckDuckGo search failed for {query}: {e}")
     return None
 
 def get_conference_info(url):
-    """Scrapes the URL and uses AI to extract details."""
+    """Extracts data using Gemini 2.0 Flash."""
     try:
         downloaded = trafilatura.fetch_url(url)
         content = trafilatura.extract(downloaded)
         if not content: return ["Error: Unreadable"] + ([""] * 5)
 
-        prompt = f"Extract from this text: Name, Location, Status (Submission/Participation Only/Ended), Deadline (YYYY-MM-DD), Start Date (YYYY-MM-DD), End Date (YYYY-MM-DD). Return JSON only.\n\nText: {content[:4000]}"
+        prompt = f"""
+        Extract these conference details from the text:
+        - Name
+        - Location
+        - Status (Submission, Participation Only, or Ended)
+        - Deadline (YYYY-MM-DD)
+        - Start Date (YYYY-MM-DD)
+        - End Date (YYYY-MM-DD)
+
+        Text: {content[:5000]}
+        Return strictly JSON format.
+        """
         
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.0-flash", 
+            contents=prompt
+        )
+        
         clean_json = response.text.replace('```json', '').replace('```', '').strip()
         data = json.loads(clean_json)
 
@@ -58,30 +73,26 @@ def get_conference_info(url):
         return [f"Error: {str(e)}"] + ([""] * 5)
 
 # 2. Main Loop
-# Now reading Names from Column A
 conference_names = sheet.col_values(1)[1:] 
 
 for i, name in enumerate(conference_names):
     if not name: continue
     row_idx = i + 2
+    print(f"Row {row_idx}: Searching DuckDuckGo for {name}...")
     
-    # Step A: Find the URL
-    print(f"Searching for: {name}")
-    url = find_latest_url(name)
+    found_url = search_duckduckgo(name)
     
-    if url:
-        # Step B: Scrape the found URL
-        print(f"Found URL: {url}. Scraping...")
-        info = get_conference_info(url)
+    if found_url:
+        print(f"Found: {found_url}. Scraping...")
+        info = get_conference_info(found_url)
         
-        # Step C: Update Sheet (Col B = URL, Col C-H = Info)
-        sheet.update_acell(f'B{row_idx}', url)
+        # Update Sheet: B=URL, C-H=Data
+        sheet.update_acell(f'B{row_idx}', found_url)
         sheet.update(range_name=f'C{row_idx}:H{row_idx}', values=[info])
     else:
-        sheet.update_acell(f'B{row_idx}', "URL NOT FOUND")
+        sheet.update_acell(f'B{row_idx}', "Search found no link")
 
-    # Rate limiting for free tiers
+    # Rate limiting for Gemini free tier
     time.sleep(10)
 
-print("Batch Update Complete!")
-
+print("Scraping complete!")
