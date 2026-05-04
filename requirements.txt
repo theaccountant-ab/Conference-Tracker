@@ -1,5 +1,5 @@
 gspread
 google-auth
 trafilatura
-google-generativeai
-duckduckgo-search
+google-genai
+ddgs
