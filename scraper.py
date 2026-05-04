@@ -7,42 +7,53 @@ import google.generativeai as genai
 from google.oauth2.service_account import Credentials
 from duckduckgo_search import DDGS
 
-# 1. Setup
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
-GOOGLE_CREDS = json.loads(os.environ["GOOGLE_CREDENTIALS"])
-SHEET_ID = os.environ["GOOGLE_SHEET_ID"]
+# 1. Setup & Authentication
+try:
+    GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
+    GOOGLE_CREDS = json.loads(os.environ["GOOGLE_CREDENTIALS"])
+    SHEET_ID = os.environ["GOOGLE_SHEET_ID"]
+except KeyError as e:
+    print(f"CRITICAL ERROR: Missing environment variable {e}")
+    exit(1)
 
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
 
+# Force Gemini to output raw JSON to prevent parsing errors
+model = genai.GenerativeModel(
+    'gemini-1.5-flash',
+    generation_config={"response_mime_type": "application/json"}
+)
+
+# Google Sheets Auth
 scope = ['https://www.googleapis.com/auth/spreadsheets']
 creds = Credentials.from_service_account_info(GOOGLE_CREDS, scopes=scope)
 gc = gspread.authorize(creds)
 sheet = gc.open_by_key(SHEET_ID).sheet1
 
 def find_official_url(conference_name):
-    """Refined search to find academic finance conferences."""
-    # We add specific academic keywords to the search to avoid 'Trucks' and 'Apps'
+    """Searches DuckDuckGo and uses Gemini to identify the correct URL."""
     search_query = f'"{conference_name}" conference university "call for papers"'
-    
-    # Sites we definitely want to ignore
     junk_sites = ["trucks", "qq.com", "facebook", "linkedin", "youtube", "twitter", "instagram"]
     
     try:
         with DDGS() as ddgs:
-            # We look at 10 results to find the diamond in the rough
+            # Adding a brief pause before searching to help avoid IP bans
+            time.sleep(2) 
             results = list(ddgs.text(search_query, max_results=10))
+            
             if not results:
+                print("No search results found (Possible IP block by DuckDuckGo).")
                 return None
 
             options = ""
             for i, r in enumerate(results):
-                # Skip obvious commercial junk
                 if any(junk in r['href'].lower() for junk in junk_sites):
                     continue
-                options += f"[{i}] Link: {r['href']}\nSnippet: {r['body']}\n\n"
+                options += f"Link: {r['href']}\nSnippet: {r['body']}\n\n"
 
-            # We ask the AI to be a strict judge
+            if not options:
+                return None
+
             prompt = f"""
             Identify the OFFICIAL CONFERENCE WEBSITE for: "{conference_name}".
             Academic conferences usually live on .edu, .org, or university subdomains.
@@ -51,74 +62,86 @@ def find_official_url(conference_name):
             {options}
             
             Instructions:
-            1. Look for a link that mentions the specific conference name and '2025' or '2026'.
-            2. Reject generic university homepages (like just 'ox.ac.uk') unless it's the specific event page.
-            3. Reject commercial sites (Trucks, Music, Social Media).
-            4. Return ONLY the URL. If no result is a specific match, return 'NONE'.
+            1. Return ONLY a JSON object with a single key "url".
+            2. If no valid academic conference link is found, return "NONE" as the value.
             """
             
             response = model.generate_content(prompt)
-            best_url = response.text.strip()
+            data = json.loads(response.text)
+            best_url = data.get("url", "NONE")
             
-            if "http" in best_url and "NONE" not in best_url:
+            if best_url.startswith("http") and "NONE" not in best_url:
                 return best_url
+
     except Exception as e:
-        print(f"Search failed: {e}")
+        print(f"Search failed for {conference_name}: {e}")
+    
     return None
 
 def get_conference_info(url):
-    """Scrapes the chosen URL and extracts data."""
+    """Scrapes the URL and extracts standardized data using Gemini."""
     try:
         downloaded = trafilatura.fetch_url(url)
         content = trafilatura.extract(downloaded)
-        if not content: return ["Error: Page Content Unreadable"] + ([""] * 5)
+        
+        if not content: 
+            return ["Error: Page Content Unreadable", "", "", "", "", ""]
 
         prompt = f"""
-        Extract the following from this text:
-        - Conference Name
-        - Location
-        - Status (Submission, Participation Only, or Ended)
-        - Deadline (YYYY-MM-DD)
-        - Start Date (YYYY-MM-DD)
-        - End Date (YYYY-MM-DD)
+        Extract the conference details from the following text.
+        Return ONLY a JSON object using exactly these keys:
+        "conference_name", "location", "status", "deadline", "start_date", "end_date".
+        
+        If a piece of information is missing, use "N/A". Format dates as YYYY-MM-DD.
+        Status should be one of: "Submission", "Participation Only", or "Ended".
 
-        Text: {content[:5000]}
-        Return ONLY JSON.
+        Text: {content[:8000]}
         """
         
         response = model.generate_content(prompt)
-        clean_json = response.text.replace('```json', '').replace('```', '').strip()
-        data = json.loads(clean_json)
+        data = json.loads(response.text)
 
         return [
-            data.get('Name', 'N/A'),
-            data.get('Location', 'N/A'),
-            data.get('Status', 'N/A'),
-            data.get('Deadline', 'N/A'),
-            data.get('Start Date', 'N/A'),
-            data.get('End Date', 'N/A')
+            data.get('conference_name', 'N/A'),
+            data.get('location', 'N/A'),
+            data.get('status', 'N/A'),
+            data.get('deadline', 'N/A'),
+            data.get('start_date', 'N/A'),
+            data.get('end_date', 'N/A')
         ]
+        
+    except json.JSONDecodeError:
+        return ["Error: Failed to parse AI response", "", "", "", "", ""]
     except Exception as e:
-        return [f"Error: {str(e)}"] + ([""] * 5)
+        return [f"Error: {str(e)}", "", "", "", "", ""]
 
-# 2. Execution
-conference_names = sheet.col_values(1)[1:] 
+# 2. Execution Loop
+print("Starting Conference Scraper...")
+conference_names = sheet.col_values(1)[1:] # Assumes Column A has names, skipping row 1 header
 
 for i, name in enumerate(conference_names):
-    if not name: continue
+    if not name.strip(): 
+        continue
+        
     row_idx = i + 2
-    print(f"Row {row_idx}: Finding official site for {name}...")
+    print(f"[{row_idx}/{len(conference_names) + 1}] Processing: {name}")
     
     official_url = find_official_url(name)
     
-    if official_url and "http" in official_url:
-        print(f"Scraping Official Site: {official_url}")
+    if official_url:
+        print(f"  -> Found URL: {official_url}")
         info = get_conference_info(official_url)
-        sheet.update_acell(f'B{row_idx}', official_url)
-        sheet.update(range_name=f'C{row_idx}:H{row_idx}', values=[info])
+        
+        # Combine URL and extracted info into one list for a single sheet update
+        row_data = [official_url] + info 
+        
+        # Update columns B through H in a single API call
+        sheet.update(values=[row_data], range_name=f'B{row_idx}:H{row_idx}')
     else:
+        print("  -> Official site not found.")
         sheet.update_acell(f'B{row_idx}', "Official site not found")
 
-    time.sleep(12) # Slightly longer sleep to ensure high quality results
+    # Critical: Sleep to respect rate limits (Google Sheets + Gemini + DuckDuckGo)
+    time.sleep(15) 
 
-print("Success!")
+print("Successfully finished processing all conferences!")
