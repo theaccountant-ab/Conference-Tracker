@@ -6,7 +6,7 @@ import trafilatura
 from google import genai
 from google.genai import types
 from google.oauth2.service_account import Credentials
-from duckduckgo_search import DDGS 
+from ddgs import DDGS
 
 # 1. Setup & Authentication
 try:
