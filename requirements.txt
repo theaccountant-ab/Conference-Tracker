@@ -2,4 +2,4 @@ gspread
 google-auth
 trafilatura
 google-genai
-ddgs
+requests
