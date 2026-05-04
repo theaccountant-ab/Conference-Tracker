@@ -3,9 +3,10 @@ import json
 import time
 import gspread
 import trafilatura
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from google.oauth2.service_account import Credentials
-from duckduckgo_search import DDGS
+from duckduckgo_search import DDGS 
 
 # 1. Setup & Authentication
 try:
@@ -16,13 +17,8 @@ except KeyError as e:
     print(f"CRITICAL ERROR: Missing environment variable {e}")
     exit(1)
 
-genai.configure(api_key=GEMINI_API_KEY)
-
-# Force Gemini to output raw JSON to prevent parsing errors
-model = genai.GenerativeModel(
-    'gemini-1.5-flash',
-    generation_config={"response_mime_type": "application/json"}
-)
+# Initialize the NEW Gemini Client
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Google Sheets Auth
 scope = ['https://www.googleapis.com/auth/spreadsheets']
@@ -37,7 +33,6 @@ def find_official_url(conference_name):
     
     try:
         with DDGS() as ddgs:
-            # Adding a brief pause before searching to help avoid IP bans
             time.sleep(2) 
             results = list(ddgs.text(search_query, max_results=10))
             
@@ -66,7 +61,15 @@ def find_official_url(conference_name):
             2. If no valid academic conference link is found, return "NONE" as the value.
             """
             
-            response = model.generate_content(prompt)
+            # Using the new SDK syntax
+            response = client.models.generate_content(
+                model='gemini-1.5-flash',
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                )
+            )
+            
             data = json.loads(response.text)
             best_url = data.get("url", "NONE")
             
@@ -98,7 +101,15 @@ def get_conference_info(url):
         Text: {content[:8000]}
         """
         
-        response = model.generate_content(prompt)
+        # Using the new SDK syntax
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+            )
+        )
+        
         data = json.loads(response.text)
 
         return [
@@ -117,7 +128,7 @@ def get_conference_info(url):
 
 # 2. Execution Loop
 print("Starting Conference Scraper...")
-conference_names = sheet.col_values(1)[1:] # Assumes Column A has names, skipping row 1 header
+conference_names = sheet.col_values(1)[1:] 
 
 for i, name in enumerate(conference_names):
     if not name.strip(): 
@@ -131,17 +142,12 @@ for i, name in enumerate(conference_names):
     if official_url:
         print(f"  -> Found URL: {official_url}")
         info = get_conference_info(official_url)
-        
-        # Combine URL and extracted info into one list for a single sheet update
         row_data = [official_url] + info 
-        
-        # Update columns B through H in a single API call
         sheet.update(values=[row_data], range_name=f'B{row_idx}:H{row_idx}')
     else:
         print("  -> Official site not found.")
         sheet.update_acell(f'B{row_idx}', "Official site not found")
 
-    # Critical: Sleep to respect rate limits (Google Sheets + Gemini + DuckDuckGo)
     time.sleep(15) 
 
 print("Successfully finished processing all conferences!")
