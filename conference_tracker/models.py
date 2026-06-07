@@ -44,6 +44,69 @@ def clean_conference_name(name: str) -> str:
     return s.strip(" -–,|")
 
 
+# Short joining words kept lowercase in Title Case (unless first/last word).
+_MINOR_WORDS = {
+    "a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "into",
+    "nor", "of", "on", "onto", "or", "the", "to", "vs", "via", "with",
+}
+# Acronyms that contain vowels (so the "no vowels" heuristic below can't catch
+# them) and must stay uppercase. All-consonant acronyms like GCFP/CFP/ICBFS are
+# detected automatically.
+_ACRONYMS = {
+    "MIT", "FEM", "AI", "ABFER", "RAPS", "RCFS", "EUROFIDAI", "ESSEC", "GCFP",
+    "CFP", "SFS", "ICBFS", "JFDS", "CUHK", "US", "USA", "UK", "EU", "UAE",
+    "ESG", "CSR", "IPO", "SME", "IEEE", "ACM", "AAAI", "ACL", "EMNLP", "NAACL",
+    "ICML", "ICLR", "CVPR", "ECCV", "ICCV", "KDD", "SIGIR", "WWW", "NBER",
+    "AEA", "AFA", "WFA", "EFA", "FMA", "RFS",
+}
+# Acronyms with non-standard internal casing, keyed by their uppercase form.
+_SPECIAL_CASE = {"NEURIPS": "NeurIPS", "PHD": "PhD", "ARXIV": "arXiv"}
+_WORD_RE = re.compile(r"[A-Za-z0-9]+")
+
+
+def _case_word(word: str, *, edge: bool) -> str:
+    up = word.upper()
+    if up in _SPECIAL_CASE:
+        return _SPECIAL_CASE[up]
+    if up in _ACRONYMS or any(ch.isdigit() for ch in word):
+        return up
+    if not edge and word.lower() in _MINOR_WORDS:
+        return word.lower()
+    # All-consonant tokens (no vowels, treating Y as a vowel) are acronyms.
+    if len(word) >= 2 and word.isalpha() and not re.search(r"[AEIOUY]", up):
+        return up
+    return word[:1].upper() + word[1:].lower()
+
+
+def titlecase_conference_name(name: str) -> str:
+    """Title-case a conference name, keeping acronyms uppercase.
+
+    "CHICAGO FED/UNIVERSITY OF CHICAGO CONFERENCE ON MUNICIPAL BOND MARKETS" ->
+    "Chicago Fed/University of Chicago Conference on Municipal Bond Markets";
+    "CLIMATE FINANCE & POLICY (CFP)" -> "Climate Finance & Policy (CFP)".
+    Separators (spaces, hyphens, slashes, quotes, parentheses) are preserved.
+    """
+    if not name:
+        return ""
+    words = list(_WORD_RE.finditer(name))
+    if not words:
+        return name
+    last = len(words) - 1
+    out: list = []
+    pos = 0
+    for idx, m in enumerate(words):
+        out.append(name[pos:m.start()])  # separator text, kept as-is
+        out.append(_case_word(m.group(), edge=(idx == 0 or idx == last)))
+        pos = m.end()
+    out.append(name[pos:])
+    return "".join(out)
+
+
+def standardize_conference_name(name: str) -> str:
+    """Strip edition/year noise, then apply consistent Title Case."""
+    return titlecase_conference_name(clean_conference_name(name))
+
+
 # ---------------------------------------------------------------------------
 # Extraction schema (what the model returns)
 # ---------------------------------------------------------------------------
@@ -152,7 +215,7 @@ class Conference:
     ) -> "Conference":
         contact = extracted.url or extracted.submission_email or ""
         return cls(
-            name=clean_conference_name(extracted.name.strip()),
+            name=standardize_conference_name(extracted.name.strip()),
             contact=contact.strip(),
             location=(extracted.location or "").strip(),
             submission_deadline=(extracted.submission_deadline or "").strip(),

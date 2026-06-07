@@ -48,3 +48,30 @@ def test_keeps_meaningful_hyphens_and_plain_names():
 
 def test_empty():
     assert clean_conference_name("") == ""
+
+
+from conference_tracker.models import titlecase_conference_name as tc
+
+
+def test_titlecase_all_caps_with_acronym():
+    assert tc("CLIMATE FINANCE & POLICY (CFP)") == "Climate Finance & Policy (CFP)"
+    assert tc("CHICAGO FED/UNIVERSITY OF CHICAGO CONFERENCE ON MUNICIPAL BOND MARKETS") == (
+        "Chicago Fed/University of Chicago Conference on Municipal Bond Markets"
+    )
+
+
+def test_titlecase_preserves_acronyms():
+    assert tc("MIT GCFP Annual Conference") == "MIT GCFP Annual Conference"
+    assert tc("ABFER-JFDS Conference on AI for Finance") == "ABFER-JFDS Conference on AI for Finance"
+    assert tc("Financial Economics Meeting (FEM)") == "Financial Economics Meeting (FEM)"
+    assert tc("The CUHK-RAPS-RCFS Conference on Asset Pricing and Corporate Finance") == (
+        "The CUHK-RAPS-RCFS Conference on Asset Pricing and Corporate Finance"
+    )
+
+
+def test_titlecase_minor_words_and_edges():
+    assert tc("finance at a time of change and uncertainty") == (
+        "Finance at a Time of Change and Uncertainty"
+    )
+    # leading minor word is still capitalized
+    assert tc("the colorado finance summit") == "The Colorado Finance Summit"
