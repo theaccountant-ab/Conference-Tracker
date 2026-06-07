@@ -9,13 +9,18 @@ rather than free text. Extraction runs on Gemini's free API tier.
 
 from __future__ import annotations
 
+import time
 from datetime import date
 from typing import List, Optional
 
 from google import genai
-from google.genai import types
+from google.genai import errors, types
 
 from .models import ExtractedConference, ExtractedConferenceList
+
+# Gemini's free tier occasionally returns these when briefly overloaded or
+# rate-limited; they're transient, so we retry with backoff before giving up.
+_TRANSIENT_CODES = {429, 500, 502, 503, 504}
 
 SYSTEM_PROMPT = """\
 You extract structured information about academic conferences and calls for \
@@ -58,32 +63,47 @@ def extract_conferences(
     *,
     today: Optional[date] = None,
     max_output_tokens: int = 8192,
+    max_retries: int = 4,
 ) -> List[ExtractedConference]:
     """Extract every conference described in a blob of text.
 
     Returns a (possibly empty) list — empty when the text holds no conference.
+    Retries transient Gemini errors (overload / rate limit) with backoff; if
+    they persist, the underlying ``APIError`` is raised so the caller can leave
+    the source unprocessed and try again later.
     """
     today = today or date.today()
     if not text or not text.strip():
         return []
 
-    response = client.models.generate_content(
-        model=model,
-        contents=(
-            "Extract every conference described in the following text.\n\n"
-            "<source>\n" + text.strip() + "\n</source>"
-        ),
-        config=types.GenerateContentConfig(
-            system_instruction=SYSTEM_PROMPT.format(today=today.isoformat()),
-            response_mime_type="application/json",
-            response_schema=ExtractedConferenceList,
-            # Structured extraction doesn't need the model's "thinking" budget;
-            # turning it off is faster, cheaper, and avoids it eating into the
-            # output-token budget on long digests.
-            thinking_config=types.ThinkingConfig(thinking_budget=0),
-            max_output_tokens=max_output_tokens,
-        ),
+    config = types.GenerateContentConfig(
+        system_instruction=SYSTEM_PROMPT.format(today=today.isoformat()),
+        response_mime_type="application/json",
+        response_schema=ExtractedConferenceList,
+        # Structured extraction doesn't need the model's "thinking" budget;
+        # turning it off is faster, cheaper, and avoids it eating into the
+        # output-token budget on long digests.
+        thinking_config=types.ThinkingConfig(thinking_budget=0),
+        max_output_tokens=max_output_tokens,
     )
+    contents = (
+        "Extract every conference described in the following text.\n\n"
+        "<source>\n" + text.strip() + "\n</source>"
+    )
+
+    delay = 2.0
+    for attempt in range(max_retries + 1):
+        try:
+            response = client.models.generate_content(
+                model=model, contents=contents, config=config
+            )
+            break
+        except errors.APIError as exc:
+            transient = getattr(exc, "code", None) in _TRANSIENT_CODES
+            if not transient or attempt == max_retries:
+                raise
+            time.sleep(delay)
+            delay = min(delay * 2, 30.0)
 
     parsed = response.parsed
     if not isinstance(parsed, ExtractedConferenceList):

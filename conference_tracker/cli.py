@@ -49,8 +49,13 @@ def run_source(config: Config, source: Source) -> int:
             # A single document (especially a newsletter) can hold many.
             extracted = extract_conferences(client, config.model, doc.text)
         except errors.APIError as exc:
+            # Leave the document unprocessed (e.g. email stays unread) so the
+            # next run retries it instead of silently dropping it.
             print(f"  ! extraction failed for {doc.origin}: {exc}")
             continue
+        # Processed successfully — let the source finalize (mark email read).
+        if doc.on_success is not None:
+            doc.on_success()
         if not extracted:
             print(f"  - {doc.origin}: no conference found")
             continue
