@@ -79,85 +79,6 @@ def cmd_update_email(config: Config, args: argparse.Namespace) -> int:
     return run_source(config, EmailSource(config.mailbox))
 
 
-def cmd_debug_email(config: Config, args: argparse.Namespace) -> int:
-    """Print the *structure* of each mailbox message and what the extractor
-
-    makes of it, to diagnose "no conference found" cases. Deliberately prints
-    no subjects or bodies — only content types, text lengths, attachment types,
-    and the names of any conferences extracted — so it is safe to run in
-    (potentially public) CI logs.
-    """
-    import email
-    import imaplib
-
-    from .extractor import extract_conferences
-    from .sources.email_source import _decode, _html_to_text, message_to_text
-
-    cfg = config.mailbox
-    print(f"Diagnosing mailbox {cfg.host} / {cfg.folder} ...")
-    conn: imaplib.IMAP4 = (
-        imaplib.IMAP4_SSL(cfg.host, cfg.port)
-        if cfg.use_ssl
-        else imaplib.IMAP4(cfg.host, cfg.port)
-    )
-    conn.login(cfg.username, cfg.password)
-    client = _client(config)
-    try:
-        conn.select(cfg.folder)
-        typ, data = conn.search(None, "ALL")
-        ids = data[0].split() if typ == "OK" and data and data[0] else []
-        print(f"{len(ids)} message(s) in folder.\n")
-        for i, mid in enumerate(ids, 1):
-            typ, md = conn.fetch(mid, "(RFC822)")
-            if typ != "OK" or not md or not md[0]:
-                continue
-            msg = email.message_from_bytes(md[0][1])
-            types_present: List[str] = []
-            attach_types: List[str] = []
-            plain_len = html_len = 0
-            if msg.is_multipart():
-                for part in msg.walk():
-                    ct = part.get_content_type()
-                    if "attachment" in str(part.get("Content-Disposition", "")):
-                        attach_types.append(ct)
-                        continue
-                    payload = part.get_payload(decode=True)
-                    if payload is None:
-                        continue
-                    types_present.append(ct)
-                    text = _decode(payload, part.get_content_charset())
-                    if ct == "text/plain":
-                        plain_len += len(text)
-                    elif ct == "text/html":
-                        html_len += len(_html_to_text(text))
-            else:
-                ct = msg.get_content_type()
-                types_present.append(ct)
-                payload = msg.get_payload(decode=True)
-                if payload is not None:
-                    text = _decode(payload, msg.get_content_charset())
-                    if ct == "text/html":
-                        html_len = len(_html_to_text(text))
-                    else:
-                        plain_len = len(text)
-            full = message_to_text(msg)
-            extracted = extract_conferences(client, config.model, full)
-            names = "; ".join(c.name for c in extracted) if extracted else "(none)"
-            print(
-                f"[#{i}] types={sorted(set(types_present))} "
-                f"attach={sorted(set(attach_types))} "
-                f"plain={plain_len} html_text={html_len} total_text={len(full)} "
-                f"-> {len(extracted)} extracted: {names}"
-            )
-    finally:
-        try:
-            conn.close()
-        except Exception:
-            pass
-        conn.logout()
-    return 0
-
-
 def cmd_update_urls(config: Config, args: argparse.Namespace) -> int:
     from .sources.webpage_source import WebpageSource, read_url_list
 
@@ -227,9 +148,6 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("update-email", help="Scan the mailbox for new conferences.")
-    sub.add_parser(
-        "debug-email", help="Report mailbox message structure + extraction results."
-    )
 
     p_urls = sub.add_parser("update-urls", help="Fetch a list of conference URLs.")
     p_urls.add_argument("file", help="Text file with one URL per line.")
@@ -258,7 +176,6 @@ def main(argv: List[str] | None = None) -> int:
 
     handlers = {
         "update-email": cmd_update_email,
-        "debug-email": cmd_debug_email,
         "build-site": cmd_build_site,
         "update-urls": cmd_update_urls,
         "update-search": cmd_update_search,
