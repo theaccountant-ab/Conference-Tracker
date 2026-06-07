@@ -32,6 +32,9 @@ administrative announcements.
 - Today's date is {today}. Resolve relative dates against it and infer the year \
 when only a month and day are given. Output every date as an ISO-8601 date: \
 YYYY-MM-DD.
+- For `name`, give the conference's standing name and OMIT the edition number \
+(e.g. "39th", "13th") and the year (e.g. "2026"), so the same conference matches \
+across years. Keep acronyms (e.g. "FEM", "ICBFS").
 - Use the *paper submission* deadline for `submission_deadline` — not the \
 notification, registration, or early-bird date.
 - Standardize `location` as "City, Country" for international conferences and \
