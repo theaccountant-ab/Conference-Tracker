@@ -7,10 +7,41 @@ result + computed status + bookkeeping) that ends up as a row in the CSV.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
+
+
+# Edition ordinals ("39th", "7th", "2nd") and standalone years ("2026"),
+# optionally with a leading separator so "FEM-2026" -> "FEM" and "(CFP-2026)"
+# -> "(CFP)". Stripping these keeps a recurring conference's name stable from
+# one year (and edition) to the next, so it lands on the same row.
+_EDITION_ORDINAL = re.compile(r"\b\d+(?:st|nd|rd|th)\b", re.IGNORECASE)
+_YEAR = re.compile(r"[-–/]?\s*\b(?:19|20)\d{2}\b")
+_EMPTY_OR_TRAILING_PARENS = re.compile(r"\(\s*([^()]*?)[\s\-–]*\)")
+
+
+def clean_conference_name(name: str) -> str:
+    """Drop edition numbers and years from a conference name.
+
+    "The 39th Australasian Finance and Banking Conference" -> "The Australasian
+    Finance and Banking Conference"; "7th Financial Economics Meeting (FEM-2026)"
+    -> "Financial Economics Meeting (FEM)"; "ICBFS 2026" -> "ICBFS".
+    """
+    if not name:
+        return ""
+    s = _EDITION_ORDINAL.sub(" ", name)
+    s = _YEAR.sub(" ", s)
+    # Tidy parentheticals left like "(FEM )" or "(CFP- )" -> "(FEM)"/"(CFP)";
+    # drop any that ended up empty.
+    s = _EMPTY_OR_TRAILING_PARENS.sub(
+        lambda m: f"({m.group(1).strip()})" if m.group(1).strip() else " ", s
+    )
+    s = re.sub(r"\s+([,)])", r"\1", s)        # no space before , or )
+    s = re.sub(r"\s{2,}", " ", s)              # collapse runs of whitespace
+    return s.strip(" -–,|")
 
 
 # ---------------------------------------------------------------------------
@@ -121,7 +152,7 @@ class Conference:
     ) -> "Conference":
         contact = extracted.url or extracted.submission_email or ""
         return cls(
-            name=extracted.name.strip(),
+            name=clean_conference_name(extracted.name.strip()),
             contact=contact.strip(),
             location=(extracted.location or "").strip(),
             submission_deadline=(extracted.submission_deadline or "").strip(),
