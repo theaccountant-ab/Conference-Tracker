@@ -41,13 +41,14 @@ jobs:
         run: |
           python -m conference_tracker update-email
           python -m conference_tracker refresh-status
+          python -m conference_tracker build-site docs/index.html
 
       - name: Commit changes
         run: |
           git config user.name "conference-tracker-bot"
           git config user.email "actions@github.com"
-          if ! git diff --quiet conferences.csv; then
-            git add conferences.csv
+          git add conferences.csv docs/index.html
+          if ! git diff --cached --quiet; then
             git commit -m "Update conferences ($(date -u +%Y-%m-%d))"
             git push
           else
