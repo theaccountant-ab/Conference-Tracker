@@ -32,8 +32,8 @@ class MailboxConfig:
 
 @dataclass
 class Config:
-    anthropic_api_key: str = ""
-    model: str = "claude-opus-4-8"
+    gemini_api_key: str = ""
+    model: str = "gemini-2.5-flash"
     csv_path: str = "conferences.csv"
     mailbox: MailboxConfig = None  # type: ignore[assignment]
 
@@ -73,8 +73,12 @@ def load_config(path: Optional[str] = None) -> Config:
     )
 
     return Config(
-        anthropic_api_key=_env("ANTHROPIC_API_KEY", data.get("anthropic_api_key", "")),
-        model=_env("CT_MODEL", data.get("model", "claude-opus-4-8")),
+        # Accept GEMINI_API_KEY or GOOGLE_API_KEY (the SDK reads either, too).
+        gemini_api_key=_env(
+            "GEMINI_API_KEY",
+            _env("GOOGLE_API_KEY", data.get("gemini_api_key", "")),
+        ),
+        model=_env("CT_MODEL", data.get("model", "gemini-2.5-flash")),
         csv_path=_env("CT_CSV_PATH", data.get("csv_path", "conferences.csv")),
         mailbox=mailbox,
     )

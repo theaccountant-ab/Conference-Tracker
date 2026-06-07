@@ -1,8 +1,8 @@
 """Fetch a list of conference web pages and turn them into documents.
 
 Wired into the same extraction pipeline as the other sources: give it a list of
-URLs (or a text file of URLs, one per line) and it yields the page text for
-Claude to extract.
+URLs (or a text file of URLs, one per line) and it yields the page text for the
+model to extract.
 """
 
 from __future__ import annotations

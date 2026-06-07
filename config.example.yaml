@@ -2,13 +2,13 @@
 # Anything sensitive (passwords, API keys) is better set via environment
 # variables / .env than committed here. Env vars override these values.
 
-model: claude-opus-4-8
+model: gemini-2.5-flash
 csv_path: conferences.csv
 
 mailbox:
   host: imap.gmail.com
   port: 993
-  username: movingsaleapril2017@gmail.com
+  username: academicaiagent@gmail.com
   # Prefer CT_MAIL_PASSWORD in the environment over putting it here.
   password: ""
   folder: INBOX

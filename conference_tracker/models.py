@@ -1,6 +1,6 @@
 """Data models for the conference tracker.
 
-`ExtractedConference` is the structured shape we ask Claude to return when it
+`ExtractedConference` is the structured shape we ask the model to return when it
 reads an email or web page. `Conference` is the persisted record (extraction
 result + computed status + bookkeeping) that ends up as a row in the CSV.
 """
@@ -14,10 +14,10 @@ from pydantic import BaseModel, Field
 
 
 # ---------------------------------------------------------------------------
-# Extraction schema (what Claude returns)
+# Extraction schema (what the model returns)
 # ---------------------------------------------------------------------------
 class ExtractedConference(BaseModel):
-    """Fields Claude extracts from an unstructured source (email or web page).
+    """Fields the model extracts from an unstructured source (email or web page).
 
     Every field except ``name`` is optional: real-world sources are often
     incomplete, and we'd rather store a partial record than drop it. Dates are

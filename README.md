@@ -2,8 +2,9 @@
 
 Automatically pull and maintain a list of academic conferences for a website.
 The tool reads unstructured sources — a dedicated **email** mailbox, a list of
-**web pages**, or a **web search** by conference name — uses **Claude** to
-extract structured fields, and keeps a deduplicated `conferences.csv` up to date.
+**web pages**, or a **web search** by conference name — uses **Google Gemini**
+(free API tier) to extract structured fields, and keeps a deduplicated
+`conferences.csv` up to date.
 
 For each conference it populates:
 
@@ -37,11 +38,13 @@ pip install -r requirements.txt
 ## Configure
 
 Copy `.env.example` to `.env` (or `config.example.yaml` to `config.yaml`) and
-fill in your Anthropic API key and mailbox details. Environment variables
-override the YAML file. **Secrets belong in `.env`, never in the committed YAML.**
+fill in your Gemini API key and mailbox details. Environment variables override
+the YAML file. **Secrets belong in `.env`, never in the committed YAML.**
 
-For Gmail, create an [App Password](https://support.google.com/accounts/answer/185833)
-and forward all conference-related mail into a dedicated mailbox or label.
+Get a free Gemini API key at [aistudio.google.com](https://aistudio.google.com/app/apikey)
+and set it as `GEMINI_API_KEY`. For Gmail, create an
+[App Password](https://support.google.com/accounts/answer/185833) and forward
+all conference-related mail into a dedicated mailbox or label.
 
 ## Use
 
@@ -64,24 +67,23 @@ python -m conference_tracker list
 
 ## Automate
 
-`.github/workflows/update.yml` runs `update-email` + `refresh-status` daily and
-commits changes to `conferences.csv`. Add these repository secrets:
-`ANTHROPIC_API_KEY`, `CT_MAIL_HOST`, `CT_MAIL_PORT`, `CT_MAIL_USER`,
-`CT_MAIL_PASSWORD`, `CT_MAIL_FOLDER`.
+`.github/workflows/update.yml` runs `update-email` + `refresh-status` daily on
+GitHub's servers (where IMAP works) and commits changes to `conferences.csv`.
+Add these repository secrets: `GEMINI_API_KEY`, `CT_MAIL_HOST`, `CT_MAIL_PORT`,
+`CT_MAIL_USER`, `CT_MAIL_PASSWORD`, `CT_MAIL_FOLDER`.
 
 ## How it works
 
 ```
-sources (email / webpages / web search)  ─►  extractor (Claude, structured output)  ─►  CSV store (dedup + merge)
+sources (email / webpages / web search)  ─►  extractor (Gemini, structured output)  ─►  CSV store (dedup + merge)
 ```
 
 - **`sources/`** — each source yields `SourceDocument`s (text + provenance).
   Three are implemented: `email_source` (IMAP mailbox), `webpage_source` (a list
-  of URLs), and `search_source` (Claude's server-side web search, given a list of
-  conference names). Adding another source means implementing one method.
-- **`extractor.py`** — calls Claude with `messages.parse()` and a Pydantic
-  schema, so the model returns validated fields and resolves relative dates
-  against today.
+  of URLs), and `search_source` (Gemini's Google Search grounding, given a list
+  of conference names). Adding another source means implementing one method.
+- **`extractor.py`** — calls Gemini with a Pydantic `response_schema`, so the
+  model returns validated fields and resolves relative dates against today.
 - **`store.py`** — upserts by a normalized conference name, merges in new
   details without creating duplicates, and recomputes status on write.
 

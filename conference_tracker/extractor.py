@@ -1,8 +1,9 @@
-"""Extract structured conference details from unstructured text using Claude.
+"""Extract structured conference details from unstructured text using Gemini.
 
-We use the Anthropic Python SDK's structured-output helper (``messages.parse``)
-so the model returns a validated ``ExtractedConference`` object rather than free
-text we'd have to parse ourselves.
+Uses Google's ``google-genai`` SDK with a Pydantic ``response_schema`` so the
+model returns a validated ``ExtractedConference`` rather than free text we'd have
+to parse ourselves. Extraction runs on Gemini's free API tier, so routine runs
+cost nothing.
 """
 
 from __future__ import annotations
@@ -10,7 +11,8 @@ from __future__ import annotations
 from datetime import date
 from typing import Optional
 
-import anthropic
+from google import genai
+from google.genai import types
 
 from .models import ExtractedConference
 
@@ -34,35 +36,37 @@ generic newsletter, an unrelated message), set `is_conference` to false.
 
 
 def extract_conference(
-    client: anthropic.Anthropic,
+    client: genai.Client,
     model: str,
     text: str,
     *,
     today: Optional[date] = None,
-    max_tokens: int = 2000,
+    max_output_tokens: int = 2048,
 ) -> Optional[ExtractedConference]:
     """Run extraction on a blob of text. Returns None if it isn't a conference."""
     today = today or date.today()
     if not text or not text.strip():
         return None
 
-    response = client.messages.parse(
+    response = client.models.generate_content(
         model=model,
-        max_tokens=max_tokens,
-        system=SYSTEM_PROMPT.format(today=today.isoformat()),
-        messages=[
-            {
-                "role": "user",
-                "content": (
-                    "Extract the conference details from the following text.\n\n"
-                    "<source>\n" + text.strip() + "\n</source>"
-                ),
-            }
-        ],
-        output_format=ExtractedConference,
+        contents=(
+            "Extract the conference details from the following text.\n\n"
+            "<source>\n" + text.strip() + "\n</source>"
+        ),
+        config=types.GenerateContentConfig(
+            system_instruction=SYSTEM_PROMPT.format(today=today.isoformat()),
+            response_mime_type="application/json",
+            response_schema=ExtractedConference,
+            max_output_tokens=max_output_tokens,
+        ),
     )
 
-    extracted = response.parsed_output
-    if extracted is None or not extracted.is_conference or not extracted.name:
+    # With a Pydantic response_schema, the SDK populates ``parsed`` with an
+    # ExtractedConference instance (or None if the model returned nothing usable).
+    extracted = response.parsed
+    if not isinstance(extracted, ExtractedConference):
+        return None
+    if not extracted.is_conference or not extracted.name:
         return None
     return extracted

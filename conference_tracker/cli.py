@@ -21,12 +21,12 @@ from .store import CSVStore
 
 
 def _client(config: Config):
-    import anthropic
+    from google import genai
 
-    if not config.anthropic_api_key:
-        # The SDK also reads ANTHROPIC_API_KEY from the environment directly.
-        return anthropic.Anthropic()
-    return anthropic.Anthropic(api_key=config.anthropic_api_key)
+    if not config.gemini_api_key:
+        # The SDK also reads GEMINI_API_KEY / GOOGLE_API_KEY from the environment.
+        return genai.Client()
+    return genai.Client(api_key=config.gemini_api_key)
 
 
 def run_source(config: Config, source: Source) -> int:
@@ -34,7 +34,7 @@ def run_source(config: Config, source: Source) -> int:
 
     Returns a process exit code (0 on success).
     """
-    import anthropic
+    from google.genai import errors
 
     from .extractor import extract_conference
 
@@ -47,7 +47,7 @@ def run_source(config: Config, source: Source) -> int:
         n_docs += 1
         try:
             extracted = extract_conference(client, config.model, doc.text)
-        except anthropic.APIError as exc:
+        except errors.APIError as exc:
             print(f"  ! extraction failed for {doc.origin}: {exc}")
             continue
         if extracted is None:

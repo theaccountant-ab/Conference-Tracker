@@ -1,28 +1,25 @@
 """Find conferences by searching the web (the "Google search" input channel).
 
 Give it a list of conference *names* (one per line, like the URL list) and it
-uses Claude's server-side web search tool to research each one — locating the
-official call-for-papers page, deadlines, location, and dates — then yields that
-research as a ``SourceDocument`` for the same extractor the email and webpage
-sources feed. Claude does the searching server-side, so no separate search-API
-key is required.
+uses Gemini's built-in Google Search grounding to research each one — locating
+the official call-for-papers page, deadlines, location, and dates — then yields
+that research as a ``SourceDocument`` for the same extractor the email and
+webpage sources feed. Gemini does the searching, so no separate search-API key
+is required (and it runs on the free tier).
 """
 
 from __future__ import annotations
 
 from typing import Iterator, List
 
-import anthropic
+from google import genai
+from google.genai import errors, types
 
 from .base import SourceDocument
 
-# The dated web-search server tool. Dynamic filtering is built in on this
-# version, so results are filtered before they reach the context window.
-WEB_SEARCH_TOOL = {"type": "web_search_20260209", "name": "web_search"}
-
 _RESEARCH_PROMPT = """\
-Research the academic conference "{name}" using web search and report what you \
-find. I need, where available:
+Research the academic conference "{name}" using Google Search and report what \
+you find. I need, where available:
 
 - the official conference name (expand acronyms if the year/edition is known),
 - the call-for-papers / submission homepage URL (prefer the official site),
@@ -53,50 +50,36 @@ class SearchSource:
 
     def __init__(
         self,
-        client: anthropic.Anthropic,
+        client: genai.Client,
         model: str,
         names: List[str],
         *,
         max_tokens: int = 4000,
-        max_searches: int = 5,
     ):
         self.client = client
         self.model = model
         self.names = list(names)
         self.max_tokens = max_tokens
-        # Cap the server-side search loop so a single name can't run away.
-        self.max_searches = max_searches
 
     def _research(self, name: str) -> str:
-        """Run web search for one conference name and return the gathered text."""
-        messages = [
-            {"role": "user", "content": _RESEARCH_PROMPT.format(name=name)}
-        ]
-        response = None
-        # The web-search server tool runs its own loop; on pause_turn we re-send
-        # the conversation so it can resume where it left off.
-        for _ in range(self.max_searches):
-            response = self.client.messages.create(
-                model=self.model,
-                max_tokens=self.max_tokens,
-                tools=[WEB_SEARCH_TOOL],
-                messages=messages,
-            )
-            if response.stop_reason != "pause_turn":
-                break
-            messages.append({"role": "assistant", "content": response.content})
-
-        if response is None:
-            return ""
-        return "\n".join(
-            block.text for block in response.content if block.type == "text"
-        ).strip()
+        """Search the web for one conference name and return the gathered text."""
+        response = self.client.models.generate_content(
+            model=self.model,
+            contents=_RESEARCH_PROMPT.format(name=name),
+            config=types.GenerateContentConfig(
+                # Built-in Google Search grounding — Gemini issues the queries
+                # and grounds its answer in the results.
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                max_output_tokens=self.max_tokens,
+            ),
+        )
+        return (response.text or "").strip()
 
     def iter_documents(self) -> Iterator[SourceDocument]:
         for name in self.names:
             try:
                 text = self._research(name)
-            except anthropic.APIError as exc:  # one bad name shouldn't abort the run
+            except errors.APIError as exc:  # one bad name shouldn't abort the run
                 print(f"  ! web search failed for {name!r}: {exc}")
                 continue
             if text:

@@ -25,7 +25,7 @@ jobs:
 
       - name: Scan mailbox and refresh status
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CT_MAIL_HOST: ${{ secrets.CT_MAIL_HOST }}
           CT_MAIL_PORT: ${{ secrets.CT_MAIL_PORT }}
           CT_MAIL_USER: ${{ secrets.CT_MAIL_USER }}
