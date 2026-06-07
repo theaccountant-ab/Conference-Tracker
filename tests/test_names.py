@@ -15,14 +15,20 @@ def test_strips_inline_ordinal():
     )
 
 
-def test_strips_year_and_tidies_parens():
+def test_strips_year_and_paren_abbreviation():
     assert (
         clean_conference_name("7th Financial Economics Meeting (FEM-2026)")
-        == "Financial Economics Meeting (FEM)"
+        == "Financial Economics Meeting"
     )
     assert (
         clean_conference_name("2026 CLIMATE FINANCE & POLICY (CFP-2026)")
-        == "CLIMATE FINANCE & POLICY (CFP)"
+        == "CLIMATE FINANCE & POLICY"
+    )
+    assert (
+        clean_conference_name(
+            "International Conference in Banking and Financial Studies (ICBFS)"
+        )
+        == "International Conference in Banking and Financial Studies"
     )
 
 
