@@ -1,0 +1,48 @@
+name: Update conferences
+
+# Runs on a daily schedule (and on demand). Scans the mailbox for new
+# conferences and refreshes the status column, then commits any changes to
+# conferences.csv back to the repo.
+on:
+  schedule:
+    - cron: "0 6 * * *" # 06:00 UTC daily
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scan mailbox and refresh status
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CT_MAIL_HOST: ${{ secrets.CT_MAIL_HOST }}
+          CT_MAIL_PORT: ${{ secrets.CT_MAIL_PORT }}
+          CT_MAIL_USER: ${{ secrets.CT_MAIL_USER }}
+          CT_MAIL_PASSWORD: ${{ secrets.CT_MAIL_PASSWORD }}
+          CT_MAIL_FOLDER: ${{ secrets.CT_MAIL_FOLDER }}
+        run: |
+          python -m conference_tracker update-email
+          python -m conference_tracker refresh-status
+
+      - name: Commit changes
+        run: |
+          git config user.name "conference-tracker-bot"
+          git config user.email "actions@github.com"
+          if ! git diff --quiet conferences.csv; then
+            git add conferences.csv
+            git commit -m "Update conferences ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No changes to commit."
+          fi

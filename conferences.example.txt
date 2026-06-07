@@ -1,0 +1,5 @@
+# One conference name per line. Lines starting with # are ignored.
+# Used by: python -m conference_tracker update-search conferences.txt
+# NeurIPS 2026
+# ACL 2026
+# CHI 2026

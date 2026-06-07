@@ -1,0 +1,4 @@
+# One conference URL per line. Lines starting with # are ignored.
+# Used by: python -m conference_tracker update-urls urls.txt
+# https://2026.aclweb.org/
+# https://neurips.cc/
