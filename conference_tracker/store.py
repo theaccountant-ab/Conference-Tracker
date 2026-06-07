@@ -18,11 +18,34 @@ from .status import compute_status
 
 
 def normalize_name(name: str) -> str:
-    """Key used for dedup: lowercased, punctuation stripped, whitespace collapsed."""
+    """Key used for dedup: lowercased, punctuation stripped, whitespace collapsed.
+
+    Also drops a trailing subtitle after a ``|`` separator and a leading "the",
+    so "MIT GCFP Annual Conference | Theme" and "The MIT GCFP Annual Conference"
+    both key to the same conference.
+    """
+    name = name.split("|", 1)[0]
     name = name.lower()
     name = re.sub(r"[^a-z0-9 ]+", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
+    if name.startswith("the "):
+        name = name[4:]
     return name
+
+
+def normalize_contact(contact: str) -> str:
+    """Key for matching the same conference by its URL or submission email.
+
+    A conference's submission link / email is far more stable than its name, so
+    it's a strong secondary dedup signal. Lowercase, drop scheme/`www.`/`mailto:`
+    and any trailing slash so trivial variations still match.
+    """
+    c = (contact or "").strip().lower()
+    if not c:
+        return ""
+    c = re.sub(r"^(https?://|mailto:)", "", c)
+    c = re.sub(r"^www\.", "", c)
+    return c.rstrip("/")
 
 
 def _now() -> str:
@@ -81,9 +104,13 @@ class CSVStore:
         Returns ``(added, updated)`` counts.
         """
         existing = self.load()
-        index: Dict[str, Conference] = {
-            normalize_name(c.name): c for c in existing
-        }
+        by_name: Dict[str, Conference] = {}
+        by_contact: Dict[str, Conference] = {}
+        for c in existing:
+            by_name.setdefault(normalize_name(c.name), c)
+            ck = normalize_contact(c.contact)
+            if ck:
+                by_contact.setdefault(ck, c)
 
         added = 0
         updated = 0
@@ -91,13 +118,24 @@ class CSVStore:
             key = normalize_name(conf.name)
             if not key:
                 continue
-            if key in index:
-                if self._merge(index[key], conf):
-                    index[key].last_updated = _now()
+            # Match on the name first, then fall back to the (more stable)
+            # submission URL / email so the same conference under a slightly
+            # different name still merges instead of duplicating.
+            ckey = normalize_contact(conf.contact)
+            match = by_name.get(key) or (by_contact.get(ckey) if ckey else None)
+            if match is not None:
+                if self._merge(match, conf):
+                    match.last_updated = _now()
                     updated += 1
+                # Register any new keys this record now answers to.
+                by_name.setdefault(normalize_name(match.name), match)
+                if normalize_contact(match.contact):
+                    by_contact.setdefault(normalize_contact(match.contact), match)
             else:
                 conf.last_updated = _now()
-                index[key] = conf
+                by_name[key] = conf
+                if ckey:
+                    by_contact.setdefault(ckey, conf)
                 existing.append(conf)
                 added += 1
 
