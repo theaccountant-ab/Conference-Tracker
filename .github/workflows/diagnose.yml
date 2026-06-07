@@ -1,0 +1,30 @@
+name: Diagnose mailbox
+
+# One-off diagnostic: reports the structure of each mailbox message and what
+# the extractor makes of it, to debug "no conference found" cases. Prints no
+# subjects or bodies. Safe to delete once the investigation is done.
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Diagnose mailbox
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CT_MAIL_HOST: ${{ secrets.CT_MAIL_HOST }}
+          CT_MAIL_PORT: ${{ secrets.CT_MAIL_PORT }}
+          CT_MAIL_USER: ${{ secrets.CT_MAIL_USER }}
+          CT_MAIL_PASSWORD: ${{ secrets.CT_MAIL_PASSWORD }}
+          CT_MAIL_FOLDER: ${{ secrets.CT_MAIL_FOLDER }}
+        run: python -m conference_tracker debug-email
