@@ -6,7 +6,12 @@ name: Update conferences
 on:
   schedule:
     - cron: "0 6 * * *" # 06:00 UTC daily
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      unseen_only:
+        description: "Only scan unread mail. Set to false to re-scan all mail (useful for testing)."
+        required: false
+        default: "true"
 
 jobs:
   update:
@@ -31,6 +36,8 @@ jobs:
           CT_MAIL_USER: ${{ secrets.CT_MAIL_USER }}
           CT_MAIL_PASSWORD: ${{ secrets.CT_MAIL_PASSWORD }}
           CT_MAIL_FOLDER: ${{ secrets.CT_MAIL_FOLDER }}
+          # Manual runs can pass unseen_only=false to re-scan already-read mail.
+          CT_MAIL_UNSEEN_ONLY: ${{ github.event.inputs.unseen_only || 'true' }}
         run: |
           python -m conference_tracker update-email
           python -m conference_tracker refresh-status
