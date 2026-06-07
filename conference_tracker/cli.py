@@ -36,7 +36,7 @@ def run_source(config: Config, source: Source) -> int:
     """
     from google.genai import errors
 
-    from .extractor import extract_conference
+    from .extractor import extract_conferences
 
     client = _client(config)
     store = CSVStore(config.csv_path)
@@ -46,16 +46,18 @@ def run_source(config: Config, source: Source) -> int:
     for doc in source.iter_documents():
         n_docs += 1
         try:
-            extracted = extract_conference(client, config.model, doc.text)
+            # A single document (especially a newsletter) can hold many.
+            extracted = extract_conferences(client, config.model, doc.text)
         except errors.APIError as exc:
             print(f"  ! extraction failed for {doc.origin}: {exc}")
             continue
-        if extracted is None:
+        if not extracted:
             print(f"  - {doc.origin}: no conference found")
             continue
-        conf = Conference.from_extracted(extracted, source=doc.origin)
-        print(f"  + {doc.origin}: {conf.name}")
-        found.append(conf)
+        for item in extracted:
+            conf = Conference.from_extracted(item, source=doc.origin)
+            print(f"  + {doc.origin}: {conf.name}")
+            found.append(conf)
 
     added, updated = store.upsert(found)
     print(

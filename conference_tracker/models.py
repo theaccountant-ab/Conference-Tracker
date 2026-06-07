@@ -8,7 +8,7 @@ result + computed status + bookkeeping) that ends up as a row in the CSV.
 from __future__ import annotations
 
 from dataclasses import dataclass, field, asdict
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -57,11 +57,21 @@ class ExtractedConference(BaseModel):
         default=None,
         description="Conference end date as an ISO-8601 date (YYYY-MM-DD).",
     )
-    is_conference: bool = Field(
-        default=True,
+
+
+class ExtractedConferenceList(BaseModel):
+    """Container the model fills in for one source document.
+
+    A single email is often a newsletter/digest that lists *many* calls for
+    papers, so extraction returns a list. An empty list means the document
+    contained no academic conference (e.g. it was purely job postings or ads).
+    """
+
+    conferences: List[ExtractedConference] = Field(
+        default_factory=list,
         description=(
-            "False if the source does not actually describe an academic "
-            "conference / call for papers (e.g. spam, a newsletter)."
+            "Every distinct academic conference / call for papers found in the "
+            "text. Empty if the text contains none."
         ),
     )
 
