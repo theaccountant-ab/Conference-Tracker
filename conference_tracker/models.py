@@ -21,14 +21,17 @@ from pydantic import BaseModel, Field
 _EDITION_ORDINAL = re.compile(r"\b\d+(?:st|nd|rd|th)\b", re.IGNORECASE)
 _YEAR = re.compile(r"[-–/]?\s*\b(?:19|20)\d{2}\b")
 _EMPTY_OR_TRAILING_PARENS = re.compile(r"\(\s*([^()]*?)[\s\-–]*\)")
+# A parenthetical that is just an acronym/abbreviation, e.g. " (CFP)", " (ICBFS)",
+# " (ABFER-JFDS)" — dropped from the stored name.
+_PAREN_ACRONYM = re.compile(r"\s*\(\s*[A-Z0-9][A-Z0-9&-]{1,11}\s*\)")
 
 
 def clean_conference_name(name: str) -> str:
-    """Drop edition numbers and years from a conference name.
+    """Drop edition numbers, years, and parenthetical abbreviations from a name.
 
     "The 39th Australasian Finance and Banking Conference" -> "The Australasian
     Finance and Banking Conference"; "7th Financial Economics Meeting (FEM-2026)"
-    -> "Financial Economics Meeting (FEM)"; "ICBFS 2026" -> "ICBFS".
+    -> "Financial Economics Meeting"; "ICBFS 2026" -> "ICBFS".
     """
     if not name:
         return ""
@@ -39,6 +42,8 @@ def clean_conference_name(name: str) -> str:
     s = _EMPTY_OR_TRAILING_PARENS.sub(
         lambda m: f"({m.group(1).strip()})" if m.group(1).strip() else " ", s
     )
+    # Drop parenthetical abbreviations entirely: "... Policy (CFP)" -> "... Policy".
+    s = _PAREN_ACRONYM.sub("", s)
     s = re.sub(r"\s+([,)])", r"\1", s)        # no space before , or )
     s = re.sub(r"\s{2,}", " ", s)              # collapse runs of whitespace
     return s.strip(" -–,|")
