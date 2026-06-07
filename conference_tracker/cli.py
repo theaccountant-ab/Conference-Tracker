@@ -103,6 +103,24 @@ def cmd_refresh_status(config: Config, args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_build_site(config: Config, args: argparse.Namespace) -> int:
+    import os
+
+    from .site import render_html
+
+    store = CSVStore(config.csv_path)
+    rows = store.load()
+    html = render_html(rows)
+    out = args.output
+    parent = os.path.dirname(out)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as fh:
+        fh.write(html)
+    print(f"Wrote {out} ({len(rows)} conference(s)).")
+    return 0
+
+
 def cmd_list(config: Config, args: argparse.Namespace) -> int:
     store = CSVStore(config.csv_path)
     rows = store.load()
@@ -140,6 +158,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_search.add_argument("file", help="Text file with one conference name per line.")
 
     sub.add_parser("refresh-status", help="Recompute the status column.")
+
+    p_site = sub.add_parser("build-site", help="Render the HTML page for the website.")
+    p_site.add_argument(
+        "output", nargs="?", default="docs/index.html",
+        help="Output HTML path (default: docs/index.html).",
+    )
+
     sub.add_parser("list", help="Print the current dataset.")
     return parser
 
@@ -151,6 +176,7 @@ def main(argv: List[str] | None = None) -> int:
 
     handlers = {
         "update-email": cmd_update_email,
+        "build-site": cmd_build_site,
         "update-urls": cmd_update_urls,
         "update-search": cmd_update_search,
         "refresh-status": cmd_refresh_status,
