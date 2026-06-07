@@ -113,6 +113,15 @@ class EmailSource:
         conn.login(cfg.username, cfg.password)
         return conn
 
+    def _disconnect(self, conn: imaplib.IMAP4) -> None:
+        for step in (conn.close, conn.logout):
+            try:
+                step()
+            except Exception:
+                # A dropped/idle socket can make teardown raise; never let that
+                # mask a successful scan.
+                pass
+
     def iter_documents(self) -> Iterator[SourceDocument]:
         cfg = self.config
         if not cfg.host or not cfg.username:
@@ -120,36 +129,64 @@ class EmailSource:
                 "Mailbox is not configured (set CT_MAIL_HOST / CT_MAIL_USER, "
                 "etc., or fill in config.yaml)."
             )
+
+        # Fetch every raw message up front and close the connection *before*
+        # extraction. Extraction can take minutes (many LLM calls), and Gmail
+        # drops idle IMAP sockets after a few minutes — so holding the
+        # connection open across extraction crashes the run on teardown. We
+        # reconnect briefly at the end only to mark messages read.
+        # Identify and fetch messages by UID (stable across reconnects, unlike
+        # sequence numbers) so we can mark them read from a fresh connection.
         conn = self._connect()
+        raw_messages: List[tuple[bytes, bytes]] = []
         try:
             conn.select(cfg.folder)
             criterion = "UNSEEN" if cfg.unseen_only else "ALL"
-            typ, data = conn.search(None, criterion)
-            if typ != "OK":
-                return
-            ids = data[0].split()
-            for msg_id in ids:
-                typ, msg_data = conn.fetch(msg_id, "(RFC822)")
-                if typ != "OK" or not msg_data or not msg_data[0]:
-                    continue
-                raw = msg_data[0][1]
+            typ, data = conn.uid("SEARCH", None, criterion)
+            if typ == "OK" and data and data[0]:
+                for uid in data[0].split():
+                    typ, msg_data = conn.uid("FETCH", uid, "(RFC822)")
+                    if typ != "OK" or not msg_data or not msg_data[0]:
+                        continue
+                    raw_messages.append((uid, msg_data[0][1]))
+        finally:
+            self._disconnect(conn)
+
+        processed_uids: List[bytes] = []
+        try:
+            for uid, raw in raw_messages:
                 msg = email.message_from_bytes(raw)
                 text = message_to_text(msg)
-                origin = f"email:{msg.get('Message-ID', msg_id.decode())}"
-                # Mark the message read only after it has been processed
-                # successfully, so a transient extraction failure leaves it
+                if not text.strip():
+                    continue
+                origin = f"email:{msg.get('Message-ID', uid.decode())}"
+                # Record the uid as processed only after the consumer signals
+                # success, so a transient extraction failure leaves the message
                 # unread to be retried on the next run.
-                on_success = None
-                if cfg.unseen_only:
-                    def on_success(_id=msg_id):
-                        conn.store(_id, "+FLAGS", "\\Seen")
-                if text.strip():
-                    yield SourceDocument(
-                        text=text, origin=origin, on_success=on_success
-                    )
+                marker = {"done": False}
+
+                def on_success(_m=marker):
+                    _m["done"] = True
+
+                yield SourceDocument(text=text, origin=origin, on_success=on_success)
+                if marker["done"]:
+                    processed_uids.append(uid)
         finally:
-            try:
-                conn.close()
-            except Exception:
-                pass
-            conn.logout()
+            if cfg.unseen_only and processed_uids:
+                self._mark_seen(processed_uids)
+
+    def _mark_seen(self, uids: List[bytes]) -> None:
+        """Reconnect briefly and flag the given messages (by UID) as read."""
+        try:
+            conn = self._connect()
+        except Exception:
+            return
+        try:
+            conn.select(self.config.folder)
+            for uid in uids:
+                try:
+                    conn.uid("STORE", uid, "+FLAGS", "\\Seen")
+                except Exception:
+                    pass
+        finally:
+            self._disconnect(conn)
