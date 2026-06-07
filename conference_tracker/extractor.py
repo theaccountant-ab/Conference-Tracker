@@ -56,6 +56,22 @@ the city and country when you reasonably can; otherwise leave it null.
 """
 
 
+def _is_plausible(c: ExtractedConference) -> bool:
+    """Reject empty or obviously corrupted entries.
+
+    A truncated/garbled model response can occasionally yield an object whose
+    `name` is actually a blob of serialized JSON. Real conference names are
+    short and free of JSON punctuation, so use that to filter the junk out
+    before it reaches the CSV.
+    """
+    name = (c.name or "").strip()
+    if not name or len(name) > 200:
+        return False
+    if "\n" in name or any(tok in name for tok in ('{"', '":', '"}', '", "')):
+        return False
+    return True
+
+
 def _split_text(text: str) -> List[str]:
     """Split a blob roughly in half on a paragraph (then line) boundary.
 
@@ -128,8 +144,7 @@ def _extract_once(
     parsed = response.parsed
     if not isinstance(parsed, ExtractedConferenceList):
         return [], truncated
-    # Keep only entries with an actual name.
-    return [c for c in parsed.conferences if c.name and c.name.strip()], truncated
+    return [c for c in parsed.conferences if _is_plausible(c)], truncated
 
 
 def extract_conferences(
@@ -138,7 +153,7 @@ def extract_conferences(
     text: str,
     *,
     today: Optional[date] = None,
-    max_output_tokens: int = 32768,
+    max_output_tokens: int = 65536,
     max_retries: int = 4,
     _depth: int = 0,
 ) -> List[ExtractedConference]:
@@ -168,10 +183,11 @@ def extract_conferences(
     if not truncated:
         return conferences
 
-    # Truncated: split and recurse. Bound the recursion so a pathological
-    # document can't loop forever; fall back to whatever we parsed.
+    # Truncated even at the model's maximum output: split once and extract each
+    # half. Cap the recursion at a single split — the free API tier allows few
+    # requests per day, so we must not fan out into many calls.
     parts = _split_text(text)
-    if _depth >= 4 or len(parts) < 2 or any(len(p) >= len(text) for p in parts):
+    if _depth >= 1 or len(parts) < 2 or any(len(p) >= len(text) for p in parts):
         return conferences
     merged: List[ExtractedConference] = []
     for part in parts:
