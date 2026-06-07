@@ -19,16 +19,20 @@ from .models import ExtractedConference, ExtractedConferenceList
 
 SYSTEM_PROMPT = """\
 You extract structured information about academic conferences and calls for \
-papers from unstructured text. The text may be a single email or web page, or a \
-newsletter/digest that lists MANY conferences at once. Extract EVERY distinct \
-academic conference or call for papers you find.
+papers from emails. These emails come from a mailbox dedicated exclusively to \
+conference announcements, so assume every message is about one or more academic \
+conferences / calls for papers. A single email may describe one conference or be \
+a digest listing many. Extract EVERY distinct conference described — even when \
+the email is short, informal, a reminder, or a forward.
 
 Rules:
-- Return one entry per conference in `conferences`. If the text contains no \
-academic conference at all, return an empty list.
-- Ignore anything that is not a conference: job/faculty postings, journal or \
-product advertisements, subscription and unsubscribe notices, and general \
-administrative announcements.
+- Return one entry per conference in `conferences`. A typical email yields at \
+least one. Only return an empty list if the text genuinely contains no \
+recoverable conference information at all (e.g. it is empty or unreadable) — do \
+NOT invent a conference in that case.
+- A single email may still contain non-conference items mixed in (e.g. a job \
+posting or an advertisement inside a digest). Skip those individual items, but \
+still extract the real conferences around them.
 - Today's date is {today}. Resolve relative dates against it and infer the year \
 when only a month and day are given. Output every date as an ISO-8601 date: \
 YYYY-MM-DD.
