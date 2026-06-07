@@ -136,10 +136,17 @@ class EmailSource:
                 msg = email.message_from_bytes(raw)
                 text = message_to_text(msg)
                 origin = f"email:{msg.get('Message-ID', msg_id.decode())}"
+                # Mark the message read only after it has been processed
+                # successfully, so a transient extraction failure leaves it
+                # unread to be retried on the next run.
+                on_success = None
                 if cfg.unseen_only:
-                    conn.store(msg_id, "+FLAGS", "\\Seen")
+                    def on_success(_id=msg_id):
+                        conn.store(_id, "+FLAGS", "\\Seen")
                 if text.strip():
-                    yield SourceDocument(text=text, origin=origin)
+                    yield SourceDocument(
+                        text=text, origin=origin, on_success=on_success
+                    )
         finally:
             try:
                 conn.close()
