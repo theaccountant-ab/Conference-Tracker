@@ -25,7 +25,9 @@ def _sort_key(c: Conference):
 
 
 def render_html(conferences: List[Conference], *, title: str = "Conference Tracker") -> str:
-    rows = sorted(conferences, key=_sort_key)
+    # Only surface conferences that are still actionable — hide ended ones.
+    visible = [c for c in conferences if c.status != ENDED]
+    rows = sorted(visible, key=_sort_key)
     data = [{k: getattr(c, k) for k in CSV_FIELDS} for c in rows]
     # Escaping for safe inlining inside a <script> tag.
     payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
@@ -90,7 +92,6 @@ _TEMPLATE = r"""<!DOCTYPE html>
       <button data-f="all" class="active">All</button>
       <button data-f="Submission">Submission</button>
       <button data-f="Participation">Participation</button>
-      <button data-f="Ended">Ended</button>
     </div>
   </div>
   <p class="count" id="count"></p>
