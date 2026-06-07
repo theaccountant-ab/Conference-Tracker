@@ -56,26 +56,35 @@ the city and country when you reasonably can; otherwise leave it null.
 """
 
 
-def extract_conferences(
+def _split_text(text: str) -> List[str]:
+    """Split a blob roughly in half on a paragraph (then line) boundary.
+
+    Used to recover from output truncation: a digest with so many conferences
+    that the JSON answer overflows the output-token budget is broken into
+    smaller pieces that each fit.
+    """
+    target = len(text) // 2
+    for sep in ("\n\n", "\n"):
+        idx = text.rfind(sep, 0, target) or -1
+        # Prefer a boundary at/after the midpoint if the earlier search failed.
+        if idx <= 0:
+            idx = text.find(sep, target)
+        if idx > 0:
+            return [text[:idx].strip(), text[idx:].strip()]
+    mid = target or 1
+    return [text[:mid], text[mid:]]
+
+
+def _extract_once(
     client: genai.Client,
     model: str,
     text: str,
     *,
-    today: Optional[date] = None,
-    max_output_tokens: int = 8192,
-    max_retries: int = 4,
-) -> List[ExtractedConference]:
-    """Extract every conference described in a blob of text.
-
-    Returns a (possibly empty) list — empty when the text holds no conference.
-    Retries transient Gemini errors (overload / rate limit) with backoff; if
-    they persist, the underlying ``APIError`` is raised so the caller can leave
-    the source unprocessed and try again later.
-    """
-    today = today or date.today()
-    if not text or not text.strip():
-        return []
-
+    today: date,
+    max_output_tokens: int,
+    max_retries: int,
+) -> tuple[List[ExtractedConference], bool]:
+    """Run a single extraction call. Returns (conferences, was_truncated)."""
     config = types.GenerateContentConfig(
         system_instruction=SYSTEM_PROMPT.format(today=today.isoformat()),
         response_mime_type="application/json",
@@ -105,8 +114,76 @@ def extract_conferences(
             time.sleep(delay)
             delay = min(delay * 2, 30.0)
 
+    # When the JSON answer overflows max_output_tokens the model stops with
+    # finish_reason MAX_TOKENS and the partial JSON won't parse — which would
+    # otherwise look identical to "no conference found". Detect it so the
+    # caller can split the input and retry.
+    truncated = False
+    try:
+        reason = response.candidates[0].finish_reason
+        truncated = getattr(reason, "name", str(reason)) == "MAX_TOKENS"
+    except (AttributeError, IndexError, TypeError):
+        truncated = False
+
     parsed = response.parsed
     if not isinstance(parsed, ExtractedConferenceList):
-        return []
+        return [], truncated
     # Keep only entries with an actual name.
-    return [c for c in parsed.conferences if c.name and c.name.strip()]
+    return [c for c in parsed.conferences if c.name and c.name.strip()], truncated
+
+
+def extract_conferences(
+    client: genai.Client,
+    model: str,
+    text: str,
+    *,
+    today: Optional[date] = None,
+    max_output_tokens: int = 32768,
+    max_retries: int = 4,
+    _depth: int = 0,
+) -> List[ExtractedConference]:
+    """Extract every conference described in a blob of text.
+
+    Returns a (possibly empty) list — empty when the text holds no conference.
+    Retries transient Gemini errors (overload / rate limit) with backoff; if
+    they persist, the underlying ``APIError`` is raised so the caller can leave
+    the source unprocessed and try again later.
+
+    If the answer is truncated because the document lists more conferences than
+    fit in one response, the document is split in half and each part extracted
+    separately, so large digests are not silently dropped.
+    """
+    today = today or date.today()
+    if not text or not text.strip():
+        return []
+
+    conferences, truncated = _extract_once(
+        client,
+        model,
+        text,
+        today=today,
+        max_output_tokens=max_output_tokens,
+        max_retries=max_retries,
+    )
+    if not truncated:
+        return conferences
+
+    # Truncated: split and recurse. Bound the recursion so a pathological
+    # document can't loop forever; fall back to whatever we parsed.
+    parts = _split_text(text)
+    if _depth >= 4 or len(parts) < 2 or any(len(p) >= len(text) for p in parts):
+        return conferences
+    merged: List[ExtractedConference] = []
+    for part in parts:
+        merged.extend(
+            extract_conferences(
+                client,
+                model,
+                part,
+                today=today,
+                max_output_tokens=max_output_tokens,
+                max_retries=max_retries,
+                _depth=_depth + 1,
+            )
+        )
+    return merged
