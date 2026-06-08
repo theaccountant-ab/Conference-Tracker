@@ -48,8 +48,9 @@ across years. Keep acronyms (e.g. "FEM", "ICBFS").
 notification, registration, or early-bird date.
 - Standardize `location` as "City, Country" for international conferences and \
 "City, State" (two-letter US state abbreviation) for US conferences. Use \
-"Online" for fully virtual events. If only a venue or building is named, infer \
-the city and country when you reasonably can; otherwise leave it null.
+"Online" for fully virtual events. For Hong Kong, use just "Hong Kong" (no \
+country). If only a venue or building is named, infer the city and country when \
+you reasonably can; otherwise leave it null.
 - Prefer each conference's submission/homepage URL for `url`. Only set \
 `submission_email` when there is no submission website to link to.
 - Never invent details. If a field is not supported by the text, leave it null.
