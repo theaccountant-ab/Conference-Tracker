@@ -123,7 +123,7 @@ __GA__
     <thead><tr>
       <th data-k="name">Conference</th>
       <th data-k="location">Location</th>
-      <th data-k="submission_deadline">Submission deadline</th>
+      <th data-k="submission_deadline">Deadline</th>
       <th data-k="status">Status</th>
       <th data-k="start_date">Start</th>
       <th data-k="end_date">End</th>
@@ -150,12 +150,7 @@ function linkCell(td, contact, name){
   else { td.textContent = contact || "—"; }
 }
 
-function nameCell(td, row){
-  if (isUrl(row.contact)) { const a=document.createElement("a"); a.href=row.contact;
-    a.target="_blank"; a.rel="noopener"; a.textContent=row.name; track(a,row.name);
-    td.appendChild(a); }
-  else { td.textContent = row.name; }
-}
+function nameCell(td, row){ td.textContent = row.name; }
 
 // Report each outbound conference click to Google Analytics (no-op if GA is off).
 document.addEventListener("click", function(e){
