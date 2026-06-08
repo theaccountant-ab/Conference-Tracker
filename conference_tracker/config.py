@@ -35,6 +35,9 @@ class Config:
     gemini_api_key: str = ""
     model: str = "gemini-2.5-flash"
     csv_path: str = "conferences.csv"
+    # GA4 Measurement ID (e.g. "G-XXXXXXXXXX"). Public by design — when set, the
+    # generated page loads Google Analytics and reports per-conference clicks.
+    ga_measurement_id: str = ""
     mailbox: MailboxConfig = None  # type: ignore[assignment]
 
     def __post_init__(self) -> None:
@@ -80,5 +83,8 @@ def load_config(path: Optional[str] = None) -> Config:
         ),
         model=_env("CT_MODEL", data.get("model", "gemini-2.5-flash")),
         csv_path=_env("CT_CSV_PATH", data.get("csv_path", "conferences.csv")),
+        ga_measurement_id=_env(
+            "CT_GA_MEASUREMENT_ID", data.get("ga_measurement_id", "")
+        ),
         mailbox=mailbox,
     )

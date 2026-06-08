@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Conference Tracker</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZFQPG4G7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', "G-X2ZFQPG4G7");
+</script>
 <style>
   :root { --bg:#fff; --fg:#1b1f24; --muted:#6b7280; --line:#e5e7eb; --accent:#2563eb; }
   * { box-sizing: border-box; }
@@ -44,7 +51,7 @@
 <body>
 <div class="wrap">
   <h1>Conference Tracker</h1>
-  <div class="sub">Updated daily &middot; last built 2026-06-07 20:29 UTC</div>
+  <div class="sub">Updated daily &middot; last built 2026-06-08 01:57 UTC</div>
   <div class="controls">
     <input id="q" type="search" placeholder="Search name or location…" aria-label="Search">
     <div class="filters" id="filters">
@@ -75,19 +82,31 @@ let filter = "all", query = "", sortKey = null, sortDir = 1;
 function isUrl(s){ return /^https?:\/\//i.test(s || ""); }
 function isEmail(s){ return /@/.test(s || "") && !isUrl(s); }
 
-function linkCell(td, contact){
+function track(a, name){ a.dataset.conf = name; a.dataset.url = a.href; }
+
+function linkCell(td, contact, name){
   if (isUrl(contact)) { const a=document.createElement("a"); a.href=contact; a.target="_blank";
-    a.rel="noopener"; a.textContent="Website ↗"; td.appendChild(a); }
+    a.rel="noopener"; a.textContent="Website ↗"; track(a,name); td.appendChild(a); }
   else if (isEmail(contact)) { const a=document.createElement("a"); a.href="mailto:"+contact;
-    a.textContent=contact; td.appendChild(a); }
+    a.textContent=contact; track(a,name); td.appendChild(a); }
   else { td.textContent = contact || "—"; }
 }
 
 function nameCell(td, row){
   if (isUrl(row.contact)) { const a=document.createElement("a"); a.href=row.contact;
-    a.target="_blank"; a.rel="noopener"; a.textContent=row.name; td.appendChild(a); }
+    a.target="_blank"; a.rel="noopener"; a.textContent=row.name; track(a,row.name);
+    td.appendChild(a); }
   else { td.textContent = row.name; }
 }
+
+// Report each outbound conference click to Google Analytics (no-op if GA is off).
+document.addEventListener("click", function(e){
+  const a = e.target.closest && e.target.closest("a[data-conf]");
+  if (a && typeof window.gtag === "function") {
+    window.gtag("event", "conference_click",
+      { conference_name: a.dataset.conf, link_url: a.dataset.url });
+  }
+}, true);
 
 function render(){
   const tbody = document.getElementById("rows");
@@ -117,7 +136,7 @@ function render(){
       c5.textContent=r.start_date||"—"; tr.appendChild(c5);
     const c6=document.createElement("td"); c6.className="nowrap";
       c6.textContent=r.end_date||"—"; tr.appendChild(c6);
-    const c7=document.createElement("td"); linkCell(c7,r.contact); tr.appendChild(c7);
+    const c7=document.createElement("td"); linkCell(c7,r.contact,r.name); tr.appendChild(c7);
     tbody.appendChild(tr);
   }
   document.getElementById("empty").hidden = rows.length>0;

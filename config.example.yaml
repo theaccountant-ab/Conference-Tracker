@@ -5,6 +5,12 @@
 model: gemini-2.5-flash
 csv_path: conferences.csv
 
+# Optional GA4 Measurement ID (e.g. "G-XXXXXXXXXX"). When set, the generated
+# page loads Google Analytics and reports per-conference link clicks. This ID
+# is public (it appears in the page HTML), so committing it is fine. Can also
+# be set via the CT_GA_MEASUREMENT_ID environment variable.
+ga_measurement_id: ""
+
 mailbox:
   host: imap.gmail.com
   port: 993

@@ -38,6 +38,9 @@ jobs:
           CT_MAIL_FOLDER: ${{ secrets.CT_MAIL_FOLDER }}
           # Manual runs can pass unseen_only=false to re-scan already-read mail.
           CT_MAIL_UNSEEN_ONLY: ${{ github.event.inputs.unseen_only || 'true' }}
+          # GA4 Measurement ID (public) — enables per-conference click tracking
+          # on the published page.
+          CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
         run: |
           python -m conference_tracker update-email
           python -m conference_tracker refresh-status
