@@ -24,7 +24,29 @@ def _sort_key(c: Conference):
     return (_STATUS_ORDER.get(c.status, 4), when)
 
 
-def render_html(conferences: List[Conference], *, title: str = "Conference Tracker") -> str:
+def _ga_snippet(measurement_id: str) -> str:
+    """Google Analytics (gtag.js) loader, or empty when no ID is configured."""
+    if not measurement_id:
+        return ""
+    mid = json.dumps(measurement_id)  # safely quoted
+    return (
+        '<script async src="https://www.googletagmanager.com/gtag/js?id='
+        + measurement_id
+        + '"></script>\n<script>\n'
+        "window.dataLayer = window.dataLayer || [];\n"
+        "function gtag(){dataLayer.push(arguments);}\n"
+        "gtag('js', new Date());\n"
+        "gtag('config', " + mid + ");\n"
+        "</script>"
+    )
+
+
+def render_html(
+    conferences: List[Conference],
+    *,
+    title: str = "Conference Tracker",
+    ga_measurement_id: str = "",
+) -> str:
     # Only surface conferences that are still actionable — hide ended ones.
     visible = [c for c in conferences if c.status != ENDED]
     rows = sorted(visible, key=_sort_key)
@@ -35,6 +57,7 @@ def render_html(conferences: List[Conference], *, title: str = "Conference Track
     return (
         _TEMPLATE.replace("__TITLE__", title)
         .replace("__GENERATED__", generated)
+        .replace("__GA__", _ga_snippet(ga_measurement_id))
         .replace("__DATA__", payload)
     )
 
@@ -45,6 +68,7 @@ _TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
+__GA__
 <style>
   :root { --bg:#fff; --fg:#1b1f24; --muted:#6b7280; --line:#e5e7eb; --accent:#2563eb; }
   * { box-sizing: border-box; }
@@ -116,19 +140,31 @@ let filter = "all", query = "", sortKey = null, sortDir = 1;
 function isUrl(s){ return /^https?:\/\//i.test(s || ""); }
 function isEmail(s){ return /@/.test(s || "") && !isUrl(s); }
 
-function linkCell(td, contact){
+function track(a, name){ a.dataset.conf = name; a.dataset.url = a.href; }
+
+function linkCell(td, contact, name){
   if (isUrl(contact)) { const a=document.createElement("a"); a.href=contact; a.target="_blank";
-    a.rel="noopener"; a.textContent="Website ↗"; td.appendChild(a); }
+    a.rel="noopener"; a.textContent="Website ↗"; track(a,name); td.appendChild(a); }
   else if (isEmail(contact)) { const a=document.createElement("a"); a.href="mailto:"+contact;
-    a.textContent=contact; td.appendChild(a); }
+    a.textContent=contact; track(a,name); td.appendChild(a); }
   else { td.textContent = contact || "—"; }
 }
 
 function nameCell(td, row){
   if (isUrl(row.contact)) { const a=document.createElement("a"); a.href=row.contact;
-    a.target="_blank"; a.rel="noopener"; a.textContent=row.name; td.appendChild(a); }
+    a.target="_blank"; a.rel="noopener"; a.textContent=row.name; track(a,row.name);
+    td.appendChild(a); }
   else { td.textContent = row.name; }
 }
+
+// Report each outbound conference click to Google Analytics (no-op if GA is off).
+document.addEventListener("click", function(e){
+  const a = e.target.closest && e.target.closest("a[data-conf]");
+  if (a && typeof window.gtag === "function") {
+    window.gtag("event", "conference_click",
+      { conference_name: a.dataset.conf, link_url: a.dataset.url });
+  }
+}, true);
 
 function render(){
   const tbody = document.getElementById("rows");
@@ -158,7 +194,7 @@ function render(){
       c5.textContent=r.start_date||"—"; tr.appendChild(c5);
     const c6=document.createElement("td"); c6.className="nowrap";
       c6.textContent=r.end_date||"—"; tr.appendChild(c6);
-    const c7=document.createElement("td"); linkCell(c7,r.contact); tr.appendChild(c7);
+    const c7=document.createElement("td"); linkCell(c7,r.contact,r.name); tr.appendChild(c7);
     tbody.appendChild(tr);
   }
   document.getElementById("empty").hidden = rows.length>0;
