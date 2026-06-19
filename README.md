@@ -65,13 +65,6 @@ python -m conference_tracker refresh-status
 python -m conference_tracker list
 ```
 
-## Related tool
-
-A separate, standalone tool for estimating the fraction of a conference's
-recently-presented papers that reach a top-tier journal lives in
-[`publication_analyzer/`](publication_analyzer/) — see its
-[README](publication_analyzer/README.md). It shares no code with the tracker.
-
 ## Automate
 
 `.github/workflows/update.yml` runs `update-email` + `refresh-status` daily on
