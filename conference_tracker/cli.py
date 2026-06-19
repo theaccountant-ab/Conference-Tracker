@@ -4,6 +4,7 @@ Commands:
     update-email       Scan the configured mailbox and upsert any conferences found.
     update-urls FILE   Fetch each URL in FILE and upsert any conferences found.
     update-search FILE Web-search each conference name in FILE and upsert results.
+    analyze-publications FILE  Estimate each conference's top-tier journal rate.
     refresh-status     Recompute the Submission/Participation/Ended status column.
     list               Print the current dataset to the terminal.
 """
@@ -96,6 +97,74 @@ def cmd_update_search(config: Config, args: argparse.Namespace) -> int:
     return run_source(config, SearchSource(client, config.model, names))
 
 
+def cmd_analyze_publications(config: Config, args: argparse.Namespace) -> int:
+    import csv as _csv
+
+    from .publication import analyze_conference, recent_years
+    from .sources.search_source import read_name_list
+
+    names = read_name_list(args.file)
+    years = recent_years(args.years)
+    top_tier = config.top_tier_journals or None  # None -> module default list
+    print(
+        f"Analyzing {len(names)} conference(s) across years "
+        f"{', '.join(str(y) for y in years)} ...\n"
+    )
+    client = _client(config)
+
+    analyses = []
+    tot_papers = tot_top = 0
+    for name in names:
+        analysis = analyze_conference(
+            client, config.model, name, years=years, top_tier=top_tier
+        )
+        analyses.append(analysis)
+        if analysis.error:
+            print(f"  ! {name}: analysis failed: {analysis.error}")
+            continue
+        frac = analysis.top_tier_fraction
+        frac_str = "n/a (no papers found)" if frac is None else f"{frac:.1%}"
+        print(
+            f"  {name}: {analysis.top_tier_papers}/{analysis.total_papers} "
+            f"papers in a top-tier journal ({frac_str}); "
+            f"{analysis.published_papers} published in any journal."
+        )
+        tot_papers += analysis.total_papers
+        tot_top += analysis.top_tier_papers
+
+    overall = (tot_top / tot_papers) if tot_papers else None
+    overall_str = "n/a" if overall is None else f"{overall:.1%}"
+    print(
+        f"\nOverall: {tot_top}/{tot_papers} papers across all conferences "
+        f"reached a top-tier journal ({overall_str})."
+    )
+    print(
+        "Note: this is a best-effort estimate based on what a web search can "
+        "surface, not an exhaustive census."
+    )
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8", newline="") as fh:
+            writer = _csv.writer(fh)
+            writer.writerow(
+                ["conference", "years", "total_papers", "published_papers",
+                 "top_tier_papers", "top_tier_fraction", "error"]
+            )
+            for a in analyses:
+                frac = a.top_tier_fraction
+                writer.writerow([
+                    a.conference,
+                    " ".join(str(y) for y in a.years),
+                    a.total_papers,
+                    a.published_papers,
+                    a.top_tier_papers,
+                    "" if frac is None else f"{frac:.4f}",
+                    a.error,
+                ])
+        print(f"\nWrote per-conference results to {args.output}.")
+    return 0
+
+
 def cmd_refresh_status(config: Config, args: argparse.Namespace) -> int:
     store = CSVStore(config.csv_path)
     changed = store.refresh_status()
@@ -157,6 +226,21 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_search.add_argument("file", help="Text file with one conference name per line.")
 
+    p_pub = sub.add_parser(
+        "analyze-publications",
+        help="Estimate the share of a conference's papers that reach a "
+        "top-tier journal.",
+    )
+    p_pub.add_argument("file", help="Text file with one conference name per line.")
+    p_pub.add_argument(
+        "--years", type=int, default=3,
+        help="Number of completed years to look back over (default: 3).",
+    )
+    p_pub.add_argument(
+        "--output", default=None,
+        help="Optional CSV path to write per-conference results to.",
+    )
+
     sub.add_parser("refresh-status", help="Recompute the status column.")
 
     p_site = sub.add_parser("build-site", help="Render the HTML page for the website.")
@@ -179,6 +263,7 @@ def main(argv: List[str] | None = None) -> int:
         "build-site": cmd_build_site,
         "update-urls": cmd_update_urls,
         "update-search": cmd_update_search,
+        "analyze-publications": cmd_analyze_publications,
         "refresh-status": cmd_refresh_status,
         "list": cmd_list,
     }
