@@ -11,17 +11,6 @@ csv_path: conferences.csv
 # be set via the CT_GA_MEASUREMENT_ID environment variable.
 ga_measurement_id: ""
 
-# Journals the `analyze-publications` command counts as "top-tier". Matching is
-# case-insensitive and substring-based. Leave empty/omit to let the model judge
-# by reputation; when set, the top-tier flag is computed from this list. If you
-# omit the key entirely, a finance/economics-leaning default list is used.
-top_tier_journals:
-  - Journal of Finance
-  - Journal of Financial Economics
-  - Review of Financial Studies
-  - American Economic Review
-  - Econometrica
-
 mailbox:
   host: imap.gmail.com
   port: 993

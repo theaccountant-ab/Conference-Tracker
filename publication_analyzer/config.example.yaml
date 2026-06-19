@@ -1,0 +1,15 @@
+# Example configuration for the publication analyzer. Copy to config.yaml and
+# pass it with `-c config.yaml`. Set the Gemini API key via the environment
+# (GEMINI_API_KEY / GOOGLE_API_KEY), not here.
+
+model: gemini-2.5-flash
+
+# Journals counted as "top-tier". Matching is case-insensitive and
+# substring-based. Omit this key to use the built-in finance/economics-leaning
+# default list; set it to an empty list to let the model judge by reputation.
+top_tier_journals:
+  - Journal of Finance
+  - Journal of Financial Economics
+  - Review of Financial Studies
+  - American Economic Review
+  - Econometrica

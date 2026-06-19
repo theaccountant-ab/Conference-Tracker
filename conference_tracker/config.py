@@ -8,8 +8,8 @@ should live in environment variables / a local .env, never in the YAML.
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass, field
-from typing import List, Optional
+from dataclasses import dataclass
+from typing import Optional
 
 try:
     import yaml  # type: ignore
@@ -38,10 +38,6 @@ class Config:
     # GA4 Measurement ID (e.g. "G-XXXXXXXXXX"). Public by design — when set, the
     # generated page loads Google Analytics and reports per-conference clicks.
     ga_measurement_id: str = ""
-    # Journals counted as "top-tier" by the publication-rate analysis. Empty
-    # means "let the model judge by reputation". Defaults to a finance/econ
-    # leaning set (see publication.DEFAULT_TOP_TIER_JOURNALS) when unset.
-    top_tier_journals: List[str] = field(default_factory=list)
     mailbox: MailboxConfig = None  # type: ignore[assignment]
 
     def __post_init__(self) -> None:
@@ -90,6 +86,5 @@ def load_config(path: Optional[str] = None) -> Config:
         ga_measurement_id=_env(
             "CT_GA_MEASUREMENT_ID", data.get("ga_measurement_id", "")
         ),
-        top_tier_journals=list(data.get("top_tier_journals", []) or []),
         mailbox=mailbox,
     )

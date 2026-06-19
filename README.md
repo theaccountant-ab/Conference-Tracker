@@ -58,11 +58,6 @@ python -m conference_tracker update-urls urls.txt
 # Search the web for a list of conference names (one per line) and upsert them
 python -m conference_tracker update-search conferences.txt
 
-# Estimate, for each conference, the fraction of its recently presented papers
-# that ended up in a top-tier journal (looks back over the past 3 years)
-python -m conference_tracker analyze-publications conferences.txt
-python -m conference_tracker analyze-publications conferences.txt --years 3 --output rates.csv
-
 # Recompute the Submission/Participation/Ended column (run daily)
 python -m conference_tracker refresh-status
 
@@ -70,37 +65,12 @@ python -m conference_tracker refresh-status
 python -m conference_tracker list
 ```
 
-## Publication-rate analysis
+## Related tool
 
-`analyze-publications` answers a different question from the tracker: **of the
-papers presented at a conference over the past few years, what fraction were
-later published in a top-tier journal?** It's a rough quality signal for a
-conference.
-
-For each conference name in the input file it:
-
-1. uses Gemini's Google Search grounding to find the papers presented in each
-   of the past N completed years (default 3, e.g. 2023–2025 in 2026) and where
-   each was subsequently published, then
-2. parses that research into structured records and counts how many landed in a
-   top-tier journal.
-
-It prints a per-conference rate and an overall rate, and with `--output` writes
-a per-conference CSV (`total_papers`, `published_papers`, `top_tier_papers`,
-`top_tier_fraction`).
-
-**What counts as "top-tier"** is configurable via `top_tier_journals` in the
-config file (a list of journal names; matching is case-insensitive and
-substring-based, so `Journal of Finance` matches `The Journal of Finance`).
-When that list is set, the top-tier flag is computed deterministically from the
-journal name. Leave it empty to let the model judge by reputation instead. The
-built-in default is a finance/economics-leaning list (see
-`publication.DEFAULT_TOP_TIER_JOURNALS`).
-
-> **Caveat:** the result is a *best-effort estimate*. It depends on what a web
-> search can surface about a conference's program and each paper's eventual
-> publication, so it under-counts papers it can't find and should be read as
-> indicative, not as an exhaustive bibliometric census.
+A separate, standalone tool for estimating the fraction of a conference's
+recently-presented papers that reach a top-tier journal lives in
+[`publication_analyzer/`](publication_analyzer/) — see its
+[README](publication_analyzer/README.md). It shares no code with the tracker.
 
 ## Automate
 

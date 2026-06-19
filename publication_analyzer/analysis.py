@@ -6,11 +6,11 @@ whether it was subsequently published in a peer-reviewed journal and whether
 that journal is *top-tier*. It then reports the fraction of presented papers
 that landed in a top-tier journal.
 
-This mirrors the rest of the project's two-step shape: research with search
-grounding produces free text, then a second call with a Pydantic
-``response_schema`` turns that text into validated records. Because it leans on
-what the web search can surface, the result is a **best-effort estimate**, not
-an exhaustive bibliometric census — treat the fraction as indicative.
+It works in two steps: research with search grounding produces free text, then
+a second call with a Pydantic ``response_schema`` turns that text into validated
+records. Because it leans on what the web search can surface, the result is a
+**best-effort estimate**, not an exhaustive bibliometric census — treat the
+fraction as indicative.
 """
 
 from __future__ import annotations
@@ -25,15 +25,15 @@ from google.genai import errors, types
 
 from .models import PaperPublication, PaperPublicationList
 
-# Reused from the extractor: Gemini's free tier returns these transiently when
-# briefly overloaded or rate-limited, so we retry with backoff before giving up.
+# Gemini's free tier returns these transiently when briefly overloaded or
+# rate-limited, so we retry with backoff before giving up.
 _TRANSIENT_CODES = {429, 500, 502, 503, 504}
 
-# A default, finance/economics-leaning set of top-tier journals (this project's
-# conference list is finance-heavy), plus a few flagship general-science and
-# machine-learning outlets. Matching is case-insensitive and substring-based
-# (see `is_top_tier_journal`), so "The Journal of Finance" matches "Journal of
-# Finance". Override this per-run via config (`top_tier_journals`).
+# A default, finance/economics-leaning set of top-tier journals, plus a few
+# flagship general-science and machine-learning outlets. Matching is
+# case-insensitive and substring-based (see `is_top_tier_journal`), so "The
+# Journal of Finance" matches "Journal of Finance". Override per-run via config
+# (`top_tier_journals`).
 DEFAULT_TOP_TIER_JOURNALS = [
     # Finance
     "Journal of Finance",
@@ -107,6 +107,17 @@ _TIER_GUIDANCE_MODEL = """\
 Treat a journal as top-tier if it is widely regarded as a leading, flagship \
 outlet in its field (the kind of journal a top-ranked department would weight \
 most heavily); otherwise set is_top_tier to false."""
+
+
+def read_name_list(path: str) -> List[str]:
+    """Read a newline-delimited list of conference names (ignore blanks/# comments)."""
+    names: List[str] = []
+    with open(path, "r", encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if line and not line.startswith("#"):
+                names.append(line)
+    return names
 
 
 @dataclass

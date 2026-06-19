@@ -1,11 +1,12 @@
 from datetime import date
 
-from conference_tracker.models import PaperPublication
-from conference_tracker.publication import (
+from publication_analyzer.analysis import (
     PublicationAnalysis,
     is_top_tier_journal,
     recent_years,
 )
+from publication_analyzer.config import load_config
+from publication_analyzer.models import PaperPublication
 
 
 def test_recent_years_are_completed_years_most_recent_first():
@@ -51,3 +52,9 @@ def test_fraction_is_none_when_no_papers_found():
     analysis = PublicationAnalysis(conference="Empty", years=[2025])
     assert analysis.total_papers == 0
     assert analysis.top_tier_fraction is None
+
+
+def test_config_defaults_without_file():
+    config = load_config(None)
+    assert config.model == "gemini-2.5-flash"
+    assert config.top_tier_journals == []
