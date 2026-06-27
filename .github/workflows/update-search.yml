@@ -8,17 +8,24 @@ name: Update conferences (web search)
 # conferences.csv. This is the replacement path for the SSRN announcement
 # emails, which SSRN is retiring at the end of 2026.
 #
-# Manual trigger only (workflow_dispatch) for now: you run it, then review the
-# committed diff. The store merges by conference name, so it never deletes the
-# email-sourced or archive data — it only adds new editions / fills in details.
-# Add a `schedule:` block here later if you want it to run automatically.
+# Runs weekly (and on demand). Each run first narrows watchlist.txt to only the
+# conferences that are *due* — those without an upcoming edition already on file
+# — then web-searches just those, so most weeks it searches only a small subset.
+# The store merges by conference name, so it never deletes the email-sourced or
+# archive data; it only adds new editions / fills in details.
 on:
+  schedule:
+    - cron: "0 7 * * 1" # 07:00 UTC every Monday (offset from the daily email job)
   workflow_dispatch:
     inputs:
       file:
         description: "Watchlist file to research (one conference name per line)."
         required: false
         default: "watchlist.txt"
+      all:
+        description: "Search the whole watchlist, not just the due subset."
+        required: false
+        default: "false"
 
 # Avoid colliding with the daily email job (update.yml) if both push at once.
 concurrency:
@@ -40,13 +47,25 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Web-search the watchlist and refresh status
+      - name: Select conferences due for searching
+        env:
+          WATCHLIST: ${{ github.event.inputs.file || 'watchlist.txt' }}
+          SEARCH_ALL: ${{ github.event.inputs.all || 'false' }}
+        run: |
+          if [ "$SEARCH_ALL" = "true" ]; then
+            cp "$WATCHLIST" due.txt
+          else
+            python scripts/due_watchlist.py "$WATCHLIST" conferences.csv > due.txt
+          fi
+          echo "Due conferences to search: $(grep -c . due.txt || echo 0)"
+
+      - name: Web-search the due conferences and refresh status
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # GA4 Measurement ID (public) — keeps click tracking on the rebuilt page.
           CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
         run: |
-          python -m conference_tracker update-search "${{ github.event.inputs.file || 'watchlist.txt' }}"
+          python -m conference_tracker update-search due.txt
           python -m conference_tracker refresh-status
           python -m conference_tracker build-site docs/index.html
 

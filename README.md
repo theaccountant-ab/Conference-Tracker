@@ -72,13 +72,17 @@ GitHub's servers (where IMAP works) and commits changes to `conferences.csv`.
 Add these repository secrets: `GEMINI_API_KEY`, `CT_MAIL_HOST`, `CT_MAIL_PORT`,
 `CT_MAIL_USER`, `CT_MAIL_PASSWORD`, `CT_MAIL_FOLDER`.
 
-`.github/workflows/update-search.yml` is a **separate, opt-in** pipeline that
-researches a curated list of conference names (`watchlist.txt`) with the
-web-search source and upserts the results — a replacement for the SSRN
-announcement emails (being retired end of 2026). It runs **manually only**
-(`workflow_dispatch`); it shares only `conferences.csv` with the email job and
-merges (never deletes), so the existing setup is unaffected. Add a `schedule:`
-block to it when you're ready to automate. Only `GEMINI_API_KEY` is needed.
+`.github/workflows/update-search.yml` is a **separate** pipeline that researches
+a curated list of conference names (`watchlist.txt`) with the web-search source
+and upserts the results — a replacement for the SSRN announcement emails (being
+retired end of 2026). It runs **weekly** (and on demand). Each run first narrows
+the watchlist to the conferences that are *due* — those without an upcoming
+edition already on file (`scripts/due_watchlist.py`) — and searches only those,
+so most weeks it searches a small subset. The watchlist is every conference seen
+since 2021; edit `watchlist.txt` to add or drop names. It shares only
+`conferences.csv` with the email job and merges (never deletes), so the existing
+setup is unaffected. Only `GEMINI_API_KEY` is needed. (Trigger it manually with
+`all=true` to research the whole list.)
 
 ## How it works
 
