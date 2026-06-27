@@ -14,27 +14,21 @@ ABFER-JFDS Conference on AI and Fintech
 ABFER-JFDS Conference on AI for Finance
 Academy of Behavioral Finance and Economics Meeting
 Academy of Finance Conference
-Accountability in a Sustainable World
 Accountability in a Sustainable World Conference
-Accounting and Economics Society Annual Conference
 Accounting and Economics Society Annual Congress
 Accounting Design Project
 Accounting Ethics Symposium
 Accounting Research Conference in Memory of N, Dopuch
 Accounting Research Workshop
-Accounting Summer Camp
 Accounting Summer Camp - Workshop
 Accounting Summer Camp: Jlfa Conference & Erc
-Accounting Workshop
 Adam Smith ESG Conference
-Adam Smith Workshop
 Adam Smith Workshop Spring
 Adam Smith Workshops
 Advances in Accounting Conference
 Advancing Green Trade Facilitation
 AFA Annual Meeting
 Afaanz Conference
-Afaanz Virtual Conference
 Afrimed Finance Society
 Afs - Corporate Virtues in a Divided World
 AI and Big Data in Accounting and Finance Conference
@@ -49,40 +43,26 @@ Alternative Investments Conference & Ipc Symposium
 Analyst Research Conference
 Anniversary Conference: Accounting, Organizations and Society
 Annual Bank Regulation Research Conference, Columbia Sipa and Bpi
-Annual Bank Research Conference
 Annual Conference on Advances in the Analysis of Hedge Fund Strategies
-Annual Conference on Asia-Pacific Financial Markets
 Annual Conference on Corporate Finance
-Annual Conference on Financial Economics and Accounting
 Annual Conference on Insurance
-Annual Conference on Macroeconomics and Finance
 Annual Conference on Risk Governance
 Annual Hedge Fund Research Conference
-Annual International Journal of Central Banking Research Conference
 Annual Junior Faculty Business and Financial Law Workshop
 Annual Meeting of the Central Bank Research Association
-Annual Meeting of the Financial Research Association
-Annual Meeting of the Northern Finance Association
-Annual Mergers & Acquisitions Research Centre Conference
-Annual Private Equity Research Symposium
-Annual Private Markets Research Conference
 Applied Economics and Financial Issues
 Arne Ryde Conference on Crypto, Fintech and Payments
 Arne Ryde Workshop “Micro Data Meet Macro Models”
 ASFAAG: Shaping the Future of Green Finance & Accounting in the Net Zero Era
 Asia Meeting of the Econometric Society
 Asia-Pacific Association of Derivatives Annual Conference
-Asia-Pacific Association of Derivatives Conference
 Asia-Pacific Financial Markets
 Asian Academic Accounting Association Conference
 Asian Economic Development Conference
-Asian Finance Association (Asianfa) Annual Conference
 Asian Finance Association Annual Conference
-Asian Finance Association Conference
 Asian Finance Theory Group Meeting
 Asian Law and Economics Association (Aslea) Annual Conference
 Assa Annual Meeting
-Assa Conference
 Asset Pricing and Machine Learning
 Asset Pricing Conference by Lti@Unito
 Asu Sonoran Winter Conference
@@ -97,7 +77,6 @@ Banking in Emerging Markets: Challenges and Opportunities
 Baruch-Jfqa Climate Finance and Sustainability Conference
 Bayes Junior Asset Management and Asset Pricing Workshop
 Behavioral Finance & Economics Conference
-Behavioral Finance Consortium
 Behavioural Finance and Ethics
 Behavioural Finance Working Group
 Bergen Fintech Conference
@@ -133,9 +112,7 @@ Cambridge Corporate Finance Theory Symposium
 Canadian Derivatives Institute Conference
 Canadian Derivatives Institute Conference on Derivatives
 Canadian Sustainable Finance Network Conference
-Capana Annual Conference
 CAPANA Annual Research Conference
-Capana Conference
 Cardiff Fintech Conference
 Cca-Escp Workshop on Financial Institutions and Corporate Finance
 CCPF-Special Multi-Thematic Conference
@@ -148,16 +125,13 @@ CEIBS Finance/Accounting Symposium
 CEIBS-APS Centre for Financial Markets Academic Conference
 Cema Annual Meeting
 Cemla / Dallas Fed / Ibefa Financial Stability Workshop
-Cemla/Dallas Fed Financial Stability Workshop
 Central Bank Conference on the Microstructure of Financial Markets
 Central Bank of Ireland Workshop
 Central Bank Payments Conference
 Cepr Conference on Political Economy of Finance
 Cepr Conference Political Economy of Central Banks
 Cepr European Conference on Household Finance
-Cepr European Workshop on Household Finance
 Cepr Frankfurt Hub International Conference
-Cepr-ESSEC - Luxembourg Conference on Sustainable Financial Intermediation
 CEPR-SAFE Frankfurt Hub Conference of RPNs
 Cepr-Stigler Political Economy of Finance
 Cesifo Venice Summer Institute
@@ -165,7 +139,6 @@ Ceus Workshop on European Economics
 CFPB Research Conference
 CFPB Research Conference on Consumer Finance
 Chicago Fed/University of Chicago Conference on Municipal Bond Markets
-China Accounting and Finance Review
 China Accounting and Finance Review Conference
 China Financial Research Conference
 China International Conference in Finance
@@ -183,12 +156,10 @@ Climate Risk in Banking and Finance
 Colloquium on Pensions and Retirement Research
 Colorado Finance Summit
 Colorado Summer Accounting Conference
-Colorado Summer Accounting Research Conference
 Columbia & RFS AI in Finance Conference
 Columbia Burton Accounting Conference
 Columbia Management, Analytics, & Data Conference
 Columbia University/Bank Policy Institute Research Conference
-Columbia/Bpi Bank Regulation Research Conference
 Columbia/Bpi Research Conference on Bank Regulation
 Commodity and Energy Markets Association Annual Meeting
 Commodity Markets Winter Workshop
@@ -197,17 +168,11 @@ Community Banking in the Century
 Community Banking in the Century Research and Policy Conference
 Community Banking Research Conference
 Community for Sustainable Finance Conference
-Compensation of Top Executives: Determinants & Consequences
 Compensation of Top Executives: Determinants and Consequences
-Conference in Corporate Policies and Asset Prices
-Conference in Financial Economics and Accounting
-Conference in Financial Economics Research
 Conference in Sustainable and Socially Responsible Finance
 Conference in Sustainable Finance
-Conference of the Asia-Pacific Association of Derivatives
 Conference of the Escb Research Network
 Conference of the Financial Engineering and Banking Society
-Conference of the Financial Intermediation Research Society
 Conference of the French Finance Association
 Conference of the Japanese Accounting Review
 Conference of the Journal of International Accounting Research
@@ -215,9 +180,7 @@ Conference on "Ownership, Control, and Economic Performance"
 Conference on 'the Effectiveness of Financial Regulation'
 Conference on Accounting & Information Frictions in Microenterprises
 Conference on Accounting and Finance Research and Education
-Conference on Advances in the Analysis of Hedge Fund Strategies
 Conference on Ageing and Sustainable Finance
-Conference on Asia-Pacific Financial Markets
 Conference on Auditing and Capital Markets
 Conference on Barriers to Homeownership, Land Use, and Urban Dynamics
 Conference on Behavior of Securities Markets
@@ -243,7 +206,6 @@ Conference on General Equilibrium and Its Applications
 Conference on Housing Affordability, Office Real Estate, and Remote Work
 Conference on Low-Income Housing Supply and Housing Affordability
 Conference on Machine Learning in Finance
-Conference on Market-Based Solutions for Reducing Wealth Inequality
 Conference on Markets and Intermediaries
 Conference on Municipal Bond Markets
 Conference on Occupational Mismatch and Skill Shortage
@@ -258,7 +220,6 @@ Conference on “Banking in the Age of Challenges”
 Congress of the Swiss Society of Economics and Statistics
 Consumer Research Symposium
 Contemporary Accounting Research Conference
-Contemporary Issues in Financial Markets and Banking
 Contemporary Issues in Financial Markets and Banking Online Conference
 Corporate Carbon Footprints and Climate Risk Exposure
 Corporate Finance and Financial Intermediation Meeting
@@ -271,18 +232,15 @@ Corporate Governance Academic Forum
 Corporate Governance Conference: CSR & Financial Markets
 Corporate Governance in Times of Disruption
 Corporations and Covid-19
-Cowles Annual Conference on General Equilibrium and Its Applications
 Cowles Conference on General Equilibrium and Its Applications
 Cpa Manitoba-Asper School Accounting Research Conference
 Cqa Academic Competition
 Cqa Annual Fall Academic Paper Competition
 Craig W. Holden Memorial Conference
 Credit Scoring and Credit Rating Conference
-Cross Country Perspectives in Finance
 Cross Country Perspectives in Finance Conference
 Crypto and Blockchain Economics Research
 Cryptocurrency Research Conference
-CSR, the Economy and Financial Markets
 Cu Denver International Commodities Symposium
 CUHK-RAPS Conference on Asset Pricing and Investment
 CUHK-RAPS-RCFS Conference
@@ -303,7 +261,6 @@ Duke Corporate Finance Conference
 Duke-Unc Asset Pricing Conference
 Durham Conference for Finance Job Market Papers
 Eastern Finance Association Meeting
-Eba Policy Research Workshop
 Eba'S Policy Research Workshop
 Ecb Conference on Financial Stability
 Ecb Conference on Money Markets
@@ -316,7 +273,6 @@ Edinburgh Corporate Finance Conference
 Edinburgh Financial Technology Conference
 Efm Annual Meeting
 EFMA Annual Meeting
-Eighth Annual Private Markets Research Conference
 Emerging Financial Reporting Issues Research Symposium
 Emerging Markets Conference
 Emerging Researchers Consortium in Accounting
@@ -338,21 +294,17 @@ EUROFIDAI
 EUROFIDAI-ESSEC Paris December Finance Meeting
 European Accounting Review Annual Conference
 European Finance Association Annual Meeting
-European Finance Association Meeting
 European Financial Management Association Annual Meeting
 European Retail Investment Conference
 European Winter Finance Conference
-European Winter Finance Summit
 European Workshop on Household Finance
 Exeter Sustainable Finance Conference
 Experimental Research in Management Accounting
 Experiments in Financial Technology Seminar Series
 Fae Track, Imrc
-Fall Labor and Finance Group Conference
 Fars
 Fars and JFR Annual Research Mini-Conference
 Fars and JFR Research Proposal Conference
-Fars Conference
 Fars Midyear Meeting
 Fasb-Iasb-Tar Conference
 Fdic Annual Banking Research Conference
@@ -361,8 +313,6 @@ Fed-Maryland Short-Term Funding Markets Conference
 Federal Reserve Day-Ahead Conference
 Federal Reserve Stress Testing Research Conference
 Finance and Accounting Annual Research Symposium
-Finance and Accounting Annual Symposium
-Finance and Accounting Research Symposium
 Finance and Business Analytics Conference
 Finance and Real Estate Conference
 Finance at a Time of Change and Uncertainty — Journal of Corporate Finance & Renmin University of China Conference
@@ -371,7 +321,6 @@ Finance Down Under
 Finance Down Under: Building on the Best from the Cellars of Finance
 Finance Forum
 Finance Research Revolution Conference
-Finance Theory Group
 Finance Theory Group Conference
 Finance Theory Group: Bridging Theory and Empirical Research in Finance
 Finance, Organizations and Markets Conference
@@ -391,14 +340,12 @@ Financial Research Association Annual Meeting
 Financial Stability Conference
 Financial Stability Considerations for Monetary Policy
 Fintech and Financial Institutions Conference
-Fintech and Financial Institutions Research Conference
 FIRN ANU Money, Credit, and Financial Stability Meeting
 Firn Asset Management Meeting
 Firn Uq Asset Management Meeting
 Firs Conference
 Fischer-Shain Research Conference
 Fiu-Asfaag Conference: Sustainability by Design
-Fixed Income & Financial Institutions
 Fixed Income and Financial Institutions Conference
 Florida International University, Miami and Asfaag Conference
 Florida State University Suntrust Beach Conference
@@ -416,7 +363,6 @@ Friends of Women in Finance Symposium
 Frontier Research in Banking
 Frontier Risks, Financial Innovation and Prudential Regulation of Banks
 Frontiers in Quantitative Finance
-Frontiers in Quantitative Finance Conference
 Frontiers of Factor Investing Conference
 FSRDC Annual Research Conference
 Fsu Beach Conference
@@ -455,7 +401,6 @@ Gsu-Review of Financial Studies Fintech Conference
 Gsu-RFS Fintech Conference
 Hanyang Accounting Research Symposium
 Harnessing Finance for Climate
-Haskayne and Fox Accounting Conference
 Haskell & White Academic Conference
 Haskell & White and Csuf Center for Corporate Reporting & Governance Conference
 Haskell & White Corporate Reporting and Governance Conference
@@ -463,10 +408,8 @@ Hawaii Accounting Research Conference
 Hawai‘I Accounting Research Conference
 Health Economics Initiative Annual Conference
 Hec-Mcgill Winter Finance Workshop
-Hedge Fund Research Conference
 Hedge Fund Strategies Conference
 Helsinki Finance Summit on Investor Behavior
-Helsinki Finance Summit on Investor Behavior Conference
 Hku Summer Accounting Conference
 HKU Summer Accounting Conference & Doctoral Consortium
 HKUST Accounting Research Symposium
@@ -495,11 +438,9 @@ Iim Calcutta Finance Research Conference
 Illinois Int. Accounting Symposium
 Illinois International Accounting Symposium
 Imfs Workshop on Financial Stability
-Inaugural Lapland Investment Fund Summit
 India Finance Conference
 India Research Conference
 Inflation Expectations: Determinants and Consequences
-Inflation: Drivers and Dynamics
 Inflation: Drivers and Dynamics Conference
 Informational Frictions in Macroeconomics
 Innovation, Sustainability and Regeneration International Conference
@@ -541,7 +482,6 @@ International Society for the Advancement of Financial Economics Thailand Confer
 International Symposium on Audit Research
 International Symposium on Climate, Finance, and Sustainability
 Intersection of Finance and Innovation
-Ipc Alternative Investments Conference
 Ipc Alternative Investments Conference & Spring Research Symposium
 Ipc Spring Research Symposium
 Isafe Conference
@@ -565,20 +505,16 @@ JIMF Conference on Banks, ESG, and Climate Transition
 Jlfa Conference
 Johns Hopkins Carey Finance Conference
 Joint Boc - Ecb - Ny Fed Conference on Expectations Surveys, Central Banks and the Economy
-Journal of Accounting & Economics Conference
 Journal of Accounting and Economics Conference
 Journal of Accounting and Public Policy Conference
 Journal of Accounting Research Conference
 Journal of Accounting Research Registered Reports Conference
-Journal of Accounting, Auditing and Finance
-Journal of Accounting, Auditing and Finance Conference
 Journal of Accounting, Auditing and Finance Symposium
 Journal of Business Finance and Accounting Conference
 Journal of Finance and Data Science Conference
 Journal of Financial Research - European Symposium
 Journal of Management Accounting Research Forum
 JR. Accounting Theory Conference
-Junior Faculty Business and Financial Law Workshop
 Knut Wicksell Conference on Crypto and Fintech
 KWC/Snee Conference on Sustainable Finance
 Labor & Finance Group Fall Conference
@@ -595,7 +531,6 @@ LBS Summer Symposium
 London Business School Accounting Symposium
 London Business School Summer Finance Symposium
 Lone Star Finance Conference
-Lone Star Finance Symposium
 Loyola Wealth Management Conference
 Lsu Finance Mardi Gras Conference
 Lti@Unito/Bank of Italy Workshop
@@ -612,7 +547,6 @@ Miami Herbert Winter Research Conference
 Mid-Atlantic Research Conference
 Mid-Atlantic Research Conference in Finance
 Mid-Atlantic Research Conference in Finance Program
-Midwest Finance Association
 Midwest Finance Association Annual Meeting
 MIT Asia Conference in Accounting
 MIT GCFP Annual Conference
@@ -632,7 +566,6 @@ NC State University Risk Governance Research Symposium
 Networks in Trade and Finance
 New Perspectives on Consumer Behavior in Credit and Payments Markets Conference
 New York Fed / Nyu Stern Conference on Financial Intermediation
-New York Fed / Nyu Stern Conference on Financial Intermediation Conference
 New York Fed-ECB Conference on Nonbank Financial Institutions
 New Zealand Finance Meeting
 Nfa Annual Meeting
@@ -660,7 +593,6 @@ Ou Climate and Energy Finance Research Conference
 Owners as Strategists Conference
 Ownership, Control, and Performance Conference
 Oxford Financial Intermediation Theory Conference
-Oxford Financial Intermediation Theory Conference (Oxfit)
 Oxford Saïd - VU SBE Macro-Finance Conference
 Oxford SaïD – Risk Center at Eth ZüRich Macro-Finance Conference
 Oxford-Eth Zurich Macro-Finance Conference
@@ -679,7 +611,6 @@ Politics in Finance Conference
 Polyu Accounting Research Conference
 Private Capital Symposium
 Private Equity Research Consortium Symposium
-Private Equity Research Symposium
 Private Markets Research Conference
 Procyclicality Symposium
 Prototypes for Humanity Short Papers Platform
@@ -694,7 +625,6 @@ Reassessing Government Assets and Liabilities: Putting the Finance into Public F
 Recent Advances in Mutual Fund and Hedge Fund Research
 Red Rock Finance Conference
 Research Conference on Bank Regulation: Lessons from And
-Research Conference on Capital Market Research in the Era of AI
 Research in Behavioral Finance Conference
 Research Summer Workshop on Mutual Funds
 Research Summer Workshop on Regulated Funds
@@ -703,7 +633,6 @@ Rethinking Optimal Deposit Insurance
 Review of Accounting Studies Conference
 Review of Corporate Finance Studies Conference
 Rising Scholars Conference on the Future of Financial Stability
-Risk Governance Research Symposium
 Risk Theory Society Annual Seminar
 Risklab/Bof/Esrb Conference on AI and Systemic Risk Analytics
 Rutgers Accounting Doctoral Symposium
@@ -729,19 +658,14 @@ Short-Term Funding Markets Conference
 Simulator Seminar: Emerging Technologies for Fmis
 Singapore Accounting Symposium
 Singapore Management University Accounting Symposium
-Sixth Annual Mergers & Acquisitions Research Centre Conference
 Skema Corporate Restructuring Conference
 Skema-ESSEC Finance Workshop on Fintech and Decentralized Finance
 Smu Accounting Symposium
 SNB Research Conference
 Society of Labor Economists Meeting
 Sofie Financial Econometrics Summer School - Financial Machine Learning
-Southern Finance Association
 Southern Finance Association Annual Meeting
-Southern Finance Association Meeting
 Southwestern Finance Association
-Southwestern Finance Association Annual Conference
-Southwestern Finance Association Annual Meeting
 Spring Finance Workshop
 Stanford Financial Education Symposium
 Stanford University Accounting Conference on Sustainability
@@ -757,15 +681,12 @@ Summer Research Conference in Finance
 Sustainability at Crossroads - Edinburgh Finance Conference
 Sustainability, Natural Capital, and Value Creation Conference
 Sustainability, Technology, and the Transformation of Accounting and Finance
-Sustainable Finance Forum
-Sustainable Finance Research Forum
 Sustainable Finance Research Forum Paris
 Sustainable Financial Innovation Research Centre
 Swedish House of Finance Conference
 Swiss Accounting Research Alpine Camp
 Swiss Accounting Research Camp
 Swiss Society for Financial Market Research
-Swiss Society of Economics and Statistics Annual Congress
 Sydney Banking and Financial Stability Conference
 Sydney Market Microstructure and Digital Finance Meeting
 Symposium on Auditing Research and Doctoral Consortium
@@ -801,7 +722,6 @@ Ucla Anderson Fink Center Conference
 Ucla Fink Conference on Financial Markets
 UGA Fall Finance Conference
 Uic Finance Conference
-Unc Annual Tax Symposium
 Unc Duke Corporate Finance Conference
 Unc Tax Symposium
 University of Connecticut Finance Conference
@@ -813,7 +733,6 @@ University of Oregon Summer Finance Conference
 UNSW Asset Pricing Workshop
 Unsw Corporate Finance Workshop
 Unt Accounting Research Conference
-Unt Virtual Accounting Research Conference
 USTC Frontiers in Finance Conference
 Ut Dallas Fall Finance Conference
 Ut Dallas Finance Conference
@@ -826,7 +745,6 @@ Uts Summer Accounting Conference
 Uw Summer Finance Conference
 Uwa Blockchain and Cryptocurrency Conference
 Vanderbilt Music City Accounting Research Conference
-Vanderbilt'S Music City Accounting Research Conference
 Vienna Festival of Finance Theory
 Vietnam International Conference in Finance
 Vietnam Symposium in Banking and Finance
@@ -842,11 +760,9 @@ Wcars Conference, "Everything Is AI Now"
 Webinar on Bank Regulation “Lessons from Covid-19”
 Wefidev - RFS - Cepr Conference on Finance and Development
 Wefidev RFS-Cepr Conference
-Western Finance Association
 Western Finance Association Annual Meeting
 WFA
 Wfe'S Clearing and Derivatives Conference
-Wfeclear
 Wfeclear Conference
 Wharton Conference on Liquidity and Financial Fragility
 Wharton–Chicago–Harvard Insolvency and Restructuring Conference
