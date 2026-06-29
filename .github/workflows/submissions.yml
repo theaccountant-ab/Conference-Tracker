@@ -6,6 +6,7 @@ name: Process CFP submissions
 # submissions/, and rebuilds the page. Also runnable on demand.
 on:
   push:
+    branches: [main]
     paths:
       - "submissions/**"
   workflow_dispatch:
