@@ -1,0 +1,50 @@
+name: Process CFP submissions
+
+# Approve-first submission pipeline. Committing an approved CFP file into the
+# submissions/ directory triggers this: it extracts the file, publishes it under
+# docs/cfps/, adds/updates the conference row, removes the file from
+# submissions/, and rebuilds the page. Also runnable on demand.
+on:
+  push:
+    paths:
+      - "submissions/**"
+  workflow_dispatch:
+
+# Share one lane with the other CSV writers so concurrent pushes don't clash.
+concurrency:
+  group: conference-csv-write
+  cancel-in-progress: false
+
+jobs:
+  submissions:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Process submissions and rebuild
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
+          CT_SUBMISSION_URL: ${{ vars.CT_SUBMISSION_URL }}
+        run: |
+          python -m conference_tracker update-submissions
+          python -m conference_tracker refresh-status
+          python -m conference_tracker build-site docs/index.html
+      - name: Commit changes
+        run: |
+          git config user.name "conference-tracker-bot"
+          git config user.email "actions@github.com"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git add -A conferences.csv docs/index.html docs/cfps submissions
+          if ! git diff --cached --quiet; then
+            git commit -m "Process CFP submissions ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No submissions to process."
+          fi

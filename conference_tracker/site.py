@@ -160,12 +160,15 @@ const DATA = __DATA__;
 let filter = "all", query = "", sortKey = null, sortDir = 1;
 
 function isUrl(s){ return /^https?:\/\//i.test(s || ""); }
-function isEmail(s){ return /@/.test(s || "") && !isUrl(s); }
+function isHostedCfp(s){ return /^cfps\//i.test(s || ""); }  // a CFP file we host
+function isEmail(s){ return /@/.test(s || "") && !isUrl(s) && !isHostedCfp(s); }
 
 function track(a, name){ a.dataset.conf = name; a.dataset.url = a.href; }
 
 function linkCell(td, contact, name){
-  if (isUrl(contact)) { const a=document.createElement("a"); a.href=contact; a.target="_blank";
+  if (isHostedCfp(contact)) { const a=document.createElement("a"); a.href=contact; a.target="_blank";
+    a.rel="noopener"; a.textContent="CFP ↗"; track(a,name); td.appendChild(a); }
+  else if (isUrl(contact)) { const a=document.createElement("a"); a.href=contact; a.target="_blank";
     a.rel="noopener"; a.textContent="Website ↗"; track(a,name); td.appendChild(a); }
   else if (isEmail(contact)) { const a=document.createElement("a"); a.href="mailto:"+contact;
     a.textContent=contact; track(a,name); td.appendChild(a); }

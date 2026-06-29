@@ -96,6 +96,13 @@ def cmd_update_search(config: Config, args: argparse.Namespace) -> int:
     return run_source(config, SearchSource(client, config.model, names))
 
 
+def cmd_update_submissions(config: Config, args: argparse.Namespace) -> int:
+    from .sources.submission_source import SubmissionSource
+
+    src = SubmissionSource(submissions_dir=args.dir, host_dir=args.host_dir)
+    return run_source(config, src)
+
+
 def cmd_refresh_status(config: Config, args: argparse.Namespace) -> int:
     store = CSVStore(config.csv_path)
     changed = store.refresh_status()
@@ -161,6 +168,15 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_search.add_argument("file", help="Text file with one conference name per line.")
 
+    p_sub = sub.add_parser(
+        "update-submissions",
+        help="Process approved CFP files in the submissions directory.",
+    )
+    p_sub.add_argument("dir", nargs="?", default="submissions",
+                       help="Directory of approved CFP files (default: submissions).")
+    p_sub.add_argument("--host-dir", default="docs/cfps",
+                       help="Where to publish the files (default: docs/cfps).")
+
     sub.add_parser("refresh-status", help="Recompute the status column.")
 
     p_site = sub.add_parser("build-site", help="Render the HTML page for the website.")
@@ -183,6 +199,7 @@ def main(argv: List[str] | None = None) -> int:
         "build-site": cmd_build_site,
         "update-urls": cmd_update_urls,
         "update-search": cmd_update_search,
+        "update-submissions": cmd_update_submissions,
         "refresh-status": cmd_refresh_status,
         "list": cmd_list,
     }

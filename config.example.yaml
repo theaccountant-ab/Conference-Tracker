@@ -11,6 +11,11 @@ csv_path: conferences.csv
 # be set via the CT_GA_MEASUREMENT_ID environment variable.
 ga_measurement_id: ""
 
+# Optional: URL behind the site's "Submit your CFP" button (e.g. a Tally form
+# that accepts a PDF/Word upload). When empty, the button is hidden. Can also be
+# set via the CT_SUBMISSION_URL environment variable / repo Actions variable.
+submission_url: ""
+
 mailbox:
   host: imap.gmail.com
   port: 993

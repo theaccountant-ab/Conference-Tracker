@@ -41,6 +41,9 @@ jobs:
           # GA4 Measurement ID (public) — enables per-conference click tracking
           # on the published page.
           CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
+          # "Submit your CFP" button target (repo Actions variable; button is
+          # hidden when unset). Kept here so rebuilds don't drop the button.
+          CT_SUBMISSION_URL: ${{ vars.CT_SUBMISSION_URL }}
         run: |
           python -m conference_tracker update-email
           python -m conference_tracker refresh-status
