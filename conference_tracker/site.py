@@ -41,11 +41,23 @@ def _ga_snippet(measurement_id: str) -> str:
     )
 
 
+def _submit_button(submission_url: str) -> str:
+    """The 'Submit your CFP' button, or empty when no submission URL is set."""
+    if not submission_url:
+        return ""
+    href = json.dumps(submission_url)[1:-1]  # escape for an HTML attribute
+    return (
+        f'<a class="submit-cfp" href="{href}" target="_blank" rel="noopener">'
+        "Submit your CFP</a>"
+    )
+
+
 def render_html(
     conferences: List[Conference],
     *,
     title: str = "Conference Tracker",
     ga_measurement_id: str = "",
+    submission_url: str = "",
 ) -> str:
     # Only surface conferences that are still actionable — hide ended ones.
     visible = [c for c in conferences if c.status != ENDED]
@@ -58,6 +70,7 @@ def render_html(
         _TEMPLATE.replace("__TITLE__", title)
         .replace("__GENERATED__", generated)
         .replace("__GA__", _ga_snippet(ga_measurement_id))
+        .replace("__SUBMIT__", _submit_button(submission_url))
         .replace("__DATA__", payload)
     )
 
@@ -77,6 +90,10 @@ __GA__
   .wrap { max-width:1100px; margin:0 auto; padding:18px 16px 48px; }
   h1 { font-size:20px; margin:0 0 2px; }
   .sub { color:var(--muted); font-size:13px; margin-bottom:14px; }
+  .hdr { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+  .submit-cfp { display:inline-block; background:var(--accent); color:#fff; text-decoration:none;
+       padding:9px 14px; border-radius:8px; font-size:14px; font-weight:600; white-space:nowrap; }
+  .submit-cfp:hover { background:#1d4ed8; }
   .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px; }
   #q { flex:1 1 220px; min-width:180px; padding:8px 10px; border:1px solid var(--line);
        border-radius:8px; font-size:14px; }
@@ -108,8 +125,13 @@ __GA__
 </head>
 <body>
 <div class="wrap">
-  <h1>__TITLE__</h1>
-  <div class="sub">Updated daily &middot; last built __GENERATED__</div>
+  <div class="hdr">
+    <div>
+      <h1>__TITLE__</h1>
+      <div class="sub">Updated daily &middot; last built __GENERATED__</div>
+    </div>
+    __SUBMIT__
+  </div>
   <div class="controls">
     <input id="q" type="search" placeholder="Search name or location…" aria-label="Search">
     <div class="filters" id="filters">

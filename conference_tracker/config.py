@@ -38,6 +38,9 @@ class Config:
     # GA4 Measurement ID (e.g. "G-XXXXXXXXXX"). Public by design — when set, the
     # generated page loads Google Analytics and reports per-conference clicks.
     ga_measurement_id: str = ""
+    # URL behind the "Submit your CFP" button (a form/intake that accepts the
+    # call-for-papers). When empty, the button is hidden.
+    submission_url: str = ""
     mailbox: MailboxConfig = None  # type: ignore[assignment]
 
     def __post_init__(self) -> None:
@@ -85,6 +88,9 @@ def load_config(path: Optional[str] = None) -> Config:
         csv_path=_env("CT_CSV_PATH", data.get("csv_path", "conferences.csv")),
         ga_measurement_id=_env(
             "CT_GA_MEASUREMENT_ID", data.get("ga_measurement_id", "")
+        ),
+        submission_url=_env(
+            "CT_SUBMISSION_URL", data.get("submission_url", "")
         ),
         mailbox=mailbox,
     )

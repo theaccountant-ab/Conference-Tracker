@@ -110,7 +110,11 @@ def cmd_build_site(config: Config, args: argparse.Namespace) -> int:
 
     store = CSVStore(config.csv_path)
     rows = store.load()
-    html = render_html(rows, ga_measurement_id=config.ga_measurement_id)
+    html = render_html(
+        rows,
+        ga_measurement_id=config.ga_measurement_id,
+        submission_url=config.submission_url,
+    )
     out = args.output
     parent = os.path.dirname(out)
     if parent:
