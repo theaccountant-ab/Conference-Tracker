@@ -5,6 +5,8 @@ name: Process CFP submissions
 # docs/cfps/, adds/updates the conference row, removes the file from
 # submissions/, and rebuilds the page. Also runnable on demand.
 on:
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours: pull newly-approved submissions
   push:
     branches: [main]
     paths:
@@ -28,6 +30,21 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Fetch approved submissions from the sheet
+        env:
+          CT_SUBMISSIONS_SHEET_CSV: ${{ vars.CT_SUBMISSIONS_SHEET_CSV }}
+          # Optional column-name overrides (auto-detected when unset).
+          CT_SHEET_APPROVED_COL: ${{ vars.CT_SHEET_APPROVED_COL }}
+          CT_SHEET_FILE_COL: ${{ vars.CT_SHEET_FILE_COL }}
+          CT_SHEET_ID_COL: ${{ vars.CT_SHEET_ID_COL }}
+          CT_SHEET_NAME_COL: ${{ vars.CT_SHEET_NAME_COL }}
+        run: |
+          if [ -n "$CT_SUBMISSIONS_SHEET_CSV" ]; then
+            python scripts/fetch_submissions.py "$CT_SUBMISSIONS_SHEET_CSV" submissions
+          else
+            echo "CT_SUBMISSIONS_SHEET_CSV not set — skipping sheet fetch."
+            echo "(Manually-committed files in submissions/ are still processed.)"
+          fi
       - name: Process submissions and rebuild
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

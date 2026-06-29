@@ -87,21 +87,26 @@ setup is unaffected. Only `GEMINI_API_KEY` is needed. (Trigger it manually with
 ### Submit-your-CFP (organizer submissions)
 
 Organizers can submit their own call for papers, so you catch conferences the
-search/email sources miss. It's **approve-first**:
+search/email sources miss. It's **approve-first**, and approving is just a
+checkbox:
 
 1. A "Submit your CFP" button on the site (shown when `submission_url` /
-   `CT_SUBMISSION_URL` is set) opens a form — e.g. a free [Tally](https://tally.so)
-   form with a PDF/Word file-upload field. In GitHub Actions, set the form URL as
-   a repository **variable** named `CT_SUBMISSION_URL` so every rebuild keeps the
-   button.
-2. You review each submission, then **commit the approved CFP file into
-   `submissions/`** — that commit is the approval.
-3. `.github/workflows/submissions.yml` runs `update-submissions`: it extracts the
-   file (PDF/Word/text) with the same Gemini extractor, publishes the file under
-   `docs/cfps/` (so it becomes the conference's durable link), adds/updates the
-   row, removes the file from `submissions/`, and rebuilds the page.
+   `CT_SUBMISSION_URL` is set) opens a free [Tally](https://tally.so) form with a
+   PDF/Word file-upload field. Set the form URL as a repository **variable**
+   named `CT_SUBMISSION_URL` so every rebuild keeps the button.
+2. Tally logs each submission to a **Google Sheet** (one row + a link to the
+   file). You add an **"Approved"** column and tick the ones to publish — that's
+   the only manual step. Publish the sheet (File → Share → Publish to web → CSV)
+   and set its URL as the repo variable `CT_SUBMISSIONS_SHEET_CSV`.
+3. `.github/workflows/submissions.yml` runs every 6 hours:
+   `scripts/fetch_submissions.py` downloads the approved, not-yet-seen files into
+   `submissions/`, then `update-submissions` extracts each (PDF/Word/text) with
+   the same Gemini extractor, publishes the file under `docs/cfps/` (its durable
+   link), adds/updates the row, and rebuilds the page.
 
-Run it locally with `python -m conference_tracker update-submissions`.
+You can also just **commit a CFP file straight into `submissions/`** to publish
+it without the form. Run the processing locally with
+`python -m conference_tracker update-submissions`.
 
 ## How it works
 
