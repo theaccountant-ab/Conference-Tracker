@@ -96,6 +96,26 @@ def cmd_update_search(config: Config, args: argparse.Namespace) -> int:
     return run_source(config, SearchSource(client, config.model, names))
 
 
+def cmd_update_tally(config: Config, args: argparse.Namespace) -> int:
+    from .sources.tally_source import TallyEmailSource
+
+    print(f"Scanning mailbox for Tally submissions ...")
+    return run_source(config, TallyEmailSource(config.mailbox))
+
+
+def cmd_update_tracked(config: Config, args: argparse.Namespace) -> int:
+    import os
+    from .sources.tracked_source import TrackedURLSource
+
+    tracked_path = os.path.join(os.path.dirname(config.csv_path), "tracked_urls.csv")
+    print(f"Checking tracked conference URLs ({tracked_path}) ...")
+    source = TrackedURLSource(
+        tracked_path=tracked_path,
+        conferences_path=config.csv_path,
+    )
+    return run_source(config, source)
+
+
 def cmd_refresh_status(config: Config, args: argparse.Namespace) -> int:
     store = CSVStore(config.csv_path)
     changed = store.refresh_status()
@@ -148,6 +168,8 @@ def build_parser() -> argparse.ArgumentParser:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("update-email", help="Scan the mailbox for new conferences.")
+    sub.add_parser("update-tally", help="Process Tally form-submission emails.")
+    sub.add_parser("update-tracked", help="Fetch tracked conference homepages.")
 
     p_urls = sub.add_parser("update-urls", help="Fetch a list of conference URLs.")
     p_urls.add_argument("file", help="Text file with one URL per line.")
@@ -176,6 +198,8 @@ def main(argv: List[str] | None = None) -> int:
 
     handlers = {
         "update-email": cmd_update_email,
+        "update-tally": cmd_update_tally,
+        "update-tracked": cmd_update_tracked,
         "build-site": cmd_build_site,
         "update-urls": cmd_update_urls,
         "update-search": cmd_update_search,
