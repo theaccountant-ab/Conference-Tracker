@@ -1,0 +1,45 @@
+name: Update tracked conference URLs
+
+# Runs on the 1st and 15th of each month, and on demand.
+# Fetches the homepage of each entry in tracked_urls.csv and looks for
+# new editions to add to conferences.csv.
+on:
+  schedule:
+    - cron: "0 6 1,15 * *"
+  workflow_dispatch:
+
+jobs:
+  update-tracked:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch tracked URLs and refresh
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
+        run: |
+          python -m conference_tracker update-tracked
+          python -m conference_tracker refresh-status
+          python -m conference_tracker build-site docs/index.html
+
+      - name: Commit changes
+        run: |
+          git config user.name "conference-tracker-bot"
+          git config user.email "actions@github.com"
+          git add conferences.csv tracked_urls.csv docs/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Update tracked conferences ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "No changes to commit."
+          fi

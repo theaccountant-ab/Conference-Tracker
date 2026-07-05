@@ -17,6 +17,10 @@ from typing import Iterator, List
 from ..config import MailboxConfig
 from .base import SourceDocument
 
+# Tally form-submission notifications are handled by TallyEmailSource;
+# skip them here so they aren't double-processed.
+_TALLY_SENDER = "notifications@tally.so"
+
 
 class _HTMLTextExtractor(HTMLParser):
     """Minimal HTML-to-text: drop tags, keep visible text and skip script/style."""
@@ -156,6 +160,8 @@ class EmailSource:
         try:
             for uid, raw in raw_messages:
                 msg = email.message_from_bytes(raw)
+                if _TALLY_SENDER in msg.get("From", ""):
+                    continue
                 text = message_to_text(msg)
                 if not text.strip():
                     continue
