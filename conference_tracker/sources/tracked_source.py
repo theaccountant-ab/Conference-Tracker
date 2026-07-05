@@ -131,7 +131,9 @@ class TrackedURLSource:
 
         for row in rows:
             url = row.get("url", "").strip()
-            if not url:
+            if not url or not url.lower().startswith(("http://", "https://")):
+                # Non-fetchable entries (e.g. a bare submission email) are kept
+                # in the file for the record but never fetched.
                 continue
             if self._recently_checked(row):
                 n_stale += 1
