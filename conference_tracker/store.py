@@ -23,9 +23,14 @@ def normalize_name(name: str) -> str:
     Also drops a trailing subtitle after a ``|`` separator and a leading "the",
     so "MIT GCFP Annual Conference | Theme" and "The MIT GCFP Annual Conference"
     both key to the same conference.
+
+    Apostrophes (straight and curly) are deleted rather than turned into spaces,
+    so "Hawai'i Accounting Research Conference" and "Hawaii Accounting Research
+    Conference" normalize to the same key instead of "hawai i" vs "hawaii".
     """
     name = name.split("|", 1)[0]
     name = name.lower()
+    name = re.sub(r"['‘’ʻʼ`]", "", name)  # drop apostrophes
     name = re.sub(r"[^a-z0-9 ]+", " ", name)
     name = re.sub(r"\s+", " ", name).strip()
     if name.startswith("the "):
@@ -154,3 +159,71 @@ class CSVStore:
                 changed += 1
         self.save(rows)  # save() recomputes status anyway
         return changed
+
+    @staticmethod
+    def _dedupe_key(conf: Conference) -> Tuple[str, str]:
+        """Group key for collapsing rows: same conference AND same edition.
+
+        Keyed on the normalized name plus the start date so a recurring
+        conference keeps one row per edition (distinct dates stay distinct),
+        but the *same* edition never appears twice even when the two rows carry
+        different contact links (e.g. an archive import vs. the live pipeline).
+        """
+        return (normalize_name(conf.name), (conf.start_date or "").strip())
+
+    @staticmethod
+    def _prefer(a: Conference, b: Conference) -> Conference:
+        """Pick which of two same-edition rows to keep as the primary.
+
+        Prefer a live-pipeline row over a stale ``Book1.xlsx`` archive import,
+        then a browsable http(s) link over a bare email, then the row with more
+        fields filled in.
+        """
+        def rank(c: Conference) -> tuple:
+            is_archive = 1 if c.source.startswith("import:Book1") else 0
+            has_web = 0 if (c.contact or "").startswith("http") else 1
+            filled = -sum(
+                1
+                for v in (c.contact, c.location, c.submission_deadline, c.end_date)
+                if (v or "").strip()
+            )
+            return (is_archive, has_web, filled, -len(c.name or ""))
+
+        return a if rank(a) <= rank(b) else b
+
+    def dedupe(self) -> int:
+        """Collapse rows that are the same conference edition. Returns rows removed.
+
+        Two rows with the same normalized name and start date are merged into
+        one: the preferred row is kept and any fields it's missing are filled
+        from the other. Order is preserved by emitting each group at the
+        position of its first member.
+        """
+        rows = self.load()
+        groups: Dict[Tuple[str, str], Conference] = {}
+        result: List[Conference] = []
+        removed = 0
+        for conf in rows:
+            key = self._dedupe_key(conf)
+            primary = groups.get(key)
+            if primary is None:
+                groups[key] = conf
+                result.append(conf)
+                continue
+            # Same edition seen already: merge into the kept row.
+            removed += 1
+            winner = self._prefer(primary, conf)
+            loser = conf if winner is primary else primary
+            # Fill only fields the winner is missing, so we never clobber good data.
+            for fieldname in ("contact", "location", "submission_deadline",
+                              "start_date", "end_date", "source"):
+                if not (getattr(winner, fieldname) or "").strip():
+                    val = (getattr(loser, fieldname) or "").strip()
+                    if val:
+                        setattr(winner, fieldname, val)
+            if winner is not primary:
+                # Replace the primary in-place in the result list.
+                result[result.index(primary)] = winner
+                groups[key] = winner
+        self.save(result)
+        return removed

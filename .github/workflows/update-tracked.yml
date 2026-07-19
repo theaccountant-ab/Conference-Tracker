@@ -29,6 +29,7 @@ jobs:
           CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
         run: |
           python -m conference_tracker update-tracked
+          python -m conference_tracker dedupe
           python -m conference_tracker refresh-status
           python -m conference_tracker build-site docs/index.html
 
