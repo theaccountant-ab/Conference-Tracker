@@ -43,6 +43,20 @@ def test_unknown_when_no_dates():
     assert compute_status("", "", "", TODAY) == UNKNOWN
 
 
+def test_ended_conference_overrides_future_deadline():
+    # Stale/bad data: the event was in 2024 but a future deadline lingers.
+    # An event that has already ended must not show as open for submission.
+    assert compute_status("2026-09-30", "2024-12-16", "2024-12-18", TODAY) == ENDED
+
+
+def test_corrupt_end_before_start_is_ignored():
+    # end_date precedes start_date (wrong year) -> ignore end, use start.
+    # Start is in the future and the deadline is open -> Submission, not Ended.
+    assert compute_status("2026-10-31", "2027-04-09", "2023-03-31", TODAY) == SUBMISSION
+    # Same corruption but no open deadline and a future start -> Participation.
+    assert compute_status("", "2027-04-09", "2023-03-31", TODAY) == PARTICIPATION
+
+
 def test_parse_date_variants():
     assert parse_date("2026-06-07") == date(2026, 6, 7)
     assert parse_date("2026/06/07") == date(2026, 6, 7)

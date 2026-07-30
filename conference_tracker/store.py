@@ -68,6 +68,11 @@ class CSVStore:
         # always current relative to today's date.
         rows = list(conferences)
         for conf in rows:
+            # A conference with a start date but no end date is treated as a
+            # single-day event, so its end date mirrors the start. This keeps
+            # the published "End" column populated instead of blank.
+            if conf.start_date and not (conf.end_date or "").strip():
+                conf.end_date = conf.start_date
             conf.status = compute_status(
                 conf.submission_deadline, conf.start_date, conf.end_date
             )
