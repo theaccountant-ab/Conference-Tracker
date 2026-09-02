@@ -44,6 +44,7 @@ jobs:
         run: |
           python -m conference_tracker update-email
           python -m conference_tracker update-tally
+          python -m conference_tracker dedupe
           python -m conference_tracker refresh-status
           python -m conference_tracker build-site docs/index.html
 

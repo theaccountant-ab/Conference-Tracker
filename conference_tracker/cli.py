@@ -123,6 +123,13 @@ def cmd_refresh_status(config: Config, args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_dedupe(config: Config, args: argparse.Namespace) -> int:
+    store = CSVStore(config.csv_path)
+    removed = store.dedupe()
+    print(f"Deduped {config.csv_path}: {removed} duplicate row(s) removed.")
+    return 0
+
+
 def cmd_build_site(config: Config, args: argparse.Namespace) -> int:
     import os
 
@@ -180,6 +187,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_search.add_argument("file", help="Text file with one conference name per line.")
 
     sub.add_parser("refresh-status", help="Recompute the status column.")
+    sub.add_parser("dedupe", help="Collapse duplicate rows for the same edition.")
 
     p_site = sub.add_parser("build-site", help="Render the HTML page for the website.")
     p_site.add_argument(
@@ -204,6 +212,7 @@ def main(argv: List[str] | None = None) -> int:
         "update-urls": cmd_update_urls,
         "update-search": cmd_update_search,
         "refresh-status": cmd_refresh_status,
+        "dedupe": cmd_dedupe,
         "list": cmd_list,
     }
     handler = handlers[args.command]
