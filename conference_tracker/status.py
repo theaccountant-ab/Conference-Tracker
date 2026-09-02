@@ -57,28 +57,15 @@ def compute_status(
     today = today or date.today()
     deadline = parse_date(submission_deadline)
     start = parse_date(start_date)
-    end = parse_date(end_date)
-
-    # Guard against corrupt extraction: an end date before the start date is
-    # invalid (usually a wrong year), so ignore it and fall back to the start.
-    if end is not None and start is not None and end < start:
-        end = None
-    effective_end = end if end is not None else start
-
-    # If the conference is already over, it's Ended — even when a stray
-    # submission deadline still looks open. Real conferences don't accept
-    # submissions after they've finished, so a future deadline on a past event
-    # is bad/stale data and must not resurrect it onto the live page.
-    if effective_end is not None and today > effective_end:
-        return ENDED
+    end = parse_date(end_date) or start
 
     # Still open for submissions.
     if deadline is not None and today <= deadline:
         return SUBMISSION
 
-    # Not yet over, but submissions are closed (or no deadline is known).
-    if effective_end is not None:
-        return PARTICIPATION
+    # We know when it ends (or started) — decide ended vs. ongoing.
+    if end is not None:
+        return ENDED if today > end else PARTICIPATION
 
     # Deadline passed but we have no conference dates at all.
     if deadline is not None and today > deadline:
