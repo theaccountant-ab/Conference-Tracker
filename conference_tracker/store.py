@@ -11,7 +11,7 @@ import csv
 import os
 import re
 from datetime import datetime, timezone
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 from .models import CSV_FIELDS, Conference
 from .status import compute_status
@@ -196,24 +196,47 @@ class CSVStore:
 
         return a if rank(a) <= rank(b) else b
 
+    def _contact_key(self, conf: Conference) -> Optional[Tuple[str, str]]:
+        """Secondary group key: same submission link AND same start date.
+
+        Catches same-edition rows whose names are spelled differently (e.g.
+        "UNC/Duke Corporate Finance" vs "UNC Duke Corporate Finance
+        Conference") but which point at the same contact URL/email — the name
+        key alone would miss those.
+        """
+        ck = normalize_contact(conf.contact)
+        if not ck:
+            return None
+        return (ck, (conf.start_date or "").strip())
+
     def dedupe(self) -> int:
         """Collapse rows that are the same conference edition. Returns rows removed.
 
-        Two rows with the same normalized name and start date are merged into
-        one: the preferred row is kept and any fields it's missing are filled
-        from the other. Order is preserved by emitting each group at the
-        position of its first member.
+        Two rows are the same edition when they share a start date and either
+        the same normalized name or the same contact link. The preferred row is
+        kept and any fields it's missing are filled from the other. Order is
+        preserved by emitting each group at the position of its first member.
         """
         rows = self.load()
-        groups: Dict[Tuple[str, str], Conference] = {}
+        by_name: Dict[Tuple[str, str], Conference] = {}
+        by_contact: Dict[Tuple[str, str], Conference] = {}
         result: List[Conference] = []
         removed = 0
+
+        def register(primary: Conference) -> None:
+            by_name[self._dedupe_key(primary)] = primary
+            ck = self._contact_key(primary)
+            if ck is not None:
+                by_contact[ck] = primary
+
         for conf in rows:
-            key = self._dedupe_key(conf)
-            primary = groups.get(key)
+            ck = self._contact_key(conf)
+            primary = by_name.get(self._dedupe_key(conf))
+            if primary is None and ck is not None:
+                primary = by_contact.get(ck)
             if primary is None:
-                groups[key] = conf
                 result.append(conf)
+                register(conf)
                 continue
             # Same edition seen already: merge into the kept row.
             removed += 1
@@ -228,6 +251,8 @@ class CSVStore:
                         setattr(winner, fieldname, val)
             if winner is not primary:
                 result[result.index(primary)] = winner
-                groups[key] = winner
+            # Register whatever keys the surviving row now answers to (its name
+            # and contact may differ from the row that seeded the group).
+            register(winner)
         self.save(result)
         return removed
