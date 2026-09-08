@@ -74,6 +74,38 @@ def test_dedupe_collapses_same_edition_different_link():
         os.path.exists(path) and os.unlink(path)
 
 
+def test_dedupe_collapses_same_link_different_name():
+    # Same edition (same start date + same contact link) under two different
+    # name spellings must collapse, even though the names normalize differently.
+    store, path = _store()
+    try:
+        store.save(
+            [
+                Conference(
+                    name="UNC Duke Corporate Finance Conference",
+                    contact="https://conferences.fuqua.duke.edu/corpfinance/",
+                    location="Chapel Hill, North Carolina",
+                    start_date="2027-04-02",
+                    end_date="2027-04-03",
+                    source="email:x",
+                ),
+                Conference(
+                    name="UNC/Duke Corporate Finance",
+                    contact="https://conferences.fuqua.duke.edu/corpfinance/",
+                    location="Chapel Hill, NC",
+                    start_date="2027-04-02",
+                    end_date="2027-04-03",
+                    source="url:https://conferences.fuqua.duke.edu/corpfinance/",
+                ),
+            ]
+        )
+        removed = store.dedupe()
+        assert removed == 1
+        assert len(store.load()) == 1
+    finally:
+        os.path.exists(path) and os.unlink(path)
+
+
 def test_normalize_contact():
     assert normalize_contact("https://www.x.org/") == "x.org"
     assert normalize_contact("mailto:cfp@x.org") == "cfp@x.org"
