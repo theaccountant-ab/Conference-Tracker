@@ -1,0 +1,371 @@
+# Conference watchlist for the web-search source (update-search).
+# One conference name per line; blank lines and #-comments are ignored.
+#
+# Regenerated from conferences.csv: every recurring conference (two or more
+# tracked editions) plus everything currently live. The workflow narrows this
+# to only conferences that have lapsed (no upcoming edition on file) before
+# searching, so a typical run searches far fewer than this list.
+#
+# Hand-editable: add conferences we do not track yet, or delete dead ones.
+Aarhus Workshop on Strategic Interaction in Corporate Finance
+Accountability in a Sustainable World Conference
+Accounting Research Workshop
+Accounting Summer Camp
+Adam Smith Workshop
+Afaanz Conference
+AI in Finance Conference
+Aim Investment Conference
+Alpine Finance Summit
+American Conference of the Academy of Sustainable Finance, Accounting, Accountability & Governance
+Analyst Research Conference
+Annual Bank Research Conference
+Annual Conference on Financial Economics and Accounting
+Annual Conference on Insurance
+Annual Conference on Risk Governance
+Annual Eastern Finance Association Meeting
+Annual Fra Conference
+Annual Hedge Fund Research Conference
+Annual Meeting of the Central Bank Research Association
+Annual Meeting of the Financial Research Association
+Annual Pbfeam and Nycu International Conferences
+Annual Private Equity Research Symposium
+Arctic Finance Conference
+Artificial Intelligence and Capital Market Research Conference
+Asian Finance Association Annual Conference
+Assa Conference
+Asset Pricing Conference by Lti@Unito
+Asu Sonoran Winter Conference
+Asu Sonoran Winter Finance Conference
+Australasian Finance and Banking Conference
+Bank of Finland & CEPR Joint Conference on Navigating Monetary Policy by the Northern Lights
+Bank Research Conference
+Baruch-Jfqa Climate Finance and Sustainability Conference
+Behavioural Finance Working Group
+Berlin Vallendar Conference on Tax Research
+Berlin-Vallendar Tax Conference
+Big Apple Accounting Conference
+Boca Corporate Finance and Governance Conference
+Boca Finance and Real Estate Conference
+Boulder Summer Conference on Consumer Financial Decision Making
+Bretton Woods Accounting and Finance Ski Conference
+Bristol Financial Markets Conference
+Bristol Workshop on Banking and Financial Intermediation
+Business Valuation Challenge
+Cambridge Conference on Alternative Finance
+Cambridge Corporate Finance Theory Symposium
+Canadian Derivatives Institute Conference
+Canadian Derivatives Institute Conference on Derivatives
+Canadian Sustainable Finance Network Conference
+Capana Annual Conference
+Cardiff Fintech Conference
+Cear-Rsi Household Finance Workshop
+Cear/Mric Behavioral Insurance Workshop
+Ceibs Finance/Accounting Symposium
+Cema Annual Meeting
+Central Bank Conference on the Microstructure of Financial Markets
+Cepr European Conference on Household Finance
+CEPR-SAFE Frankfurt Hub Conference of RPNs
+Chicago Fed/University of Chicago Conference on Municipal Bond Markets
+Chicago Financial Institutions Conference
+China Financial Research Conference
+China International Conference in Finance
+Climate Finance & Policy
+Colloquium on Pensions and Retirement Research
+Colorado Finance Summit
+Colorado Summer Accounting Conference
+Colorado Summer Accounting Research Conference
+Columbia Burton Accounting Conference
+Commodity Markets Winter Workshop
+Community Banking Research and Policy Conference
+Community Banking Research Conference
+Conference in Financial Economics Research
+Conference in Sustainable and Socially Responsible Finance
+Conference in Sustainable Finance
+Conference of the Asia-Pacific Association of Derivatives
+Conference of the French Finance Association
+Conference of the Japanese Accounting Review
+Conference on "Ageing and Sustainable Finance"
+Conference on Advances in the Analysis of Hedge Fund Strategies
+Conference on Asia-Pacific Financial Markets
+Conference on Auditing and Capital Markets
+Conference on Corporate Policies and Asset Prices
+Conference on CSR, the Economy and Financial Markets
+Conference on Finance, Labor, and Inequality
+Conference on Financial Decisions and Asset Markets
+Conference on Financial Economics and Accounting
+Conference on Financial Market Regulation
+Conference on Occupational Mismatch and Skill Shortage
+Conference on Pacific Basin Finance, Economics, Accounting, and Management
+Consumer Research Symposium
+Contemporary Accounting Research Conference
+Corporate Finance Day
+Corporate Finance Theory Symposium
+Corporate Governance Academic Forum
+Corporations and Covid-19
+Crypto and Blockchain Economics Research
+Cryptocurrency Research Conference
+CSR, the Economy and Financial Markets
+CUHK-RAPS-RCFS Conference
+CUHK-RAPS-RCFS Conference on Asset Pricing and Corporate Finance
+Dauphine Finance PhD Workshop
+Derivative Markets Conference
+Disclosure, Information Sharing, and Secrecy
+Drexel University Academic Conference
+Duke-Unc Asset Pricing Conference
+Durham Conference for Finance Job Market Papers
+Eastern Finance Association Meeting
+Ecb Money Market Conference
+Economics of Financial Technology Conference
+Edinburgh Corporate Finance Conference
+Efl Annual Conference
+Emerging Markets Conference
+Emerging Researchers Consortium in Accounting
+Emerging Scholars in Accounting Conference
+Erasmus Corporate Governance Conference
+Erasmus Liquidity Conference
+Esade Spring Workshop
+ESG Investing Research Conference
+ESSEC Financial Accounting Symposium
+EUROFIDAI-ESSEC Paris December Finance Meeting
+European Accounting Review Annual Conference
+European Banking Center Network Conference
+European Finance Association Annual Meeting
+European Finance Association Meeting
+European Financial Management Association Annual Meeting
+European Winter Finance Conference
+European Winter Finance Summit
+Exeter Sustainable Finance Conference
+Experimental Research in Management Accounting
+Experiments in Financial Technology Seminar Series
+Fae Track, Imrc
+Fars Midyear Meeting
+Fdic Bank Research Conference
+Federal Reserve Stress Testing Research Conference
+Finance and Accounting Annual Research Symposium
+Finance and Real Estate Conference
+Finance at a Time of Change and Uncertainty — Journal of Corporate Finance & Renmin University of China Conference
+Finance Down Under
+Finance Down Under: Building on the Best from the Cellars of Finance
+Finance Forum
+Finance Theory Group
+Finance, Organizations, and Markets Conference
+Financial Accounting and Reporting Section Midyear Meeting
+Financial Econometrics Conference- Lancaster University Management School
+Financial Fraud, Misconduct and Market Manipulation Conference
+Financial Intermediation Research Society
+Financial Intermediation Theory Conference
+Financial Markets and Corporate Governance Conference
+Financial Research Association Annual Conference
+Financial Stability Conference
+FIRN ANU Money, Credit, and Financial Stability Meeting
+Firs Conference
+Fischer-Shain Research Conference
+Fisher AI in Business Conference
+Fixed Income & Financial Institutions
+Fixed Income and Financial Institutions Conference
+Florida State University Suntrust Beach Conference
+FMA Annual Meeting
+FMA Asia/Pacific Conference
+FMA European Conference
+Fmarc
+Frankfurt/Mannheim Workshop on Digital Finance
+Frontier Research in Banking
+Frontiers in Quantitative Finance Conference
+Frontiers of Factor Investing Conference
+Fsu Truist Beach Conference
+Georgia Tech-Atlanta Fed Household Finance Conference
+Global AI Finance Research Conference
+Global Corporate Governance Colloquium
+Global Entrepreneurship and Innovation Research Conference
+Global Finance Conference
+Global Summit of Finance in the Age of AI and Climate Change
+Grasfi Conference
+Greater China Area Finance Conference
+Hanyang Accounting Research Symposium
+Haskell & White Corporate Reporting and Governance Conference
+Hawai'I Accounting Research Conference
+Hec- Mcgill Winter Finance Workshop
+Hec-Hkust-Nus Workshop on Sustainable Finance
+Hedge Fund Research Conference
+Helsinki Finance Summit on Investor Behavior
+Helsinki Finance Summit on Investor Behavior Conference
+Hkaaa Rookie Camp
+Hkust Accounting Research Symposium
+Holden Conference in Finance and Real Estate
+Hong Kong Conference for Fintech, AI, and Big Data in Business
+Iab Labor Markets and Financial Markets Workshop
+Ibefa Summer Meeting
+Icgs Conference
+Ifma International Conference
+Iim Calcutta-Nyu Stern India Research Conference
+Iimb-CCGS International Corporate Governance & Sustainability Conference
+Illinois International Accounting Symposium
+India Finance Conference
+India Research Conference
+Innovation, Sustainability and Regeneration International Conference
+Inquire Europe Autumn Conference: Expectations and Asset Prices
+Inquire Europe Spring Conference
+Institute for Quantitative Investment Research, Autumn Residential Seminar
+Institutional and Organizational Economics Academy
+International Accounting & Finance Doctoral Symposium
+International Behavioural Finance Conference
+International Conference in Venice - Artificial Intelligence, Financial Innovation and Credit Risk
+International Conference of the French Finance Association
+International Conference of the Japanese Accounting Review
+International Conference on Accounting and Finance
+International Corporate Governance Society Conference
+International Journal of Accounting Symposium
+International Risk Management Conference
+International Symposium on Audit Research
+International Symposium on Climate, Finance, and Sustainability
+Ipc Spring Research Symposium
+Isb Accounting Research Conference
+Isb Summer Research Conference
+Itam Finance Conference
+Iwh-Fin-Fire Workshop on “Challenges to Financial Stability”
+Jackson Hole Finance Conference
+Jackson Hole Finance Group Conference
+Jae Call for Papers
+Jbfa Capital Markets Conference
+Johns Hopkins Carey Finance Conference
+Journal of Accounting and Economics Conference
+Journal of Accounting and Public Policy Conference
+Journal of Accounting Research Conference
+Journal of Accounting Research, Registered Reports Conference
+Journal of Accounting, Auditing and Finance Conference
+Journal of Accounting, Auditing and Finance Symposium
+Journal of Business Finance and Accounting Conference
+Journal of Contemporary Accounting & Economics Annual Symposium and Doctoral Consortium
+Junior Faculty Business & Financial Law Workshop
+Knut Wicksell Conference on Crypto and Fintech
+Labor & Finance Group Fall Conference
+Labor and Finance Group Conference
+Labs International Banking Workshop
+LBS Finance Summer Symposium
+LBS Summer Symposium
+London Business School Accounting Symposium
+Loyola Wealth Management Conference
+Lsu Finance Mardi Gras Conference
+Lti@Unito/Bank of Italy Workshop on Long-Term Investors’ Trends
+Market-Based Solutions for Reducing Wealth Inequality
+Massey Sustainable Finance Conference
+Melbourne Asset Pricing Meeting
+Mergers & Acquisitions Research Centre Conference
+Miami Behavioral Finance Conference
+Mid-Atlantic Research Conference in Finance
+Midwest Finance Association Annual Meeting
+MIT GCFP Annual Conference
+Mitsui Finance Symposium
+Modern Finance Conference
+Mofir Workshop on Banking
+MRS International Risk Conference
+NBS Conference on AI for Finance
+New York Fed / Nyu Stern Conference on Financial Intermediation
+New York Fed / Nyu Stern Conference on Financial Intermediation Conference
+New York Fed-ECB Conference on Nonbank Financial Institutions
+New Zealand Finance Meeting
+Northeastern University Finance Conference
+Northern Finance Association Annual Meeting
+Notre Dame Investment Management Conference
+Ntu Academy of AI for Business and Social Science Research
+Nycu International Finance Conference
+Oklahoma Aerospace and Defense Finance Conference
+Olin Finance Conference at Washu
+Oxford Financial Intermediation Theory Conference
+Oxford Financial Intermediation Theory Conference (Oxfit)
+Oxford Saïd - VU SBE Macro-Finance Conference
+Paris December Finance Meeting
+Paris Finance Meeting
+Pbfeam and Nycu International Conferences
+Pcaob Conference on Auditing and Capital Markets
+Perc Oxford Research Symposium
+PHBS–IER Conference on Technology, Innovation, Platforms, and Economic Performance
+Plato Market Innovator Conference
+Prediction Markets Conference
+Private Capital Symposium
+Private Equity Research Consortium Symposium
+Private Equity Research Symposium
+Private Markets Research Conference
+Prototypes for Humanity Short Papers Platform
+RAPS/RCFS Europe Conference
+Ray Ball Journal of Accounting Research Conference
+RCF-Ecgi Corporate Finance and Governance Conference
+RCFS Winter Conference
+Red Rock Finance Conference
+Research in Behavioral Finance Conference
+Research Symposium on Finance and Economics
+Review of Accounting Studies Conference
+Risk Theory Society Annual Seminar
+Risk Theory Society Meeting
+Rutgers-Atp India Accounting & Finance Symposium
+Safe Asset Pricing Workshop
+Safe Market Microstructure Conference
+Santiago Finance Workshop
+SARAC – Swiss Accounting Research Alpine Camp
+Sdu Finance Workshop
+SFS Cavalcade
+SFS Cavalcade Asia-Pacific
+SGF Conference
+Short-Term Funding Markets Conference
+Showcasing Women in Finance
+Singapore Accounting Symposium
+Singapore Management University Accounting Symposium
+Society of Labor Economists Annual Meeting
+Southern Finance Association Annual Meeting
+Southern Finance Association Meeting
+Southwestern Finance Association Annual Meeting
+Stern/Salomon Center Microstructure Conference
+Stern/Salomon Microstructure Conference
+Summer Institute of Finance Conference
+Sustainability, Trade and Digital Finance
+Sustainable Finance Forum
+Sustainable Financial Innovation Centre (Sfic) Annual Conference
+Swiss Accounting Research Alpine Camp
+Swiss Society for Financial Market Research
+Sydney Banking and Financial Stability Conference
+Taxation Research Symposium
+Tel Aviv Finance Conference
+Texas Finance Festival
+The Future of Financial Information Conference
+The International Conference in Banking and Financial Studies
+The Japanese Accounting Review
+Tokenomics
+Ubc Winter Finance Conference
+Ucla Anderson Fink Center Conference
+Uga Fall Finance Conference
+Uic Finance Conference
+Unc Tax Symposium
+Unc- Duke Corporate Finance Conference
+Unc/Duke Corporate Finance
+University of Connecticut Finance Conference
+University of Kentucky Finance Conference
+University of Oregon Summer Finance Conference
+Unsw Asset Pricing Workshop
+Unsw Corporate Finance Workshop
+Ut Dallas Finance Conference
+Utah Winter Accounting Conference
+Utah Winter Finance Conference
+Utd Finance Conference
+Uts Australian Summer Accounting Conference
+Uwa Blockchain and Cryptocurrency Conference
+Vienna Festival of Finance Theory
+Vietnam Symposium in Banking and Finance
+Vietnam Symposium in Climate Transition
+Vietnam Symposium in Entrepreneurship, Finance, and Innovation
+Vietnam Symposium in Global Economic Issues
+Vins Annual Conference
+Wellington Finance Summit
+Western Finance Association
+Western Finance Association Annual Meeting
+WFA
+Wharton Conference on Liquidity and Financial Fragility
+Wharton–Chicago–Harvard Insolvency and Restructuring Conference
+Whu Young Scholar Tax Conference
+Winter Finance Summit in Asia
+Workshop on Banking and Institutions
+Workshop on Exchange Rates
+Workshop on Financial Institutions Research
+World Finance Conference
+World Symposium on Investment Research
+Young Finance Scholars Consortium
+Young Scholar'S Finance Consortium
