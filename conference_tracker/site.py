@@ -103,6 +103,17 @@ __GA__
   .muted { color:var(--muted); }
   .count { color:var(--muted); font-size:13px; margin:0 0 8px; }
   .empty { padding:24px; text-align:center; color:var(--muted); }
+  /* Deadline countdown: understated natural-language text with a leading
+     hourglass and an urgency colour — deliberately not a filled pill. */
+  .cd { display:block; margin-top:3px; font-size:12px; font-weight:600; white-space:nowrap; }
+  .cd::before { content:"\231B\FE0E "; font-weight:400; }
+  .u-soon { color:#b91c1c; }
+  .u-near { color:#b45309; }
+  .u-far  { color:#15803d; }
+  /* Add-to-calendar links under the website link. */
+  .cal { display:block; margin-top:4px; font-size:12px; }
+  .cal a { color:var(--muted); }
+  .cal .sep { color:var(--line); padding:0 3px; }
   @media (max-width:640px){ th:nth-child(2), td:nth-child(2){ display:none; } }
 </style>
 </head>
@@ -141,6 +152,73 @@ function isUrl(s){ return /^https?:\/\//i.test(s || ""); }
 function isEmail(s){ return /@/.test(s || "") && !isUrl(s); }
 
 function track(a, name){ a.dataset.conf = name; a.dataset.url = a.href; }
+
+// --- Dates: parse ISO YYYY-MM-DD as a UTC calendar day (no timezone drift) ---
+function parseDay(s){
+  if (!/^\d{4}-\d{2}-\d{2}/.test(s || "")) return null;
+  const p = s.slice(0,10).split("-");
+  return new Date(Date.UTC(+p[0], +p[1]-1, +p[2]));
+}
+function addDays(d, n){ const x = new Date(d); x.setUTCDate(x.getUTCDate()+n); return x; }
+function pad(n){ return String(n).padStart(2,"0"); }
+function ymd(d){ return "" + d.getUTCFullYear() + pad(d.getUTCMonth()+1) + pad(d.getUTCDate()); }
+function iso(d){ return d.getUTCFullYear() + "-" + pad(d.getUTCMonth()+1) + "-" + pad(d.getUTCDate()); }
+
+// Whole days from today (UTC) until the given ISO date; null if unparseable.
+function daysUntil(s){
+  const d = parseDay(s); if (!d) return null;
+  const n = new Date();
+  const today = Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate());
+  return Math.round((d.getTime() - today) / 86400000);
+}
+// Natural-language countdown — intentionally distinct from a raw "N days left".
+function countdownPhrase(days){
+  if (days < 0) return null;
+  if (days === 0) return "closes today";
+  if (days === 1) return "closes tomorrow";
+  if (days < 14) return "closes in " + days + " days";
+  if (days < 60){ const w = Math.round(days/7); return "closes in " + w + " week" + (w>1?"s":""); }
+  const m = Math.round(days/30); return "closes in " + m + " month" + (m>1?"s":"");
+}
+function urgencyClass(days){ return days <= 7 ? "u-soon" : days <= 30 ? "u-near" : "u-far"; }
+
+// Build Google Calendar / Outlook "add event" links for an all-day event
+// spanning [start, end] (end is treated as exclusive by both providers).
+function calEvent(title, start, end, location, details){
+  const endEx = addDays(end, 1);
+  const text = encodeURIComponent(title || "");
+  const loc  = encodeURIComponent(location || "");
+  const det  = encodeURIComponent(details || "");
+  const google = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+    + "&text=" + text + "&dates=" + ymd(start) + "/" + ymd(endEx)
+    + "&location=" + loc + "&details=" + det;
+  const outlook = "https://outlook.office.com/calendar/0/deeplink/compose?path=/calendar/action/compose"
+    + "&rru=addevent&subject=" + text + "&startdt=" + iso(start) + "&enddt=" + iso(endEx)
+    + "&allday=true&location=" + loc + "&body=" + det;
+  return { google, outlook };
+}
+
+// Context-aware calendar target: while the CFP is open, add the SUBMISSION
+// DEADLINE (the thing not to miss); once it has passed, add the conference
+// DATES instead. Returns {label, google, outlook} or null.
+function calendarLinks(row){
+  const details = isUrl(row.contact) ? row.contact : "";
+  const deadline = parseDay(row.submission_deadline);
+  const cfpOpen = row.status === "Submission" && deadline
+    && daysUntil(row.submission_deadline) >= 0;
+  if (cfpOpen){
+    const ev = calEvent("Submission deadline — " + (row.name || ""),
+                        deadline, deadline, row.location, details);
+    return { label: "Deadline", google: ev.google, outlook: ev.outlook };
+  }
+  const start = parseDay(row.start_date);
+  if (start){
+    const end = parseDay(row.end_date) || start;
+    const ev = calEvent(row.name || "", start, end, row.location, details);
+    return { label: "Dates", google: ev.google, outlook: ev.outlook };
+  }
+  return null;
+}
 
 function linkCell(td, contact, name){
   if (isUrl(contact)) { const a=document.createElement("a"); a.href=contact; a.target="_blank";
@@ -181,7 +259,14 @@ function render(){
     const c1=document.createElement("td"); nameCell(c1,r); tr.appendChild(c1);
     const c2=document.createElement("td"); c2.textContent=r.location||"—"; tr.appendChild(c2);
     const c3=document.createElement("td"); c3.className="nowrap";
-      c3.textContent=r.submission_deadline||"—"; tr.appendChild(c3);
+      c3.appendChild(document.createTextNode(r.submission_deadline||"—"));
+      if (r.submission_deadline){
+        const dleft = daysUntil(r.submission_deadline);
+        const phrase = (dleft===null) ? null : countdownPhrase(dleft);
+        if (phrase){ const cd=document.createElement("span");
+          cd.className="cd "+urgencyClass(dleft); cd.textContent=phrase; c3.appendChild(cd); }
+      }
+      tr.appendChild(c3);
     const c4=document.createElement("td"); const b=document.createElement("span");
       b.className="badge b-"+(r.status||"Unknown"); b.textContent=r.status||"Unknown";
       c4.appendChild(b); tr.appendChild(c4);
@@ -189,7 +274,17 @@ function render(){
       c5.textContent=r.start_date||"—"; tr.appendChild(c5);
     const c6=document.createElement("td"); c6.className="nowrap";
       c6.textContent=r.end_date||"—"; tr.appendChild(c6);
-    const c7=document.createElement("td"); linkCell(c7,r.contact,r.name); tr.appendChild(c7);
+    const c7=document.createElement("td"); linkCell(c7,r.contact,r.name);
+      const cal=calendarLinks(r);
+      if (cal){ const wrap=document.createElement("span"); wrap.className="cal";
+        wrap.appendChild(document.createTextNode("📅 " + cal.label + ": "));
+        const g=document.createElement("a"); g.href=cal.google; g.target="_blank";
+          g.rel="noopener"; g.textContent="Google";
+        const sep=document.createElement("span"); sep.className="sep"; sep.textContent="·";
+        const o=document.createElement("a"); o.href=cal.outlook; o.target="_blank";
+          o.rel="noopener"; o.textContent="Outlook";
+        wrap.appendChild(g); wrap.appendChild(sep); wrap.appendChild(o); c7.appendChild(wrap); }
+      tr.appendChild(c7);
     tbody.appendChild(tr);
   }
   document.getElementById("empty").hidden = rows.length>0;
