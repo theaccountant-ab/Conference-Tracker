@@ -62,7 +62,7 @@ gtag('config', "G-X2ZFQPG4G7");
 <body>
 <div class="wrap">
   <h1>Conference Tracker</h1>
-  <div class="sub">Updated daily &middot; last built 2026-09-18 03:59 UTC</div>
+  <div class="sub">Updated daily &middot; last built 2026-09-18 04:02 UTC</div>
   <div class="controls">
     <input id="q" type="search" placeholder="Search name or location…" aria-label="Search">
     <div class="filters" id="filters">
@@ -124,21 +124,42 @@ function countdownPhrase(days){
 }
 function urgencyClass(days){ return days <= 7 ? "u-soon" : days <= 30 ? "u-near" : "u-far"; }
 
-// Build Google Calendar / Outlook "add event" links for a conference's dates.
-function calendarLinks(row){
-  const s = parseDay(row.start_date); if (!s) return null;
-  const e = parseDay(row.end_date) || s;
-  const endEx = addDays(e, 1);              // calendars treat the end as exclusive
-  const text = encodeURIComponent(row.name || "");
-  const loc  = encodeURIComponent(row.location || "");
-  const det  = encodeURIComponent(isUrl(row.contact) ? row.contact : "");
+// Build Google Calendar / Outlook "add event" links for an all-day event
+// spanning [start, end] (end is treated as exclusive by both providers).
+function calEvent(title, start, end, location, details){
+  const endEx = addDays(end, 1);
+  const text = encodeURIComponent(title || "");
+  const loc  = encodeURIComponent(location || "");
+  const det  = encodeURIComponent(details || "");
   const google = "https://calendar.google.com/calendar/render?action=TEMPLATE"
-    + "&text=" + text + "&dates=" + ymd(s) + "/" + ymd(endEx)
+    + "&text=" + text + "&dates=" + ymd(start) + "/" + ymd(endEx)
     + "&location=" + loc + "&details=" + det;
   const outlook = "https://outlook.office.com/calendar/0/deeplink/compose?path=/calendar/action/compose"
-    + "&rru=addevent&subject=" + text + "&startdt=" + iso(s) + "&enddt=" + iso(endEx)
+    + "&rru=addevent&subject=" + text + "&startdt=" + iso(start) + "&enddt=" + iso(endEx)
     + "&allday=true&location=" + loc + "&body=" + det;
   return { google, outlook };
+}
+
+// Context-aware calendar target: while the CFP is open, add the SUBMISSION
+// DEADLINE (the thing not to miss); once it has passed, add the conference
+// DATES instead. Returns {label, google, outlook} or null.
+function calendarLinks(row){
+  const details = isUrl(row.contact) ? row.contact : "";
+  const deadline = parseDay(row.submission_deadline);
+  const cfpOpen = row.status === "Submission" && deadline
+    && daysUntil(row.submission_deadline) >= 0;
+  if (cfpOpen){
+    const ev = calEvent("Submission deadline — " + (row.name || ""),
+                        deadline, deadline, row.location, details);
+    return { label: "Deadline", google: ev.google, outlook: ev.outlook };
+  }
+  const start = parseDay(row.start_date);
+  if (start){
+    const end = parseDay(row.end_date) || start;
+    const ev = calEvent(row.name || "", start, end, row.location, details);
+    return { label: "Dates", google: ev.google, outlook: ev.outlook };
+  }
+  return null;
 }
 
 function linkCell(td, contact, name){
@@ -198,8 +219,9 @@ function render(){
     const c7=document.createElement("td"); linkCell(c7,r.contact,r.name);
       const cal=calendarLinks(r);
       if (cal){ const wrap=document.createElement("span"); wrap.className="cal";
+        wrap.appendChild(document.createTextNode("📅 " + cal.label + ": "));
         const g=document.createElement("a"); g.href=cal.google; g.target="_blank";
-          g.rel="noopener"; g.textContent="📅 Google";
+          g.rel="noopener"; g.textContent="Google";
         const sep=document.createElement("span"); sep.className="sep"; sep.textContent="·";
         const o=document.createElement("a"); o.href=cal.outlook; o.target="_blank";
           o.rel="noopener"; o.textContent="Outlook";
