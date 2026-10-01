@@ -13,13 +13,17 @@ Usage:
 
 from __future__ import annotations
 
+import os
 import sys
 from collections import defaultdict
 
-# Run from the repo root so the package imports resolve.
-from conference_tracker.sources.search_source import read_name_list
-from conference_tracker.store import normalize_name
-from conference_tracker.status import ENDED
+# Make the package importable whether invoked as "python scripts/..." (which
+# only puts scripts/ on sys.path) or from the repo root.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from conference_tracker.sources.search_source import read_name_list  # noqa: E402
+from conference_tracker.store import normalize_name  # noqa: E402
+from conference_tracker.status import ENDED  # noqa: E402
 
 
 def due_names(watchlist_path: str, csv_path: str) -> list[str]:
