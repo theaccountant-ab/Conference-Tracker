@@ -7,14 +7,147 @@
 # searching, so a typical run searches far fewer than this list.
 #
 # Hand-editable: add conferences we do not track yet, or delete dead ones.
+
+# --- newly seeded (verify these first) ---
+11. ZEW-Konferenz zur Ökonomik von Innovationen und Patenten
+119th Annual Conference on Taxation - National Tax Association
+11th Northeastern Finance Conference, May 5-7, 2027, Boston
+12th Annual ICGS Conference - Call for Papers
+13th Annual Conference on Risk Governance
+14th ABFER Annual Conference
+16th ITAM Finance Conference, 2027
+17th Transatlantic Workshop on the Economics of Crime
+18th Annual Hedge Fund Research Conference
+2026 Annual Community Bank Research Conference Call for Papers and Outstanding Paper Award (co-sponsored by Federal Reserve Bank/CSBS/FDIC)
+2026 Conference on Real-Time Data Analysis, Methods, and Applications
+2026 Early Career Accounting Scholars Conference joint with Accounting and Business Research
+2026 Econometric Society Australasia Meeting
+2026 Federal Reserve Stress Testing Research Conference: Call for Papers
+2026 Financial Stability Conference Call for Papers
+2026 FMA Annual Meeting
+2026 FMA Asia/Pacific Conference
+2026 HKUST Accounting Research Symposium
+2026 JAE Call for Papers
+2026 North American Meeting of the Economic Science Association ESA
+2026 PHBS-IER Technology & Innovation Conference
+2026 RAST–IASB Conference
+2026 VINS Annual Conference-Call for Papers
+2026 Wharton Conference on Liquidity and Financial Fragility
+2027 AAA Global Connect (Annual Meeting)
+2027 Advancing Leadership and Learning in Accounting Meeting
+2027 Baruch-JFQA Climate Finance and Sustainability Conference
+2027 Columbia/BPI Bank Regulation Research Conference
+2027 CSW Asia Meeting
+2027 EEA-ESEM Congress
+2027 Financial Intermediation Research Society (FIRS) Conference
+2027 FMA Annual Meeting
+2027 Forensic Accounting Section Research Conference
+2027 Government and Nonprofit (GNP) Section Midyear Meeting
+2027 International Accounting Section Midyear Meeting
+2027 International Journal of Accounting Symposium
+2027 JAE Call for Papers
+2027 Joint Midyear Meeting of the AIS and SET Sections
+2027 Journal of Accounting Research (JAR) Annual Conference
+2027 Loyola Wealth Management Conference
+2027 North American Winter Meeting of the Econometric Society
+2028 FMA Annual Meeting
+2029 FMA Annual Meeting
+22nd Annual Olin Finance Conference at WashU
+22nd European Winter Finance Summit
+27th Symposium on Auditing Research and 7th Illinois Audit Doctoral Consortium
+31st EAERE Annual Conference
+35th Asian-Pacific Conference on International Accounting Issues
+36th Annual Conference on Financial Economics and Accounting (CFEA)
+36th Annual Utah Winter Finance Conference
+39th Annual American Taxation Association (ATA) Midyear Meeting
+3rd AI in Finance Conference
+3rd ESSEC Financial Accounting Symposium
+3rd LSU Finance Mardi Gras Conference
+41st Annual Contemporary Accounting Research (CAR) Conference / Appel à communications - 41e colloque annuel Recherche comptable contemporaine (RCC)
+42nd Annual Contemporary Accounting Research (CAR) Conference
+45th Columbia Burton Accounting Conference - Paper Submission
+48th IAEE International Conference - International Association for Energy Economics
+54th EFA Annual Meeting 2027
+68th NABE Annual Meeting -Global Structural Reset: AI, Demographics, and Geopolitics
+6th Conference on Corporate Policies and Asset Prices (COAP)
+71st Annual Conference of AARES - Australasian Agricultural and Resource Economics Society
+74th Meeting of the EURO Working Group for Commodities and Financial Modelling (EWGCFM)
+7th Annual RCF-ECGI Corporate Finance and Governance Conference
+7th CEAR-RSI Household Finance Workshop
+91st Annual Meetings of the Midwest Economics Association
+[CBER] Tokenomics 2026
+AAA ABO Research Conference 2026
+AAA FARS Midyear Meeting 2027
+AAA Global Connect 2028 (Annual Meeting)
+AAA MAS Midyear Meeting 2027
+Adam Smith Workshop Spring 2027
+AEA/ASSA 2028 Annual Meeting
+Asian Economic Development Conference 2027
+ASSA 2027 Annual Meeting of the American Economic Association
+ASSA/AEA Annual Meeting 2029
+ASU Sonoran Winter Finance Conference 2027
+Bank of Finland and CEPR Joint conference on Navigating Monetary Policy by the Northern Lights
+Call for Paper - 14th Annual Conference on Financial Market Regulation (CFMR 2027)
+CESifo Area Conference on Behavioral Economics 2026
+Colorado Finance Summit 2026 - Call for Papers
+Conference on Macroeconomic Policy
+CSAE Conference 2027: Economic Development in Africa
+EBA's 15th Policy Research Workshop: Efficient and proportionate regulation for a competitive financial sector
+ECB Money Market Conference 2026
+Eighteenth ISB Accounting Research Conference
+European Accounting Review 2027 Annual Conference
+European Financial Management Association 2027 Annual Meeting: Call for Papers
+European Winter Finance Conference 2027: Call for Papers
+European Winter Meeting of the Econometric Society 2026
+Financial Research Association 2026 Annual Conference
+IBEFA Annual Meeting at the 2027 ASSA Conference
+IIMB-CCGS International Corporate Governance & Sustainability Conference 2026
+India Finance Conference (IFC) 2026
+Institute for Quantitative Investment Research Autumn Residential Seminar 2026
+ISPOR Europe 2026 - International Society for Pharmacoeconomics and Outcomes Research
+Jackson Hole Finance Group Conference 2027
+Journal of Accounting, Auditing and Finance (JAAF) Symposium 2026
+Labor & Finance Group Fall 2026 Conference
+LACEA LAMES 2026 Annual Conference
+Last reminder: Call for papers - EUROFIDAI-ESSEC Paris December Finance Meeting
+MIT GCFP 13th Annual Conference
+NBER Summer Institute 2027
+New Ideas Sessions at the 2026 FMA Annual Meeting
+New York Fed-ECB Conference on Nonbank Financial Institutions 2026
+Private Equity Research Consortium (PERC) Symposium
+Royal Economic Society 2027 Annual Conference
+SFS Cavalcade Asia-Pacific 2026
+SFS Cavalcade North America 2027
+SFS Cavalcade North America 2028
+SFS Cavalcade North America 2029
+SGF Conference 2027
+Society for Economic Dynamics (SED) 2027 Annual Meeting
+Society of Labor Economists (SOLE) 2027 Annual Meeting
+Society of Labor Economists (SOLE) 2028 Annual Meeting
+Society of Labor Economists (SOLE) 2029 Annual Meeting
+Stigler Center-CEPR Political Economy of Finance Conference 2026: Crony Capitalism in 21st Century America
+The 2026 Sydney Banking and Financial Stability Conference
+The 39th Australasian Finance and Banking Conference, Sydney, Australia, 10 to 12 December
+the Seventh Joint BoC–ECB–New York Fed - Banxico Conference on Expectations Surveys: Expectations Measurement in Advanced and Emerging Economies
+The Sixth Biennial Conference on Auto Lending: Call for Papers
+Twentieth Annual Conference on Empirical Legal Studies 2026
+Utah Winter Accounting Conference - Call for Papers
+Utah Winter Business Economics Conference 2027
+UWFC 2027 - Call for Papers
+Verein für Socialpolitik - VfS - Jahrestagung 2027
+Western Finance Association 2027 Annual Meeting
+Western Finance Association 2028 Annual Meeting
+WFEClear 2027, the WFE's Clearing and Derivatives Conference
+Winter Finance Summit in Asia 2027
+WORLD FINANCE CONFERENCE 2027, ATHENS, GREECE
+
+# --- previously tracked ---
 Aarhus Workshop on Strategic Interaction in Corporate Finance
 Accountability in a Sustainable World Conference
-Accounting Research Workshop
 Accounting Summer Camp
 Adam Smith Workshop
 Afaanz Conference
 AI in Finance Conference
-Aim Investment Conference
 Alpine Finance Summit
 American Conference of the Academy of Sustainable Finance, Accounting, Accountability & Governance
 Analyst Research Conference
@@ -176,7 +309,6 @@ Fsu Truist Beach Conference
 Georgia Tech-Atlanta Fed Household Finance Conference
 Global AI Finance Research Conference
 Global Corporate Governance Colloquium
-Global Entrepreneurship and Innovation Research Conference
 Global Finance Conference
 Global Summit of Finance in the Age of AI and Climate Change
 Grasfi Conference
@@ -370,135 +502,3 @@ World Symposium on Investment Research
 Young Finance Scholars Consortium
 Young Scholar'S Finance Consortium
 
-# --- seeded from aggregator sitemap ---
-11. ZEW-Konferenz zur Ökonomik von Innovationen und Patenten
-119th Annual Conference on Taxation - National Tax Association
-11th Northeastern Finance Conference, May 5-7, 2027, Boston
-12th Annual ICGS Conference - Call for Papers
-13th Annual Conference on Risk Governance
-14th ABFER Annual Conference
-16th ITAM Finance Conference, 2027
-17th Transatlantic Workshop on the Economics of Crime
-18th Annual Hedge Fund Research Conference
-2026 Annual Community Bank Research Conference Call for Papers and Outstanding Paper Award (co-sponsored by Federal Reserve Bank/CSBS/FDIC)
-2026 Conference on Real-Time Data Analysis, Methods, and Applications
-2026 Early Career Accounting Scholars Conference joint with Accounting and Business Research
-2026 Econometric Society Australasia Meeting
-2026 Federal Reserve Stress Testing Research Conference: Call for Papers
-2026 Financial Stability Conference Call for Papers
-2026 FMA Annual Meeting
-2026 FMA Asia/Pacific Conference
-2026 HKUST Accounting Research Symposium
-2026 JAE Call for Papers
-2026 North American Meeting of the Economic Science Association ESA
-2026 PHBS-IER Technology & Innovation Conference
-2026 RAST–IASB Conference
-2026 VINS Annual Conference-Call for Papers
-2026 Wharton Conference on Liquidity and Financial Fragility
-2027 AAA Global Connect (Annual Meeting)
-2027 Advancing Leadership and Learning in Accounting Meeting
-2027 Baruch-JFQA Climate Finance and Sustainability Conference
-2027 Columbia/BPI Bank Regulation Research Conference
-2027 CSW Asia Meeting
-2027 EEA-ESEM Congress
-2027 Financial Intermediation Research Society (FIRS) Conference
-2027 FMA Annual Meeting
-2027 Forensic Accounting Section Research Conference
-2027 Government and Nonprofit (GNP) Section Midyear Meeting
-2027 International Accounting Section Midyear Meeting
-2027 International Journal of Accounting Symposium
-2027 JAE Call for Papers
-2027 Joint Midyear Meeting of the AIS and SET Sections
-2027 Journal of Accounting Research (JAR) Annual Conference
-2027 Loyola Wealth Management Conference
-2027 North American Winter Meeting of the Econometric Society
-2028 FMA Annual Meeting
-2029 FMA Annual Meeting
-22nd Annual Olin Finance Conference at WashU
-22nd European Winter Finance Summit
-27th Symposium on Auditing Research and 7th Illinois Audit Doctoral Consortium
-31st EAERE Annual Conference
-35th Asian-Pacific Conference on International Accounting Issues
-36th Annual Conference on Financial Economics and Accounting (CFEA)
-36th Annual Utah Winter Finance Conference
-39th Annual American Taxation Association (ATA) Midyear Meeting
-3rd AI in Finance Conference
-3rd ESSEC Financial Accounting Symposium
-3rd LSU Finance Mardi Gras Conference
-41st Annual Contemporary Accounting Research (CAR) Conference / Appel à communications - 41e colloque annuel Recherche comptable contemporaine (RCC)
-42nd Annual Contemporary Accounting Research (CAR) Conference
-45th Columbia Burton Accounting Conference - Paper Submission
-48th IAEE International Conference - International Association for Energy Economics
-54th EFA Annual Meeting 2027
-68th NABE Annual Meeting -Global Structural Reset: AI, Demographics, and Geopolitics
-6th Conference on Corporate Policies and Asset Prices (COAP)
-71st Annual Conference of AARES - Australasian Agricultural and Resource Economics Society
-74th Meeting of the EURO Working Group for Commodities and Financial Modelling (EWGCFM)
-7th Annual RCF-ECGI Corporate Finance and Governance Conference
-7th CEAR-RSI Household Finance Workshop
-91st Annual Meetings of the Midwest Economics Association
-[CBER] Tokenomics 2026
-AAA ABO Research Conference 2026
-AAA FARS Midyear Meeting 2027
-AAA Global Connect 2028 (Annual Meeting)
-AAA MAS Midyear Meeting 2027
-Adam Smith Workshop Spring 2027
-AEA/ASSA 2028 Annual Meeting
-Asian Economic Development Conference 2027
-ASSA 2027 Annual Meeting of the American Economic Association
-ASSA/AEA Annual Meeting 2029
-ASU Sonoran Winter Finance Conference 2027
-Bank of Finland and CEPR Joint conference on Navigating Monetary Policy by the Northern Lights
-Call for Paper - 14th Annual Conference on Financial Market Regulation (CFMR 2027)
-CESifo Area Conference on Behavioral Economics 2026
-Colorado Finance Summit 2026 - Call for Papers
-Conference on Macroeconomic Policy
-CSAE Conference 2027: Economic Development in Africa
-EBA's 15th Policy Research Workshop: Efficient and proportionate regulation for a competitive financial sector
-ECB Money Market Conference 2026
-Eighteenth ISB Accounting Research Conference
-European Accounting Review 2027 Annual Conference
-European Financial Management Association 2027 Annual Meeting: Call for Papers
-European Winter Finance Conference 2027: Call for Papers
-European Winter Meeting of the Econometric Society 2026
-Financial Research Association 2026 Annual Conference
-IBEFA Annual Meeting at the 2027 ASSA Conference
-IIMB-CCGS International Corporate Governance & Sustainability Conference 2026
-India Finance Conference (IFC) 2026
-Institute for Quantitative Investment Research Autumn Residential Seminar 2026
-ISPOR Europe 2026 - International Society for Pharmacoeconomics and Outcomes Research
-Jackson Hole Finance Group Conference 2027
-Journal of Accounting, Auditing and Finance (JAAF) Symposium 2026
-Labor & Finance Group Fall 2026 Conference
-LACEA LAMES 2026 Annual Conference
-Last reminder: Call for papers - EUROFIDAI-ESSEC Paris December Finance Meeting
-MIT GCFP 13th Annual Conference
-NBER Summer Institute 2027
-New Ideas Sessions at the 2026 FMA Annual Meeting
-New York Fed-ECB Conference on Nonbank Financial Institutions 2026
-Private Equity Research Consortium (PERC) Symposium
-Royal Economic Society 2027 Annual Conference
-SFS Cavalcade Asia-Pacific 2026
-SFS Cavalcade North America 2027
-SFS Cavalcade North America 2028
-SFS Cavalcade North America 2029
-SGF Conference 2027
-Society for Economic Dynamics (SED) 2027 Annual Meeting
-Society of Labor Economists (SOLE) 2027 Annual Meeting
-Society of Labor Economists (SOLE) 2028 Annual Meeting
-Society of Labor Economists (SOLE) 2029 Annual Meeting
-Stigler Center-CEPR Political Economy of Finance Conference 2026: Crony Capitalism in 21st Century America
-The 2026 Sydney Banking and Financial Stability Conference
-The 39th Australasian Finance and Banking Conference, Sydney, Australia, 10 to 12 December
-the Seventh Joint BoC–ECB–New York Fed - Banxico Conference on Expectations Surveys: Expectations Measurement in Advanced and Emerging Economies
-The Sixth Biennial Conference on Auto Lending: Call for Papers
-Twentieth Annual Conference on Empirical Legal Studies 2026
-Utah Winter Accounting Conference - Call for Papers
-Utah Winter Business Economics Conference 2027
-UWFC 2027 - Call for Papers
-Verein für Socialpolitik - VfS - Jahrestagung 2027
-Western Finance Association 2027 Annual Meeting
-Western Finance Association 2028 Annual Meeting
-WFEClear 2027, the WFE's Clearing and Derivatives Conference
-Winter Finance Summit in Asia 2027
-WORLD FINANCE CONFERENCE 2027, ATHENS, GREECE

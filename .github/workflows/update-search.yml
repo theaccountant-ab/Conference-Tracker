@@ -9,12 +9,18 @@ name: Update conferences (web search)
 # conferences.csv. This is a replacement path for the SSRN announcement emails,
 # which SSRN is retiring at the end of 2026.
 #
-# Manual trigger only: each run first narrows watchlist.txt to the conferences
-# that are *due* — those without an upcoming edition already on file — then
-# web-searches just those. Because it shares the free-tier GEMINI_API_KEY with
-# the daily job, it is left as workflow_dispatch; add a `schedule:` block below
-# once you are comfortable with the quota usage.
+# Each run first narrows watchlist.txt to the conferences that are *due* —
+# those without an upcoming edition already on file — then web-searches just
+# those. It shares the free-tier GEMINI_API_KEY with the daily job, so the
+# daily quota caps how many are researched per run; a large watchlist is worked
+# through over successive days. Also runnable on demand via workflow_dispatch.
 on:
+  # Daily, a few hours after the email job (update.yml, 06:00 UTC) so the two
+  # don't contend for the shared Gemini free-tier quota at the same instant.
+  # Each run narrows to conferences not yet on file and researches up to the
+  # daily quota, so a large watchlist is worked through over successive days.
+  schedule:
+    - cron: "0 10 * * *" # 10:00 UTC daily
   workflow_dispatch:
     inputs:
       file:

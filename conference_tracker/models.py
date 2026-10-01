@@ -14,6 +14,23 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 
 
+# Opaque search-grounding redirect links (and other non-addresses) that must
+# never be stored as a conference's contact URL.
+_JUNK_URL = re.compile(
+    r"(?:^|//)(?:[\w.-]*\.)?(?:vertexaisearch\.cloud\.google\.com"
+    r"|google\.com/url\?|grounding-api-redirect)",
+    re.I,
+)
+
+
+def _clean_contact_url(url: Optional[str]) -> str:
+    """Return the URL unless it is an opaque grounding-redirect link, else ''."""
+    u = (url or "").strip()
+    if not u or _JUNK_URL.search(u) or "grounding-api-redirect" in u.lower():
+        return ""
+    return u
+
+
 # Edition ordinals ("39th", "7th", "2nd") and standalone years ("2026"),
 # optionally with a leading separator so "FEM-2026" -> "FEM" and "(CFP-2026)"
 # -> "(CFP)". Stripping these keeps a recurring conference's name stable from
@@ -218,7 +235,15 @@ class Conference:
     def from_extracted(
         cls, extracted: ExtractedConference, source: str = ""
     ) -> "Conference":
-        contact = extracted.url or extracted.submission_email or ""
+        """Build a persisted record from an extraction result.
+
+        The web-search source grounds its answers with Google Search, and the
+        model sometimes returns the opaque Vertex grounding-redirect URL
+        (``vertexaisearch.cloud.google.com/grounding-api-redirect/...``) instead
+        of the real homepage. Those are useless as links, so they are dropped in
+        favour of a submission email (or left blank).
+        """
+        contact = _clean_contact_url(extracted.url) or extracted.submission_email or ""
         return cls(
             name=standardize_conference_name(extracted.name.strip()),
             contact=contact.strip(),
