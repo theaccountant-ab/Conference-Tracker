@@ -196,7 +196,7 @@ def main(argv: List[str]) -> int:
     existing = _existing_keys(args.out, args.csv)
     tier_counts: Counter = Counter()
     kept: Dict[str, str] = {}
-    dropped = 0
+    excluded: List[str] = []
     samples: List[str] = []
     failures = 0
 
@@ -214,10 +214,10 @@ def main(argv: List[str]) -> int:
         if not name:
             continue
         if args.exclude_tier and tier == args.exclude_tier:
-            dropped += 1
+            excluded.append(f"[tier {tier}] {name}")
             continue
         if tier == "unranked" and args.exclude_unranked:
-            dropped += 1
+            excluded.append(f"[unranked] {name}")
             continue
         key = normalize_name(name)
         if not key or key in existing or key in kept:
@@ -227,12 +227,18 @@ def main(argv: List[str]) -> int:
     print("\n=== harvest summary ===")
     print(f"Pages parsed:       {sum(tier_counts.values())} (failures: {failures})")
     print(f"Tier distribution:  {dict(tier_counts)}")
-    print(f"Dropped (excluded): {dropped}")
+    print(f"Dropped (excluded): {len(excluded)}")
     print(f"New names to seed:   {len(kept)} (not already tracked)")
     print("\nSample parses (tier | name | url):")
     print("\n".join(samples))
 
     if args.dry_run:
+        print(f"\n--- excluded venues ({len(excluded)}) ---")
+        for line in sorted(excluded, key=str.lower):
+            print(f"  {line}")
+        print(f"\n--- names that would be seeded ({len(kept)}) ---")
+        for name in sorted(kept.values(), key=str.lower):
+            print(f"  {name}")
         print("\n[dry-run] Nothing written. Re-run without --dry-run to append.")
         return 0
     if not kept:
