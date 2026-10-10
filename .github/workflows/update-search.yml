@@ -31,6 +31,10 @@ on:
         description: "Search the whole watchlist, not just the lapsed subset."
         required: false
         default: "false"
+      limit:
+        description: "Max names to research this run (each uses ~2 of the 20 free daily Gemini requests)."
+        required: false
+        default: "8"
 
 # Avoid colliding with the other jobs if two try to write conferences.csv at once.
 concurrency:
@@ -56,11 +60,16 @@ jobs:
         env:
           WATCHLIST: ${{ github.event.inputs.file || 'watchlist.txt' }}
           SEARCH_ALL: ${{ github.event.inputs.all || 'false' }}
+          LIMIT: ${{ github.event.inputs.limit || '8' }}
         run: |
+          # Rotate through the whole watchlist: never-searched and
+          # longest-ago-searched names first (tracked in search_state.csv),
+          # capped to what the free daily Gemini quota can cover.
           if [ "$SEARCH_ALL" = "true" ]; then
             cp "$WATCHLIST" due.txt
           else
-            python scripts/due_watchlist.py "$WATCHLIST" conferences.csv > due.txt
+            python scripts/due_watchlist.py "$WATCHLIST" conferences.csv \
+              --state search_state.csv --limit "$LIMIT" > due.txt
           fi
           echo "Due conferences to search: $(grep -c . due.txt || echo 0)"
 
@@ -81,7 +90,7 @@ jobs:
           git config user.email "actions@github.com"
           # Re-sync in case another job pushed while this run was searching.
           git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
-          git add conferences.csv docs/index.html
+          git add conferences.csv docs/index.html search_state.csv
           if ! git diff --cached --quiet; then
             git commit -m "Update conferences via web search ($(date -u +%Y-%m-%d))"
             git push

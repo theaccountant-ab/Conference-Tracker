@@ -47,8 +47,10 @@ def render_html(
     title: str = "Conference Tracker",
     ga_measurement_id: str = "",
 ) -> str:
-    # Only surface conferences that are still actionable — hide ended ones.
-    visible = [c for c in conferences if c.status != ENDED]
+    # Only list open calls for papers: anything whose submission deadline has
+    # passed (Participation, Ended) or is unknown stays in the data but is not
+    # shown.
+    visible = [c for c in conferences if c.status == SUBMISSION]
     rows = sorted(visible, key=_sort_key)
     data = [{k: getattr(c, k) for k in CSV_FIELDS} for c in rows]
     # Escaping for safe inlining inside a <script> tag.
@@ -120,14 +122,9 @@ __GA__
 <body>
 <div class="wrap">
   <h1>__TITLE__</h1>
-  <div class="sub">Updated daily &middot; last built __GENERATED__</div>
+  <div class="sub">Open calls for papers &middot; updated daily &middot; last built __GENERATED__</div>
   <div class="controls">
     <input id="q" type="search" placeholder="Search name or location…" aria-label="Search">
-    <div class="filters" id="filters">
-      <button data-f="all" class="active">All</button>
-      <button data-f="Submission">Submission</button>
-      <button data-f="Participation">Participation</button>
-    </div>
   </div>
   <p class="count" id="count"></p>
   <table>
@@ -294,12 +291,6 @@ function render(){
 
 document.getElementById("q").addEventListener("input", e=>{
   query=e.target.value.trim().toLowerCase(); render(); });
-document.getElementById("filters").addEventListener("click", e=>{
-  if (e.target.tagName!=="BUTTON") return;
-  filter=e.target.dataset.f;
-  for (const b of e.target.parentNode.children) b.classList.toggle("active", b===e.target);
-  render();
-});
 document.querySelectorAll("th").forEach(th=>th.addEventListener("click", ()=>{
   const k=th.dataset.k;
   sortDir = (sortKey===k) ? -sortDir : 1; sortKey=k;

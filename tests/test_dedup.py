@@ -158,3 +158,82 @@ def test_distinct_conferences_stay_separate():
         assert len(store.load()) == 2
     finally:
         os.path.exists(path) and os.unlink(path)
+
+
+def test_from_extracted_rejects_non_date_values():
+    # A model that leaks stray output into a date field must not have it stored.
+    c = Conference.from_extracted(
+        ExtractedConference(
+            name="IBEFA Annual Meeting",
+            start_date="2027-01-03",
+            end_date="2027-01-05}]}``` </div> </body> </html>",
+            submission_deadline="sometime in spring",
+        )
+    )
+    assert c.start_date == "2027-01-03"
+    assert c.end_date == ""
+    assert c.submission_deadline == ""
+
+
+def test_from_extracted_unwraps_outlook_safelinks():
+    wrapped = (
+        "https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2F"
+        "afajof.org%2Fconference-calendar%2F&data=05%7C02%7Cperson%40example.edu"
+        "&reserved=0"
+    )
+    c = Conference.from_extracted(ExtractedConference(name="X Conf", url=wrapped))
+    assert c.contact == "https://afajof.org/conference-calendar/"
+    assert "example.edu" not in c.contact
+
+
+def _wfa(start, end, dl="", loc="", contact="https://westernfinance.org/conference/"):
+    return Conference(
+        name="Western Finance Association Annual Meeting",
+        contact=contact, location=loc, submission_deadline=dl,
+        start_date=start, end_date=end, source="test",
+    )
+
+
+def test_upsert_new_year_is_a_new_row_not_an_overwrite():
+    store, path = _store()
+    try:
+        store.save([_wfa("2020-06-19", "2020-06-22", "2019-11-18", "San Francisco, CA"),
+                    _wfa("2026-06-21", "2026-06-24", "2025-11-18", "Denver, CO")])
+        added, updated = store.upsert(
+            [_wfa("2027-06-27", "2027-06-30", "2026-11-18", "Indian Wells, CA")]
+        )
+        assert (added, updated) == (1, 0)
+        starts = sorted(r.start_date for r in store.load())
+        assert starts == ["2020-06-19", "2026-06-21", "2027-06-27"]
+        old = [r for r in store.load() if r.start_date == "2020-06-19"][0]
+        assert old.location == "San Francisco, CA"  # past edition untouched
+    finally:
+        os.path.exists(path) and os.unlink(path)
+
+
+def test_upsert_same_edition_merges_including_small_date_fix():
+    store, path = _store()
+    try:
+        store.save([_wfa("2027-06-27", "2027-06-30", "", "Indian Wells, CA")])
+        # Deadline arrives later, with a one-day date correction.
+        added, updated = store.upsert([_wfa("2027-06-28", "2027-06-30", "2026-11-18")])
+        assert (added, updated) == (0, 1)
+        rows = store.load()
+        assert len(rows) == 1
+        assert rows[0].submission_deadline == "2026-11-18"
+        assert rows[0].location == "Indian Wells, CA"
+    finally:
+        os.path.exists(path) and os.unlink(path)
+
+
+def test_upsert_undated_update_goes_to_latest_edition():
+    store, path = _store()
+    try:
+        store.save([_wfa("2020-06-19", "2020-06-22", "2019-11-18", "San Francisco, CA"),
+                    _wfa("2027-06-27", "2027-06-30", "", "Indian Wells, CA")])
+        store.upsert([_wfa("", "", "2026-11-18")])
+        by_start = {r.start_date: r for r in store.load()}
+        assert by_start["2027-06-27"].submission_deadline == "2026-11-18"
+        assert by_start["2020-06-19"].submission_deadline == "2019-11-18"
+    finally:
+        os.path.exists(path) and os.unlink(path)

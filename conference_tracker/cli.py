@@ -41,8 +41,11 @@ def run_source(config: Config, source: Source) -> int:
     client = _client(config)
     store = CSVStore(config.csv_path)
 
+    from .sources.search_source import is_quota_error
+
     found: List[Conference] = []
     n_docs = 0
+    skipped = 0
     for doc in source.iter_documents():
         n_docs += 1
         try:
@@ -52,6 +55,9 @@ def run_source(config: Config, source: Source) -> int:
             # Leave the document unprocessed (e.g. email stays unread) so the
             # next run retries it instead of silently dropping it.
             print(f"  ! extraction failed for {doc.origin}: {exc}")
+            if is_quota_error(exc):
+                print("  ! quota exhausted; stopping this run.")
+                break
             continue
         # Processed successfully — let the source finalize (mark email read).
         if doc.on_success is not None:
@@ -61,13 +67,20 @@ def run_source(config: Config, source: Source) -> int:
             continue
         for item in extracted:
             conf = Conference.from_extracted(item, source=doc.origin)
+            # Only keep records the site can actually use: every listed
+            # conference must have a location and a submission deadline.
+            if not conf.location.strip() or not conf.submission_deadline.strip():
+                print(f"  - {doc.origin}: {conf.name} (skipped: no location/deadline)")
+                skipped += 1
+                continue
             print(f"  + {doc.origin}: {conf.name}")
             found.append(conf)
 
     added, updated = store.upsert(found)
     print(
         f"\nProcessed {n_docs} document(s): "
-        f"{added} added, {updated} updated, {len(found)} conference(s) extracted."
+        f"{added} added, {updated} updated, {len(found)} conference(s) extracted, "
+        f"{skipped} skipped for missing location/deadline."
     )
     return 0
 
@@ -90,10 +103,27 @@ def cmd_update_urls(config: Config, args: argparse.Namespace) -> int:
 def cmd_update_search(config: Config, args: argparse.Namespace) -> int:
     from .sources.search_source import SearchSource, read_name_list
 
+    import os
+    from datetime import date
+
+    from .sources.search_source import load_search_state, save_search_state
+
     names = read_name_list(args.file)
     print(f"Web-searching {len(names)} conference name(s) ...")
     client = _client(config)
-    return run_source(config, SearchSource(client, config.model, names))
+    source = SearchSource(client, config.model, names)
+    rc = run_source(config, source)
+
+    # Record which names were fully searched today so the next run rotates on
+    # to names that haven't been looked at recently.
+    state_path = os.path.join(os.path.dirname(config.csv_path) or ".", "search_state.csv")
+    state = load_search_state(state_path)
+    today = date.today().isoformat()
+    for name in source.searched:
+        state[name] = today
+    save_search_state(state_path, state)
+    print(f"Recorded {len(source.searched)} searched name(s) in {state_path}.")
+    return rc
 
 
 def cmd_update_tally(config: Config, args: argparse.Namespace) -> int:
@@ -144,7 +174,10 @@ def cmd_build_site(config: Config, args: argparse.Namespace) -> int:
         os.makedirs(parent, exist_ok=True)
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(html)
-    print(f"Wrote {out} ({len(rows)} conference(s)).")
+    from .status import SUBMISSION
+
+    shown = sum(1 for c in rows if c.status == SUBMISSION)
+    print(f"Wrote {out} ({shown} open call(s) for papers shown of {len(rows)} on file).")
     return 0
 
 
