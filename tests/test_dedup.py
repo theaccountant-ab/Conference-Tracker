@@ -158,3 +158,29 @@ def test_distinct_conferences_stay_separate():
         assert len(store.load()) == 2
     finally:
         os.path.exists(path) and os.unlink(path)
+
+
+def test_from_extracted_rejects_non_date_values():
+    # A model that leaks stray output into a date field must not have it stored.
+    c = Conference.from_extracted(
+        ExtractedConference(
+            name="IBEFA Annual Meeting",
+            start_date="2027-01-03",
+            end_date="2027-01-05}]}``` </div> </body> </html>",
+            submission_deadline="sometime in spring",
+        )
+    )
+    assert c.start_date == "2027-01-03"
+    assert c.end_date == ""
+    assert c.submission_deadline == ""
+
+
+def test_from_extracted_unwraps_outlook_safelinks():
+    wrapped = (
+        "https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2F"
+        "afajof.org%2Fconference-calendar%2F&data=05%7C02%7Cperson%40example.edu"
+        "&reserved=0"
+    )
+    c = Conference.from_extracted(ExtractedConference(name="X Conf", url=wrapped))
+    assert c.contact == "https://afajof.org/conference-calendar/"
+    assert "example.edu" not in c.contact

@@ -10,6 +10,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional
+from urllib.parse import parse_qs, urlparse
 
 from pydantic import BaseModel, Field
 
@@ -23,12 +24,36 @@ _JUNK_URL = re.compile(
 )
 
 
+_SAFELINK = re.compile(r"^https?://[\w.-]*safelinks\.protection\.outlook\.com/", re.I)
+
+
 def _clean_contact_url(url: Optional[str]) -> str:
-    """Return the URL unless it is an opaque grounding-redirect link, else ''."""
+    """Return a usable contact URL, or '' if it is junk.
+
+    Outlook "safelinks" wrappers are unwrapped to the real target (they also
+    embed the recipient's email address, which must not be published), and
+    opaque search-grounding redirect links are dropped.
+    """
     u = (url or "").strip()
+    if _SAFELINK.match(u):
+        target = parse_qs(urlparse(u).query).get("url", [""])[0]
+        u = target.strip()
     if not u or _JUNK_URL.search(u) or "grounding-api-redirect" in u.lower():
         return ""
     return u
+
+
+_ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def _clean_date(value: Optional[str]) -> str:
+    """Return the value if it is a YYYY-MM-DD date, else ''.
+
+    Guards against the model leaking stray output (markup, JSON fragments)
+    into a date field, which would otherwise be written to the CSV verbatim.
+    """
+    v = (value or "").strip()
+    return v if _ISO_DATE.match(v) else ""
 
 
 # Edition ordinals ("39th", "7th", "2nd") and standalone years ("2026"),
@@ -248,8 +273,8 @@ class Conference:
             name=standardize_conference_name(extracted.name.strip()),
             contact=contact.strip(),
             location=(extracted.location or "").strip(),
-            submission_deadline=(extracted.submission_deadline or "").strip(),
-            start_date=(extracted.start_date or "").strip(),
-            end_date=(extracted.end_date or "").strip(),
+            submission_deadline=_clean_date(extracted.submission_deadline),
+            start_date=_clean_date(extracted.start_date),
+            end_date=_clean_date(extracted.end_date),
             source=source,
         )
