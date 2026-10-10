@@ -40,7 +40,7 @@ def test_name_covered_by_upcoming_row_from_its_own_search():
     assert due_names(wl, csvp, {}, today=date(2026, 10, 10)) == ["Other Conf"]
 
 
-def test_site_lists_only_open_calls_for_papers():
+def test_site_defaults_to_open_cfps_with_participation_toggle():
     html = render_html([
         Conference(name="Open CFP", location="X", submission_deadline="2026-11-01",
                    status="Submission", start_date="2027-01-01", end_date="2027-01-02"),
@@ -49,5 +49,24 @@ def test_site_lists_only_open_calls_for_papers():
         Conference(name="Past Conf", location="X", submission_deadline="2025-09-01",
                    status="Ended", start_date="2026-01-01", end_date="2026-01-02"),
     ])
-    assert "Open CFP" in html
-    assert "Closed CFP" not in html and "Past Conf" not in html
+    # Open and closed-but-upcoming conferences are published; past ones are not.
+    assert "Open CFP" in html and "Closed CFP" in html
+    assert "Past Conf" not in html
+    # The page opens on open calls for papers, with a button for the others.
+    assert 'let filter = "Submission"' in html
+    assert 'data-f="Submission" class="active"' in html
+    assert 'data-f="Participation"' in html
+
+
+def test_participation_rows_are_ordered_by_conference_date():
+    import json
+    import re
+
+    html = render_html([
+        Conference(name="Late Conf", location="X", submission_deadline="2026-03-01",
+                   status="Participation", start_date="2026-11-18", end_date="2026-11-21"),
+        Conference(name="Soon Conf", location="X", submission_deadline="2026-06-01",
+                   status="Participation", start_date="2026-10-14", end_date="2026-10-16"),
+    ])
+    data = json.loads(re.search(r"const DATA = (\[.*?\]);", html, re.S).group(1))
+    assert [d["name"] for d in data] == ["Soon Conf", "Late Conf"]
