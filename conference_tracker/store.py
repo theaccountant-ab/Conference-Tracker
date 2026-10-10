@@ -108,19 +108,74 @@ class CSVStore:
             changed = True
         return changed
 
+    # Two start dates this close together are treated as the same edition (a
+    # date correction or a one-day shift), not two different years.
+    SAME_EDITION_DAYS = 120
+
+    @staticmethod
+    def _days_apart(a: str, b: str) -> Optional[int]:
+        try:
+            da = datetime.strptime(a.strip(), "%Y-%m-%d")
+            db = datetime.strptime(b.strip(), "%Y-%m-%d")
+        except ValueError:
+            return None
+        return abs((da - db).days)
+
+    def _pick_edition(
+        self, candidates: List[Conference], incoming: Conference
+    ) -> Optional[Conference]:
+        """Choose which existing row (if any) is the same edition as ``incoming``.
+
+        Rows for a recurring conference share a name and often a link, so a
+        name/contact match alone is not enough: merging a new year into an old
+        row would overwrite that past edition. Rules:
+
+        - incoming has a start date: merge into the row with the closest start
+          date within ``SAME_EDITION_DAYS``, else into a row with no start date
+          yet; otherwise it is a new edition (no match).
+        - incoming has no start date: it describes the current edition, so
+          merge into the most recent one (latest start date).
+        """
+        if not candidates:
+            return None
+        start = (incoming.start_date or "").strip()
+        if start:
+            best, best_gap = None, None
+            for c in candidates:
+                gap = self._days_apart(start, c.start_date or "")
+                if gap is not None and gap <= self.SAME_EDITION_DAYS and (
+                    best_gap is None or gap < best_gap
+                ):
+                    best, best_gap = c, gap
+            if best is not None:
+                return best
+            undated = [c for c in candidates if not (c.start_date or "").strip()]
+            return undated[0] if undated else None
+        return max(candidates, key=lambda c: (c.start_date or ""))
+
     def upsert(self, incoming: Iterable[Conference]) -> Tuple[int, int]:
-        """Insert new conferences or merge into existing ones.
+        """Insert new conferences or merge into the matching edition.
+
+        A row is a candidate when it shares the normalized name or the
+        normalized contact link with the incoming record; ``_pick_edition``
+        then decides whether it is the same edition or a new one.
 
         Returns ``(added, updated)`` counts.
         """
         existing = self.load()
-        by_name: Dict[str, Conference] = {}
-        by_contact: Dict[str, Conference] = {}
-        for c in existing:
-            by_name.setdefault(normalize_name(c.name), c)
+        by_name: Dict[str, List[Conference]] = {}
+        by_contact: Dict[str, List[Conference]] = {}
+
+        def register(c: Conference) -> None:
+            k = normalize_name(c.name)
+            if k and not any(x is c for x in by_name.setdefault(k, [])):
+                by_name[k].append(c)
             ck = normalize_contact(c.contact)
-            if ck:
-                by_contact.setdefault(ck, c)
+            if ck and not any(x is c for x in by_contact.setdefault(ck, [])):
+                by_contact[ck].append(c)
+
+        for c in existing:
+            register(c)
 
         added = 0
         updated = 0
@@ -128,25 +183,24 @@ class CSVStore:
             key = normalize_name(conf.name)
             if not key:
                 continue
-            # Match on the name first, then fall back to the (more stable)
-            # submission URL / email so the same conference under a slightly
-            # different name still merges instead of duplicating.
+            # Match on the name, and also on the (more stable) submission URL /
+            # email so the same conference under a slightly different name
+            # still merges instead of duplicating.
             ckey = normalize_contact(conf.contact)
-            match = by_name.get(key) or (by_contact.get(ckey) if ckey else None)
+            candidates: List[Conference] = []
+            for c in by_name.get(key, []) + (by_contact.get(ckey, []) if ckey else []):
+                if not any(x is c for x in candidates):
+                    candidates.append(c)
+            match = self._pick_edition(candidates, conf)
             if match is not None:
                 if self._merge(match, conf):
                     match.last_updated = _now()
                     updated += 1
-                # Register any new keys this record now answers to.
-                by_name.setdefault(normalize_name(match.name), match)
-                if normalize_contact(match.contact):
-                    by_contact.setdefault(normalize_contact(match.contact), match)
+                register(match)
             else:
                 conf.last_updated = _now()
-                by_name[key] = conf
-                if ckey:
-                    by_contact.setdefault(ckey, conf)
                 existing.append(conf)
+                register(conf)
                 added += 1
 
         self.save(existing)
