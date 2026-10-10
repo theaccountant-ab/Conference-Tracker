@@ -174,10 +174,14 @@ def cmd_build_site(config: Config, args: argparse.Namespace) -> int:
         os.makedirs(parent, exist_ok=True)
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(html)
-    from .status import SUBMISSION
+    from .status import PARTICIPATION, SUBMISSION
 
-    shown = sum(1 for c in rows if c.status == SUBMISSION)
-    print(f"Wrote {out} ({shown} open call(s) for papers shown of {len(rows)} on file).")
+    n_sub = sum(1 for c in rows if c.status == SUBMISSION)
+    n_part = sum(1 for c in rows if c.status == PARTICIPATION)
+    print(
+        f"Wrote {out} ({n_sub} open call(s) for papers + {n_part} upcoming with "
+        f"submissions closed, of {len(rows)} on file)."
+    )
     return 0
 
 
