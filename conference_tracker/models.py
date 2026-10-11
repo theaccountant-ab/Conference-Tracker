@@ -27,12 +27,18 @@ _JUNK_URL = re.compile(
 _SAFELINK = re.compile(r"^https?://[\w.-]*safelinks\.protection\.outlook\.com/", re.I)
 
 
+# A bare web address with no scheme, e.g. "www.fma.org/Tampa" or
+# "ecfc.business-school.ed.ac.uk".
+_BARE_DOMAIN = re.compile(r"^(?:www\.)?[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}(?:[/?#]\S*)?$", re.I)
+
+
 def _clean_contact_url(url: Optional[str]) -> str:
     """Return a usable contact URL, or '' if it is junk.
 
     Outlook "safelinks" wrappers are unwrapped to the real target (they also
     embed the recipient's email address, which must not be published), and
-    opaque search-grounding redirect links are dropped.
+    opaque search-grounding redirect links are dropped. A bare web address
+    without a scheme gets "https://" so the site renders it as a link.
     """
     u = (url or "").strip()
     if _SAFELINK.match(u):
@@ -40,6 +46,8 @@ def _clean_contact_url(url: Optional[str]) -> str:
         u = target.strip()
     if not u or _JUNK_URL.search(u) or "grounding-api-redirect" in u.lower():
         return ""
+    if "@" not in u and "://" not in u and _BARE_DOMAIN.match(u):
+        u = "https://" + u
     return u
 
 

@@ -237,3 +237,26 @@ def test_upsert_undated_update_goes_to_latest_edition():
         assert by_start["2020-06-19"].submission_deadline == "2019-11-18"
     finally:
         os.path.exists(path) and os.unlink(path)
+
+
+def test_bare_web_address_gets_https():
+    c = Conference.from_extracted(ExtractedConference(name="X Conf", url="www.fma.org/Tampa"))
+    assert c.contact == "https://www.fma.org/Tampa"
+    e = Conference.from_extracted(ExtractedConference(name="Y Conf", url="cfp@x.org"))
+    assert e.contact == "cfp@x.org"
+
+
+def test_merge_keeps_web_link_over_email():
+    store, path = _store()
+    try:
+        store.save([Conference(name="HKUST Accounting Research Symposium",
+                               contact="https://acct.hkust.edu.hk/symposium",
+                               location="Hong Kong", submission_deadline="2026-09-15",
+                               start_date="2026-12-14", end_date="2026-12-15")])
+        store.upsert([Conference(name="HKUST Accounting Research Symposium",
+                                 contact="acconf@ust.hk", location="Hong Kong",
+                                 submission_deadline="2026-09-15",
+                                 start_date="2026-12-14", end_date="2026-12-15")])
+        assert store.load()[0].contact == "https://acct.hkust.edu.hk/symposium"
+    finally:
+        os.path.exists(path) and os.unlink(path)

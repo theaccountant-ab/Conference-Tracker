@@ -52,3 +52,23 @@ def test_run_source_skips_incomplete_rows_and_stops_on_quota(monkeypatch):
     assert names == ["Good Conf"]                 # incomplete row not written
     assert "never-reached" not in calls           # run stopped at the quota error
     assert src.done == ["complete", "incomplete"]  # quota doc not marked done
+
+
+def test_run_source_skips_deadline_that_does_not_fit_dates(monkeypatch):
+    def fake_extract(client, model, text):
+        return [
+            # Deadline after the conference: mixed-up years -> skipped.
+            ExtractedConference(name="ESA Meeting", location="Charlottesville, VA",
+                                submission_deadline="2027-08-03",
+                                start_date="2026-10-29", end_date="2026-11-01"),
+            ExtractedConference(name="Fine Conf", location="Boston, MA",
+                                submission_deadline="2026-08-03",
+                                start_date="2026-10-29", end_date="2026-11-01"),
+        ]
+
+    monkeypatch.setattr(extractor, "extract_conferences", fake_extract)
+    monkeypatch.setattr(cli, "_client", lambda config: None)
+    d = tempfile.mkdtemp()
+    cfg = Config(csv_path=os.path.join(d, "c.csv"))
+    assert cli.run_source(cfg, _Src(["doc"])) == 0
+    assert [r.name for r in CSVStore(cfg.csv_path).load()] == ["Fine Conf"]

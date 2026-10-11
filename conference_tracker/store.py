@@ -53,6 +53,10 @@ def normalize_contact(contact: str) -> str:
     return c.rstrip("/")
 
 
+def _is_web(contact: str) -> bool:
+    return (contact or "").strip().lower().startswith(("http://", "https://"))
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -96,6 +100,8 @@ class CSVStore:
         for fieldname in ("contact", "location", "submission_deadline",
                           "start_date", "end_date", "source"):
             new_val = (getattr(incoming, fieldname) or "").strip()
+            if fieldname == "contact" and _is_web(existing.contact) and not _is_web(new_val):
+                continue  # a web page is a better link than a bare email address
             if new_val and new_val != getattr(existing, fieldname):
                 setattr(existing, fieldname, new_val)
                 changed = True
