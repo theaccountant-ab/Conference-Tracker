@@ -40,7 +40,7 @@ def test_name_covered_by_upcoming_row_from_its_own_search():
     assert due_names(wl, csvp, {}, today=date(2026, 10, 10)) == ["Other Conf"]
 
 
-def test_site_defaults_to_open_cfps_with_participation_toggle():
+def test_site_shows_one_list_with_all_submission_participation_filters():
     html = render_html([
         Conference(name="Open CFP", location="X", submission_deadline="2026-11-01",
                    status="Submission", start_date="2027-01-01", end_date="2027-01-02"),
@@ -52,10 +52,10 @@ def test_site_defaults_to_open_cfps_with_participation_toggle():
     # Open and closed-but-upcoming conferences are published; past ones are not.
     assert "Open CFP" in html and "Closed CFP" in html
     assert "Past Conf" not in html
-    # The page opens on open calls for papers, with a button for the others.
-    assert 'let filter = "Submission"' in html
-    assert 'data-f="Submission" class="active"' in html
-    assert 'data-f="Participation"' in html
+    # One combined list by default, with buttons to narrow it.
+    assert 'let filter = "all"' in html
+    assert 'data-f="all" class="active"' in html
+    assert 'data-f="Submission"' in html and 'data-f="Participation"' in html
 
 
 def test_participation_rows_are_ordered_by_conference_date():
