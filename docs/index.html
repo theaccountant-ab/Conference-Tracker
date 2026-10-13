@@ -106,11 +106,25 @@ function ymd(d){ return "" + d.getUTCFullYear() + pad(d.getUTCMonth()+1) + pad(d
 function iso(d){ return d.getUTCFullYear() + "-" + pad(d.getUTCMonth()+1) + "-" + pad(d.getUTCDate()); }
 
 // Whole days from today (UTC) until the given ISO date; null if unparseable.
+// "Today" is the date Anywhere on Earth (UTC-12), the convention most calls
+// for papers use: a deadline day lasts until it has ended everywhere.
+function aoeToday(){
+  const n = new Date(Date.now() - 12 * 3600 * 1000);
+  return Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate());
+}
 function daysUntil(s){
   const d = parseDay(s); if (!d) return null;
-  const n = new Date();
-  const today = Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate());
-  return Math.round((d.getTime() - today) / 86400000);
+  return Math.round((d.getTime() - aoeToday()) / 86400000);
+}
+// Status as of right now. The page is rebuilt daily, so a deadline or a
+// conference can pass between rebuilds; recompute in the browser so a row
+// leaves the open list the moment its deadline day has ended everywhere.
+function liveStatus(r){
+  const endLeft = daysUntil(r.end_date || r.start_date);
+  if (endLeft !== null && endLeft < 0) return "Ended";
+  if (r.status === "Submission" && daysUntil(r.submission_deadline) < 0)
+    return "Participation";
+  return r.status;
 }
 // Natural-language countdown — intentionally distinct from a raw "N days left".
 function countdownPhrase(days){
@@ -145,7 +159,7 @@ function calEvent(title, start, end, location, details){
 function calendarLinks(row){
   const details = isUrl(row.contact) ? row.contact : "";
   const deadline = parseDay(row.submission_deadline);
-  const cfpOpen = row.status === "Submission" && deadline
+  const cfpOpen = liveStatus(row) === "Submission" && deadline
     && daysUntil(row.submission_deadline) >= 0;
   if (cfpOpen){
     const ev = calEvent("Submission deadline — " + (row.name || ""),
@@ -184,7 +198,7 @@ function render(){
   const tbody = document.getElementById("rows");
   tbody.textContent = "";
   let rows = DATA.filter(r => {
-    if (filter !== "all" && r.status !== filter) return false;
+    if (filter !== "all" && liveStatus(r) !== filter) return false;
     if (query) { const h=(r.name+" "+r.location).toLowerCase();
       if (!h.includes(query)) return false; }
     return true;
@@ -209,7 +223,8 @@ function render(){
       }
       tr.appendChild(c3);
     const c4=document.createElement("td"); const b=document.createElement("span");
-      b.className="badge b-"+(r.status||"Unknown"); b.textContent=r.status||"Unknown";
+      const st=liveStatus(r)||"Unknown";
+      b.className="badge b-"+st; b.textContent=st;
       c4.appendChild(b); tr.appendChild(c4);
     const c5=document.createElement("td"); c5.className="nowrap";
       c5.textContent=r.start_date||"—"; tr.appendChild(c5);

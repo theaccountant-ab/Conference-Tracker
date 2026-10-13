@@ -72,3 +72,21 @@ def test_run_source_skips_deadline_that_does_not_fit_dates(monkeypatch):
     cfg = Config(csv_path=os.path.join(d, "c.csv"))
     assert cli.run_source(cfg, _Src(["doc"])) == 0
     assert [r.name for r in CSVStore(cfg.csv_path).load()] == ["Fine Conf"]
+
+
+def test_describe_quota_error_names_the_limit_and_retry_time():
+    from datetime import datetime, timezone
+
+    from conference_tracker.sources.search_source import describe_quota_error
+
+    payload = (
+        "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'details': [{'violations': "
+        "[{'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', "
+        "'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, "
+        "'quotaValue': '20'}]}, {'retryDelay': '24621s'}]}}"
+    )
+    msg = describe_quota_error(Exception(payload),
+                               now=datetime(2026, 10, 8, 17, 9, 39, tzinfo=timezone.utc))
+    assert msg.startswith("daily limit (GenerateRequestsPerDayPerProjectPerModel-FreeTier")
+    assert "20 requests" in msg and "gemini-2.5-flash" in msg
+    assert "retry in 6h50m, about 00:00 UTC" in msg

@@ -11,7 +11,9 @@ is required (and it runs on the free tier).
 from __future__ import annotations
 
 import csv
-from typing import Dict, Iterator, List
+import re
+from datetime import datetime, timedelta, timezone
+from typing import Dict, Iterator, List, Optional
 
 from google import genai
 from google.genai import errors, types
@@ -38,6 +40,36 @@ cannot find a credible source for this being a real conference, say so plainly.\
 def is_quota_error(exc: Exception) -> bool:
     """True if an API error means the daily/rate quota is exhausted (HTTP 429)."""
     return getattr(exc, "code", None) == 429 or "RESOURCE_EXHAUSTED" in str(exc)
+
+
+def _field(text: str, key: str) -> str:
+    m = re.search(r"""['"]%s['"]\s*:\s*['"]?([^'",}]+)""" % re.escape(key), text)
+    return m.group(1).strip() if m else ""
+
+
+def describe_quota_error(exc: Exception, now: Optional[datetime] = None) -> str:
+    """Summarize which Gemini quota a 429 hit, for the run log.
+
+    Pulls the quota id, limit, model and Google's suggested retry delay out of
+    the error payload, e.g. "daily limit (GenerateRequestsPerDayPerProjectPer
+    Model-FreeTier: 20 requests, gemini-2.5-flash); retry in 6h50m, about
+    00:00 UTC". Falls back to the start of the error message.
+    """
+    text = str(exc)
+    quota_id = _field(text, "quotaId")
+    if not quota_id:
+        return text.splitlines()[0][:200] if text else "no details"
+    kind = ("daily limit" if "PerDay" in quota_id
+            else "per-minute limit" if "PerMinute" in quota_id else "quota limit")
+    value, model = _field(text, "quotaValue"), _field(text, "model")
+    extra = ", ".join(x for x in (f"{value} requests" if value else "", model) if x)
+    summary = f"{kind} ({quota_id}: {extra})" if extra else f"{kind} ({quota_id})"
+    delay = _field(text, "retryDelay").rstrip("s")
+    if delay.replace(".", "", 1).isdigit():
+        secs = int(float(delay))
+        at = (now or datetime.now(timezone.utc)) + timedelta(seconds=secs)
+        summary += f"; retry in {secs // 3600}h{secs % 3600 // 60:02d}m, about {at:%H:%M} UTC"
+    return summary
 
 
 def load_search_state(path: str) -> Dict[str, str]:
@@ -118,7 +150,8 @@ class SearchSource:
                 text = self._research(name)
             except errors.APIError as exc:
                 if is_quota_error(exc):
-                    print(f"  ! quota exhausted at {name!r}; stopping this run.")
+                    print(f"  ! quota exhausted at {name!r}: {describe_quota_error(exc)}; "
+                          "stopping this run.")
                     return
                 print(f"  ! web search failed for {name!r}: {exc}")
                 continue

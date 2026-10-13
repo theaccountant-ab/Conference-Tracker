@@ -61,7 +61,7 @@ def run_source(config: Config, source: Source) -> int:
     client = _client(config)
     store = CSVStore(config.csv_path)
 
-    from .sources.search_source import is_quota_error
+    from .sources.search_source import describe_quota_error, is_quota_error
 
     found: List[Conference] = []
     n_docs = 0
@@ -74,10 +74,11 @@ def run_source(config: Config, source: Source) -> int:
         except errors.APIError as exc:
             # Leave the document unprocessed (e.g. email stays unread) so the
             # next run retries it instead of silently dropping it.
-            print(f"  ! extraction failed for {doc.origin}: {exc}")
             if is_quota_error(exc):
-                print("  ! quota exhausted; stopping this run.")
+                print(f"  ! quota exhausted while extracting {doc.origin}: "
+                      f"{describe_quota_error(exc)}; stopping this run.")
                 break
+            print(f"  ! extraction failed for {doc.origin}: {exc}")
             continue
         # Processed successfully — let the source finalize (mark email read).
         if doc.on_success is not None:
