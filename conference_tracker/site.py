@@ -54,9 +54,9 @@ def render_html(
     ga_measurement_id: str = "",
 ) -> str:
     # Publish open calls for papers (Submission) and upcoming conferences whose
-    # submissions have closed (Participation). The page opens on Submission;
-    # the Participation button switches to the other list. Ended (and Unknown)
-    # rows stay in the data but are not published.
+    # submissions have closed (Participation) as one list. The page opens on
+    # All; the Submission and Participation buttons narrow it. Ended (and
+    # Unknown) rows stay in the data but are not published.
     visible = [c for c in conferences if c.status in (SUBMISSION, PARTICIPATION)]
     rows = sorted(visible, key=_sort_key)
     data = [{k: getattr(c, k) for k in CSV_FIELDS} for c in rows]
@@ -133,7 +133,8 @@ __GA__
   <div class="controls">
     <input id="q" type="search" placeholder="Search name or location…" aria-label="Search">
     <div class="filters" id="filters">
-      <button data-f="Submission" class="active" title="Submission deadline still open">Submission</button>
+      <button data-f="all" class="active" title="Open calls for papers and upcoming conferences">All</button>
+      <button data-f="Submission" title="Submission deadline still open">Submission</button>
       <button data-f="Participation" title="Submissions closed; conference still upcoming">Participation</button>
     </div>
   </div>
@@ -154,7 +155,7 @@ __GA__
 </div>
 <script>
 const DATA = __DATA__;
-let filter = "Submission", query = "", sortKey = null, sortDir = 1;
+let filter = "all", query = "", sortKey = null, sortDir = 1;
 
 function isUrl(s){ return /^https?:\/\//i.test(s || ""); }
 function isEmail(s){ return /@/.test(s || "") && !isUrl(s); }
@@ -265,7 +266,9 @@ function render(){
   const tbody = document.getElementById("rows");
   tbody.textContent = "";
   let rows = DATA.filter(r => {
-    if (filter !== "all" && liveStatus(r) !== filter) return false;
+    const st = liveStatus(r);
+    if (st === "Ended") return false;  // finished since the last rebuild
+    if (filter !== "all" && st !== filter) return false;
     if (query) { const h=(r.name+" "+r.location).toLowerCase();
       if (!h.includes(query)) return false; }
     return true;
