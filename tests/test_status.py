@@ -62,3 +62,19 @@ def test_parse_date_variants():
     assert parse_date("") is None
     assert parse_date(None) is None
     assert parse_date("not a date") is None
+
+
+def test_deadline_day_stays_open_until_it_ends_everywhere():
+    from datetime import datetime, timezone
+
+    from conference_tracker.status import aoe_today
+
+    def status_at(utc):
+        now = datetime.fromisoformat(utc).replace(tzinfo=timezone.utc)
+        return compute_status("2026-10-10", "2026-12-17", "2026-12-18", today=aoe_today(now))
+
+    # Oct 10 deadline: still open at 7 PM Central (00:00 UTC Oct 11) and right
+    # up to noon UTC Oct 11, when Oct 10 has ended in UTC-12 too.
+    assert status_at("2026-10-11T00:16:00") == SUBMISSION
+    assert status_at("2026-10-11T11:59:00") == SUBMISSION
+    assert status_at("2026-10-11T12:00:00") == PARTICIPATION

@@ -10,17 +10,32 @@ The status is one of:
 
 Status is intentionally *derived*, never stored as ground truth: it depends on
 today's date, so it is recomputed every time the dataset is written or refreshed.
+
+"Today" is the current date Anywhere on Earth (UTC-12), the convention most
+calls for papers use: a deadline (or a conference's last day) keeps counting as
+"today" until that day has ended everywhere, i.e. until 12:00 UTC the next day.
 """
 
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import date, datetime, timedelta, timezone
 from typing import Optional
 
 SUBMISSION = "Submission"
 PARTICIPATION = "Participation"
 ENDED = "Ended"
 UNKNOWN = "Unknown"
+
+# Anywhere on Earth is UTC-12: the last time zone in which a given day ends.
+_AOE_OFFSET = timedelta(hours=12)
+
+
+def aoe_today(now: Optional[datetime] = None) -> date:
+    """Return the current date Anywhere on Earth (UTC-12)."""
+    now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=timezone.utc)
+    return (now.astimezone(timezone.utc) - _AOE_OFFSET).date()
 
 
 def parse_date(value: Optional[str]) -> Optional[date]:
@@ -54,7 +69,7 @@ def compute_status(
     back to the start date (a single-day event, or one where only the start was
     announced).
     """
-    today = today or date.today()
+    today = today or aoe_today()
     deadline = parse_date(submission_deadline)
     start = parse_date(start_date)
     end = parse_date(end_date)

@@ -29,6 +29,26 @@ def _client(config: Config):
     return genai.Client(api_key=config.gemini_api_key)
 
 
+# Longest plausible gap between a submission deadline and the conference start.
+MAX_DEADLINE_LEAD_DAYS = 400
+
+
+def deadline_fits_dates(deadline: str, start: str) -> bool:
+    """True unless the deadline is after the start date or implausibly early.
+
+    Records without a start date can't be checked and are accepted.
+    """
+    from datetime import date
+
+    if not (start or "").strip():
+        return True
+    try:
+        lead = (date.fromisoformat(start.strip()) - date.fromisoformat(deadline.strip())).days
+    except ValueError:
+        return False
+    return 0 <= lead <= MAX_DEADLINE_LEAD_DAYS
+
+
 def run_source(config: Config, source: Source) -> int:
     """Extract conferences from a source and upsert them into the CSV store.
 
@@ -41,7 +61,7 @@ def run_source(config: Config, source: Source) -> int:
     client = _client(config)
     store = CSVStore(config.csv_path)
 
-    from .sources.search_source import is_quota_error
+    from .sources.search_source import describe_quota_error, is_quota_error
 
     found: List[Conference] = []
     n_docs = 0
@@ -54,10 +74,11 @@ def run_source(config: Config, source: Source) -> int:
         except errors.APIError as exc:
             # Leave the document unprocessed (e.g. email stays unread) so the
             # next run retries it instead of silently dropping it.
-            print(f"  ! extraction failed for {doc.origin}: {exc}")
             if is_quota_error(exc):
-                print("  ! quota exhausted; stopping this run.")
+                print(f"  ! quota exhausted while extracting {doc.origin}: "
+                      f"{describe_quota_error(exc)}; stopping this run.")
                 break
+            print(f"  ! extraction failed for {doc.origin}: {exc}")
             continue
         # Processed successfully — let the source finalize (mark email read).
         if doc.on_success is not None:
@@ -71,6 +92,15 @@ def run_source(config: Config, source: Source) -> int:
             # conference must have a location and a submission deadline.
             if not conf.location.strip() or not conf.submission_deadline.strip():
                 print(f"  - {doc.origin}: {conf.name} (skipped: no location/deadline)")
+                skipped += 1
+                continue
+            # A deadline after the conference starts, or long before it, means
+            # the extraction mixed up editions (e.g. next year's deadline with
+            # this year's dates); such a record would show as an open call for
+            # papers when it isn't.
+            if not deadline_fits_dates(conf.submission_deadline, conf.start_date):
+                print(f"  - {doc.origin}: {conf.name} (skipped: deadline "
+                      f"{conf.submission_deadline} does not fit start {conf.start_date})")
                 skipped += 1
                 continue
             print(f"  + {doc.origin}: {conf.name}")
