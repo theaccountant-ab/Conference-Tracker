@@ -157,8 +157,18 @@ def titlecase_conference_name(name: str) -> str:
     return "".join(out)
 
 
+# A literal escape sequence such as "\\u2013" that the model sometimes emits
+# instead of the character itself (here an en dash).
+_UNICODE_ESCAPE = re.compile(r"\\[uU]([0-9a-fA-F]{4})")
+
+
 def standardize_conference_name(name: str) -> str:
-    """Strip edition/year noise, then apply consistent Title Case."""
+    """Strip edition/year noise, then apply consistent Title Case.
+
+    Literal escape sequences are decoded first, so "Studies\\u2013IASB" becomes
+    "Studies–IASB" rather than "Studies\\U2013IASB".
+    """
+    name = _UNICODE_ESCAPE.sub(lambda m: chr(int(m.group(1), 16)), name or "")
     return titlecase_conference_name(clean_conference_name(name))
 
 
@@ -177,7 +187,11 @@ class ExtractedConference(BaseModel):
     name: str = Field(description="Official name of the conference.")
     url: Optional[str] = Field(
         default=None,
-        description="Homepage / call-for-papers URL of the conference, if any.",
+        description=(
+            "Official homepage / call-for-papers URL of the conference (the "
+            "organizer's or host institution's own site), if any. Never a "
+            "third-party conference listing or aggregator page."
+        ),
     )
     submission_email: Optional[str] = Field(
         default=None,

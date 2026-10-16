@@ -12,20 +12,24 @@ from __future__ import annotations
 
 import csv
 import re
+import time
 from datetime import datetime, timedelta, timezone
-from typing import Dict, Iterator, List, Optional
+from typing import Callable, Dict, Iterator, List, Optional, TypeVar
 
 from google import genai
 from google.genai import errors, types
 
 from .base import SourceDocument
 
+T = TypeVar("T")
+
 _RESEARCH_PROMPT = """\
 Research the academic conference "{name}" using Google Search and report what \
 you find. I need, where available:
 
 - the official conference name (expand acronyms if the year/edition is known),
-- the call-for-papers / submission homepage URL (prefer the official site),
+- the call-for-papers / submission homepage URL: the organizer's or host \
+institution's own page, never a third-party conference listing or aggregator site,
 - the submission email address, but only if there is no submission webpage,
 - the location (city and country, or city and US state),
 - the paper submission deadline,
@@ -45,6 +49,42 @@ def is_quota_error(exc: Exception) -> bool:
 def _field(text: str, key: str) -> str:
     m = re.search(r"""['"]%s['"]\s*:\s*['"]?([^'",}]+)""" % re.escape(key), text)
     return m.group(1).strip() if m else ""
+
+
+def quota_retry_delay(exc: Exception) -> Optional[float]:
+    """Seconds to wait if a 429 is only the per-minute limit, else None.
+
+    The free tier allows a few requests per minute as well as a daily total.
+    Hitting the per-minute limit just means "slow down" (Google's suggested
+    delay is seconds), so it is worth waiting; the daily limit is not.
+    """
+    text = str(exc)
+    if "PerMinute" not in _field(text, "quotaId"):
+        return None
+    try:
+        secs = float(_field(text, "retryDelay").rstrip("s"))
+    except ValueError:
+        secs = 60.0
+    return min(max(secs, 1.0) + 1.0, 70.0)
+
+
+def call_with_minute_retry(fn: Callable[[], T], label: str, attempts: int = 4,
+                           sleep: Callable[[float], None] = time.sleep) -> T:
+    """Call ``fn``; on a per-minute 429, wait as Google suggests and retry.
+
+    Any other error, a daily-limit 429, or running out of attempts re-raises,
+    so callers keep their existing handling for those.
+    """
+    for attempt in range(attempts):
+        try:
+            return fn()
+        except errors.APIError as exc:
+            wait = quota_retry_delay(exc) if is_quota_error(exc) else None
+            if wait is None or attempt == attempts - 1:
+                raise
+            print(f"  ~ per-minute limit at {label}; waiting {wait:.0f}s, then retrying")
+            sleep(wait)
+    raise AssertionError("unreachable")
 
 
 def describe_quota_error(exc: Exception, now: Optional[datetime] = None) -> str:
@@ -142,12 +182,13 @@ class SearchSource:
 
         Each document's ``on_success`` records the name in ``self.searched``
         once it has been fully processed, so the caller can note when it was
-        last searched. A quota error stops the run: every remaining call would
-        fail the same way, and those names simply wait for the next run.
+        last searched. A per-minute limit is waited out; the daily limit stops
+        the run, since every remaining call would fail the same way, and those
+        names simply wait for the next run.
         """
         for name in self.names:
             try:
-                text = self._research(name)
+                text = call_with_minute_retry(lambda: self._research(name), repr(name))
             except errors.APIError as exc:
                 if is_quota_error(exc):
                     print(f"  ! quota exhausted at {name!r}: {describe_quota_error(exc)}; "
