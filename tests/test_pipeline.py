@@ -90,3 +90,48 @@ def test_describe_quota_error_names_the_limit_and_retry_time():
     assert msg.startswith("daily limit (GenerateRequestsPerDayPerProjectPerModel-FreeTier")
     assert "20 requests" in msg and "gemini-2.5-flash" in msg
     assert "retry in 6h50m, about 00:00 UTC" in msg
+
+
+def _quota_exc(quota_id, retry="12s"):
+    exc = _Quota()
+    exc.args = (f"429 RESOURCE_EXHAUSTED. {{'violations': [{{'quotaId': '{quota_id}', "
+                f"'quotaValue': '5'}}], 'retryDelay': '{retry}'}}",)
+    return exc
+
+
+def test_per_minute_limit_is_waited_out_and_retried():
+    from conference_tracker.sources.search_source import call_with_minute_retry
+
+    calls, waits = [], []
+
+    def flaky():
+        calls.append(1)
+        if len(calls) < 3:
+            raise _quota_exc("GenerateRequestsPerMinutePerProjectPerModel-FreeTier")
+        return "ok"
+
+    assert call_with_minute_retry(flaky, "'X'", sleep=waits.append) == "ok"
+    assert len(calls) == 3 and waits == [13.0, 13.0]  # retryDelay + 1s
+
+
+def test_daily_limit_is_not_retried():
+    import pytest
+
+    from conference_tracker.sources.search_source import call_with_minute_retry
+
+    waits = []
+
+    def daily():
+        raise _quota_exc("GenerateRequestsPerDayPerProjectPerModel-FreeTier", "24620s")
+
+    with pytest.raises(errors.APIError):
+        call_with_minute_retry(daily, "'X'", sleep=waits.append)
+    assert waits == []
+
+
+def test_literal_unicode_escape_in_name_is_decoded():
+    from conference_tracker.models import Conference
+
+    c = Conference.from_extracted(ExtractedConference(
+        name="Review of Accounting Studies\\u2013International Accounting Standards Board Joint Conference"))
+    assert c.name == "Review of Accounting Studies–International Accounting Standards Board Joint Conference"
