@@ -53,6 +53,8 @@ country). If only a venue or building is named, infer the city and country when 
 you reasonably can; otherwise leave it null.
 - Prefer each conference's submission/homepage URL for `url`. Only set \
 `submission_email` when there is no submission website to link to.
+- Write accented and non-English letters as the characters themselves (e.g. \
+"Zürich", "Montréal", "Cargèse"), never as escape codes such as "\\u00e9".
 - Never invent details. If a field is not supported by the text, leave it null.
 """
 

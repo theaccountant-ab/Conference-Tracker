@@ -162,6 +162,30 @@ def titlecase_conference_name(name: str) -> str:
 _UNICODE_ESCAPE = re.compile(r"\\[uU]([0-9a-fA-F]{4})")
 
 
+# The same glitch in a mangled form: a control character standing in for the
+# backslash, e.g. "Montr<TAB>00e9al". Only Latin-1 code points (00A0-00FF, the
+# accented Latin letters) are decoded this way, so ordinary digits after a stray
+# tab are left alone.
+_MANGLED_ESCAPE = re.compile(r"[\x00-\x1f](00[a-fA-F][0-9a-fA-F])")
+_CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
+
+
+def _clean_text(value: Optional[str]) -> str:
+    """Decode escape glitches in extracted text; '' if it is still garbled.
+
+    The model sometimes emits an accented letter as an escape code ("\\u00e9")
+    or a mangled one ("<TAB>00e9"); both are decoded. If control characters
+    remain after that (e.g. "Z<CR>ich" for Zürich), the original letters are
+    unrecoverable, so the field is treated as unknown rather than stored
+    garbled, and an existing good value is never overwritten by it.
+    """
+    v = _UNICODE_ESCAPE.sub(lambda m: chr(int(m.group(1), 16)), value or "")
+    v = _MANGLED_ESCAPE.sub(lambda m: chr(int(m.group(1), 16)), v)
+    if _CONTROL_CHARS.search(v):
+        return ""
+    return v.strip()
+
+
 def standardize_conference_name(name: str) -> str:
     """Strip edition/year noise, then apply consistent Title Case.
 
@@ -169,6 +193,8 @@ def standardize_conference_name(name: str) -> str:
     "Studies–IASB" rather than "Studies\\U2013IASB".
     """
     name = _UNICODE_ESCAPE.sub(lambda m: chr(int(m.group(1), 16)), name or "")
+    name = _MANGLED_ESCAPE.sub(lambda m: chr(int(m.group(1), 16)), name)
+    name = _CONTROL_CHARS.sub(" ", name)
     return titlecase_conference_name(clean_conference_name(name))
 
 
@@ -294,7 +320,7 @@ class Conference:
         return cls(
             name=standardize_conference_name(extracted.name.strip()),
             contact=contact.strip(),
-            location=(extracted.location or "").strip(),
+            location=_clean_text(extracted.location),
             submission_deadline=_clean_date(extracted.submission_deadline),
             start_date=_clean_date(extracted.start_date),
             end_date=_clean_date(extracted.end_date),
