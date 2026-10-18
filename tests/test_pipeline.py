@@ -135,3 +135,34 @@ def test_literal_unicode_escape_in_name_is_decoded():
     c = Conference.from_extracted(ExtractedConference(
         name="Review of Accounting Studies\\u2013International Accounting Standards Board Joint Conference"))
     assert c.name == "Review of Accounting Studies–International Accounting Standards Board Joint Conference"
+
+
+def test_location_escape_glitches_are_decoded_or_dropped():
+    from conference_tracker.models import Conference
+
+    def loc(raw):
+        return Conference.from_extracted(ExtractedConference(name="X Conf", location=raw)).location
+
+    assert loc("Montr\t00e9al, Canada") == "Montréal, Canada"     # mangled escape
+    assert loc("Montr\\u00e9al, Canada") == "Montréal, Canada"    # literal escape
+    assert loc("Z\rich, Switzerland") == ""                      # unrecoverable
+    assert loc("Boston, MA") == "Boston, MA"
+
+
+def test_garbled_location_never_overwrites_a_good_one():
+    import os
+    import tempfile
+
+    from conference_tracker.models import Conference
+    from conference_tracker.store import CSVStore
+
+    d = tempfile.mkdtemp()
+    store = CSVStore(os.path.join(d, "c.csv"))
+    store.save([Conference(name="SGF Conference", location="Zürich, Switzerland",
+                           submission_deadline="2026-10-31", start_date="2027-04-09",
+                           end_date="2027-04-09")])
+    incoming = Conference.from_extracted(ExtractedConference(
+        name="SGF Conference", location="Z\rich, Switzerland",
+        submission_deadline="2026-10-31", start_date="2027-04-09", end_date="2027-04-09"))
+    store.upsert([incoming])
+    assert store.load()[0].location == "Zürich, Switzerland"
