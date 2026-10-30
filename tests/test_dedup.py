@@ -260,3 +260,69 @@ def test_merge_keeps_web_link_over_email():
         assert store.load()[0].contact == "https://acct.hkust.edu.hk/symposium"
     finally:
         os.path.exists(path) and os.unlink(path)
+
+
+def test_same_event_name_matches_rewordings():
+    from conference_tracker.store import same_event_name
+
+    assert same_event_name("Olin Finance Conference at Washu",
+                           "Annual Olin Finance Conference at Washington University in ST. Louis")
+    assert same_event_name("Private Equity Research Consortium Symposium",
+                           "Private Equity Research Consortium Chapel Hill Symposium")
+    assert same_event_name("Tokenomics",
+                           "Tokenomics: International Conference on Blockchain Economics")
+
+
+def test_same_event_name_keeps_different_events_apart():
+    from conference_tracker.store import same_event_name
+
+    # Different kinds of event by the same organizer.
+    assert not same_event_name("EFMA Annual Meeting", "EFMA Doctoral Seminar")
+    # A society's session held at a host meeting is not the host meeting.
+    assert not same_event_name("IBEFA Annual Meeting at ASSA", "ASSA Annual Meeting")
+    # Same school, different conference.
+    assert not same_event_name("NYU Stern Corporate Governance Conference",
+                               "NYU Stern Women in Finance Conference")
+
+
+def test_dedupe_merges_reworded_name_same_city_and_day():
+    store, path = _store()
+    try:
+        store.save(
+            [
+                Conference(
+                    name="Olin Finance Conference at Washu",
+                    contact="https://event.olin.washu.edu/washu-finance-conference-2026",
+                    location="St. Louis, MO",
+                    submission_deadline="2026-07-31",
+                    start_date="2026-11-12",
+                    end_date="2026-11-13",
+                    source="search:Olin Finance Conference",
+                ),
+                Conference(
+                    name="Annual Olin Finance Conference at Washington University in ST. Louis",
+                    location="St. Louis, MO",
+                    submission_deadline="2026-08-12",
+                    start_date="2026-11-12",
+                    end_date="2026-11-13",
+                    source="email:x",
+                ),
+                # Same city and day but a different event: must survive.
+                Conference(
+                    name="St. Louis Fed Community Banking Research Conference",
+                    location="St. Louis, MO",
+                    start_date="2026-11-12",
+                    end_date="2026-11-13",
+                    source="email:y",
+                ),
+            ]
+        )
+        assert store.dedupe() == 1
+        rows = store.load()
+        assert len(rows) == 2
+        olin = [r for r in rows if "Olin" in r.name][0]
+        assert olin.contact.startswith("https://event.olin.washu.edu/")
+        # The web-search tag survives so the rotation still sees the name as covered.
+        assert olin.source == "search:Olin Finance Conference"
+    finally:
+        os.path.exists(path) and os.unlink(path)

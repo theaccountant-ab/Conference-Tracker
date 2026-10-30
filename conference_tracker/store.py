@@ -10,6 +10,7 @@ from __future__ import annotations
 import csv
 import os
 import re
+import unicodedata
 from datetime import datetime, timezone
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -51,6 +52,56 @@ def normalize_contact(contact: str) -> str:
     c = re.sub(r"^(https?://|mailto:)", "", c)
     c = re.sub(r"^www\.", "", c)
     return c.rstrip("/")
+
+
+# Words that say what kind of event it is. Two names that both carry one but
+# share none ("Annual Meeting" vs "Doctoral Seminar") are different events.
+_EVENT_WORDS = {
+    "conference", "meeting", "meetings", "symposium", "workshop", "seminar",
+    "summit", "forum", "congress", "colloquium", "camp", "school",
+}
+# Words that carry no identity of their own in a conference name.
+_FILLER_WORDS = {
+    "annual", "the", "of", "at", "and", "for", "in", "on", "a", "an", "joint",
+    "call", "papers",
+}
+
+
+def _name_parts(name: str) -> Tuple[set, set]:
+    tokens = normalize_name(name).split()
+    # "IBEFA Annual Meeting at ASSA" is a session held at a host meeting, not
+    # the host meeting itself, so only the part before "at" identifies it.
+    if "at" in tokens[1:]:
+        tokens = tokens[:tokens.index("at", 1)]
+    events = {t for t in tokens if t in _EVENT_WORDS}
+    core = {t for t in tokens
+            if t not in _EVENT_WORDS and t not in _FILLER_WORDS and not t.isdigit()}
+    return core, events
+
+
+def same_event_name(a: str, b: str) -> bool:
+    """True if two names plausibly describe the same event.
+
+    "Olin Finance Conference at WashU" and "Annual Olin Finance Conference at
+    Washington University in St. Louis" match (most of the shorter name's
+    distinctive words appear in the longer); "European Financial Management
+    Association Annual Meeting" and "European Financial Management Merton H.
+    Miller Doctoral Student Seminar" do not (a meeting is not a seminar).
+    """
+    core_a, events_a = _name_parts(a)
+    core_b, events_b = _name_parts(b)
+    if events_a and events_b and events_a.isdisjoint(events_b):
+        return False
+    if not core_a or not core_b:
+        return False
+    return len(core_a & core_b) / min(len(core_a), len(core_b)) >= 0.6
+
+
+def _city_key(location: str) -> str:
+    """The city part of a location, lowercased and without accents."""
+    city = (location or "").split(",")[0].strip().lower()
+    return "".join(ch for ch in unicodedata.normalize("NFKD", city)
+                   if not unicodedata.combining(ch))
 
 
 def _is_web(contact: str) -> bool:
@@ -273,27 +324,46 @@ class CSVStore:
         """Collapse rows that are the same conference edition. Returns rows removed.
 
         Two rows are the same edition when they share a start date and either
-        the same normalized name or the same contact link. The preferred row is
-        kept and any fields it's missing are filled from the other. Order is
-        preserved by emitting each group at the position of its first member.
+        the same normalized name, the same contact link, or the same city and a
+        near-identical name (``same_event_name``) — web searches often return a
+        conference under a slightly different name and link than an existing
+        row. The preferred row is kept and any fields it's missing are filled
+        from the other. Order is preserved by emitting each group at the
+        position of its first member.
         """
         rows = self.load()
         by_name: Dict[Tuple[str, str], Conference] = {}
         by_contact: Dict[Tuple[str, str], Conference] = {}
+        by_day_city: Dict[Tuple[str, str], List[Conference]] = {}
         result: List[Conference] = []
         removed = 0
 
-        def register(primary: Conference) -> None:
+        def day_city(c: Conference) -> Optional[Tuple[str, str]]:
+            start, city = (c.start_date or "").strip(), _city_key(c.location)
+            return (start, city) if start and city else None
+
+        def register(primary: Conference, replaces: Optional[Conference] = None) -> None:
             by_name[self._dedupe_key(primary)] = primary
             ck = self._contact_key(primary)
             if ck is not None:
                 by_contact[ck] = primary
+            for lst in by_day_city.values():
+                if replaces is not None and any(x is replaces for x in lst):
+                    lst[:] = [primary if x is replaces else x for x in lst]
+            key = day_city(primary)
+            if key is not None:
+                lst = by_day_city.setdefault(key, [])
+                if not any(x is primary for x in lst):
+                    lst.append(primary)
 
         for conf in rows:
             ck = self._contact_key(conf)
             primary = by_name.get(self._dedupe_key(conf))
             if primary is None and ck is not None:
                 primary = by_contact.get(ck)
+            if primary is None and day_city(conf) is not None:
+                primary = next((c for c in by_day_city.get(day_city(conf), [])
+                                if same_event_name(c.name, conf.name)), None)
             if primary is None:
                 result.append(conf)
                 register(conf)
@@ -309,10 +379,15 @@ class CSVStore:
                     val = (getattr(loser, fieldname) or "").strip()
                     if val:
                         setattr(winner, fieldname, val)
+            # Keep the web-search tag: it is how the search rotation knows the
+            # watchlist name is covered; losing it would re-search the name
+            # (and re-create this duplicate) a month later.
+            if loser.source.startswith("search:") and not winner.source.startswith("search:"):
+                winner.source = loser.source
             if winner is not primary:
-                result[result.index(primary)] = winner
+                result[next(i for i, x in enumerate(result) if x is primary)] = winner
             # Register whatever keys the surviving row now answers to (its name
             # and contact may differ from the row that seeded the group).
-            register(winner)
+            register(winner, replaces=primary if winner is not primary else None)
         self.save(result)
         return removed
