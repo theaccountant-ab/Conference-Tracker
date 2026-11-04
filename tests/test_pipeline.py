@@ -100,7 +100,7 @@ def _quota_exc(quota_id, retry="12s"):
 
 
 def test_per_minute_limit_is_waited_out_and_retried():
-    from conference_tracker.sources.search_source import call_with_minute_retry
+    from conference_tracker.sources.search_source import call_with_retry
 
     calls, waits = [], []
 
@@ -110,14 +110,14 @@ def test_per_minute_limit_is_waited_out_and_retried():
             raise _quota_exc("GenerateRequestsPerMinutePerProjectPerModel-FreeTier")
         return "ok"
 
-    assert call_with_minute_retry(flaky, "'X'", sleep=waits.append) == "ok"
+    assert call_with_retry(flaky, "'X'", sleep=waits.append) == "ok"
     assert len(calls) == 3 and waits == [13.0, 13.0]  # retryDelay + 1s
 
 
 def test_daily_limit_is_not_retried():
     import pytest
 
-    from conference_tracker.sources.search_source import call_with_minute_retry
+    from conference_tracker.sources.search_source import call_with_retry
 
     waits = []
 
@@ -125,7 +125,54 @@ def test_daily_limit_is_not_retried():
         raise _quota_exc("GenerateRequestsPerDayPerProjectPerModel-FreeTier", "24620s")
 
     with pytest.raises(errors.APIError):
-        call_with_minute_retry(daily, "'X'", sleep=waits.append)
+        call_with_retry(daily, "'X'", sleep=waits.append)
+    assert waits == []
+
+
+def test_google_overload_is_retried_with_backoff():
+    from conference_tracker.sources.search_source import call_with_retry
+
+    calls, waits = [], []
+
+    def overloaded():
+        calls.append(1)
+        if len(calls) < 3:
+            raise errors.ServerError(503, {"error": {
+                "code": 503, "status": "UNAVAILABLE",
+                "message": "This model is currently experiencing high demand."}})
+        return "ok"
+
+    assert call_with_retry(overloaded, "'X'", sleep=waits.append) == "ok"
+    assert waits == [30.0, 60.0]
+
+
+def test_lasting_overload_gives_up_after_the_last_attempt():
+    import pytest
+
+    from conference_tracker.sources.search_source import call_with_retry
+
+    waits = []
+
+    def down():
+        raise errors.ServerError(503, {"error": {"code": 503, "status": "UNAVAILABLE"}})
+
+    with pytest.raises(errors.APIError):
+        call_with_retry(down, "'X'", sleep=waits.append)
+    assert waits == [30.0, 60.0, 120.0]
+
+
+def test_other_errors_are_not_retried():
+    import pytest
+
+    from conference_tracker.sources.search_source import call_with_retry
+
+    waits = []
+
+    def bad_request():
+        raise errors.ClientError(400, {"error": {"code": 400, "status": "INVALID_ARGUMENT"}})
+
+    with pytest.raises(errors.APIError):
+        call_with_retry(bad_request, "'X'", sleep=waits.append)
     assert waits == []
 
 

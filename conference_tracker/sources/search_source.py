@@ -68,21 +68,42 @@ def quota_retry_delay(exc: Exception) -> Optional[float]:
     return min(max(secs, 1.0) + 1.0, 70.0)
 
 
-def call_with_minute_retry(fn: Callable[[], T], label: str, attempts: int = 4,
-                           sleep: Callable[[float], None] = time.sleep) -> T:
-    """Call ``fn``; on a per-minute 429, wait as Google suggests and retry.
+def is_overload_error(exc: Exception) -> bool:
+    """True if Google reports a temporary server problem (HTTP 5xx).
 
-    Any other error, a daily-limit 429, or running out of attempts re-raises,
-    so callers keep their existing handling for those.
+    "503 UNAVAILABLE: This model is currently experiencing high demand" is
+    the usual one; it clears within minutes.
+    """
+    return getattr(exc, "code", None) in (500, 502, 503, 504) or "UNAVAILABLE" in str(exc)
+
+
+# Waits before each retry when Google is overloaded (about 3.5 minutes in all).
+OVERLOAD_DELAYS = (30.0, 60.0, 120.0)
+
+
+def call_with_retry(fn: Callable[[], T], label: str, attempts: int = 4,
+                    sleep: Callable[[float], None] = time.sleep) -> T:
+    """Call ``fn``, retrying when the failure is only temporary.
+
+    A per-minute 429 is waited out as Google suggests; a 5xx overload is
+    retried after OVERLOAD_DELAYS. Any other error, a daily-limit 429, or
+    running out of attempts re-raises, so callers keep their existing
+    handling for those.
     """
     for attempt in range(attempts):
         try:
             return fn()
         except errors.APIError as exc:
-            wait = quota_retry_delay(exc) if is_quota_error(exc) else None
+            if is_quota_error(exc):
+                wait, reason = quota_retry_delay(exc), "per-minute limit"
+            elif is_overload_error(exc):
+                wait = OVERLOAD_DELAYS[min(attempt, len(OVERLOAD_DELAYS) - 1)]
+                reason = "Google overloaded"
+            else:
+                wait = None
             if wait is None or attempt == attempts - 1:
                 raise
-            print(f"  ~ per-minute limit at {label}; waiting {wait:.0f}s, then retrying")
+            print(f"  ~ {reason} at {label}; waiting {wait:.0f}s, then retrying")
             sleep(wait)
     raise AssertionError("unreachable")
 
@@ -182,13 +203,14 @@ class SearchSource:
 
         Each document's ``on_success`` records the name in ``self.searched``
         once it has been fully processed, so the caller can note when it was
-        last searched. A per-minute limit is waited out; the daily limit stops
-        the run, since every remaining call would fail the same way, and those
-        names simply wait for the next run.
+        last searched. A per-minute limit or a temporary Google overload is
+        waited out and retried; the daily limit stops the run, since every
+        remaining call would fail the same way, and those names simply wait
+        for the next run.
         """
         for name in self.names:
             try:
-                text = call_with_minute_retry(lambda: self._research(name), repr(name))
+                text = call_with_retry(lambda: self._research(name), repr(name))
             except errors.APIError as exc:
                 if is_quota_error(exc):
                     print(f"  ! quota exhausted at {name!r}: {describe_quota_error(exc)}; "
