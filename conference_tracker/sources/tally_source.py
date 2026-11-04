@@ -216,11 +216,16 @@ class TallyEmailSource:
         raw_messages: List[Tuple[bytes, bytes]] = []
         try:
             conn.select(cfg.folder)
-            criterion = "UNSEEN" if cfg.unseen_only else "ALL"
-            typ, data = conn.uid("SEARCH", None, criterion)
+            # Let the server pick out Tally's emails, so the hourly check
+            # doesn't download the whole mailbox.
+            criteria = ["FROM", f'"{TALLY_SENDER}"']
+            if cfg.unseen_only:
+                criteria.insert(0, "UNSEEN")
+            typ, data = conn.uid("SEARCH", None, *criteria)
             if typ == "OK" and data and data[0]:
                 for uid in data[0].split():
-                    typ2, msg_data = conn.uid("FETCH", uid, "(RFC822)")
+                    # BODY.PEEK leaves the email unread until it is processed.
+                    typ2, msg_data = conn.uid("FETCH", uid, "(BODY.PEEK[])")
                     if typ2 != "OK" or not msg_data or not msg_data[0]:
                         continue
                     msg = email.message_from_bytes(msg_data[0][1])
@@ -228,6 +233,7 @@ class TallyEmailSource:
                         raw_messages.append((uid, msg_data[0][1]))
         finally:
             self._disconnect(conn)
+        print(f"  Found {len(raw_messages)} Tally submission email(s).")
 
         processed_uids: List[bytes] = []
         try:

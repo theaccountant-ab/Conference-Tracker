@@ -149,7 +149,11 @@ class EmailSource:
             typ, data = conn.uid("SEARCH", None, criterion)
             if typ == "OK" and data and data[0]:
                 for uid in data[0].split():
-                    typ, msg_data = conn.uid("FETCH", uid, "(RFC822)")
+                    # BODY.PEEK leaves the message unread; fetching RFC822
+                    # would mark it read on the spot, so a message that then
+                    # failed extraction (or a Tally submission, which this
+                    # source skips) would never be seen again.
+                    typ, msg_data = conn.uid("FETCH", uid, "(BODY.PEEK[])")
                     if typ != "OK" or not msg_data or not msg_data[0]:
                         continue
                     raw_messages.append((uid, msg_data[0][1]))

@@ -1,0 +1,72 @@
+name: Update conferences (Tally form)
+
+# Hourly check for conferences submitted through the Tally form on the site.
+# Each submission is published as soon as it is found: there is no approval
+# step, only the checks every listing gets (a location, a submission deadline,
+# and a deadline that fits the conference dates). An hour with no new
+# submission uses no Gemini requests and commits nothing.
+on:
+  schedule:
+    - cron: "23 * * * *" # hourly, off the top of the hour
+  workflow_dispatch:
+    inputs:
+      rescan_all:
+        description: "Re-read every Tally email, including ones already marked read."
+        required: false
+        default: "false"
+
+# Avoid colliding with the other jobs if two try to write conferences.csv at once.
+concurrency:
+  group: conference-csv-write
+  cancel-in-progress: false
+
+jobs:
+  update-tally:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Process new Tally submissions
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CT_MAIL_HOST: ${{ secrets.CT_MAIL_HOST }}
+          CT_MAIL_PORT: ${{ secrets.CT_MAIL_PORT }}
+          CT_MAIL_USER: ${{ secrets.CT_MAIL_USER }}
+          CT_MAIL_PASSWORD: ${{ secrets.CT_MAIL_PASSWORD }}
+          CT_MAIL_FOLDER: ${{ secrets.CT_MAIL_FOLDER }}
+          CT_MAIL_UNSEEN_ONLY: ${{ github.event.inputs.rescan_all == 'true' && 'false' || 'true' }}
+          CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
+        run: |
+          python -m conference_tracker update-tally
+          # Rebuild the page only when a submission changed the data; the page
+          # carries a build time, so rebuilding every hour would commit every hour.
+          if ! git diff --quiet conferences.csv; then
+            python -m conference_tracker dedupe
+            python -m conference_tracker refresh-status
+            python -m conference_tracker build-site docs/index.html
+          fi
+
+      - name: Commit changes
+        run: |
+          git config user.name "conference-tracker-bot"
+          git config user.email "actions@github.com"
+          git add conferences.csv docs/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Add conferences from the Tally form ($(date -u +%Y-%m-%d))"
+            # Re-sync in case another job pushed while this run was working.
+            # On a clash keep this run's lines: the submission's email is
+            # already marked read, so losing the commit would lose the entry.
+            git pull --rebase -X theirs origin "${GITHUB_REF_NAME}"
+            git push
+          else
+            echo "No changes to commit."
+          fi
