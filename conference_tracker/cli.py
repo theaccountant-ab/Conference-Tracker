@@ -62,7 +62,7 @@ def run_source(config: Config, source: Source) -> int:
     store = CSVStore(config.csv_path)
 
     from .sources.search_source import (
-        call_with_minute_retry,
+        call_with_retry,
         describe_quota_error,
         is_quota_error,
     )
@@ -74,7 +74,7 @@ def run_source(config: Config, source: Source) -> int:
         n_docs += 1
         try:
             # A single document (especially a newsletter) can hold many.
-            extracted = call_with_minute_retry(
+            extracted = call_with_retry(
                 lambda: extract_conferences(client, config.model, doc.text), doc.origin)
         except errors.APIError as exc:
             # Leave the document unprocessed (e.g. email stays unread) so the
