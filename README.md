@@ -72,6 +72,10 @@ GitHub's servers (where IMAP works) and commits changes to `conferences.csv`.
 Add these repository secrets: `GEMINI_API_KEY`, `CT_MAIL_HOST`, `CT_MAIL_PORT`,
 `CT_MAIL_USER`, `CT_MAIL_PASSWORD`, `CT_MAIL_FOLDER`.
 
+`.github/workflows/update-tally.yml` checks the same mailbox hourly for Tally
+form submissions and publishes them right away (no approval step; they get the
+same location/deadline checks as every other listing).
+
 ## How it works
 
 ```

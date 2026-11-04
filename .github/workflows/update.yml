@@ -2,7 +2,8 @@ name: Update conferences
 
 # Runs on a daily schedule (and on demand). Scans the mailbox for new
 # conferences and refreshes the status column, then commits any changes to
-# conferences.csv back to the repo.
+# conferences.csv back to the repo. Tally form submissions are handled
+# hourly by update-tally.yml.
 on:
   schedule:
     - cron: "0 6 * * *" # 06:00 UTC daily
@@ -43,7 +44,6 @@ jobs:
           CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
         run: |
           python -m conference_tracker update-email
-          python -m conference_tracker update-tally
           python -m conference_tracker dedupe
           python -m conference_tracker refresh-status
           python -m conference_tracker build-site docs/index.html
