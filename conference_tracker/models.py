@@ -76,8 +76,28 @@ _EMPTY_OR_TRAILING_PARENS = re.compile(r"\(\s*([^()]*?)[\s\-–]*\)")
 _PAREN_ACRONYM = re.compile(r"\s*\(\s*[A-Z0-9][A-Z0-9&-]{1,11}\s*\)")
 
 
+# "Annual" says nothing about which conference it is ("Annual Olin Finance
+# Conference" is the Olin Finance Conference), so it is dropped from names.
+# "Semi-Annual" and the "Annual Review of ..." journals keep it.
+_ANNUAL = re.compile(r"(?<![\w-])annual\b(?!\s+reviews?\b)", re.IGNORECASE)
+
+
+def drop_annual(name: str) -> str:
+    """Remove the word "Annual" from a conference name.
+
+    "European Finance Association Annual Meeting" -> "European Finance
+    Association Meeting". A name that would be left as just "Conference" or
+    "The Meeting" is returned unchanged.
+    """
+    name = (name or "").strip()
+    s = re.sub(r"\s{2,}", " ", _ANNUAL.sub(" ", name))
+    s = re.sub(r"\s+([,)])", r"\1", s).strip(" -–,")
+    words = [w for w in s.split() if w.lower() != "the"]
+    return s if len(words) >= 2 else name
+
+
 def clean_conference_name(name: str) -> str:
-    """Drop edition numbers, years, and parenthetical abbreviations from a name.
+    """Drop edition numbers, years, "Annual" and parenthetical abbreviations.
 
     "The 39th Australasian Finance and Banking Conference" -> "The Australasian
     Finance and Banking Conference"; "7th Financial Economics Meeting (FEM-2026)"
@@ -96,7 +116,7 @@ def clean_conference_name(name: str) -> str:
     s = _PAREN_ACRONYM.sub("", s)
     s = re.sub(r"\s+([,)])", r"\1", s)        # no space before , or )
     s = re.sub(r"\s{2,}", " ", s)              # collapse runs of whitespace
-    return s.strip(" -–,|")
+    return drop_annual(s.strip(" -–,|"))
 
 
 # Short joining words kept lowercase in Title Case (unless first/last word).

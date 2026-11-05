@@ -17,7 +17,7 @@ def test_normalize_name_drops_the_and_subtitle():
         "australasian finance and banking conference"
     )
     assert normalize_name('MIT GCFP Annual Conference | "Theme"') == (
-        "mit gcfp annual conference"
+        "mit gcfp conference"
     )
 
 
@@ -327,5 +327,26 @@ def test_dedupe_merges_reworded_name_same_city_and_day():
         assert olin.contact.startswith("https://event.olin.washu.edu/")
         # The web-search tag survives so the rotation still sees the name as covered.
         assert olin.source == "search:Olin Finance Conference"
+    finally:
+        os.path.exists(path) and os.unlink(path)
+
+
+def test_dedupe_drops_annual_from_stored_names_and_merges_on_it():
+    store, path = _store()
+    try:
+        store.save(
+            [
+                Conference(name="Midwest Finance Association Annual Meeting",
+                           location="Chicago, IL", start_date="2027-03-03",
+                           source="email:x"),
+                Conference(name="Midwest Finance Association Meeting",
+                           contact="https://www.mfa-2027.com", location="Chicago, IL",
+                           start_date="2027-03-03", source="search:MFA"),
+            ]
+        )
+        assert store.dedupe() == 1
+        rows = store.load()
+        assert [r.name for r in rows] == ["Midwest Finance Association Meeting"]
+        assert rows[0].contact == "https://www.mfa-2027.com"
     finally:
         os.path.exists(path) and os.unlink(path)

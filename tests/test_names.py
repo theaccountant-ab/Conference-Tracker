@@ -11,7 +11,7 @@ def test_strips_leading_ordinal():
 def test_strips_inline_ordinal():
     assert (
         clean_conference_name('MIT GCFP 13th Annual Conference | "Disruption"')
-        == 'MIT GCFP Annual Conference | "Disruption"'
+        == 'MIT GCFP Conference | "Disruption"'
     )
 
 
@@ -81,3 +81,29 @@ def test_titlecase_minor_words_and_edges():
     )
     # leading minor word is still capitalized
     assert tc("the colorado finance summit") == "The Colorado Finance Summit"
+
+
+def test_drops_annual():
+    from conference_tracker.models import drop_annual
+
+    assert drop_annual("European Finance Association Annual Meeting") == (
+        "European Finance Association Meeting"
+    )
+    assert clean_conference_name("22nd Annual Olin Finance Conference") == (
+        "Olin Finance Conference"
+    )
+    assert drop_annual("Annual Finance Conference, Isenberg School") == (
+        "Finance Conference, Isenberg School"
+    )
+
+
+def test_keeps_annual_where_it_is_part_of_the_name():
+    from conference_tracker.models import drop_annual
+
+    # A journal title, a different word, and names that would be left bare.
+    assert drop_annual("Annual Review of Financial Economics Conference") == (
+        "Annual Review of Financial Economics Conference"
+    )
+    assert drop_annual("Semi-Annual Banking Workshop") == "Semi-Annual Banking Workshop"
+    assert drop_annual("Annual Conference") == "Annual Conference"
+    assert drop_annual("The Annual Meeting") == "The Annual Meeting"
