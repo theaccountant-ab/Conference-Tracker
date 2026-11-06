@@ -14,7 +14,7 @@ import unicodedata
 from datetime import datetime, timezone
 from typing import Dict, Iterable, List, Optional, Tuple
 
-from .models import CSV_FIELDS, Conference
+from .models import CSV_FIELDS, Conference, drop_annual
 from .status import compute_status
 
 
@@ -28,8 +28,11 @@ def normalize_name(name: str) -> str:
     Apostrophes (straight and curly) are deleted rather than turned into spaces,
     so "Hawai'i Accounting Research Conference" and "Hawaii Accounting Research
     Conference" normalize to the same key instead of "hawai i" vs "hawaii".
+
+    The word "Annual" is ignored, so names from before it was dropped from
+    stored names (and watchlist or tracked names that still carry it) match.
     """
-    name = name.split("|", 1)[0]
+    name = drop_annual(name.split("|", 1)[0])
     name = name.lower()
     name = re.sub(r"['‘’ʻʼ`]", "", name)  # drop apostrophes (no space)
     name = re.sub(r"[^a-z0-9 ]+", " ", name)
@@ -348,6 +351,9 @@ class CSVStore:
         position of its first member.
         """
         rows = self.load()
+        # Rows stored before "Annual" was dropped from names get the new name.
+        for conf in rows:
+            conf.name = drop_annual(conf.name)
         by_name: Dict[Tuple[str, str], Conference] = {}
         by_contact: Dict[Tuple[str, str], Conference] = {}
         by_day_city: Dict[Tuple[str, str], List[Conference]] = {}
