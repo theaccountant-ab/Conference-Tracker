@@ -132,7 +132,7 @@ _ACRONYMS = {
     "CFP", "SFS", "ICBFS", "JFDS", "CUHK", "US", "USA", "UK", "EU", "UAE",
     "ESG", "CSR", "IPO", "SME", "IEEE", "ACM", "AAAI", "ACL", "EMNLP", "NAACL",
     "ICML", "ICLR", "CVPR", "ECCV", "ICCV", "KDD", "SIGIR", "WWW", "NBER",
-    "AEA", "AFA", "WFA", "EFA", "FMA", "RFS",
+    "AEA", "AFA", "WFA", "EFA", "FMA", "RFS", "FIRS",
 }
 # Acronyms with non-standard internal casing, keyed by their uppercase form.
 _SPECIAL_CASE = {"NEURIPS": "NeurIPS", "PHD": "PhD", "ARXIV": "arXiv"}
