@@ -1,6 +1,6 @@
 name,contact,location,submission_deadline,status,start_date,end_date,last_updated,source
 Finance at a Time of Change and Uncertainty — Journal of Corporate Finance & Renmin University of China Conference,https://editorialexpress.com/conference/JCFCChina2026,"Beijing, China",2026-08-09,Participation,2026-12-11,2026-12-12,2026-06-07T02:03:01Z,email:<CAAmusDJm4Bhj8SOuYzs6e8XLQ33-LVGMRq4gav183qzVEfyT8w@mail.gmail.com>
-MIT GCFP Annual Conference,https://gcfp.mit.edu,"Cambridge, MA",2026-07-17,Ended,2026-10-29,2026-10-30,2026-06-07T02:03:01Z,search:MIT GCFP 13th Annual Conference
+MIT GCFP Conference,https://gcfp.mit.edu,"Cambridge, MA",2026-07-17,Ended,2026-10-29,2026-10-30,2026-06-07T02:03:01Z,search:MIT GCFP 13th Annual Conference
 EUROFIDAI-ESSEC Paris December Finance Meeting,https://www.paris-december.eu/,"Paris, France",2026-05-31,Participation,2026-12-17,2026-12-17,2026-10-24T13:49:09Z,search:Last reminder: Call for papers - EUROFIDAI-ESSEC Paris December Finance Meeting
 Chicago Fed/University of Chicago Conference on Municipal Bond Markets,chi.muni.finance@chi.frb.org,"Chicago, IL",2026-06-01,Ended,2026-09-29,2026-09-30,2026-11-03T17:28:12Z,search:Chicago Fed/University of Chicago Conference on Municipal Bond Markets
 SFS Cavalcade Asia-Pacific,https://sfs.org/conferences/sfs-cavalcade-asia-pacific/,Hong Kong,2026-06-30,Participation,2026-12-07,2026-12-09,2026-10-26T16:23:45Z,search:SFS Cavalcade Asia-Pacific 2026
@@ -9,7 +9,7 @@ Australasian Finance and Banking Conference,https://www.unsw.edu.au/business/our
 ABFER-JFDS Conference on AI for Finance,ai4f@ustc.edu.cn,"Hefei, China",2026-06-30,Ended,2026-08-18,2026-08-19,2026-10-05T19:02:43Z,search:14th ABFER Annual Conference
 CUHK-RAPS-RCFS Conference on Asset Pricing and Corporate Finance,https://cloud.itsc.cuhk.edu.hk/webform/view.php?id=13734007,Hong Kong,2026-08-15,Participation,2026-12-13,2026-12-15,2026-06-07T02:03:01Z,email:<CAAmusDJm4Bhj8SOuYzs6e8XLQ33-LVGMRq4gav183qzVEfyT8w@mail.gmail.com>
 Colorado Finance Summit,https://www.coloradofinancesummit.com,"Vail, CO",2026-07-01,Participation,2026-12-10,2026-12-13,2026-10-21T14:46:49Z,search:Colorado Finance Summit 2026 - Call for Papers
-Annual Eastern Finance Association Meeting,http://openconf.org/efa2027,"Philadelphia, PA",2026-10-05,Participation,2027-04-07,2027-04-10,2026-10-29T16:31:45Z,search:Annual Eastern Finance Association Meeting
+Eastern Finance Association Meeting,http://openconf.org/efa2027,"Philadelphia, PA",2026-10-05,Participation,2027-04-07,2027-04-10,2026-10-29T16:31:45Z,search:Annual Eastern Finance Association Meeting
 Unc Tax Symposium,https://tax.unc.edu/events/,"Chapel Hill, NC",2023-12-15,Ended,2024-04-12,2024-04-13,2026-09-01T11:10:32Z,url:https://tax.unc.edu/events/
 Conference on Low-Income Housing Supply and Housing Affordability,,"Los Angeles, CA",2023-12-15,Ended,2024-04-11,2024-04-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Drexel University Academic Conference,,"Philadelphia, PA",2023-12-15,Ended,2024-04-11,2024-04-12,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -47,7 +47,7 @@ Economic and Behavioral Dimensions of Tax Compliance,,"New Orleans, LA",2019-07-
 Tel Aviv Finance Conference,,"Tel Aviv, Israel",2019-07-01,Ended,2019-12-17,2019-12-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 New York Fed / Nyu Stern Conference on Financial Intermediation,,"New York, NY",2019-07-12,Ended,2019-11-01,2019-11-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Financial Intermediation and Corporate Finance,,"Carcavelos, Portugal",2019-07-15,Ended,2019-11-09,2019-11-09,2026-06-09T00:22:11Z,import:Book1.xlsx
-Second Annual Tcu Neeley School of Business Finance Conference,,"Fort Worth, TX",2019-07-15,Ended,2019-11-07,2019-11-08,2026-06-09T00:22:11Z,import:Book1.xlsx
+Second Tcu Neeley School of Business Finance Conference,,"Fort Worth, TX",2019-07-15,Ended,2019-11-07,2019-11-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cirano-Sam M. Walton College of Business Workshop on Networks in Trade and Finance,,"Montreal, Canada",2019-07-15,Ended,2019-10-18,2019-10-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asian Academic Accounting Association,,"Seoul, South Korea",2019-07-15,Ended,2019-11-24,2019-11-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Australasian Finance and Banking Conference,,"Sydney, Australia",2019-07-28,Ended,2019-12-16,2019-12-18,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -56,15 +56,15 @@ Pcaob Conference on Auditing and Capital Markets,,"Washington, DC",2019-07-31,En
 Conference on Corporate Policies and Asset Prices,https://coapfinance.com/,"Nice, France",2026-08-17,Participation,2026-12-09,2026-12-10,2026-10-19T16:43:25Z,search:6th Conference on Corporate Policies and Asset Prices (COAP)
 Conference of the Japanese Accounting Review,,"Kobe, Japan",2019-08-05,Ended,2019-12-22,2019-12-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Nova Sbe-Bpi Asset Management Conference,,"Carcavelos, Portugal",2019-08-10,Ended,2019-10-11,2019-10-11,2026-06-09T00:22:11Z,import:Book1.xlsx
-University of Texas at Dallas Annual Fall Finance Conference,,"Dallas, TX",2019-08-10,Ended,2019-10-04,2019-10-05,2026-06-09T00:22:11Z,import:Book1.xlsx
+University of Texas at Dallas Fall Finance Conference,,"Dallas, TX",2019-08-10,Ended,2019-10-04,2019-10-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Iim Calcutta-Nyu Stern India Research Conference in Financial Economics,,"New York, NY",2019-08-15,Ended,2019-10-11,2019-10-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on the Theories and Practices of Securities and Financial Markets,,Taiwan,2019-08-15,Ended,2019-12-06,2019-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Showcasing Women in Finance,,Luxembourg,2019-08-24,Ended,2019-11-22,2019-11-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hkust Finance Symposium,,Hong Kong,2019-08-27,Ended,2019-12-09,2019-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
-Irish Academy of Finance Second Annual Conference,,"Cork, Ireland",2019-08-30,Ended,2019-11-28,2019-11-29,2026-06-09T00:22:11Z,import:Book1.xlsx
+Irish Academy of Finance Second Conference,,"Cork, Ireland",2019-08-30,Ended,2019-11-28,2019-11-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 PhD Symposium on Financial Stability,,"Washington, DC",2019-08-30,Ended,2019-10-24,2019-10-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Capital Markets Research in Accounting: Five Decades and Beyond,,"Guangzhou, China",2019-08-31,Ended,2019-11-16,2019-11-17,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Financial Research Association,https://fraconference.com,"Las Vegas, NV",2026-08-31,Participation,2026-12-05,2026-12-06,2026-10-29T16:31:45Z,search:Annual Meeting of the Financial Research Association
+Meeting of the Financial Research Association,https://fraconference.com,"Las Vegas, NV",2026-08-31,Participation,2026-12-05,2026-12-06,2026-10-29T16:31:45Z,search:Annual Meeting of the Financial Research Association
 New Technologies in Finance Conference,,New York,2019-08-31,Ended,2019-11-15,2019-11-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Sydney Banking and Financial Stability Conference,https://sbfc.sydney.edu.au/,"Sydney, Australia",2026-08-31,Participation,2026-11-30,2026-12-01,2026-10-27T15:38:39Z,search:The 2026 Sydney Banking and Financial Stability Conference
 Colorado Finance Summit,,"Vail, CO",2019-08-31,Ended,2019-12-12,2019-12-15,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -78,7 +78,7 @@ Eastern Finance Association Meeting,,"Boston, MA",2019-09-20,Ended,2020-04-01,20
 Tilburg Winter Camp,,"Tilburg, The Netherlands",2019-09-20,Ended,2019-12-09,2019-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Australian National University Conference on Asset Pricing,,"Canberra, Australia",2019-09-30,Ended,2020-03-26,2020-03-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hedge Fund Research Conference,,"Paris, France",2019-09-30,Ended,2020-01-16,2020-01-17,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Midwest Finance Association,,"Chicago, IL",2019-10-01,Ended,2020-03-19,2020-03-21,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Midwest Finance Association,,"Chicago, IL",2019-10-01,Ended,2020-03-19,2020-03-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Down Under,,"Melbourne, Australia",2019-10-01,Ended,2020-03-05,2020-03-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Southwestern Finance Association Meeting,,"San Antonio, TX",2019-10-01,Ended,2020-03-11,2020-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 European Winter Finance Conference,https://europeanwinterfinanceconference.wordpress.com/ewfc-2027-call-for-papers/,"Saint-Gervais-les-Bains, France",2026-09-14,Participation,2027-01-10,2027-01-13,2026-08-01T08:28:38Z,email:<DM6PR01MB5866A7455E04CDEF12B9C9818FC82@DM6PR01MB5866.prod.exchangelabs.com>
@@ -86,7 +86,7 @@ Wellington Finance Summit,https://sites.google.com/site/wellingtonfinancesummit/
 Yale-RFS Real & Private-Value Assets Conference,,"New Haven, CT",2019-10-15,Ended,2020-01-31,2020-01-31,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ipc Spring Research Symposium,,"Chapel-Hill, NC",2019-10-16,Ended,2020-03-06,2020-03-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Uts Australian Summer Accounting Conference,,"Sydney, Australia",2019-10-31,Ended,2020-02-06,2020-02-07,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Swiss Society for Financial Market Research (SGF Conference),https://www.conftool.net/sgf2027,"Zurich, Switzerland",2026-10-31,Participation,2027-04-09,2027-04-09,2026-10-26T16:23:45Z,search:SGF Conference 2027
+Meeting of the Swiss Society for Financial Market Research (SGF Conference),https://www.conftool.net/sgf2027,"Zurich, Switzerland",2026-10-31,Participation,2027-04-09,2027-04-09,2026-10-26T16:23:45Z,search:SGF Conference 2027
 Financial Intermediation Research Society,,"Budapest, Hungary",2019-11-01,Ended,2020-05-30,2020-06-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Chicago Financial Institutions Conference,,"Chicago, IL",2019-11-01,Ended,2020-04-16,2020-04-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Research Conference on Bank Regulation,,"New York, NY",2019-11-01,Ended,2020-02-14,2020-02-14,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -111,7 +111,7 @@ Unc Tax Symposium,,"Chapel-Hill, NC",2019-12-15,Ended,2020-04-17,2020-04-18,2026
 Fixed Income and Financial Institutions Conference,,"Columbia, SC",2019-12-15,Ended,2020-04-24,2020-04-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Mofir Workshop on Banking,,"Lisbon, Portugal",2019-12-15,Ended,2020-06-04,2020-06-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Suntrust Beach Conference,,"Miramar Beach, FL",2019-12-15,Ended,2020-04-16,2020-04-18,2026-06-09T00:22:11Z,import:Book1.xlsx
-Fifteenth Annual Mid-Atlantic Research Conference in Finance,,"Villanova, PA",2019-12-15,Ended,2020-03-20,2020-03-20,2026-06-09T00:22:11Z,import:Book1.xlsx
+Fifteenth Mid-Atlantic Research Conference in Finance,,"Villanova, PA",2019-12-15,Ended,2020-03-20,2020-03-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Johns Hopkins Finance Conference,,"Baltimore, MD",2019-12-20,Ended,2020-05-29,2020-05-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hec- Mcgill Winter Finance Workshop,,"Fernie, BC",2019-12-20,Ended,2020-03-12,2020-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cetafe,,"Ithaca, NY",2019-12-20,Ended,2020-05-08,2020-05-09,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -121,8 +121,8 @@ Showcasing Women in Finance,,"Miami, FL",2019-12-31,Ended,2020-03-20,2020-03-20,
 Short-Term Funding Markets Conference,,"Washington, DC",2019-12-31,Ended,2020-04-03,2020-04-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 FMA Applied Finance Conference,,"New York, NY",2020-01-03,Ended,2020-05-15,2020-05-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Conference of the French Finance Association,,"Nantes, France",2020-01-13,Ended,2020-05-25,2020-05-27,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Symposium in Financial Economics,,"Shenzhen, China",2020-01-13,Ended,2020-05-14,2020-05-15,2026-06-09T00:22:11Z,import:Book1.xlsx
-Financial Management Association International Annual Meeting,https://www.fma.org/tampa,"Tampa, FL",2026-04-01,Ended,2026-10-14,2026-10-17,2026-10-24T13:49:09Z,search:New Ideas Sessions at the 2026 FMA Annual Meeting
+Symposium in Financial Economics,,"Shenzhen, China",2020-01-13,Ended,2020-05-14,2020-05-15,2026-06-09T00:22:11Z,import:Book1.xlsx
+Financial Management Association International Meeting,https://www.fma.org/tampa,"Tampa, FL",2026-04-01,Ended,2026-10-14,2026-10-17,2026-10-24T13:49:09Z,search:New Ideas Sessions at the 2026 FMA Annual Meeting
 European Banking Center Network Conference,,"Tilburg, the Netherlands",2020-01-15,Ended,2020-06-04,2020-06-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Northwestern/Uspto Conference on Innovation Economics,,Virtual,2020-01-15,Ended,2020-08-27,2020-08-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Weai Conference,,"Denver, CO",2020-01-17,Ended,2020-06-26,2020-06-30,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -131,7 +131,7 @@ Cass Mergers and Acquisitions Research Centre Conference,,"London, UK",2020-01-3
 Baltimore Area Finance Conference,,"Maryland, MD",2020-01-31,Ended,2020-04-24,2020-04-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cdfi Symposium,,"St. Louis, MO",2020-01-31,Ended,2020-05-19,2020-05-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Penn State Accounting Research Conference,,"University Park, PA",2020-01-31,Ended,2020-05-14,2020-05-15,2026-06-09T00:22:11Z,import:Book1.xlsx
-EFA Annual Meeting,,"Helsinki, Finland",2020-02-01,Ended,2020-08-19,2020-08-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+EFA Meeting,,"Helsinki, Finland",2020-02-01,Ended,2020-08-19,2020-08-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ceibs Finance/Accounting Symposium,,"Shanghai, China",2020-02-02,Ended,2020-05-06,2020-05-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Summer Accounting Conference,,"Jackson Hole, WY",2020-02-03,Ended,2020-06-07,2020-06-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Innovation Economics,,"Chicago, IL",2020-02-10,Ended,2020-06-11,2020-06-12,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -139,7 +139,7 @@ Afaanz Conference,,"Melbourne, Australia",2020-02-10,Ended,2020-07-05,2020-07-07
 China International Conference in Finance,,"Shanghai, China",2020-02-10,Ended,2020-07-07,2020-07-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Paul Woolley Centre Conference,,"Basel, Switzerland",2020-02-14,Ended,2020-06-04,2020-06-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Deloitte/University of Kansas Auditing Symposium,,"Lawrance, KS",2020-02-15,Ended,2020-05-21,2020-05-22,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Municipal Finance Conference,,"Washington, DC",2020-02-21,Ended,2020-07-13,2020-07-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+Municipal Finance Conference,,"Washington, DC",2020-02-21,Ended,2020-07-13,2020-07-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cambridge Endowment for Research in Finance,,"Cambridge, UK",2020-02-25,Ended,2020-09-11,2020-09-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 China Financial Research Conference,,"Beijing, China",2020-02-28,Ended,2020-07-04,2020-07-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Summer Institute of Finance Conference,,"Xi'an, China",2020-02-28,Ended,2020-07-12,2020-07-13,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -153,14 +153,14 @@ Executive Compensation Conference,,"Rotherdam, Netherlands",2020-03-01,Ended,202
 Shof-Ecgi Conference,,"Stockholm, Sweden",2020-03-01,Ended,2020-10-16,2020-10-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Conference on Automation, Training, and the Middle Class",,"Washington, DC",2020-03-01,Ended,2020-06-18,2020-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Capana Accounting Research Conference,,"Xiamen, China",2020-03-01,Ended,2020-07-03,2020-07-04,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cebra'S Annual Meeting,,"London, UK",2020-03-03,Ended,2020-09-01,2020-09-02,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Financial Management Association Annual Meeting,https://www.efmaefm.org,"Leeds, UK",2027-01-15,Submission,2027-06-23,2027-06-26,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
+Cebra'S Meeting,,"London, UK",2020-03-03,Ended,2020-09-01,2020-09-02,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Financial Management Association Meeting,https://www.efmaefm.org,"Leeds, UK",2027-01-15,Submission,2027-06-23,2027-06-26,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
 Sfa Conference,,"Palm Springs, CA",2020-03-13,Ended,2020-11-18,2020-11-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Theory Group,,"New York, NY",2020-03-15,Ended,2020-06-30,2020-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 University of Washington Summer Finance Conference,,"Seattle, WA",2020-03-15,Ended,2020-07-27,2020-07-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Consumer Behavior in Financial Markets,,"Stockholm, Sweden",2020-03-15,Ended,2020-08-24,2020-08-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Berlin-Vallendar Conference on Tax Research,,"Vallendar, Germany",2020-03-15,Ended,2020-06-04,2020-06-05,2026-06-09T00:22:11Z,import:Book1.xlsx
-AFA Annual Meeting,,"Chicago, IL",2020-03-16,Ended,2021-01-03,2021-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
+AFA Meeting,,"Chicago, IL",2020-03-16,Ended,2021-01-03,2021-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Entrepreneurial Finance Association Meeting,,"Bath, UK",2020-03-22,Ended,2020-07-09,2020-07-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Sdu Finance Workshop,,"Odense, Denmark",2020-03-22,Ended,2020-06-11,2020-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Shanghai Green Finance Conference with Journal of Corporate Finance,,"Shanghai, China",2020-03-25,Ended,2020-05-31,2020-06-01,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -174,7 +174,7 @@ Conference on Sustainable Finance,,"Lund, Sweden",2020-03-31,Ended,2020-06-15,20
 Sustainable Finance Forum,,"Shanghai, China",2020-03-31,Ended,2020-07-11,2020-07-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Uic Finance Conference,,"Chicago, IL",2020-04-01,Ended,2020-09-25,2020-09-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Contemporary Accounting Research Conference,,"Halifax, Canada",2020-04-03,Ended,2020-10-23,2020-10-24,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Accounting Review Annual Conference,https://www.tandfonline.com/journals/rear20,"Bologna, Italy",2026-08-31,Participation,2027-04-01,2027-04-02,2026-10-22T14:47:04Z,search:European Accounting Review 2027 Annual Conference
+European Accounting Review Conference,https://www.tandfonline.com/journals/rear20,"Bologna, Italy",2026-08-31,Participation,2027-04-01,2027-04-02,2026-10-22T14:47:04Z,search:European Accounting Review 2027 Annual Conference
 LBS Finance Summer Symposium,,"London, UK",2020-04-12,Ended,2020-06-13,2020-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 USA Ribaf Conference,,"Bowling Green, OH",2020-04-15,Ended,2020-09-24,2020-09-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Industrial Organization Workshop: Markets and Information,,"St. Gallen, Switzerland",2020-04-15,Ended,2020-09-24,2020-09-25,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -182,7 +182,7 @@ Greater China Area Finance Conference,,"Xiamen, China",2020-04-15,Ended,2020-06-
 Journal of Contemporary Accounting & Economics Mid-Year Conference,,"Melbourne, Australia",2020-04-17,Ended,2020-07-03,2020-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Accounting Summer Camp,,"Padua, Italy",2026-04-07,Ended,2026-06-22,2026-06-24,2026-10-01T01:58:02Z,search:Accounting Summer Camp
 Experimental Research in Management Accounting,,"Bochum, Germany",2020-04-30,Ended,2020-08-20,2020-08-21,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference of the Asia-Pacific Association of Derivatives,,"Busan, Korea",2020-04-30,Ended,2020-07-13,2020-07-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference of the Asia-Pacific Association of Derivatives,,"Busan, Korea",2020-04-30,Ended,2020-07-13,2020-07-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Icgs Conference,,"Norfolk, VA",2020-05-01,Ended,2020-11-14,2020-11-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Real Estate Research Symposium,,"Chapel-Hill, NC",2020-05-15,Ended,2020-10-01,2020-10-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Private Equity Research Symposium,,"Chapel-Hill, NC",2020-05-15,Ended,2020-11-05,2020-11-06,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -237,15 +237,15 @@ University of Connecticut Finance Conference,,"Hartford, CT",2021-01-08,Ended,20
 Behavioural Finance and Ethics,,"London, UK",2021-01-08,Ended,2021-06-10,2021-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Accounting Research Conference in Memory of N, Dopuch",,Virtual,2021-01-08,Ended,2021-02-26,2021-02-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 CFPB Research Conference on Consumer Finance,,Virtual,2021-01-11,Ended,2021-05-06,2021-05-07,2026-06-09T00:22:11Z,import:Book1.xlsx
-Efma Annual Meeting,,"Leeds, UK",2021-01-15,Ended,2021-06-30,2021-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
+Efma Meeting,,"Leeds, UK",2021-01-15,Ended,2021-06-30,2021-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference of the French Finance Association,,"Nantes, France",2021-01-15,Ended,2021-05-26,2021-05-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Central Bank of Ireland Workshop,,Virtual,2021-01-15,Ended,2021-02-18,2021-02-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Wfe'S Clearing and Derivatives Conference,,Virtual,2021-01-15,Ended,2021-04-19,2021-04-23,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Accounting Review Annual Conference,,Virtual,2021-01-31,Ended,2021-11-18,2021-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Accounting Review Conference,,Virtual,2021-01-31,Ended,2021-11-18,2021-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Crypto and Blockchain Economics Research,,Virtual,2021-02-01,Ended,2021-04-16,2021-04-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ucla Anderson Fink Center Conference,,Virtual,2021-02-01,Ended,2021-04-22,2021-04-23,2026-06-09T00:22:11Z,import:Book1.xlsx
-Swiss Society of Economics and Statistics Annual Congress,,Virtual,2021-02-01,Ended,2021-06-10,2021-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Finance Association Annual Meeting,,Virtual,2021-02-01,Ended,2021-08-25,2021-08-28,2026-06-09T00:22:11Z,import:Book1.xlsx
+Swiss Society of Economics and Statistics Congress,,Virtual,2021-02-01,Ended,2021-06-10,2021-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Finance Association Meeting,,Virtual,2021-02-01,Ended,2021-08-25,2021-08-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Afaanz Virtual Conference,,Virtual,2021-02-08,Ended,2021-07-05,2021-07-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Markets and Corporate Governance Conference,,Virtual,2021-02-10,Ended,2021-04-07,2021-04-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 China International Conference in Finance,,Virtual,2021-02-21,Ended,2021-07-06,2021-07-09,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -266,7 +266,7 @@ Conference on Systematic Risk Analytics,,Virtual,2021-03-31,Ended,2021-07-01,202
 Sustainable Finance Forum,,Virtual,2021-03-31,Ended,2021-07-10,2021-07-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporate Governance in Times of Disruption,,The Netherlands,2021-04-01,Ended,2021-10-08,2021-10-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Pbfeam Conference,,Virtual,2021-04-01,Ended,2021-09-03,2021-09-04,2026-06-09T00:22:11Z,import:Book1.xlsx
-FMA Annual Meeting,,"Denver, CO",2021-04-09,Ended,2021-10-20,2021-10-23,2026-06-09T00:22:11Z,import:Book1.xlsx
+FMA Meeting,,"Denver, CO",2021-04-09,Ended,2021-10-20,2021-10-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporations and Covid-19,,Virtual,2021-04-09,Ended,2021-06-17,2021-06-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Oxford-Eth Zurich Macro-Finance Conference,,"Oxford, UK",2021-04-15,Ended,2021-07-09,2021-07-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Academy of Behavioral Finance and Economics Meeting,,"Los Angeles, CA",2021-04-16,Ended,2021-09-22,2021-09-25,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -276,7 +276,7 @@ Accounting Workshop,,"Padova, Italy",2021-05-01,Ended,2021-07-08,2021-07-09,2026
 Boca Corporate Finance and Governance Conference,,Virtual,2021-05-01,Ended,2021-12-11,2021-12-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cdi Tenth Conference on Derivatives,,"Montreal, Canada",2021-05-02,Ended,2021-09-23,2021-09-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Private Equity Research Symposium,,"Chapel Hill, NC",2021-05-04,Ended,2021-11-11,2021-11-12,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Central Bank Research Association,https://www.cebra-events.org,"Copenhagen, Denmark",2026-03-02,Ended,2026-06-22,2026-06-24,2026-10-01T01:58:02Z,search:Annual Meeting of the Central Bank Research Association
+Meeting of the Central Bank Research Association,https://www.cebra-events.org,"Copenhagen, Denmark",2026-03-02,Ended,2026-06-22,2026-06-24,2026-10-01T01:58:02Z,search:Annual Meeting of the Central Bank Research Association
 Isb Summer Research Conference,,Virtual,2021-05-15,Ended,2021-08-27,2021-08-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Review of Accounting Studies Conference,,Virtual,2021-05-19,Ended,2021-12-09,2021-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporate Finance Day,,"Rotherdam, The Netherlands",2021-05-28,Ended,2021-09-24,2021-09-24,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -285,8 +285,8 @@ Safe Asset Pricing Workshop,,Virtual,2021-06-01,Ended,2021-09-28,2021-09-29,2026
 Paris December Finance Meeting,,"Paris, France",2021-06-04,Ended,2021-12-16,2021-12-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Community Banking in the Century,,"St Louis, MO",2021-06-04,Ended,2021-09-28,2021-09-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fixed Income & Financial Institutions,,"Columbia, SC",2021-06-15,Ended,2021-10-29,2021-10-30,2026-06-09T00:22:11Z,import:Book1.xlsx
-Second Annual Capital Markets Conference,,Virtual,2021-06-15,Ended,2021-07-22,2021-07-23,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Bank Research Conference,,"Arlington, VA",2021-06-28,Ended,2021-12-02,2021-12-03,2026-06-09T00:22:11Z,import:Book1.xlsx
+Second Capital Markets Conference,,Virtual,2021-06-15,Ended,2021-07-22,2021-07-23,2026-06-09T00:22:11Z,import:Book1.xlsx
+Bank Research Conference,,"Arlington, VA",2021-06-28,Ended,2021-12-02,2021-12-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 China Accounting and Finance Review,,Virtual,2021-06-30,Ended,2021-09-17,2021-09-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Melbourne Asset Pricing Meeting,,Virtual,2021-06-30,Ended,2021-10-26,2021-10-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Berlin-Vallendar Conference,,Virtual,2021-07-01,Ended,2021-08-27,2021-08-27,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -305,14 +305,14 @@ Corporate Carbon Footprints and Climate Risk Exposure,,Virtual,2021-08-12,Ended,
 Miami Behavioral Finance Conference,,"Coral Gables, FL",2021-08-15,Ended,2021-12-09,2021-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Utd Finance Conference,,"Dallas, TX",2021-08-15,Ended,2021-10-09,2021-10-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 The Hogeg Blockchain Research Institute Conference,,"Tel Aviv, Israel",2021-08-15,Ended,2021-12-15,2021-12-15,2026-06-09T00:22:11Z,import:Book1.xlsx
-MIT GCFP Annual Conference,,Virtual,2021-08-15,Ended,2021-10-20,2021-10-21,2026-06-09T00:22:11Z,import:Book1.xlsx
+MIT GCFP Conference,,Virtual,2021-08-15,Ended,2021-10-20,2021-10-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Vietnam Symposium in Banking and Finance,,Virtual,2021-08-15,Ended,2021-10-28,2021-10-30,2026-06-09T00:22:11Z,import:Book1.xlsx
 India Finance Conference,,"Banglore, India",2021-08-31,Ended,2021-12-16,2021-12-18,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Financial Research Association,,"Las Vegas, NV",2021-08-31,Ended,2021-12-11,2021-12-12,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Financial Research Association,,"Las Vegas, NV",2021-08-31,Ended,2021-12-11,2021-12-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Conference on CSR, the Economy and Financial Markets",,"Tokyo, Japan",2021-08-31,Ended,2021-11-11,2021-11-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Finance Summit,,"Vail, CO",2021-08-31,Ended,2021-12-15,2021-12-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Utah Winter Finance Conference,,"Snowbird, UT",2021-09-01,Ended,2022-02-03,2022-02-05,2026-06-09T00:22:11Z,import:Book1.xlsx
-Fars and JFR Annual Research Mini-Conference,,Virtual,2021-09-01,Ended,2022-03-03,2022-03-03,2026-06-09T00:22:11Z,import:Book1.xlsx
+Fars and JFR Research Mini-Conference,,Virtual,2021-09-01,Ended,2022-03-03,2022-03-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Frontier Research in Banking,,"Oslo, Norway",2021-09-05,Ended,2021-11-18,2021-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Jackson Hole Finance Group Conference,https://www.conftool.org/jhfinance2027,"Jackson Hole, Wyoming",2026-08-14,Participation,2027-01-15,2027-01-18,2026-07-11T08:04:39Z,email:<3AC3DDE1-40D7-49CE-B93D-9C2C3BBA185B@utdallas.edu>
 Financial Stability Conference,,Virtual,2021-09-15,Ended,2021-11-17,2021-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -320,11 +320,11 @@ New Zealand Finance Meeting,https://thefinancialreview.org/conferences/,"Aucklan
 Hkust Accounting Research Symposium,,Virtual,2021-09-15,Ended,2021-12-13,2021-12-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Smu Accounting Symposium,,Virtual,2021-09-15,Ended,2021-12-16,2021-12-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Uwa Blockchain and Cryptocurrency Conference,,Virtual,2021-09-30,Ended,2021-11-22,2021-11-23,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Macroeconomics and Finance,,Virtual,2021-09-30,Ended,2021-12-15,2021-12-17,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference on Macroeconomics and Finance,,Virtual,2021-09-30,Ended,2021-12-15,2021-12-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Eastern Finance Association Meeting,,"Washington, DC",2021-10-01,Ended,2022-04-06,2022-04-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Down Under,,"Melbourne, Australia",2021-10-03,Ended,2022-03-03,2022-03-05,2026-06-09T00:22:11Z,import:Book1.xlsx
-Midwest Finance Association Annual Meeting,https://mfa.memberclicks.net/2027-conference-paper-submission,"Chicago, IL",2026-09-04,Participation,2027-03-18,2027-03-20,2026-07-11T08:04:39Z,email:<3AC3DDE1-40D7-49CE-B93D-9C2C3BBA185B@utdallas.edu>
-Annual Hedge Fund Research Conference,https://houseoffinance.dauphine.psl.eu/en/research/research-conferences/annual-hedge-fund-research-conference,"Paris, France",2026-09-15,Participation,2027-01-21,2027-01-22,2026-10-07T17:09:46Z,search:18th Annual Hedge Fund Research Conference
+Midwest Finance Association Meeting,https://mfa.memberclicks.net/2027-conference-paper-submission,"Chicago, IL",2026-09-04,Participation,2027-03-18,2027-03-20,2026-07-11T08:04:39Z,email:<3AC3DDE1-40D7-49CE-B93D-9C2C3BBA185B@utdallas.edu>
+Hedge Fund Research Conference,https://houseoffinance.dauphine.psl.eu/en/research/research-conferences/annual-hedge-fund-research-conference,"Paris, France",2026-09-15,Participation,2027-01-21,2027-01-22,2026-10-07T17:09:46Z,search:18th Annual Hedge Fund Research Conference
 European Winter Finance Summit,http://www.ewfs.org,"Zürs, Austria",2026-10-18,Participation,2027-03-14,2027-03-17,2026-10-22T14:47:04Z,search:European Winter Finance Conference 2027: Call for Papers
 Consumer Research Symposium,,"Arlington, VA",2021-10-25,Ended,2022-03-11,2022-03-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Gsu-RFS Fintech Conference,,"Atlanta, GA",2021-10-25,Ended,2022-02-18,2022-02-19,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -332,7 +332,7 @@ Corporations and Covid-19,,"Oxford, UK",2021-10-29,Ended,2022-06-02,2022-06-02,2
 Global Corporate Governance Colloquim,,"Oxford, UK",2021-10-29,Ended,2022-06-03,2022-06-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 SGF Conference,,"Zurich, Switzerland",2021-10-31,Ended,2022-04-08,2022-04-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Jaaf India Symposium,,"Ahmedabad, India",2021-11-01,Ended,2022-01-05,2022-01-06,2026-06-09T00:22:11Z,import:Book1.xlsx
-"Annual Bank Regulation Research Conference, Columbia Sipa and Bpi",,"New York, NY",2021-11-01,Ended,2022-02-11,2022-02-11,2026-06-09T00:22:11Z,import:Book1.xlsx
+"Bank Regulation Research Conference, Columbia Sipa and Bpi",,"New York, NY",2021-11-01,Ended,2022-02-11,2022-02-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Utah Winter Accounting Conference,,"Salt Lake City, UT",2021-11-13,Ended,2022-02-10,2022-02-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ipc Spring Research Symposium,,"Chapel Hill, NC",2021-11-15,Ended,2022-04-01,2022-04-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Young Scholars Finance Consortium,,"College Station, TX",2021-11-18,Ended,2022-03-31,2022-04-02,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -356,23 +356,23 @@ Short-Term Funding Markets Conference,,"Washington, DC",2021-12-31,Ended,2022-04
 Skema-ESSEC Finance Workshop on Fintech and Decentralized Finance,,"Sophia Antipolis, France",2022-01-02,Ended,2022-05-19,2022-05-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fsu Suntrust Beach Conference,,Virtual,2022-01-04,Ended,2022-03-31,2022-04-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 University of Connecticut Finance Conference,,"Hartford, CT",2022-01-07,Ended,2022-05-20,2022-05-20,2026-06-09T00:22:11Z,import:Book1.xlsx
-Finance and Accounting Annual Symposium,,Virtual,2022-01-21,Ended,2022-06-16,2022-06-17,2026-06-09T00:22:11Z,import:Book1.xlsx
+Finance and Accounting Symposium,,Virtual,2022-01-21,Ended,2022-06-16,2022-06-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Behavioural Finance Working Group,,"London, UK",2022-01-28,Ended,2022-06-09,2022-06-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fmarc,,"Paphos, Cyprus",2022-01-30,Ended,2022-06-19,2022-06-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Bristol Workshop on Banking and Financial Intermediation,,"Bristol, UK",2022-01-31,Ended,2022-05-27,2022-05-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference of the Financial Engineering and Banking Society,,"Portsmouth, UK",2022-01-31,Ended,2022-06-10,2022-06-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Haskayne and Fox Accounting Conference,,"Whistler, BC",2022-01-31,Ended,2022-06-19,2022-06-22,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Finance Association Annual Meeting,,"Barcelona, Spain",2022-02-02,Ended,2022-08-24,2022-08-27,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Finance Association Meeting,,"Barcelona, Spain",2022-02-02,Ended,2022-08-24,2022-08-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Itam Finance Conference,https://gonzo.itam.mx/finance/Home/form0,"Mexico City, Mexico",2026-10-25,Participation,2027-02-19,2027-02-20,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
-Cema Annual Meeting,,"Chicago, IL",2022-02-15,Ended,2022-06-21,2022-06-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cema Meeting,,"Chicago, IL",2022-02-15,Ended,2022-06-21,2022-06-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 FMA European Conference,,"Lyon, France",2022-02-18,Ended,2022-07-11,2022-07-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Vanderbilt'S Music City Accounting Research Conference,,"Nashville, TN",2022-02-19,Ended,2022-06-09,2022-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
-Asian Finance Association (Asianfa) Annual Conference,,Hong Kong,2022-02-20,Ended,2022-06-27,2022-06-29,2026-06-09T00:22:11Z,import:Book1.xlsx
+Asian Finance Association (Asianfa) Conference,,Hong Kong,2022-02-20,Ended,2022-06-27,2022-06-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Crypto and Blockchain Economics Research,,"Boston, MA",2022-02-21,Ended,2022-05-12,2022-05-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporate Finance Theory Symposium,,"Cambridge, UK",2022-02-25,Ended,2022-09-16,2022-09-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ucla Anderson Fink Center Conference,,"Los Angeles, CA",2022-02-25,Ended,2022-04-28,2022-04-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 China Financial Research Conference,,"Beijing, China",2022-02-28,Ended,2022-07-02,2022-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
-Sixth Annual Mergers & Acquisitions Research Centre Conference,,"London, UK",2022-02-28,Ended,2022-06-27,2022-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
+Sixth Mergers & Acquisitions Research Centre Conference,,"London, UK",2022-02-28,Ended,2022-06-27,2022-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Markets and Corporate Governance Conference,,Virtual,2022-02-28,Ended,2022-04-20,2022-04-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Journal of Accounting and Economics Conference,,"Chapel Hill, NC",2022-03-01,Ended,2022-10-13,2022-10-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Oxford Financial Intermediation Theory Conference (Oxfit),,"Oxford, UK",2022-03-01,Ended,2022-06-30,2022-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -387,7 +387,7 @@ Hong Kong Conference for Fintech,,Hong Kong,2022-03-15,Ended,2022-05-27,2022-05-
 Uw Summer Finance Conference,,"Seattle, WA",2022-03-15,Ended,2022-07-25,2022-07-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Capana Conference,,"Shanghai, China",2022-03-15,Ended,2022-07-01,2022-07-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Southern Finance Association,,"Key West, FL",2022-03-25,Ended,2022-11-16,2022-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
-Nfa Annual Meeting,,"Banff, Canada",2022-03-27,Ended,2022-09-23,2022-09-25,2026-06-09T00:22:11Z,import:Book1.xlsx
+Nfa Meeting,,"Banff, Canada",2022-03-27,Ended,2022-09-23,2022-09-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 ESG Investing Research Conference,,"Ithaca, NY",2022-03-31,Ended,2022-07-20,2022-07-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 The Institute for Quantitative Investment Research Seminar,,"London, UK",2022-03-31,Ended,2022-05-09,2022-05-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Swedish House of Finance Conference,,"Stockholm, Sweden",2022-03-31,Ended,2022-08-22,2022-08-23,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -395,10 +395,10 @@ Nanyang Business School Accounting Conference,,Virtual,2022-03-31,Ended,2022-05-
 "Conference on Finance, Labor, and Inequality",,"Capri, Italy",2022-04-03,Ended,2022-06-17,2022-06-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 London Business School Accounting Symposium,dhughes@london.edu,"London, UK",2027-01-10,Submission,2027-06-24,2027-06-25,2026-10-06T13:08:05Z,email:<153B5C91-6039-47A5-8036-775C81E6845B@utdallas.edu>
 Grasfi Conference,,"Zurich, Switzerland",2022-04-04,Ended,2022-09-05,2022-09-07,2026-06-09T00:22:11Z,import:Book1.xlsx
-FMA Annual Meeting,,"Atlanta, GA",2022-04-08,Ended,2022-10-19,2022-10-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+FMA Meeting,,"Atlanta, GA",2022-04-08,Ended,2022-10-19,2022-10-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Shanghai-Edinburgh-London Green Finance Conference,,Virtual,2022-04-10,Ended,2022-05-29,2022-05-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Isb Summer Research Conference,,Virtual,2022-04-10,Ended,2022-07-27,2022-07-29,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Bank Research Conference,,"Arlington, VA",2022-04-18,Ended,2022-09-14,2022-09-16,2026-06-09T00:22:11Z,import:Book1.xlsx
+Bank Research Conference,,"Arlington, VA",2022-04-18,Ended,2022-09-14,2022-09-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference in Sustainable Finance,,Luxembourg,2022-04-22,Ended,2022-07-07,2022-07-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Workshop on “Challenges to Financial Stability”,,"Halle, Germany",2022-04-24,Ended,2022-08-29,2022-08-30,2026-06-09T00:22:11Z,import:Book1.xlsx
 Private Capital Symposium,,"London, UK",2022-04-29,Ended,2022-06-30,2022-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -408,7 +408,7 @@ International Risk Management Conference,,"Bari, Italy",2022-04-30,Ended,2022-07
 Greater China Area Finance Conference,,"Xiamen, China",2022-04-30,Ended,2022-06-18,2022-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 JR. Accounting Theory Conference,,Virtual,2022-05-08,Ended,2022-07-31,2022-07-31,2026-06-09T00:22:11Z,import:Book1.xlsx
 Research in Behavioral Finance Conference,,"Amsterdam, Netherlands",2022-05-15,Ended,2022-09-08,2022-09-09,2026-06-09T00:22:11Z,import:Book1.xlsx
-MIT GCFP Annual Conference,,"Cambridge, MA",2022-05-15,Ended,2022-10-19,2022-10-20,2026-06-09T00:22:11Z,import:Book1.xlsx
+MIT GCFP Conference,,"Cambridge, MA",2022-05-15,Ended,2022-10-19,2022-10-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Frontiers of Factor Investing Conference,https://wp.lancs.ac.uk/fofi2026/call-for-papers/,"Lancaster, United Kingdom",2025-12-15,Ended,2026-04-15,2026-04-17,2026-10-03T14:30:22Z,search:Frontiers of Factor Investing Conference
 Fasb-Iasb-Tar Conference,,"New York, NY",2022-05-15,Ended,2022-11-02,2022-11-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Analyst Research Conference,,"London, UK",2022-05-20,Ended,2022-09-09,2022-09-09,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -434,7 +434,7 @@ Fixed Income & Financial Institutions,,"Columbia, SC",2022-07-01,Ended,2022-11-0
 Cemla/Dallas Fed Financial Stability Workshop,,"Mexico City, Mexico",2022-07-01,Ended,2022-12-12,2022-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Tel Aviv Finance Conference,,"Tel Aviv, Israel",2022-07-01,Ended,2022-12-13,2022-12-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Stability Conference,,"Cleveland, OH",2022-07-05,Ended,2022-11-17,2022-11-18,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Corporate Finance,,"St. Louis, MO",2022-07-08,Ended,2022-11-17,2022-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference on Corporate Finance,,"St. Louis, MO",2022-07-08,Ended,2022-11-17,2022-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Isb Accounting Research Conference,,"Hyderabad, India",2022-07-15,Ended,2022-12-19,2022-12-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Defi & Digital Currencies - the Shard,,"London, UK",2022-07-15,Ended,2022-09-01,2022-09-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Lone Star Finance Symposium,,"San Antonio, TX",2022-07-15,Ended,2022-09-15,2022-09-16,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -455,7 +455,7 @@ Hawaii Accounting Research Conference,,"Honolulu, HI",2022-08-15,Ended,2023-01-0
 Haskell & White Academic Conference,,Virtual,2022-08-19,Ended,2022-09-22,2022-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 The Implications of Financial Technology for Banking,,"Washington, DC",2022-08-21,Ended,2022-11-07,2022-11-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cardiff Fintech Conference,,"Cardiff, UK",2022-08-31,Ended,2022-10-12,2022-10-12,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Financial Research Association,,"Las Vegas, NV",2022-08-31,Ended,2022-12-10,2022-12-11,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Financial Research Association,,"Las Vegas, NV",2022-08-31,Ended,2022-12-10,2022-12-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Icvg Conference,,"Melbourne, Australia",2022-08-31,Ended,2022-12-15,2022-12-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Emerging Markets Conference,,"Mumbai, India",2022-08-31,Ended,2022-12-12,2022-12-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Finance Summit,,"Vail, CO",2022-08-31,Ended,2022-12-14,2022-12-17,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -473,16 +473,16 @@ Business Financing and Banking Research Group,,"Sydney, Australia",2022-09-20,En
 Inquire Europe,,Malta,2022-09-21,Ended,2023-03-26,2023-03-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Eastern Finance Association Meeting,,"Asheville, NC",2022-09-30,Ended,2023-03-29,2023-03-31,2026-06-09T00:22:11Z,import:Book1.xlsx
 Swiss Accounting Research Alpine Camp,,"Crass-Montana, Switzerland",2022-09-30,Ended,2023-02-09,2023-02-10,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Hedge Fund Research Conference,,"Paris, France",2022-09-30,Ended,2023-01-26,2023-01-27,2026-06-09T00:22:11Z,import:Book1.xlsx
+Hedge Fund Research Conference,,"Paris, France",2022-09-30,Ended,2023-01-26,2023-01-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Theory Group,,"Chicago, IL",2022-10-02,Ended,2022-12-09,2022-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Whu Young Scholar Tax Conference,,Virtual,2022-10-02,Ended,2022-10-27,2022-10-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 European Winter Finance Conference,,"Megeve, France",2022-10-07,Ended,2023-01-22,2023-01-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Down Under,,"Melbourne, Australia",2022-10-07,Ended,2023-03-02,2023-03-04,2026-06-09T00:22:11Z,import:Book1.xlsx
-Midwest Finance Association Annual Meeting,,"Chicago, IL",2022-10-09,Ended,2023-03-16,2023-03-18,2026-06-09T00:22:11Z,import:Book1.xlsx
+Midwest Finance Association Meeting,,"Chicago, IL",2022-10-09,Ended,2023-03-16,2023-03-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Tilburg Winter Symposium,,"Tilburg, The Netherlands",2022-10-15,Ended,2022-12-08,2022-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Bretton Woods Accounting and Finance Ski Conference,http://www.brettonwoodsskiconference.com/,"Bretton Woods, NH",2026-11-02,Participation,2027-03-03,2027-03-06,2026-09-03T10:59:01Z,email:<BE72EF28-5571-4D53-BCBB-7ADF77E0B1F6@utdallas.edu>
 Unt Accounting Research Conference,,"Denton, TX",2022-10-31,Ended,2023-03-30,2023-03-31,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cjar Annual Meeting,,"Guangzhou, China",2022-10-31,Ended,2022-11-26,2022-11-27,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cjar Meeting,,"Guangzhou, China",2022-10-31,Ended,2022-11-26,2022-11-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Itam Finance Conference,,"Mexico City, Mexico",2022-10-31,Ended,2023-02-24,2023-02-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 RCFS Winter Conference,,"San Juan, Puerto Rico",2022-11-10,Ended,2023-02-18,2023-02-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Utah Winter Accounting Conference,,"Salt Lake City, UT",2022-11-12,Ended,2023-02-23,2023-02-25,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -492,7 +492,7 @@ Columbia University/Bank Policy Institute Research Conference,,"New York, NY",20
 Uts Australian Summer Accounting Conference,,"Sydney, Australia",2022-11-15,Ended,2023-02-09,2023-02-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Unc Duke Corporate Finance Conference,https://conferences.fuqua.duke.edu/corpfinance/,"Chapel Hill, NC",2026-11-20,Submission,2027-04-02,2027-04-03,2026-09-15T11:04:58Z,url:https://conferences.fuqua.duke.edu/corpfinance/
 University of Kentucky Finance Conference,,"Lexington, KY",2022-11-18,Ended,2023-04-27,2023-04-29,2026-06-09T00:22:11Z,import:Book1.xlsx
-Western Finance Association Annual Meeting,,"San Francisco, CA",2022-11-18,Ended,2023-06-25,2023-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
+Western Finance Association Meeting,,"San Francisco, CA",2022-11-18,Ended,2023-06-25,2023-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Young Scholars Finance Consortium,,"Somerville, TX",2022-11-18,Ended,2023-03-30,2023-03-31,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Financial Market Regulation,,"Washington, DC",2022-11-18,Ended,2023-05-04,2023-05-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asu Sonoran Winter Real Estate Conference,https://na.eventscloud.com/asuconf27,"Scottsdale, AZ",2026-10-20,Participation,2027-02-04,2027-02-04,2026-10-30T16:26:12Z,search:Asu Sonoran Winter Conference
@@ -521,17 +521,17 @@ Illinois International Accounting Symposium,,"Vienna, Austria",2022-12-31,Ended,
 AI and Big Data in Accounting and Finance Conference,,"Suzhou, China",2023-01-01,Ended,2023-05-25,2023-05-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Edinburgh Corporate Finance Conference,https://ecfc.business-school.ed.ac.uk,"Edinburgh, UK",2026-11-22,Submission,2027-06-07,2027-06-08,2026-10-09T12:56:42Z,email:<B9B4C31C-D050-4D20-B541-C86C0E275502@utdallas.edu>
 Bristol Workshop on Banking and Financial Intermediation,,"Bristol, UK",2023-01-15,Ended,2023-05-31,2023-05-31,2026-06-09T00:22:11Z,import:Book1.xlsx
-Efm Annual Meeting,,"Cardiff, UK",2023-01-15,Ended,2023-06-28,2023-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
+Efm Meeting,,"Cardiff, UK",2023-01-15,Ended,2023-06-28,2023-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference of the French Finance Association,,"Saint Malo, France",2023-01-15,Ended,2023-06-05,2023-06-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ibefa Summer Meeting,,"San Diego, CA",2023-01-15,Ended,2023-07-02,2023-07-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Harnessing Finance for Climate,,"Stockholm, Sweden",2023-01-15,Ended,2023-05-23,2023-05-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 University of Connecticut Finance Conference,,"Hartford, CT",2023-01-16,Ended,2023-05-12,2023-05-12,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Mergers & Acquisitions Research Centre Conference,,"London, UK",2023-01-16,Ended,2023-06-19,2023-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
+Mergers & Acquisitions Research Centre Conference,,"London, UK",2023-01-16,Ended,2023-06-19,2023-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Markets and Corporate Governance Conference,,Virtual,2023-01-27,Ended,2023-04-12,2023-04-14,2026-06-09T00:22:11Z,import:Book1.xlsx
-Finance and Accounting Annual Research Symposium,,"London, UK",2023-01-31,Ended,2023-06-15,2023-06-16,2026-06-09T00:22:11Z,import:Book1.xlsx
+Finance and Accounting Research Symposium,,"London, UK",2023-01-31,Ended,2023-06-15,2023-06-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Tongji Finance Symposium,,"Shanghai, China",2023-01-31,Ended,2023-07-14,2023-07-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Summer Accounting Research Conference,,"Tabernash, CO",2023-01-31,Ended,2023-06-04,2023-06-06,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Finance Association Annual Meeting,,"Amsterdam, Netherlands",2023-02-01,Ended,2023-08-16,2023-08-19,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Finance Association Meeting,,"Amsterdam, Netherlands",2023-02-01,Ended,2023-08-16,2023-08-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Boc-FRBSF Conference on Fixed Income Markets,,"Ottowa, Canada",2023-02-01,Ended,2023-05-11,2023-05-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Accounting Research Workshop,https://arw-suisse.ch,"Zurich, Switzerland",2023-02-01,Ended,2023-06-29,2023-06-30,2026-08-01T08:23:37Z,url:https://www.accountingtheory.org/
 Crypto and Blockchain Economics Research,,"New York, NY",2023-02-03,Ended,2023-05-05,2023-05-05,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -564,15 +564,15 @@ Research Symposium on Finance and Economics,,Virtual,2023-03-01,Ended,2023-06-14
 Occ Symposium on Emerging Risks in the Banking System,,"Washington, DC",2023-03-03,Ended,2023-06-12,2023-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Private Capital Symposium,,"London, UK",2023-03-05,Ended,2023-05-16,2023-05-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 MIT Asia Conference in Accounting,,Singapore,2023-03-06,Ended,2023-07-05,2023-07-05,2026-07-05T02:31:09Z,url:https://accountancy.smu.edu.sg/research/academic-research/seminars-and-conferences/accounting-symposium
-Annual Meeting of the Central Bank Research Association,,"New York, NY",2023-03-10,Ended,2023-07-05,2023-07-07,2026-06-09T00:22:11Z,import:Book1.xlsx
-Southern Finance Association Annual Meeting,,Puerto Rico,2023-03-10,Ended,2023-11-15,2023-11-18,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Central Bank Research Association,,"New York, NY",2023-03-10,Ended,2023-07-05,2023-07-07,2026-06-09T00:22:11Z,import:Book1.xlsx
+Southern Finance Association Meeting,,Puerto Rico,2023-03-10,Ended,2023-11-15,2023-11-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Helsinki Finance Summit on Investor Behavior Conference,,"Helsinki, Finland",2023-03-12,Ended,2023-08-21,2023-08-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Stern Microstructure Conference,,"New York, NY",2023-03-12,Ended,2023-05-19,2023-05-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Gigs Summer Governance and Sustainability Symposium,,"Hammamet, Tunisia",2023-03-15,Ended,2023-07-07,2023-07-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Frontiers in Quantitative Finance Conference,,"New York, NY",2023-03-15,Ended,2023-09-22,2023-09-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 Sdu Finance Workshop,,"Odense, Denmark",2023-03-15,Ended,2023-06-07,2023-06-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fars and JFR Research Proposal Conference,,Virtual,2023-03-15,Ended,2023-09-21,2023-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
-Northern Finance Association Annual Meeting,,"Toronto, Canada",2023-03-18,Ended,2023-09-08,2023-09-10,2026-06-09T00:22:11Z,import:Book1.xlsx
+Northern Finance Association Meeting,,"Toronto, Canada",2023-03-18,Ended,2023-09-08,2023-09-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Conference on Finance, Labor and Inequality",,Italy,2023-03-20,Ended,2023-06-19,2023-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asian Finance Association Conference,,"Ho Chi Minh City, Vietnam",2023-03-30,Ended,2023-06-26,2023-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporate Finance and Financial Intermediation Meeting,,"Alghero, Italy",2023-03-31,Ended,2023-07-03,2023-07-04,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -583,7 +583,7 @@ University of Oregon Summer Finance Conference,,"Eugene, OR",2023-04-01,Ended,20
 JCF Si Conference,,"Helsinki, Finland",2023-04-01,Ended,2023-08-21,2023-08-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 London Business School Accounting Symposium,,"London, UK",2023-04-02,Ended,2023-06-15,2023-06-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Contemporary Accounting Research Conference,,"Vancouver, BC",2023-04-03,Ended,2023-10-20,2023-10-21,2026-06-09T00:22:11Z,import:Book1.xlsx
-FMA Annual Meeting,,"Chicago, IL",2023-04-07,Ended,2023-10-11,2023-10-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+FMA Meeting,,"Chicago, IL",2023-04-07,Ended,2023-10-11,2023-10-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Isb Summer Research Conference,,"Hyderabad, India",2023-04-10,Ended,2023-07-26,2023-07-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 ESG Investing Research Conference,,"Ithaca, NY",2023-04-15,Ended,2023-07-19,2023-07-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporate Finance Days,,"Lille, France",2023-04-15,Ended,2023-09-21,2023-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -611,7 +611,7 @@ Accountability in a Sustainable World Conference,https://care-mendoza.nd.edu/acc
 Safe Market Microstructure Conference,,"Frankfurt, Germany",2023-06-01,Ended,2023-09-25,2023-09-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Iwh-Fin-Fire Workshop on “Challenges to Financial Stability”,,Germany,2023-06-02,Ended,2023-10-19,2023-10-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 EUROFIDAI-ESSEC Paris December Finance Meeting,,"Paris, France",2023-06-02,Ended,2023-12-19,2023-12-19,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Community Banking Research Conference,http://communitybanking.org,"St. Louis, MO",2026-05-01,Ended,2026-10-06,2026-10-07,2026-10-07T17:09:46Z,search:2026 Annual Community Bank Research Conference Call for Papers and Outstanding Paper Award (co-sponsored by Federal Reserve Bank/CSBS/FDIC)
+Community Banking Research Conference,http://communitybanking.org,"St. Louis, MO",2026-05-01,Ended,2026-10-06,2026-10-07,2026-10-07T17:09:46Z,search:2026 Annual Community Bank Research Conference Call for Papers and Outstanding Paper Award (co-sponsored by Federal Reserve Bank/CSBS/FDIC)
 Pcaob Conference on Auditing and Capital Markets,,"Washington, DC",2023-06-04,Ended,2023-10-05,2023-10-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Johns Hopkins Carey Finance Conference,,"Washington, DC",2023-06-04,Ended,2023-10-27,2023-10-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Dolomites Summer Finance Conference,,"Bolzano-Bozen, Italy",2023-06-10,Ended,2023-09-12,2023-09-13,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -623,22 +623,22 @@ Ecb Money Market Conference,,"Frankfurt, Germany",2023-06-15,Ended,2023-11-09,20
 Cear-Rsi Household Finance Workshop,,"Montreal, Canada",2023-06-16,Ended,2023-11-11,2023-11-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference in Sustainable and Socially Responsible Finance,,"Bologna, Italy",2023-06-20,Ended,2023-11-02,2023-11-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Holden Conference in Finance and Real Estate,,"Bloomington, IN",2023-06-23,Ended,2023-09-28,2023-09-30,2026-06-09T00:22:11Z,import:Book1.xlsx
-FSRDC Annual Research Conference,,"Washington, DC",2023-06-23,Ended,2023-09-22,2023-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+FSRDC Research Conference,,"Washington, DC",2023-06-23,Ended,2023-09-22,2023-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Networks in Trade and Finance,,"Atlanta, GA",2023-06-30,Ended,2023-10-20,2023-10-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Labor and Finance Group Conference,,"Chicago, IL",2023-06-30,Ended,2023-09-21,2023-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Sustainable Financial Innovation Research Centre,,"Dubai, UAE",2023-06-30,Ended,2023-11-25,2023-11-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 "CSR, the Economy and Financial Markets",,"Dusseldorf, Germany",2023-06-30,Ended,2023-11-09,2023-11-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Defi and Digital Currencies,,"London, UK",2023-06-30,Ended,2023-10-27,2023-10-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Icgs Conference: Sustainable Corporate Governance,,"Madrid, Spain",2023-06-30,Ended,2023-10-20,2023-10-22,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Private Equity Research Symposium,,"Chapel-Hill, NC",2023-07-01,Ended,2023-11-02,2023-11-03,2026-06-09T00:22:11Z,import:Book1.xlsx
+Private Equity Research Symposium,,"Chapel-Hill, NC",2023-07-01,Ended,2023-11-02,2023-11-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Wharton Conference on Liquidity and Financial Fragility,,"Philadelphia, PA",2023-07-01,Ended,2023-10-06,2023-10-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Tel Aviv Finance Conference,,"Tel Aviv, Israel",2023-07-01,Ended,2023-12-12,2023-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Stability Conference,,"Cleveland, Ohio",2023-07-05,Ended,2023-11-16,2023-11-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Santiago Finance Workshop,,"Santiago, Chile",2023-07-07,Ended,2023-12-04,2023-12-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 Australasian Finance and Banking Conference,,"Sydney, Australia",2023-07-16,Ended,2023-12-13,2023-12-15,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Financial Economics and Accounting,,"New Brunswick, NJ",2023-07-23,Ended,2023-11-03,2023-11-04,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference on Financial Economics and Accounting,,"New Brunswick, NJ",2023-07-23,Ended,2023-11-03,2023-11-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ut Dallas Finance Conference,,"Dallas, TX",2023-07-25,Ended,2023-09-29,2023-09-30,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Accounting Review Annual Conference,,"Castellón, Spain",2023-07-31,Ended,2024-03-21,2024-03-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Accounting Review Conference,,"Castellón, Spain",2023-07-31,Ended,2024-03-21,2024-03-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Inflation Expectations: Determinants and Consequences,,"Chicago, IL",2023-07-31,Ended,2023-10-05,2023-10-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Climate and Energy Finance,,"Hanover, Germany",2023-07-31,Ended,2023-11-03,2023-11-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Georgetown-Clark Symposium on Global Real Estate,,"Washington, DC",2023-07-31,Ended,2023-10-27,2023-10-27,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -648,22 +648,22 @@ CUHK-RAPS Conference on Asset Pricing and Investment,,Hong Kong,2023-08-13,Ended
 Boca Corporate Finance and Governance Conference,,"Boca Raton, FL",2023-08-15,Ended,2023-12-09,2023-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hawaii Accounting Research Conference,,"Honolulu, HI",2023-08-15,Ended,2024-01-03,2024-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 New Zealand Finance Meeting,,"Auckland, New Zealand",2023-08-21,Ended,2023-12-07,2023-12-08,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Asia-Pacific Financial Markets,,"Seoul, Korea",2023-08-22,Ended,2023-12-08,2023-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference on Asia-Pacific Financial Markets,,"Seoul, Korea",2023-08-22,Ended,2023-12-08,2023-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asset Pricing Conference by Lti@Unito,,"Torino, Italy",2023-08-25,Ended,2023-10-10,2023-10-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Compensation of Top Executives: Determinants & Consequences,,"Cambridge, MA",2023-08-28,Ended,2023-12-07,2023-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Boca-Ecgi Corporate Finance and Governance Conference,,"Boca Raton, FL",2023-08-31,Ended,2023-12-08,2023-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Research Conference on Capital Market Research in the Era of AI,,Hong Kong,2023-08-31,Ended,2023-11-03,2023-11-04,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Financial Research Association,,"Las Vegas, NV",2023-08-31,Ended,2023-12-09,2023-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Financial Research Association,,"Las Vegas, NV",2023-08-31,Ended,2023-12-09,2023-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Macroeconomics and Finance Conference,,"Mumbai, India",2023-08-31,Ended,2023-12-14,2023-12-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Finance Summit,,"Vail, CO",2023-08-31,Ended,2023-12-14,2023-12-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Dallas Fed/Cemla Financial Stability Workshop,,"Dallas, TX",2023-09-01,Ended,2023-11-30,2023-12-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fars,,"Denver, CO",2023-09-07,Ended,2024-01-18,2024-01-20,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Junior Faculty Business and Financial Law Workshop,,"Philadelphia, PA",2023-09-08,Ended,2023-12-07,2023-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
+Junior Faculty Business and Financial Law Workshop,,"Philadelphia, PA",2023-09-08,Ended,2023-12-07,2023-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Jackson Hole Finance Group Conference,,"Jackson Hole, WY",2023-09-11,Ended,2024-01-13,2024-01-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cardiff Fintech Conference,,"Cardiff, UK",2023-09-15,Ended,2023-11-08,2023-11-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hkust Accounting Research Symposium,,Hong Kong,2023-09-15,Ended,2023-12-14,2023-12-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Singapore Management University Accounting Symposium,,Singapore,2023-09-15,Ended,2023-12-11,2023-12-12,2026-06-09T00:22:11Z,import:Book1.xlsx
-Southwestern Finance Association Annual Meeting,https://www.openconf.org/swfa2027/,"Las Vegas, NV",2026-09-15,Participation,2027-02-17,2027-02-19,2026-09-05T10:21:28Z,email:<25AD21FA-A408-4011-B74A-0E5AF04E92FA@utdallas.edu>
+Southwestern Finance Association Meeting,https://www.openconf.org/swfa2027/,"Las Vegas, NV",2026-09-15,Participation,2027-02-17,2027-02-19,2026-09-05T10:21:28Z,email:<25AD21FA-A408-4011-B74A-0E5AF04E92FA@utdallas.edu>
 Intersection of Finance and Innovation,,"Sydney, Australia",2023-09-20,Ended,2023-11-08,2023-11-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Sydney Banking and Financial Stability Conference,,"Sydney, Australia",2023-09-20,Ended,2023-12-08,2023-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cear/Mric Behavioral Insurance Workshop,,"Atlanta, GA",2023-10-01,Ended,2023-12-08,2023-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -698,7 +698,7 @@ Young Scholar'S Finance Consortium,,"College Station, TX",2023-11-18,Ended,2024-
 University of Kentucky Finance Conference,,"Lexington, KY",2023-11-18,Ended,2024-04-25,2024-04-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Journal of Accounting Research Conference,,"Chicago, IL",2023-12-01,Ended,2024-05-03,2024-05-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Ethics Conference,,"Baltimore, MD",2023-12-08,Ended,2024-05-03,2024-05-03,2026-06-09T00:22:11Z,import:Book1.xlsx
-Risk Theory Society Annual Seminar,,"Iowa City, IA",2023-12-15,Ended,2024-04-19,2024-04-21,2026-06-09T00:22:11Z,import:Book1.xlsx
+Risk Theory Society Seminar,,"Iowa City, IA",2023-12-15,Ended,2024-04-19,2024-04-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Conference on Sovereign Bond Markets,,"Ottowa, Canada",2023-12-15,Ended,2024-04-22,2024-04-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference of the Escb Research Network,,"Frankfurt, Germany",2023-12-21,Ended,2024-04-25,2024-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 CFPB Research Conference,,"Washington, DC",2023-12-22,Ended,2024-05-02,2024-05-03,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -707,12 +707,12 @@ Rising Scholars Conference on the Future of Financial Stability,,"Washington, DC
 "Conference on ""Ageing and Sustainable Finance""",,"Mannheim, Germany",2024-01-15,Ended,2024-04-25,2024-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Market-Based Solutions for Reducing Wealth Inequality,,"Chapel Hill, NC",2024-01-19,Ended,2024-04-25,2024-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Community for Sustainable Finance Conference,,"Gothenburg, Sweden",2024-02-09,Ended,2024-04-25,2024-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-Health Economics Initiative Annual Conference,,"Chicago, IL",2024-02-11,Ended,2024-05-02,2024-05-03,2026-06-09T00:22:11Z,import:Book1.xlsx
+Health Economics Initiative Conference,,"Chicago, IL",2024-02-11,Ended,2024-05-02,2024-05-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ucla Anderson Conference on Financial Markets,,"Los Angeles, CA",2024-02-12,Ended,2024-04-25,2024-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Frontier Risks, Financial Innovation and Prudential Regulation of Banks",,"Gothenburg, Sweden",2023-12-10,Ended,2024-06-02,2024-06-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Summer Accounting Research Conference,,"Vail, CO",2024-02-03,Ended,2024-06-02,2024-06-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Illinois Int. Accounting Symposium,,Singapore,2023-12-29,Ended,2024-06-03,2024-06-06,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Advances in the Analysis of Hedge Fund Strategies,,"London, UK",2024-01-15,Ended,2024-06-04,2024-06-04,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference on Advances in the Analysis of Hedge Fund Strategies,,"London, UK",2024-01-15,Ended,2024-06-04,2024-06-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Occ Bank Research Symposium,,"Washington, DC",2024-01-15,Ended,2024-06-05,2024-06-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Research Summer Workshop on Mutual Funds,,"Washington, DC",2024-02-29,Ended,2024-06-05,2024-06-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Mitsui Finance Symposium,,"Ann Arbor, MI",2024-02-16,Ended,2024-06-06,2024-06-08,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -723,8 +723,8 @@ Congress of the Swiss Society of Economics and Statistics,,"Lucern, Switzerland"
 AI Era in Finance,,"New York, NY",2024-04-15,Ended,2024-06-06,2024-06-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 LBS Summer Symposium,,"London, UK",2024-04-30,Ended,2024-06-08,2024-06-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Columbia & RFS AI in Finance Conference,,"New York, NY",2024-04-07,Ended,2024-06-10,2024-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
-Oenb Annual Economic Conference,,"Vienna, Austria",2024-03-13,Ended,2024-06-10,2024-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
-Capana Annual Conference,,Hong Kong,2024-03-15,Ended,2024-06-12,2024-06-13,2026-06-09T00:22:11Z,import:Book1.xlsx
+Oenb Economic Conference,,"Vienna, Austria",2024-03-13,Ended,2024-06-10,2024-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
+Capana Conference,,Hong Kong,2024-03-15,Ended,2024-06-12,2024-06-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Esade Spring Workshop,,"Barcelona, Spain",2024-02-16,Ended,2024-06-13,2024-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Erasmus Liquidity Conference,,"Rotherdam, the Netherlands",2024-02-01,Ended,2024-06-13,2024-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Theory Group: Bridging Theory and Empirical Research in Finance,,"Boston, MA",2024-02-01,Ended,2024-06-14,2024-06-15,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -754,7 +754,7 @@ Future of Financial Information Conference,,"Stockholm, Sweden",2023-12-17,Ended
 Shanghai-Edinburgh-London-Cape Town Green Finance and Accounting Conference,,Virtual,2024-05-03,Ended,2024-06-01,2024-06-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Iese Tax Conference,,"Barcelona, Spain",2024-05-03,Ended,2024-06-27,2024-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 China International Conference in Finance,,"Beijing, China",2024-02-18,Ended,2024-07-08,2024-07-11,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cema Annual Meeting,,"Boston, MA",2024-02-26,Ended,2024-06-24,2024-06-25,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cema Meeting,,"Boston, MA",2024-02-26,Ended,2024-06-24,2024-06-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Bristol Financial Markets Conference,,"Bristol, UK",2023-10-15,Ended,2024-07-01,2024-07-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference of the Asia-Pacific Association of Derivatives,,"Busan, Korea",2024-04-28,Ended,2024-07-08,2024-07-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cambridge Conference on Alternative Finance,,"Cambridge, UK",2024-03-25,Ended,2024-07-08,2024-07-08,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -783,14 +783,14 @@ European Finance Association Meeting,,"Bratislava, Slovakia",2024-02-01,Ended,20
 Aarhus Workshop on Strategic Interaction in Corporate Finance,,"Aarhus, Denmark",2024-02-20,Ended,2024-08-18,2024-08-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cambridge Corporate Finance Theory Symposium,,"Cambridge, UK",2024-02-25,Ended,2024-09-13,2024-09-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Helsinki Finance Summit on Investor Behavior Conference,,"Espoo, Finland",2024-03-10,Ended,2024-08-19,2024-08-20,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Central Bank Research Association,,"Frankfurt, Germany",2024-03-10,Ended,2024-08-28,2024-08-30,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Central Bank Research Association,,"Frankfurt, Germany",2024-03-10,Ended,2024-08-28,2024-08-30,2026-06-09T00:22:11Z,import:Book1.xlsx
 Alpine Finance Summit,https://www.conftool.com/alpinefinancesummit2026/,"Garmisch-Partenkirchen, Germany",2026-03-15,Ended,2026-08-23,2026-08-25,2026-10-01T01:58:02Z,search:Alpine Finance Summit
 Uga Fall Finance Conference,,"Athens, Georgia",2024-03-22,Ended,2024-09-06,2024-09-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Recent Advances in Mutual Fund and Hedge Fund Research,,"Berlin, Germany",2024-03-29,Ended,2024-08-19,2024-08-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Corporate Governance,,"Stockholm, Sweden",2024-03-31,Ended,2024-08-27,2024-08-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Summer Conference on Financial Intermediation and Corporate Finance,,Greece,2024-03-31,Ended,2024-09-02,2024-09-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Workshop on Banking and Finance in Emerging Markets,,"Helsinki, Finland",2024-04-01,Ended,2024-08-19,2024-08-20,2026-06-09T00:22:11Z,import:Book1.xlsx
-Accounting and Economics Society Annual Conference,,"New York, NY",2024-04-10,Ended,2024-08-09,2024-08-10,2026-06-09T00:22:11Z,import:Book1.xlsx
+Accounting and Economics Society Conference,,"New York, NY",2024-04-10,Ended,2024-08-09,2024-08-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cepr-ESSEC - Luxembourg Conference on Sustainable Financial Intermediation,,Luxembourg,2024-04-15,Ended,2024-07-29,2024-07-30,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference in Corporate Policies and Asset Prices,,Luxembourg,2024-04-15,Ended,2024-07-31,2024-08-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fox and Haskayne Accounting Conference,,"Philadelphia, PA",2024-04-15,Ended,2024-08-15,2024-08-16,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -806,14 +806,14 @@ Texas Waterloo Tax Symposium,,"Austin, TX",2024-05-24,Ended,2024-09-06,2024-09-0
 Sofie Financial Econometrics Summer School - Financial Machine Learning,,"Shanghai, China",2024-06-14,Ended,2024-08-19,2024-08-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 Bank of Finland and Cepr Joint Conference,,"Helsinki, Finland",2024-06-15,Ended,2024-09-12,2024-09-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 The International Conference in Banking and Financial Studies,,"Catania, Italy",2024-06-30,Ended,2024-09-05,2024-09-06,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cqa Annual Fall Academic Paper Competition,,"Chicago, IL",2024-06-30,Ended,2024-09-11,2024-09-12,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cqa Fall Academic Paper Competition,,"Chicago, IL",2024-06-30,Ended,2024-09-11,2024-09-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Lancaster University Conference - Financial Fraud, Misconduct and Market Manipulation",,"Lancaster, UK",2024-06-30,Ended,2024-09-12,2024-09-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Icabe Conference,,"Szczecin, Poland",2024-08-30,Ended,2024-09-12,2024-09-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Safe Asset Pricing Workshop,,"Frankfurt, Germany",2024-05-31,Ended,2024-09-24,2024-09-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Joint Boc - Ecb - Ny Fed Conference on Expectations Surveys, Central Banks and the Economy",,"Frankfurt, Germany",2024-06-30,Ended,2024-10-01,2024-10-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Accountability in a Sustainable World Conference,,Virtual,2024-05-31,Ended,2024-09-17,2024-09-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Accounting Ethics Symposium,,"Toronto, Canada",2024-06-01,Ended,2024-09-26,2024-09-27,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Northern Finance Association,,"Montreal, Canada",2024-03-18,Ended,2024-09-20,2024-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Northern Finance Association,,"Montreal, Canada",2024-03-18,Ended,2024-09-20,2024-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Biodiversity and Natural Resource Finance Conference,,"Cambridge, UK",2024-08-15,Ended,2024-10-09,2024-10-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Canadian Derivatives Institute Conference,https://cdi-icd.org/en/annual-conference/,"Montreal, Canada",2024-05-03,Ended,2024-09-19,2024-09-20,2026-08-01T08:23:37Z,url:https://cdi-icd.org/en/annual-conference/
 Community Banking Research Conference,,"St. Louis, MO",2024-05-17,Ended,2024-10-02,2024-10-03,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -845,7 +845,7 @@ Conference in Financial Economics and Accounting,,"Buffalo, NY",2024-07-15,Ended
 Conference on Standardization,,"Chicago, IL",2024-07-10,Ended,2024-10-24,2024-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Deakin University Accounting Research Conference,,"Melbourne, Australia",2024-06-30,Ended,2024-10-23,2024-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fixed Income and Financial Institutions Conference,,"Columbia, SC",2024-06-15,Ended,2024-10-25,2024-10-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-FMA Annual Meeting,,"Grapevine, TX",2024-07-12,Ended,2024-10-16,2024-10-19,2026-06-09T00:22:11Z,import:Book1.xlsx
+FMA Meeting,,"Grapevine, TX",2024-07-12,Ended,2024-10-16,2024-10-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Generative AI Conference & Special Issue by the Journal of Banking and Finance,,"Montreal, Canada",2024-09-01,Ended,2024-10-23,2024-10-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Inflation: Drivers and Dynamics Conference,,"Cleveland, OH",2024-05-31,Ended,2024-10-24,2024-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Informational Frictions in Macroeconomics,,Switzerland,2024-02-29,Ended,2024-10-25,2024-10-26,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -853,12 +853,12 @@ Informational Frictions in Macroeconomics,,Switzerland,2024-02-29,Ended,2024-10-
 Johns Hopkins Carey Finance Conference,,"Baltimore, MD",2024-06-16,Ended,2024-10-17,2024-10-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Journal of Accounting Research Registered Reports Conference,,"Chicago, IL",2024-08-01,Ended,2024-10-24,2024-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Melbourne Asset Pricing Meeting,,"Melbourne, Australia",2024-05-31,Ended,2024-10-21,2024-10-21,2026-06-09T00:22:11Z,import:Book1.xlsx
-MIT GCFP Annual Conference,,"Cambridge, MA",2024-06-01,Ended,2024-10-24,2024-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
+MIT GCFP Conference,,"Cambridge, MA",2024-06-01,Ended,2024-10-24,2024-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Pcaob Conference on Auditing and Capital Markets,,"Washington, DC",2024-06-21,Ended,2024-10-17,2024-10-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Research in Behavioral Finance Conference,,"Amsterdam, The Netherlands",2024-06-01,Ended,2024-10-17,2024-10-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Vietnam Symposium in Banking and Finance,,Vietnam,2024-08-01,Ended,2024-10-24,2024-10-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Wharton Conference on Liquidity and Financial Fragility,,"Philadelphia, PA",2024-07-01,Ended,2024-10-18,2024-10-19,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Private Equity Research Symposium,,"Chapel Hill, NC",2024-07-01,Ended,2024-11-14,2024-11-15,2026-06-09T00:22:11Z,import:Book1.xlsx
+Private Equity Research Symposium,,"Chapel Hill, NC",2024-07-01,Ended,2024-11-14,2024-11-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cepr Frankfurt Hub International Conference,,"Frankfurt, Germany",2024-09-01,Ended,2024-10-30,2024-10-31,2026-06-09T00:22:11Z,import:Book1.xlsx
 Workshop on LLMS and Generative AI in Finance,,New York,2024-10-16,Ended,2024-11-14,2024-11-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cear-Rsi Household Finance Workshop,,"Montreal, Canada",2024-06-14,Ended,2024-11-15,2024-11-16,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -887,11 +887,11 @@ Asian Academic Accounting Association Conference,,"Hanoi, Vietnam",2024-07-15,En
 New Zealand Finance Meeting,,"Auckland, New Zealand",2024-07-31,Ended,2024-12-05,2024-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cafr Special Issue Conference,,"Chongqing, China",2024-08-02,Ended,2024-11-30,2024-11-30,2026-06-09T00:22:11Z,import:Book1.xlsx
 Australasian Finance and Banking Conference,,"Sydney, Australia",2024-08-09,Ended,2024-12-11,2024-12-14,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cafral Annual Conference: Financial System and Macroeconomy in Emerging Economies,,"Mumbai, India",2024-08-15,Ended,2024-12-12,2024-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cafral Conference: Financial System and Macroeconomy in Emerging Economies,,"Mumbai, India",2024-08-15,Ended,2024-12-12,2024-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colloquium on Pensions and Retirement Research,,"Sydney, Australia",2024-08-19,Ended,2024-11-27,2024-11-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Asia-Pacific Financial Markets,https://www.conftool.net/cafm2026/,"Seoul, Korea",2026-08-28,Participation,2026-12-10,2026-12-11,2026-08-15T06:47:31Z,email:<A467336B-D90E-46E8-A748-8D8407D150CE@utdallas.edu>
 Massey Sustainable Finance Conference,https://masseysfc2026.org,"Queenstown, New Zealand",2026-08-16,Participation,2026-12-07,2026-12-08,2026-07-25T08:15:28Z,email:<CB0B0BCA-8A63-4DF5-82F5-71C8A16C9273@utdallas.edu>
-Annual Meeting of the Financial Research Association,,"Las Vegas, Nevada",2024-08-31,Ended,2024-12-07,2024-12-08,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Financial Research Association,,"Las Vegas, Nevada",2024-08-31,Ended,2024-12-07,2024-12-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 CUHK-RAPS-RCFS Conference,,Hong Kong,2024-08-31,Ended,2024-12-09,2024-12-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Emerging Markets Conference,,"Mumbai, India",2024-08-31,Ended,2024-12-10,2024-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Colorado Finance Summit,,"Vail, CO",2024-08-31,Ended,2024-12-12,2024-12-15,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -926,7 +926,7 @@ Hedge Fund Research Conference,,"Paris, France",2024-09-15,Ended,2025-01-23,2025
 Itam Finance Conference,,"Mexico City, Mexico",2024-10-20,Ended,2025-02-21,2025-02-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Jackson Hole Finance Group Conference,,"Jackson Hole, WY",2024-09-10,Ended,2025-01-18,2025-01-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 RCFS Winter Conference,,"San Juan, Puerto Rico",2024-11-18,Ended,2025-02-15,2025-02-16,2026-06-09T00:22:11Z,import:Book1.xlsx
-Southwestern Finance Association Annual Conference,,"San Antonio, TX",2024-09-08,Ended,2025-02-12,2025-02-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+Southwestern Finance Association Conference,,"San Antonio, TX",2024-09-08,Ended,2025-02-12,2025-02-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Swiss Accounting Research Camp,,"Davos, Switzerland",2024-08-01,Ended,2025-02-06,2025-02-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Utah Winter Accounting Conference - Uwac,,"Salt Lake City, Utah",2024-11-09,Ended,2025-02-27,2025-03-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Utah Winter Finance Conference,,"Snowbird, Utah",2024-09-01,Ended,2025-02-06,2025-02-08,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -937,15 +937,15 @@ Loyola Wealth Management Conference,https://www.loyola.edu/sellinger-business/ac
 Lsu Finance Mardi Gras Conference,https://www.lsu.edu/business/finance/lsu-finance-mardi-gras-conference.php,"Baton Rouge, LA",2026-08-31,Participation,2027-02-05,2027-02-06,2026-10-18T13:42:19Z,search:3rd LSU Finance Mardi Gras Conference
 Bretton Woods Accounting and Finance Ski Conference,,"Bretton Woods, NH",2024-10-21,Ended,2025-03-05,2025-03-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ipc Alternative Investments Conference & Spring Research Symposium,,"Chapel Hill, NC",2024-11-25,Ended,2025-03-27,2025-03-28,2026-06-09T00:22:11Z,import:Book1.xlsx
-The University of North Carolina'S Twenty-Eighth Annual Tax Symposium,,"Chapel Hill, NC",2024-12-15,Ended,2025-03-14,2025-03-15,2026-06-09T00:22:11Z,import:Book1.xlsx
-Midwest Finance Association Annual Meeting,,"Chicago, IL",2024-08-30,Ended,2025-03-20,2025-03-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+The University of North Carolina'S Twenty-Eighth Tax Symposium,,"Chapel Hill, NC",2024-12-15,Ended,2025-03-14,2025-03-15,2026-06-09T00:22:11Z,import:Book1.xlsx
+Midwest Finance Association Meeting,,"Chicago, IL",2024-08-30,Ended,2025-03-20,2025-03-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Lapland Investment Fund Summit,,"Lapland, Finland",2024-11-17,Ended,2025-03-19,2025-03-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Lapland Financial Institutions Summit,,"Levi, Finland",2024-11-30,Ended,2025-03-20,2025-03-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Uc Davis-FMA Napa Finance Conference,,"Napa Valley, VA",2024-11-18,Ended,2025-03-21,2025-03-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Baruch-Jfqa Climate Finance and Sustainability Conference,https://sites.google.com/view/baruch-jfqa-climate-finance-an/submission,"New York City, NY",2026-11-06,Submission,2027-03-11,2027-03-12,2026-10-13T17:14:00Z,search:2027 Baruch-JFQA Climate Finance and Sustainability Conference
 University of Delaware Weinberg Center Corporate Governance Symposium,,"Newark, DE",2024-11-22,Ended,2025-03-14,2025-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Accounting Review Annual Conference,,"Paris, France",2024-08-31,Ended,2025-03-27,2025-03-28,2026-06-09T00:22:11Z,import:Book1.xlsx
-Sgfin Annual Research Conference on Sustainability,,Singapore,2024-11-18,Ended,2025-03-13,2025-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Accounting Review Conference,,"Paris, France",2024-08-31,Ended,2025-03-27,2025-03-28,2026-06-09T00:22:11Z,import:Book1.xlsx
+Sgfin Research Conference on Sustainability,,Singapore,2024-11-18,Ended,2025-03-13,2025-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ubc Winter Finance Conference,,"Whistler, BC, Canada",2024-11-20,Ended,2025-02-28,2025-03-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 European Winter Finance Summit,,"Zürs, Austria",2024-10-18,Ended,2025-03-16,2025-03-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Eastern Finance Association Meeting,,"Philadelphia, PA",2024-09-30,Ended,2025-04-02,2025-04-05,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -967,10 +967,10 @@ Future of Financial Information Conference,,"Fountainbleu, France",2024-11-19,En
 Financial Intermediation in Third Millennium: Perils and Pearls of Technology,,"Colchester, U.K.",2024-11-30,Ended,2025-05-12,2025-05-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Journal of Accounting Research Conference,,"Chicago, IL",2024-12-01,Ended,2025-05-02,2025-05-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Fsu Truist Beach Conference,,"Miramar Beach, FL",2024-12-06,Ended,2025-04-24,2025-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-Risk Theory Society Annual Seminar,,"Montreal, Canada",2024-12-15,Ended,2025-05-02,2025-05-04,2026-06-09T00:22:11Z,import:Book1.xlsx
+Risk Theory Society Seminar,,"Montreal, Canada",2024-12-15,Ended,2025-05-02,2025-05-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Innovations in Sustainable Finance,,"Evanston, IL",2024-12-23,Ended,2025-05-09,2025-05-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ofr & RCFS Rising Scholars Conference on the Future of Financial Stability,,"Washington, DC",2025-01-10,Ended,2025-05-01,2025-05-01,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cowles Annual Conference on General Equilibrium and Its Applications,,"New Haven, CT",2025-01-10,Ended,2025-04-25,2025-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cowles Conference on General Equilibrium and Its Applications,,"New Haven, CT",2025-01-10,Ended,2025-04-25,2025-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Zew Conference on Ageing and Sustainable Finance,https://www.zew.de/en/events/ageing-and-sustainable-finance-2025,"Mannheim, Germany",2025-01-15,Ended,2025-05-08,2025-05-09,2026-11-05T17:47:11Z,"search:Conference on ""Ageing and Sustainable Finance"""
 Bocconi-Cepr Finance Workshop,,"Milano, Italy",2025-01-15,Ended,2025-05-05,2025-05-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 NC State University Risk Governance Research Symposium,https://erm.ncsu.edu/event/call-for-papers-2027/,"Raleigh, NC",2027-01-15,Submission,2027-05-11,2027-05-12,2026-10-14T11:34:24Z,email:<DM6PR01MB5866BF40E35B7E858F163FE58F9E2@DM6PR01MB5866.prod.exchangelabs.com>
@@ -1012,10 +1012,10 @@ Rutgers Accounting Doctoral Symposium,,Online,2025-04-01,Ended,2025-05-29,2025-0
 Shanghai-Edinburgh-London Conference on Sustainable Finance,,"Shanghai, China",2025-04-15,Ended,2025-05-17,2025-05-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Accounting Research Workshop,,"Zurich, Switzerland",2025-02-01,Ended,2025-06-19,2025-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 AI in Finance Conference,,"Washington, DC",2025-02-01,Ended,2025-06-10,2025-06-10,2026-06-09T00:22:11Z,import:Book1.xlsx
-Caaa Annual Conference: Accounting and Accountability in a Disruptive Marketplace,,"Toronto, Canada",2025-01-31,Ended,2025-06-12,2025-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+Caaa Conference: Accounting and Accountability in a Disruptive Marketplace,,"Toronto, Canada",2025-01-31,Ended,2025-06-12,2025-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Canadian Sustainable Finance Network Conference,csfn2025@schulich.yorku.ca,"Toronto, Canada",2025-03-15,Ended,2025-06-05,2025-06-06,2026-10-31T15:34:58Z,search:Canadian Sustainable Finance Network Conference
 Cca-Escp Workshop on Financial Institutions and Corporate Finance,,"Turin, Italy",2025-02-15,Ended,2025-06-05,2025-06-06,2026-06-09T00:22:11Z,import:Book1.xlsx
-Cema Annual Meeting,,"Houston, Texas",2025-02-28,Ended,2025-06-16,2025-06-17,2026-06-09T00:22:11Z,import:Book1.xlsx
+Cema Meeting,,"Houston, Texas",2025-02-28,Ended,2025-06-16,2025-06-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Conference on Pacific Basin Finance, Economics, Accounting, and Management",,Taiwan,2025-03-15,Ended,2025-06-13,2025-06-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Corporate Finance, Financial Intermediation and Macro-Finance Meeting",,"Alghero, Italy",2025-03-24,Ended,2025-06-18,2025-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Durham Conference for Finance Job Market Papers,,"Durham, UK",2025-01-31,Ended,2025-06-19,2025-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1045,16 +1045,16 @@ Unsw Corporate Finance Workshop,,"Sydney, Australia",2025-03-18,Ended,2025-06-17
 Zurich-Bern Real Estate Finance and Economics Workshop,,"Zurich, Switzerland",2025-02-16,Ended,2025-06-12,2025-06-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 WFA,,"Snowbird, Utah",2024-11-18,Ended,2025-06-22,2025-06-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Plato Market Innovator Conference,,"London, UK",2024-11-18,Ended,2025-07-01,2025-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Financial Management Association Annual Meeting,,"Athens, Greece",2025-01-15,Ended,2025-06-25,2025-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Financial Management Association Meeting,,"Athens, Greece",2025-01-15,Ended,2025-06-25,2025-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Symposium on Audit Research,,Singapore,2025-02-02,Ended,2025-06-26,2025-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual International Journal of Central Banking Research Conference,,"Prague, Czech Republic",2025-02-14,Ended,2025-06-23,2025-06-24,2026-06-09T00:22:11Z,import:Book1.xlsx
+International Journal of Central Banking Research Conference,,"Prague, Czech Republic",2025-02-14,Ended,2025-06-23,2025-06-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Forum,,"Pamplona, Spain",2025-02-16,Ended,2025-07-02,2025-07-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 China International Conference in Finance,,"Shenzhen, China",2025-02-18,Ended,2025-06-29,2025-07-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 ESSEC Financial Accounting Symposium,essec.acctg.symposium@gmail.com,"Cergy, France",2026-11-30,Submission,2027-03-25,2027-03-26,2026-10-18T13:42:19Z,search:3rd ESSEC Financial Accounting Symposium
-Asian Finance Association Annual Conference,,"Taipei, Taiwan",2025-03-01,Ended,2025-06-26,2025-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
-Eighth Annual Private Markets Research Conference,,"Lausanne, Switzerland",2025-03-03,Ended,2025-06-26,2025-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
+Asian Finance Association Conference,,"Taipei, Taiwan",2025-03-01,Ended,2025-06-26,2025-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
+Eighth Private Markets Research Conference,,"Lausanne, Switzerland",2025-03-03,Ended,2025-06-26,2025-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Global Finance Conference,,"Boston, MA",2025-03-15,Ended,2025-06-23,2025-06-25,2026-06-09T00:22:11Z,import:Book1.xlsx
-Capana Annual Research Conference of the Chinese Accounting Professors' Association of North America,https://editorialexpress.com/conference/capana2025/,"Taipei, Taiwan",2025-03-15,Ended,2025-07-08,2025-07-09,2026-11-01T16:30:20Z,search:Capana Annual Conference
+Capana Research Conference of the Chinese Accounting Professors' Association of North America,https://editorialexpress.com/conference/capana2025/,"Taipei, Taiwan",2025-03-15,Ended,2025-07-08,2025-07-09,2026-11-01T16:30:20Z,search:Capana Annual Conference
 Entrepreneurial Finance Conference,,"Rotterdam, Netherlands",2025-03-23,Ended,2025-07-02,2025-07-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Risk Management Conference,,"Bari, Italy",2025-03-31,Ended,2025-06-23,2025-06-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Emerging Researchers Consortium in Accounting,,"Bacoli, Naples, Italy",2025-03-31,Ended,2025-06-25,2025-06-26,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1086,13 +1086,13 @@ Sustainability at Crossroads - Edinburgh Finance Conference,,"Edinburgh, UK",202
 Helsinki Finance Summit on Investor Behavior,,"Helsinki, Finland",2025-03-09,Ended,2025-08-18,2025-08-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cu Denver International Commodities Symposium,,"Denver, CO",2025-03-15,Ended,2025-08-12,2025-08-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Alpine Finance Summit,,"Grenoble, France",2025-03-16,Ended,2025-08-24,2025-08-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Central Bank Research Association,,"Boston, MA",2025-03-20,Ended,2025-08-06,2025-08-08,2026-06-09T00:22:11Z,import:Book1.xlsx
-Asian Law and Economics Association (Aslea) Annual Conference,,"Hong Kong, Hong Kong",2025-03-31,Ended,2025-08-13,2025-08-15,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Central Bank Research Association,,"Boston, MA",2025-03-20,Ended,2025-08-06,2025-08-08,2026-06-09T00:22:11Z,import:Book1.xlsx
+Asian Law and Economics Association (Aslea) Conference,,"Hong Kong, Hong Kong",2025-03-31,Ended,2025-08-13,2025-08-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Safe Market Microstructure Conference,,"Frankfurt, Germany",2025-03-31,Ended,2025-08-19,2025-08-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Vienna Festival of Finance Theory,,"Vienna, Austria",2025-03-31,Ended,2025-08-24,2025-08-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Gateway to Global Aging Data Conference,,"Boston, MA",2025-03-31,Ended,2025-09-04,2025-09-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 University of Oregon Summer Finance Conference,,"Eugene, OR",2025-04-01,Ended,2025-08-06,2025-08-08,2026-06-09T00:22:11Z,import:Book1.xlsx
-Accounting and Economics Society Annual Congress,,"New York City, NY",2025-04-10,Ended,2025-08-08,2025-08-09,2026-06-09T00:22:11Z,import:Book1.xlsx
+Accounting and Economics Society Congress,,"New York City, NY",2025-04-10,Ended,2025-08-08,2025-08-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Future Finance Fest,,"Vilnius, Lithuania",2025-04-14,Ended,2025-08-25,2025-08-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Applied Economics and Financial Issues,,"Thessaloniki, Greece",2025-04-28,Ended,2025-08-28,2025-08-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Aiea-NBER Conference on Innovation & Entrepreneurship,,Hong Kong,2025-04-30,Ended,2025-08-06,2025-08-08,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1105,13 +1105,13 @@ Gillmore Centre Conference on Defi & Digital Currencies,,"London, England",2025-
 Conference on Accounting & Information Frictions in Microenterprises,,"Houston, TX",2025-07-15,Ended,2025-09-05,2025-09-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 Iariw-WB-Ciem Conference,,"Hanoi, Vietnam",2025-01-31,Ended,2025-10-02,2025-10-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cambridge Corporate Finance Theory Symposium,,"Cambridge, UK",2025-02-25,Ended,2025-09-26,2025-09-27,2026-06-09T00:22:11Z,import:Book1.xlsx
-Northern Finance Association Annual Meeting,,"Calgary, Alberta",2025-03-17,Ended,2025-09-19,2025-09-21,2026-06-09T00:22:11Z,import:Book1.xlsx
+Northern Finance Association Meeting,,"Calgary, Alberta",2025-03-17,Ended,2025-09-19,2025-09-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Central Bank Conference on the Microstructure of Financial Markets,,Hong Kong,2025-03-31,Ended,2025-09-11,2025-09-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Holden Conference in Finance and Real Estate,,"Bloomington, IN",2025-04-15,Ended,2025-09-25,2025-09-27,2026-06-09T00:22:11Z,import:Book1.xlsx
-Fdic Annual Banking Research Conference,,"Arlington, VA",2025-04-21,Ended,2025-09-25,2025-09-26,2026-06-09T00:22:11Z,import:Book1.xlsx
+Fdic Banking Research Conference,,"Arlington, VA",2025-04-21,Ended,2025-09-25,2025-09-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Oxford Financial Intermediation Theory Conference (Oxfit),,"Oxford, UK",2025-04-22,Ended,2025-09-15,2025-09-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ibefa-Funcas Workshop on Frontier Research in Financial Intermediation,ibefa.conferences@gmail.com,"Madrid, Spain",2025-04-30,Ended,2025-09-11,2025-09-12,2026-10-03T14:30:22Z,search:Frontier Research in Banking
-German Finance Association Annual Meeting,,"Hagen, Germany",2025-04-30,Ended,2025-09-18,2025-09-20,2026-06-09T00:22:11Z,import:Book1.xlsx
+German Finance Association Meeting,,"Hagen, Germany",2025-04-30,Ended,2025-09-18,2025-09-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance and Real Estate Conference,,"Oxford, OH",2025-04-30,Ended,2025-09-19,2025-09-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Lancaster Financial Fraud, Misconduct and Market Manipulation Conference",,"Lancaster, England",2025-05-01,Ended,2025-09-11,2025-09-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Institutions, Trade and Economic Development Workshop",,"Edmonton, Canada",2025-05-01,Ended,2025-09-20,2025-09-21,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1144,7 +1144,7 @@ Uga Fall Finance Conference,,"Athens, GA",2025-04-18,Ended,2025-10-17,2025-10-18
 Federal Reserve Stress Testing Research Conference,,"Boston, MA",2025-06-15,Ended,2025-10-16,2025-10-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Financial Markets and Liquidity Conference,,"Budapest, Hungary",2025-05-02,Ended,2025-10-15,2025-10-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Compensation of Top Executives: Determinants and Consequences,,"Cambridge, MA",2025-06-23,Ended,2025-10-09,2025-10-10,2026-06-09T00:22:11Z,import:Book1.xlsx
-MIT GCFP Annual Conference,,"Cambridge, MA",2025-07-10,Ended,2025-10-09,2025-10-10,2026-06-09T00:22:11Z,import:Book1.xlsx
+MIT GCFP Conference,,"Cambridge, MA",2025-07-10,Ended,2025-10-09,2025-10-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Northwestern Empirical Research Conference on Standardization,,"Chicago, IL",2025-05-21,Ended,2025-10-16,2025-10-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Emerging Scholars in Accounting Conference,,"Frankfurt, Germany",2025-08-08,Ended,2025-10-08,2025-10-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Monetary Policy Beyond Nominal Rigidities,,"Gerzensee, Switzerland",2025-03-15,Ended,2025-10-24,2025-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1157,7 +1157,7 @@ India Research Conference,,Online,2025-09-19,Ended,2025-10-10,2025-10-10,2026-06
 Wharton Conference on Liquidity and Financial Fragility,,"Philadelphia, PA",2025-07-01,Ended,2025-10-10,2025-10-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Community Bank Research Conference,,"St. Louis, MO",2025-05-16,Ended,2025-10-07,2025-10-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Inquire Europe Autumn Seminar,,"Utrecht, Netherlands",2025-04-18,Ended,2025-10-12,2025-10-14,2026-06-09T00:22:11Z,import:Book1.xlsx
-FMA Annual Meeting,,"Vancouver, BC, Canada",2025-04-04,Ended,2025-10-22,2025-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
+FMA Meeting,,"Vancouver, BC, Canada",2025-04-04,Ended,2025-10-22,2025-10-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ecb Conference on Money Markets,,"Frankfurt, Germany",2025-05-31,Ended,2025-11-06,2025-11-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Melbourne Asset Pricing Meeting,,"Melbourne, Australia",2025-06-07,Ended,2025-10-27,2025-10-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Financial Economics and Accounting,,"East Lansing, MI",2025-06-09,Ended,2025-11-06,2025-11-08,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1176,7 +1176,7 @@ International Behavioural Finance Conference,,"Chicago, IL",2025-09-15,Ended,202
 AI in Real Estate – AI in Finance Conference,,"Montréal, Canada",2025-09-15,Ended,2025-10-30,2025-10-30,2026-06-09T00:22:11Z,import:Book1.xlsx
 Developments in Sustainable Finance,,"Sharjah, UAE",2025-09-15,Ended,2025-10-30,2025-11-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Symposium on Carbon Accounting, Reporting and Sustainability",,"Parramatta, Australia",2025-10-05,Ended,2025-11-03,2025-11-03,2026-06-09T00:22:11Z,import:Book1.xlsx
-Southern Finance Association Annual Meeting,,"Orlando, FL",2025-03-15,Ended,2025-11-19,2025-11-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+Southern Finance Association Meeting,,"Orlando, FL",2025-03-15,Ended,2025-11-19,2025-11-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Review of Accounting Studies Conference,,"Hyderabad, India",2025-05-23,Ended,2025-12-12,2025-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Cear-Rsi Household Finance Workshop,,"Montréal, Canada",2025-06-13,Ended,2025-11-14,2025-11-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 SFS Cavalcade Asia-Pacific,,"Beijing, China",2025-06-30,Ended,2025-12-05,2025-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1189,7 +1189,7 @@ International Conference of the Japanese Accounting Review,,"Kobe, Japan",2025-0
 Boca Finance and Real-Estate Conference,,"Boca Raton, FL",2025-08-15,Ended,2025-11-13,2025-11-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Australasian Finance and Banking Conference,,"Sydney, Australia",2025-08-15,Ended,2025-12-10,2025-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asia-Pacific Financial Markets,,"Seoul, Korea",2025-08-27,Ended,2025-12-11,2025-12-12,2026-06-09T00:22:11Z,import:Book1.xlsx
-Financial Research Association Annual Meeting,,"Las Vegas, NV",2025-08-31,Ended,2025-12-06,2025-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
+Financial Research Association Meeting,,"Las Vegas, NV",2025-08-31,Ended,2025-12-06,2025-12-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 CUHK-RAPS-RCFS Conference,,Hong Kong,2025-08-31,Ended,2025-12-08,2025-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 RCF-Ecgi Corporate Finance and Governance Conference,https://sites.google.com/view/review-of-corporate-finance/2026-rcf-ecgi-conference?authuser=0,"Madrid, Spain",2026-05-01,Ended,2026-10-09,2026-10-11,2026-10-08T17:09:39Z,search:Boca Corporate Finance and Governance Conference
 Santiago Finance Workshop,,"Santiago, Chile",2025-09-05,Ended,2025-12-09,2025-12-10,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1205,8 +1205,8 @@ Workshop on LLMS and Generative AI in Finance at Icaif '25,,Singapore,2025-10-01
 Cear-Mric Behavioral Insurance Workshop,,"Nairobi, Kenya",2025-10-12,Ended,2025-12-08,2025-12-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 James R. Lothian Memorial Workshop,,"New York, NY",2025-10-24,Ended,2025-11-21,2025-11-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Friends of Women in Finance Symposium,,"Hempstead, NY",2025-11-03,Ended,2025-12-12,2025-12-12,2026-06-09T00:22:11Z,import:Book1.xlsx
-Ibefa Annual Meeting at Assa,,"Philadelphia, PA",2025-03-28,Ended,2026-01-03,2026-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
-Assa Annual Meeting,,"Philadelphia, PA",2025-04-20,Ended,2026-01-03,2026-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
+Ibefa Meeting at Assa,,"Philadelphia, PA",2025-03-28,Ended,2026-01-03,2026-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
+Assa Meeting,,"Philadelphia, PA",2025-04-20,Ended,2026-01-03,2026-01-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 FMA Asia/Pacific Conference,,"Taipei, Taiwan",2025-05-30,Ended,2025-12-15,2025-12-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 EUROFIDAI-ESSEC Paris December Finance Meeting,,"Paris, France",2025-06-01,Ended,2025-12-18,2025-12-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 PHBS-Ier Conference on Demographic Change and Migration,,"Shenzhen, China",2025-06-30,Ended,2025-12-20,2025-12-21,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1221,7 +1221,7 @@ Hawai‘I Accounting Research Conference,,"Honolulu, HI",2025-08-15,Ended,2026-0
 India Finance Conference,,"Visakhapatnam, India",2025-08-17,Ended,2025-12-18,2025-12-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Global AI Finance Research Conference,,Hong Kong,2025-08-31,Ended,2025-12-14,2025-12-15,2026-06-09T00:22:11Z,import:Book1.xlsx
 Sydney Banking and Financial Stability Conference,,"Sydney, Australia",2025-08-31,Ended,2025-12-15,2025-12-16,2026-06-09T00:22:11Z,import:Book1.xlsx
-Jcae Annual Symposium and Doctoral Consortium,,"Hefei, China",2025-08-31,Ended,2026-01-08,2026-01-10,2026-06-09T00:22:11Z,import:Book1.xlsx
+Jcae Symposium and Doctoral Consortium,,"Hefei, China",2025-08-31,Ended,2026-01-08,2026-01-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hkust Accounting Research Symposium,,Hong Kong,2025-09-15,Ended,2025-12-15,2025-12-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 Rutgers-Atp India Accounting & Finance Symposium,,"Bangalore, India",2025-09-15,Ended,2026-01-05,2026-01-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 TSFS International Conference in Finance,,"Monastir, Tunisia",2025-09-30,Ended,2025-12-19,2025-12-20,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1255,12 +1255,12 @@ Loyola Wealth Management Conference,,"Baltimore, MD",2025-12-22,Ended,2026-03-27
 Inquire UK-Europe Spring Residential Seminar,,"Cambridge, UK",2025-11-01,Ended,2026-03-22,2026-03-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Alternative Investments Conference & Ipc Symposium,,"Chapel Hill, NC",2025-11-18,Ended,2026-03-26,2026-03-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Energy Finance and Climate Transition Risk,,"Chapel Hill, NC",2025-11-18,Ended,2026-04-09,2026-04-10,2026-06-09T00:22:11Z,import:Book1.xlsx
-Unc Annual Tax Symposium,https://tax.unc.edu/events/,"Chapel Hill, NC",2025-12-15,Ended,2026-04-09,2026-04-10,2026-11-01T12:37:06Z,url:https://tax.unc.edu/events/
-Midwest Finance Association Annual Meeting,,"Chicago, IL",2025-09-05,Ended,2026-03-12,2026-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+Unc Tax Symposium,https://tax.unc.edu/events/,"Chapel Hill, NC",2025-12-15,Ended,2026-04-09,2026-04-10,2026-11-01T12:37:06Z,url:https://tax.unc.edu/events/
+Midwest Finance Association Meeting,,"Chicago, IL",2025-09-05,Ended,2026-03-12,2026-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Young Scholars Finance Consortium,,"College Station, TX",2025-11-18,Ended,2026-03-19,2026-03-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Southwestern Finance Association,,"Dallas, TX",2025-10-22,Ended,2026-03-25,2026-03-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Duke/Unc Asset Pricing,https://conferences.fuqua.duke.edu/assetpricing/,"Durham, NC",2025-11-25,Ended,2026-03-27,2026-03-28,2026-07-05T17:12:47Z,url:https://conferences.fuqua.duke.edu/assetpricing/
-European Accounting Review Annual Conference,,"Düsseldorf, Germany",2025-08-31,Ended,2026-03-19,2026-03-20,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Accounting Review Conference,,"Düsseldorf, Germany",2025-08-31,Ended,2026-03-19,2026-03-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Central Bank Payments Conference,,"Istanbul, Türkiye",2025-12-05,Ended,2026-03-23,2026-03-25,2026-06-09T00:22:11Z,import:Book1.xlsx
 Adam Smith Workshops,,"London, UK",2025-12-07,Ended,2026-04-09,2026-04-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 Baruch-Jfqa Climate Finance and Sustainability Conference,,"New York, NY",2025-11-15,Ended,2026-03-12,2026-03-13,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1276,7 +1276,7 @@ Spring Finance Workshop,,"Ischgl, Austria",2025-11-09,Ended,2026-04-19,2026-04-2
 Wefidev - RFS - Cepr Conference on Finance and Development,,"Evanston, IL",2025-11-16,Ended,2026-04-18,2026-04-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Analyst Research Conference,https://nd.qualtrics.com/jfe/form/SV_b3YyHuu30HcpFnU,"Notre Dame, IN",2025-12-01,Ended,2026-04-16,2026-04-17,2026-10-29T16:31:45Z,search:Analyst Research Conference
 Fsu Beach Conference,,"Miramar Beach, FL",2025-12-06,Ended,2026-04-23,2026-04-25,2026-06-09T00:22:11Z,import:Book1.xlsx
-Risk Theory Society Annual Seminar,,"Tallahassee, FL",2025-12-15,Ended,2026-04-24,2026-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
+Risk Theory Society Seminar,,"Tallahassee, FL",2025-12-15,Ended,2026-04-24,2026-04-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Corporate Governance Academic Conference at Drexel,,"Philadelphia, PA",2025-12-22,Ended,2026-04-17,2026-04-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Geospatial Business Analytics Conference,,"St. Louis, MO",2026-01-10,Ended,2026-04-17,2026-04-17,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on Consumer Finance and Macroeconomics,,"Philadelphia, PA",2026-01-15,Ended,2026-05-01,2026-05-01,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1293,21 +1293,21 @@ Columbia Burton Accounting Conference,https://cglink.me/2ca/r134248,"New York, N
 "FIRN ANU Money, Credit, and Financial Stability Meeting",https://www.openconf.org/FIRN2026/track4/openconf.php,"Canberra, Australia",2026-06-21,Ended,2026-09-18,2026-09-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Experiments in Financial Technology Seminar Series,https://fintechexperiments.science/,"Calgary, Canada",2026-06-30,Ended,2026-09-14,2026-09-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 "PHBS–IER Conference on Technology, Innovation, Platforms, and Economic Performance",https://paper.phbs.pku.edu.cn/v1/,"Shenzhen, China",2026-06-30,Participation,2026-12-20,2026-12-21,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Risk Governance,https://www.uni-siegen.de/fb3/fcm/risk_governance/,"Siegen, Germany",2026-07-01,Ended,2026-10-15,2026-10-16,2026-10-09T16:45:09Z,search:13th Annual Conference on Risk Governance
+Conference on Risk Governance,https://www.uni-siegen.de/fb3/fcm/risk_governance/,"Siegen, Germany",2026-07-01,Ended,2026-10-15,2026-10-16,2026-10-09T16:45:09Z,search:13th Annual Conference on Risk Governance
 UNSW Asset Pricing Workshop,https://sites.google.com/view/unswassetpricingworkshop/homepage,"Sydney, Australia",2026-07-01,Participation,2026-12-03,2026-12-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Haskell & White Corporate Reporting and Governance Conference,https://business.fullerton.edu/engagement/corporate-reporting-and-governance,"Fullerton, CA",2026-07-10,Ended,2026-09-18,2026-09-18,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Financial Economics and Accounting,https://www.rotman.utoronto.ca/cfea-2026/,"Toronto, Canada",2026-07-15,Participation,2026-11-20,2026-11-21,2026-10-17T13:21:31Z,search:36th Annual Conference on Financial Economics and Accounting (CFEA)
+Conference on Financial Economics and Accounting,https://www.rotman.utoronto.ca/cfea-2026/,"Toronto, Canada",2026-07-15,Participation,2026-11-20,2026-11-21,2026-10-17T13:21:31Z,search:36th Annual Conference on Financial Economics and Accounting (CFEA)
 Modern Finance Conference,https://mf-conference.com/,"Krakow, Poland",2026-07-20,Ended,2026-09-14,2026-09-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Journal of Accounting, Auditing and Finance Symposium",https://www.fordham.edu/gabelli-school-of-business/faculty/research/conferences/journal-of-accounting-auditing-and-finance-jaaf-symposium-2026/,"New York, NY",2026-07-31,Ended,2026-10-23,2026-10-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance and Business Analytics Conference,https://fba-conference.com/,"Rhodes, Greece",2026-08-01,Ended,2026-09-05,2026-09-07,2026-06-09T00:22:11Z,import:Book1.xlsx
 Emerging Markets Conference,https://emergingmarketsconference.org/submission,"Mumbai, India",2026-08-24,Participation,2026-12-13,2026-12-16,2026-06-09T00:22:11Z,import:Book1.xlsx
 SARAC – Swiss Accounting Research Alpine Camp,https://sarac-conference.ch/,"Crans-Montana, Switzerland",2026-09-01,Participation,2027-02-18,2027-02-19,2026-09-15T11:04:58Z,url:https://sarac-conference.ch/
 Rutgers-ATP India Accounting & Finance Symposium,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=17561,"Chennai, India",2026-09-15,Participation,2027-01-07,2027-01-08,2026-06-09T00:22:11Z,import:Book1.xlsx
-Western Finance Association Annual Meeting,https://westernfinance.org/submit-a-paper/,"Denver, CO",2025-11-18,Ended,2026-06-21,2026-06-24,2026-06-09T00:22:11Z,import:Book1.xlsx
+Western Finance Association Meeting,https://westernfinance.org/submit-a-paper/,"Denver, CO",2025-11-18,Ended,2026-06-21,2026-06-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 London Business School Accounting Symposium,dhughes@london.edu,"London, UK",2025-12-14,Ended,2026-06-18,2026-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Future of Financial Information Conference,https://www.safe-frankfurt.de/foficon2026.html,"Frankfurt, Germany",2025-12-16,Ended,2026-06-11,2026-06-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Journal of Accounting and Public Policy Conference,https://www.sciencedirect.com/special-issue/326733/accounting-and-public-policy-navigating-global-turbulence,"Naples, Italy",2026-01-01,Ended,2026-06-26,2026-06-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-CAAA Annual Conference,https://www.caaa.ca/caaa-annual-conference-2026-call-for-papers,"Banff, AB, Canada",2026-01-12,Ended,2026-06-18,2026-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
+CAAA Conference,https://www.caaa.ca/caaa-annual-conference-2026-call-for-papers,"Banff, AB, Canada",2026-01-12,Ended,2026-06-18,2026-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 MoFiR Workshop on Banking,https://cepr.org/events/15th-mofir-workshop-banking,"Varese, Italy",2026-01-12,Ended,2026-07-07,2026-07-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 Bocconi Accounting Symposium,accsymposium@unibocconi.it,"Milan, Italy",2026-01-20,Ended,2026-06-22,2026-06-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 FMA European Conference,https://www.openconf.org/2026FMABraga/openconf.php,"Braga, Portugal",2026-01-20,Ended,2026-06-10,2026-06-12,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1315,17 +1315,17 @@ Mergers & Acquisitions Research Centre Conference,BayesMARC@city.ac.uk,"London, 
 Oxford Saïd - VU SBE Macro-Finance Conference,https://www.sbs.ox.ac.uk/events/call-papers-oxford-said-vu-sbe-macro-finance-conference,"Oxford, UK",2026-01-29,Ended,2026-06-25,2026-06-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asia Meeting of the Econometric Society,https://app.oxfordabstracts.com/stages/79431/submitter,"Hanoi, Vietnam",2026-01-31,Ended,2026-07-31,2026-08-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Durham Conference for Finance Job Market Papers,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18342,"Durham, UK",2026-01-31,Ended,2026-06-18,2026-06-19,2026-06-09T00:22:11Z,import:Book1.xlsx
-Finance and Accounting Annual Research Symposium,https://www.eventbrite.co.uk/e/finance-and-accounting-2026-annual-research-symposium-registration-1914660915339?aff=oddtdtcreator,"London, UK",2026-01-31,Ended,2026-06-17,2026-06-18,2026-06-09T00:22:11Z,import:Book1.xlsx
+Finance and Accounting Research Symposium,https://www.eventbrite.co.uk/e/finance-and-accounting-2026-annual-research-symposium-registration-1914660915339?aff=oddtdtcreator,"London, UK",2026-01-31,Ended,2026-06-17,2026-06-18,2026-06-09T00:22:11Z,import:Book1.xlsx
 Hanyang Accounting Research Symposium,https://hanyanghars.com/,"Seoul, Korea",2026-01-31,Ended,2026-06-13,2026-06-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 AI in Finance Conference,,"Washington, DC",2026-02-01,Ended,2026-06-08,2026-06-08,2026-06-09T00:22:11Z,import:Book1.xlsx
 China International Conference in Finance,https://www.cicf-conf.org/,Hong Kong,2026-02-13,Ended,2026-06-26,2026-06-29,2026-11-03T17:28:12Z,search:China International Conference in Finance
 "Conference on ""Ownership, Control, and Economic Performance""",family.business@dauphine.psl.eu,"Paris, France",2026-02-01,Ended,2026-06-08,2026-06-09,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Finance Association Annual Meeting,https://efa2026.efa-finance.org/,"Ghent, Belgium",2026-02-01,Ended,2026-08-19,2026-08-22,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Finance Association Meeting,https://efa2026.efa-finance.org/,"Ghent, Belgium",2026-02-01,Ended,2026-08-19,2026-08-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Symposium on Audit Research,https://isarhq.org/ISAR2026_callforpaper.html,"Maastricht, Netherlands",2026-02-01,Ended,2026-06-19,2026-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Global Management Accounting Research Symposium,https://gmars.cbs.dk/,"Copenhagen, Denmark",2026-02-02,Ended,2026-06-22,2026-06-23,2026-06-09T00:22:11Z,import:Book1.xlsx
-International Journal of Central Banking Annual Research Conference,http://editorialexpress.com/conference/IJCB2026,"Bern, Switzerland",2026-02-05,Ended,2026-07-02,2026-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
+International Journal of Central Banking Research Conference,http://editorialexpress.com/conference/IJCB2026,"Bern, Switzerland",2026-02-05,Ended,2026-07-02,2026-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 MRS International Risk Conference,https://cmt3.research.microsoft.com/MRS2026,"Honolulu, HI",2026-02-10,Ended,2026-07-17,2026-07-19,2026-06-09T00:22:11Z,import:Book1.xlsx
-Asian Finance Association Annual Conference,https://www.conftool.org/asianfa2026,"Seoul, Korea",2026-02-13,Ended,2026-07-02,2026-07-04,2026-06-09T00:22:11Z,import:Book1.xlsx
+Asian Finance Association Conference,https://www.conftool.org/asianfa2026,"Seoul, Korea",2026-02-13,Ended,2026-07-02,2026-07-04,2026-06-09T00:22:11Z,import:Book1.xlsx
 Finance Forum,https://editorialexpress.com/cgi-bin/conference/conference.cgi?action=login&db_name=33FF,"Alicante, Spain",2026-02-15,Ended,2026-07-08,2026-07-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Conference of the Journal of International Accounting Research,https://aaahq.org/Meetings/2026/JIAR,"Seoul, Korea",2026-02-15,Ended,2026-06-25,2026-06-28,2026-06-09T00:22:11Z,import:Book1.xlsx
 "JIMF Conference on Banks, ESG, and Climate Transition",https://www.sba.hub.hit-u.ac.jp/conf/form.html,"Tokyo, Japan",2026-02-15,Ended,2026-07-30,2026-07-31,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1335,13 +1335,13 @@ NBER-SAIF Conference on AI and Financial Markets,https://www.nber.org/conference
 "Anniversary Conference: Accounting, Organizations and Society",https://www.sciencedirect.com/special-issue/327082/anniversary-conference-50-years-of-accounting-organizations-and-society,"London, UK",2026-02-28,Ended,2026-09-04,2026-09-05,2026-06-09T00:22:11Z,import:Book1.xlsx
 GRASFI Conference,https://easychair.org/cfp/GRASFI2026,"Liège, Belgium",2026-02-28,Ended,2026-08-24,2026-08-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Workshop on Financial Institutions Research,https://frbstlspra.gov1.qualtrics.com/jfe/form/SV_8vabvKA51SjcjXM,"St. Louis, MO",2026-02-28,Ended,2026-06-25,2026-06-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-Commodity and Energy Markets Association Annual Meeting,https://cema2026.com,"Cergy, France",2026-03-01,Ended,2026-06-15,2026-06-16,2026-11-02T19:54:51Z,search:Cema Annual Meeting
+Commodity and Energy Markets Association Meeting,https://cema2026.com,"Cergy, France",2026-03-01,Ended,2026-06-15,2026-06-16,2026-11-02T19:54:51Z,search:Cema Annual Meeting
 Finance Theory Group Conference,https://www.financetheory.org/events/3rd-bridging-theory-and-empirical-research-in-finance-conference,"Boston, MA",2026-03-01,Ended,2026-06-12,2026-06-13,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Hong Kong Conference on Fintech and AI in Finance,https://cityuhkfintech.com/,Hong Kong,2026-03-01,Ended,2026-06-14,2026-06-15,2026-10-01T12:28:11Z,url:https://cityuhkfintech.com/
+Hong Kong Conference on Fintech and AI in Finance,https://cityuhkfintech.com/,Hong Kong,2026-03-01,Ended,2026-06-14,2026-06-15,2026-10-01T12:28:11Z,url:https://cityuhkfintech.com/
 World Finance Conference,https://www.world-finance-conference.com/conference.php?id=32,"Limerick, Ireland",2026-03-01,Ended,2026-07-26,2026-07-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Ifma International Conference,submission@ifma-online.org,"Bali, Indonesia",2026-03-07,Ended,2026-08-01,2026-08-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 Helsinki Finance Summit on Investor Behavior,https://link.webropol.com/s/hfs2026,"Helsinki, Finland",2026-03-08,Ended,2026-08-17,2026-08-18,2026-06-09T00:22:11Z,import:Book1.xlsx
-Southern Finance Association Annual Meeting,https://www.openconf.org/SFA2026/,"Palm Springs, CA",2026-03-13,Participation,2026-11-18,2026-11-21,2026-06-09T00:22:11Z,import:Book1.xlsx
+Southern Finance Association Meeting,https://www.openconf.org/SFA2026/,"Palm Springs, CA",2026-03-13,Participation,2026-11-18,2026-11-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Canadian Sustainable Finance Network Conference,https://bit.ly/4jxHBrD,"Edmonton, Canada",2026-03-15,Ended,2026-06-11,2026-06-12,2026-10-31T15:34:58Z,search:Canadian Sustainable Finance Network Conference
 CEIBS Finance/Accounting Symposium,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18845,"Shanghai, China",2026-03-15,Ended,2026-06-29,2026-06-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Conference on the Industrial Organization of Financial Markets,conf.financialmarkets@skema.edu,"Sophia Antipolis, France",2026-03-15,Ended,2026-06-08,2026-06-09,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1351,7 +1351,7 @@ Workshop on Banking and Institutions,https://www.lyyti.fi/reg/Submissions-Worksh
 J.P. Morgan Center International Commodities Symposium,https://business.ucdenver.edu/jpmorgancenter/jp-morgan-center-commodities-research,"Denver, CO",2026-03-16,Ended,2026-08-11,2026-08-12,2026-08-15T06:41:38Z,url:https://business.ucdenver.edu/jpmorgancenter/jp-morgan-center-commodities-research
 "Workshop on Recent Trends and New Developments in Sustainable, Green and International Finance",https://sgif2026.sciencesconf.org/?lang=en,"Nice, France",2026-03-16,Ended,2026-06-11,2026-06-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 City University of Hong Kong International Finance Conference,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18777,Hong Kong SAR,2026-03-18,Ended,2026-06-18,2026-06-20,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Bristol Financial Markets Conference,https://sites.google.com/view/fmrg-bristol,"Bristol, United Kingdom",2026-03-20,Ended,2026-06-29,2026-06-30,2026-09-01T11:10:32Z,url:https://sites.google.com/view/fmrg-bristol
+Bristol Financial Markets Conference,https://sites.google.com/view/fmrg-bristol,"Bristol, United Kingdom",2026-03-20,Ended,2026-06-29,2026-06-30,2026-09-01T11:10:32Z,url:https://sites.google.com/view/fmrg-bristol
 Tilburg Finance Summit on Asset Pricing and Behavioral Finance,financesummit@tilburguniversity.edu,"Tilburg, Netherlands",2026-03-20,Ended,2026-06-11,2026-06-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Red Rock Finance Conference,https://marriott.byu.edu/event/redrock2026/home,"Springdale, UT",2026-03-22,Ended,2026-09-10,2026-09-12,2026-06-09T00:22:11Z,import:Book1.xlsx
 Summer Finance Conference – University of Washington,https://foster.uw.edu/faculty-research/academic-departments/finance-and-business-economics/summer-finance-conference/,"Seattle, WA",2026-03-22,Ended,2026-07-27,2026-07-28,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1363,7 +1363,7 @@ CEIBS-APS Centre for Financial Markets Academic Conference,https://cac.ceibs.edu
 CEPR-SAFE Frankfurt Hub Conference of RPNs,https://safe-frankfurt.de/news-latest/events/submissions-ceprhub2026.html,"Frankfurt, Germany",2026-03-31,Ended,2026-09-10,2026-09-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Risk Management Conference,https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FIRMC2026,"Warsaw, Poland",2026-03-31,Ended,2026-06-22,2026-06-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 Bayes Junior Asset Management and Asset Pricing Workshop,,"London, UK",2026-04-01,Ended,2026-06-08,2026-06-08,2026-06-09T00:22:11Z,import:Book1.xlsx
-CAPANA Annual Research Conference,https://editorialexpress.com/conference/capana2026,"Shenzhen, China",2026-04-01,Ended,2026-07-01,2026-07-02,2026-06-09T00:22:11Z,import:Book1.xlsx
+CAPANA Research Conference,https://editorialexpress.com/conference/capana2026,"Shenzhen, China",2026-04-01,Ended,2026-07-01,2026-07-02,2026-06-09T00:22:11Z,import:Book1.xlsx
 CityUHK-CJAR Joint Accounting Research Conference,https://www.cb.cityu.edu.hk/research/cjar/,Hong Kong SAR,2026-04-01,Ended,2026-07-11,2026-07-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 Contemporary Accounting Research Conference,https://www.caaa.ca/journals-and-research/contemporary-accounting-research-car,"Montréal, QC",2026-04-01,Ended,2026-10-23,2026-10-24,2026-10-18T13:42:19Z,search:42nd Annual Contemporary Accounting Research (CAR) Conference
 Conference in Sustainable Finance,https://www.uni.lu/fdef-en/news/call-for-papers-for-the-fifth-conference-in-sustainable-finance/,Luxembourg,2026-04-07,Ended,2026-07-01,2026-07-02,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1391,7 +1391,7 @@ Politics in Finance Conference,https://docs.google.com/forms/d/e/1FAIpQLScFJe3vt
 USTC Frontiers in Finance Conference,https://ffcconf.org/,"Hefei, China",2026-04-30,Ended,2026-06-30,2026-07-02,2026-10-01T12:28:11Z,search:Frontier Research in Banking
 "Vietnam Symposium in Entrepreneurship, Finance, and Innovation",https://vsefi2026.sciencesconf.org/submission/submit,"Hanoi, Vietnam",2026-04-30,Ended,2026-07-02,2026-07-03,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Arne Ryde Conference on Crypto, Fintech and Payments",https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments,"Lund, Sweden",2026-05-01,Ended,2026-08-25,2026-08-26,2026-10-01T12:28:11Z,url:https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments
-Asia-Pacific Association of Derivatives Annual Conference,https://www.conftool.net/apad2026,"Busan, Korea",2026-05-01,Ended,2026-07-13,2026-07-14,2026-06-09T00:22:11Z,import:Book1.xlsx
+Asia-Pacific Association of Derivatives Conference,https://www.conftool.net/apad2026,"Busan, Korea",2026-05-01,Ended,2026-07-13,2026-07-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 "Financial Fraud, Misconduct and Market Manipulation Conference",https://wp.lancs.ac.uk/ffmm2026/,"Lancaster, UK",2026-05-01,Ended,2026-09-10,2026-09-11,2026-06-09T00:22:11Z,import:Book1.xlsx
 International Conference on Accounting and Finance,https://due.udn.vn/vi-vn/icoaf,"Danang, Vietnam",2026-05-01,Ended,2026-07-10,2026-07-10,2026-06-09T00:22:11Z,import:Book1.xlsx
 "International Conference on Management, Business, Economics, Law, and Technology",http://due.udn.vn/combelt,"Danang, Vietnam",2026-05-01,Ended,2026-07-07,2026-07-07,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1406,20 +1406,20 @@ Vietnam Symposium in Global Economic Issues,https://vsge2026.sciencesconf.org/su
 HKU Summer Accounting Conference & Doctoral Consortium,https://www.hkubs.hku.hk/eventsite/hku-summer-accounting-conference/,Hong Kong,2026-05-18,Ended,2026-06-11,2026-06-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Future Scholars in Finance Forum,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=19106,"Beijing, China",2026-05-20,Ended,2026-07-01,2026-07-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 Prototypes for Humanity Short Papers Platform,https://form.jotform.com/260705028532451?source=https://www.ssrn.com,"Dubai, UAE",2026-05-22,Participation,2026-11-15,2026-11-19,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference on Insurance,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18911,"Chicago, IL",2026-05-31,Ended,2026-10-22,2026-10-23,2026-06-09T00:22:11Z,import:Book1.xlsx
+Conference on Insurance,https://www.ssrn.com/index.cfm/en/janda/announcement/?id=18911,"Chicago, IL",2026-05-31,Ended,2026-10-22,2026-10-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 ECB Money Market Conference,https://www.ecb.europa.eu/press/conferences/html/20261105-money-markets.en.html,"Frankfurt, Germany",2026-05-31,Participation,2026-11-05,2026-11-06,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Conference of the International Corporate Governance Society,https://www.icgsociety.org/2026-annual-conference,"Montreal, Canada",2026-05-31,Ended,2026-10-02,2026-10-04,2026-10-03T14:30:22Z,search:12th Annual ICGS Conference - Call for Papers
+Conference of the International Corporate Governance Society,https://www.icgsociety.org/2026-annual-conference,"Montreal, Canada",2026-05-31,Ended,2026-10-02,2026-10-04,2026-10-03T14:30:22Z,search:12th Annual ICGS Conference - Call for Papers
 "International Conference in Venice, Credit on Artificial Intelligence, Financial Innovation and Credit Risk: Sustainability, Stability and Responsibility in a Data-Driven Financial System",http://GRETA.it,"Venice, Italy",2026-05-31,Ended,2026-09-24,2026-09-25,2026-10-06T16:27:58Z,"search:International Conference in Venice - Artificial Intelligence, Financial Innovation and Credit Risk"
 Research in Behavioral Finance Conference,https://www.rbfc.eu/,"Amsterdam, Netherlands",2026-05-31,Ended,2026-09-18,2026-09-19,2026-06-09T00:22:11Z,import:Book1.xlsx
 Institute for Quantitative Investment Research Autumn Residential Seminar,https://forms.gle/LzbNdzchxPaZf8Pd7,"Wych Cross, UK",2026-06-01,Ended,2026-10-04,2026-10-06,2026-06-09T00:22:11Z,import:Book1.xlsx
 RAPS/RCFS Europe Conference,https://www.conftool.com/raps-rcfs-2026,"Cambridge, UK",2026-06-01,Ended,2026-09-22,2026-09-22,2026-06-09T00:22:11Z,import:Book1.xlsx
 Labor & Finance Group Fall Conference,https://forms.gle/ehQy88eNchMwmW7R9,"State College, PA",2026-07-15,Participation,2026-11-05,2026-11-06,2026-06-10T10:14:13Z,email:<DM6PR01MB58660165AECFD3D1C52F21908F1D2@DM6PR01MB5866.prod.exchangelabs.com>
-Sustainable Financial Innovation Centre (Sfic) Annual Conference,h.farag@bham.ac.uk,"Birmingham, United Kingdom",2026-08-31,Ended,2026-10-30,2026-10-30,2026-07-03T09:28:25Z,email:<CAAmusDKkvdfz1m2ZF3ao86FcqqHA0n17j24f7zzRiGPNHv4tJg@mail.gmail.com>
+Sustainable Financial Innovation Centre (Sfic) Conference,h.farag@bham.ac.uk,"Birmingham, United Kingdom",2026-08-31,Ended,2026-10-30,2026-10-30,2026-07-03T09:28:25Z,email:<CAAmusDKkvdfz1m2ZF3ao86FcqqHA0n17j24f7zzRiGPNHv4tJg@mail.gmail.com>
 Iimb-CCGS International Corporate Governance & Sustainability Conference,https://www.iimb.ac.in/ccgs/,"Bengaluru, India",2026-07-15,Participation,2026-11-20,2026-11-21,2026-10-23T14:33:58Z,search:IIMB-CCGS International Corporate Governance & Sustainability Conference 2026
 Ray Ball Journal of Accounting Research Conference,https://www.chicagobooth.edu/research/chookaszian/journal-of-accounting-research/call-for-papers,"Chicago, IL",2026-12-01,Submission,2027-04-30,2027-05-01,2026-10-16T14:25:14Z,search:2027 Journal of Accounting Research (JAR) Annual Conference
 Research Proposal Conference: Fars and the Journal of Financial Reporting,henry.friedman@anderson.ucla.edu,Online,2023-03-15,Ended,2023-09-21,2023-09-22,2026-07-09T15:07:49Z,url:https://www.accountingtheory.org/
 Financial Accounting and Reporting Section Midyear Meeting,https://aaahq.org/Meetings/2027-FARS-Midyear-Meeting/Submissions,"San Francisco, CA",2026-09-14,Participation,2027-01-21,2027-01-23,2026-10-20T14:35:15Z,search:AAA FARS Midyear Meeting 2027
-Annual Pbfeam and Nycu International Conferences,nycuconference@gmail.com,"Hsinchu, Taiwan",2026-10-01,Participation,2026-12-11,2026-12-12,2026-08-19T06:53:07Z,email:<2144C14A-5BFE-4524-A7BF-7D823308B06D@utdallas.edu>
+Pbfeam and Nycu International Conferences,nycuconference@gmail.com,"Hsinchu, Taiwan",2026-10-01,Participation,2026-12-11,2026-12-12,2026-08-19T06:53:07Z,email:<2144C14A-5BFE-4524-A7BF-7D823308B06D@utdallas.edu>
 Artificial Intelligence and Capital Market Research Conference,https://wenjuan.tsinghua.edu.cn/s/yuQ7Rv/#,"Beijing, China",2026-09-15,Participation,2026-12-21,2026-12-21,2026-07-21T08:37:52Z,email:<48761816-7E31-497B-8646-CC2C8C1E3DA4@utdallas.edu>
 International Journal of Accounting Symposium,https://www.worldscientific.com/page/tija/submission-guidelines,"Auckland, New Zealand",2026-10-15,Participation,2027-04-14,2027-04-17,2026-07-21T08:37:52Z,search:2027 International Journal of Accounting Symposium
 Olin Finance Conference at Washu,https://event.olin.washu.edu/washu-finance-conference-2026,"St. Louis, MO",2026-07-31,Participation,2026-11-12,2026-11-13,2026-07-25T08:15:28Z,search:22nd Annual Olin Finance Conference at WashU
@@ -1431,13 +1431,13 @@ Iab Labor Markets and Financial Markets Workshop,https://iab.de/en/iab-veranstal
 "American Conference of the Academy of Sustainable Finance, Accounting, Accountability & Governance",https://forms.gle/Esa63NMjodGjJvpf9,"Waltham, MA",2027-01-15,Submission,2027-03-10,2027-03-12,2026-08-08T07:01:59Z,email:<DM6PR01MB5866FF1A5EBA26DAC6716FE98FD12@DM6PR01MB5866.prod.exchangelabs.com>
 Tokenomics,https://cber-forum.org/tokenomics-2026,Singapore,2026-08-31,Participation,2026-11-23,2026-11-23,2026-08-15T06:47:31Z,search:[CBER] Tokenomics 2026
 Frankfurt/Mannheim Workshop on Digital Finance,digital.finance.workshop@gmail.com,"Frankfurt am Main, Germany",2026-09-01,Participation,2026-12-14,2026-12-14,2026-08-15T06:47:31Z,email:<A467336B-D90E-46E8-A748-8D8407D150CE@utdallas.edu>
-Journal of Contemporary Accounting & Economics Annual Symposium and Doctoral Consortium,https://www.editorialmanager.com/cae/default1.aspx,"Macau, China",2026-08-31,Participation,2027-01-15,2027-01-17,2026-08-19T06:53:07Z,email:<2144C14A-5BFE-4524-A7BF-7D823308B06D@utdallas.edu>
+Journal of Contemporary Accounting & Economics Symposium and Doctoral Consortium,https://www.editorialmanager.com/cae/default1.aspx,"Macau, China",2026-08-31,Participation,2027-01-15,2027-01-17,2026-08-19T06:53:07Z,email:<2144C14A-5BFE-4524-A7BF-7D823308B06D@utdallas.edu>
 Arctic Finance Conference,https://www.conftool.org/arctic-finance-2027,"Svolvær, Norway",2026-10-23,Participation,2027-06-24,2027-06-27,2026-10-03T11:26:34Z,email:<6CF29718-E6E2-4EE9-89D0-FF76C50C3F29@utdallas.edu>
-Vins Annual Conference,https://vins.shanghai.nyu.edu/event/2026-vins-annual-conference-call-papers,"Shanghai, China",2026-10-15,Participation,2026-12-04,2026-12-04,2026-10-12T19:30:03Z,search:2026 VINS Annual Conference-Call for Papers
+Vins Conference,https://vins.shanghai.nyu.edu/event/2026-vins-annual-conference-call-papers,"Shanghai, China",2026-10-15,Participation,2026-12-04,2026-12-04,2026-10-12T19:30:03Z,search:2026 VINS Annual Conference-Call for Papers
 Inquire Europe Spring Conference,https://www.formdesk.com/inquireeurope/call_for_papers_spring_2027,"Milan, Italy",2026-10-02,Participation,2027-03-14,2027-03-16,2026-08-22T06:49:15Z,email:<2CB3A92F-8671-4480-8EB2-F1428C9EA607@utdallas.edu>
 Iim Calcutta-Nyu Stern India Research Conference,iimc-nyu-call-2026@stern.nyu.edu,Online,2026-09-21,Ended,2026-10-09,2026-10-09,2026-08-28T18:27:16Z,email:<0F19D203-47F7-472A-8B8A-727B8BF07C3A@utdallas.edu>
 Risk Theory Society Meeting,https://www.aria.org/risk-theory-society-annual-seminar,"Munich, Germany",2026-12-15,Submission,2027-05-28,2027-05-30,2026-08-28T18:27:16Z,email:<0F19D203-47F7-472A-8B8A-727B8BF07C3A@utdallas.edu>
-Society of Labor Economists Annual Meeting,https://submissions.mirasmart.com/SOLE2027/login.aspx,"Baltimore, MD",2026-10-31,Participation,2027-04-30,2027-05-01,2026-10-25T14:01:25Z,search:Society of Labor Economists (SOLE) 2027 Annual Meeting
+Society of Labor Economists Meeting,https://submissions.mirasmart.com/SOLE2027/login.aspx,"Baltimore, MD",2026-10-31,Participation,2027-04-30,2027-05-01,2026-10-25T14:01:25Z,search:Society of Labor Economists (SOLE) 2027 Annual Meeting
 Global Summit of Finance in the Age of AI and Climate Change,finance@fdsm.fudan.edu.cn,"Shanghai, China",2026-10-10,Participation,2026-12-19,2026-12-19,2026-09-05T10:21:28Z,email:<25AD21FA-A408-4011-B74A-0E5AF04E92FA@utdallas.edu>
 "Sustainability, Trade and Digital Finance",https://stv-review.org/index.php/journal,Online,2026-11-30,Submission,2027-02-10,2027-02-11,2026-09-05T10:21:28Z,email:<25AD21FA-A408-4011-B74A-0E5AF04E92FA@utdallas.edu>
 NBS Conference on AI for Finance,https://event.ntu.edu.sg/call-for-papers-ai-for-finance-2026,Nanyang Technological University (Singapore),2026-09-20,Participation,2026-11-20,2026-11-21,2026-09-05T10:21:28Z,email:<25AD21FA-A408-4011-B74A-0E5AF04E92FA@utdallas.edu>
@@ -1449,12 +1449,12 @@ Lapland Finance Summit,https://www.aalto.fi/lfs,"Levi, Kittilä, Finland",2026-1
 Northeastern Finance Conference,https://damore-mckim.northeastern.edu/finance-conference/,"Boston, MA",2026-11-22,Submission,2027-05-05,2027-05-07,2026-10-04T15:03:33Z,"search:11th Northeastern Finance Conference, May 5-7, 2027, Boston"
 Asu Accountancy Cactus Conference,https://wpcarey.asu.edu/accounting-degrees/asu-research-conference,"Tempe, AZ",2026-11-15,Submission,2027-03-11,2027-03-13,2026-10-03T11:26:34Z,email:<6CF29718-E6E2-4EE9-89D0-FF76C50C3F29@utdallas.edu>
 International Conference on Artificial Intelligence in Finance and Accounting,,"Las Vegas, NV",2026-10-17,Participation,2026-11-06,2026-11-07,2026-10-01T01:58:02Z,search:AI in Finance Conference
-Annual Aef Conference,,"Orlando, FL",2026-12-06,Submission,2027-02-17,2027-02-20,2026-10-01T01:58:02Z,search:Annual Conference on Financial Economics and Accounting
+Aef Conference,,"Orlando, FL",2026-12-06,Submission,2027-02-17,2027-02-20,2026-10-01T01:58:02Z,search:Annual Conference on Financial Economics and Accounting
 "International Conference on Accounting, Finance and Economics",,"Barcelona, Spain",2026-09-24,Ended,2026-10-19,2026-10-20,2026-10-01T01:58:02Z,search:Annual Conference on Financial Economics and Accounting
 Zew Conference on the Economics of Innovation and Patenting,innopat2026@zew.de,"Mannheim, Germany",2026-08-07,Participation,2026-11-05,2026-11-06,2026-10-01T16:47:07Z,search:11. ZEW-Konferenz zur Ökonomik von Innovationen und Patenten
 Transatlantic Workshop on the Economics of Crime,https://bit.ly/4183vJ8,"Ithaca, NY",2026-05-01,Ended,2026-10-09,2026-10-10,2026-10-09T16:45:09Z,search:17th Transatlantic Workshop on the Economics of Crime
-Annual Conference on Financial Market Regulation,https://www.darden.virginia.edu/mayo-center/events/cfmr,"Washington, DC",2026-11-18,Submission,2027-05-06,2027-05-07,2026-10-21T14:46:49Z,search:Call for Paper - 14th Annual Conference on Financial Market Regulation (CFMR 2027)
-Annual Conference on Taxation - National Tax Association,https://www.ntanet.org,"Pittsburgh, PA",2026-05-26,Participation,2026-11-12,2026-11-14,2026-10-10T15:40:14Z,search:119th Annual Conference on Taxation - National Tax Association
+Conference on Financial Market Regulation,https://www.darden.virginia.edu/mayo-center/events/cfmr,"Washington, DC",2026-11-18,Submission,2027-05-06,2027-05-07,2026-10-21T14:46:49Z,search:Call for Paper - 14th Annual Conference on Financial Market Regulation (CFMR 2027)
+Conference on Taxation - National Tax Association,https://www.ntanet.org,"Pittsburgh, PA",2026-05-26,Participation,2026-11-12,2026-11-14,2026-10-10T15:40:14Z,search:119th Annual Conference on Taxation - National Tax Association
 "Conference on Real-Time Data Analysis, Methods, and Applications in Macroeconomics",Phil.rtdata.conference@phil.frb.org,"Philadelphia, PA",2026-06-15,Ended,2026-10-09,2026-10-10,2026-10-07T17:09:46Z,"search:2026 Conference on Real-Time Data Analysis, Methods, and Applications"
 Summer School on Market Microstructure,https://microstructure-course.com/,"Stockholm, Sweden",2026-12-01,Submission,2027-06-14,2027-06-18,2026-10-09T12:56:42Z,email:<B9B4C31C-D050-4D20-B541-C86C0E275502@utdallas.edu>
 International Conference on the Climate-Macro-Finance Interface,https://www.rcea.world/events/forthcoming-events/economic-policy-in-an-era-of-compounded-risks,"Rotterdam, Netherlands",2026-12-22,Submission,2027-02-22,2027-02-23,2026-10-08T13:10:06Z,email:<4CBB27E6-8A61-47B0-82D2-598139E3DBC1@utdallas.edu>
@@ -1464,8 +1464,8 @@ University of Toronto Asset Pricing and Investments Workshop,https://www.rotman.
 University of Delaware Corporate Governance Symposium and John L. Weinberg/Irrci Research Paper Award Competition,https://weinberg.udel.edu/research-paper-competition/,"Newark, DE",2026-11-18,Submission,2027-03-12,2027-03-12,2026-10-09T12:56:42Z,email:<B9B4C31C-D050-4D20-B541-C86C0E275502@utdallas.edu>
 Financial Management Association International European Conference,https://www.fma.org/2025-european-conference,"Limassol, Cyprus",2025-01-21,Ended,2025-06-11,2025-06-13,2026-10-10T15:40:14Z,search:FMA European Conference
 Research Conference on 'Innovation and Finance',,"Rome, Italy",2026-07-31,Participation,2026-12-10,2026-12-11,2026-10-10T15:40:14Z,search:Frontier Research in Banking
-Annual Conference on Empirical Legal Studies,https://www.law.northwestern.edu/research-faculty/events/conferences/cels-2026/,"Chicago, IL",2026-06-12,Ended,2026-10-02,2026-10-03,2026-10-10T19:18:41Z,url:https://www.law.northwestern.edu/research-faculty/events/conferences/cels-2026/
-Western Finance Association Annual Meeting,https://westernfinance-portal.org,"Indian Wells, CA",2026-11-18,Submission,2027-06-27,2027-06-30,2026-10-28T16:22:42Z,search:Western Finance Association 2027 Annual Meeting
+Conference on Empirical Legal Studies,https://www.law.northwestern.edu/research-faculty/events/conferences/cels-2026/,"Chicago, IL",2026-06-12,Ended,2026-10-02,2026-10-03,2026-10-10T19:18:41Z,url:https://www.law.northwestern.edu/research-faculty/events/conferences/cels-2026/
+Western Finance Association Meeting,https://westernfinance-portal.org,"Indian Wells, CA",2026-11-18,Submission,2027-06-27,2027-06-30,2026-10-28T16:22:42Z,search:Western Finance Association 2027 Annual Meeting
 European Winter Finance Summit,,"Zermatt, Switzerland",2021-10-24,Ended,2022-03-20,2022-03-23,2026-06-09T00:22:11Z,import:Book1.xlsx
 RCFS Winter Conference,,"Margaritaville, FL",2021-12-05,Ended,2022-02-19,2022-02-20,2026-06-09T00:22:11Z,import:Book1.xlsx
 Loyola Wealth Management Conference,,"Baltimore, MD",2024-12-30,Ended,2025-03-14,2025-03-14,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1476,7 +1476,7 @@ Columbia/Bpi Bank Regulation Research Conference,,"New York, NY",2024-11-15,Ende
 Wefidev RFS-Cepr Conference,,"London, UK",2024-12-01,Ended,2025-03-28,2025-03-29,2026-06-09T00:22:11Z,import:Book1.xlsx
 Risk Governance Research Symposium,,"Raleigh, NC",2025-01-15,Ended,2025-05-13,2025-05-14,2026-06-09T00:22:11Z,import:Book1.xlsx
 Accounting Summer Camp,,"Padova, Italy",2020-04-20,Ended,2020-06-24,2020-06-26,2026-06-09T00:22:11Z,import:Book1.xlsx
-Annual Meeting of the Central Bank Research Association,,Virtual,2021-05-11,Ended,2021-07-07,2021-07-09,2026-06-09T00:22:11Z,import:Book1.xlsx
+Meeting of the Central Bank Research Association,,Virtual,2021-05-11,Ended,2021-07-07,2021-07-09,2026-06-09T00:22:11Z,import:Book1.xlsx
 Asu Sonoran Winter Finance Conference,https://finance-conference.wpcarey.asu.edu/,"Scottsdale, AZ",2025-11-19,Ended,2026-02-26,2026-02-28,2026-07-09T15:07:49Z,url:https://finance-conference.wpcarey.asu.edu/
 Future of Financial Information Conference,,Virtual,2020-12-22,Ended,2021-05-19,2021-05-21,2026-06-09T00:22:11Z,import:Book1.xlsx
 Florida State University Truist Beach Conference,,"Miramar Beach, FL",2023-12-05,Ended,2024-04-11,2024-04-13,2026-06-09T00:22:11Z,import:Book1.xlsx
@@ -1486,7 +1486,7 @@ International Conference of the Japanese Accounting Review,,Virtual,2022-08-31,E
 Institutional and Organizational Economics Academy,,"Corsica, France",2024-03-15,Ended,2024-05-20,2024-05-24,2026-06-09T00:22:11Z,import:Book1.xlsx
 Berlin Vallendar Conference on Tax Research,,"Berlin, Germany",2019-04-14,Ended,2019-07-25,2019-07-26,2026-06-09T00:22:11Z,import:Book1.xlsx
 Boulder Summer Conference on Consumer Financial Decision Making,,"Boulder, CO",2024-12-20,Ended,2025-05-28,2025-05-30,2026-06-09T00:22:11Z,import:Book1.xlsx
-European Financial Management Association Annual Meeting,,"Dublin, Ireland",2020-03-04,Ended,2020-06-24,2020-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
+European Financial Management Association Meeting,,"Dublin, Ireland",2020-03-04,Ended,2020-06-24,2020-06-27,2026-06-09T00:22:11Z,import:Book1.xlsx
 Edinburgh Corporate Finance Conference,,"Edinburgh, UK",2023-01-08,Ended,2023-05-31,2023-06-01,2026-06-09T00:22:11Z,import:Book1.xlsx
 FMA Asia/Pacific Conference,,"Melbourne, Australia",2022-05-27,Ended,2022-12-11,2022-12-13,2026-06-09T00:22:11Z,import:Book1.xlsx
 Global Corporate Governance Colloquium,https://www.gcgc.global/event/2027-gcgc-conference-yale-8/page/introduction,"New Haven, CT",2026-10-23,Participation,2027-06-11,2027-06-12,2026-10-10T19:32:05Z,url:https://www.gcgc.global/event/2027-gcgc-conference-yale-8/page/introduction
@@ -1510,37 +1510,37 @@ North American Winter Meeting of the Econometric Society,,"Washington, DC",2026-
 Texas Finance Festival,https://www.conftool.com/texas-finance-festival-2027,"Austin, Texas",2026-11-20,Submission,2027-04-15,2027-04-17,2026-10-17T10:26:08Z,email:<0305B498-C50A-467B-A025-BBD94C631A6C@utdallas.edu>
 Georgia Tech-Atlanta Fed Household Finance Conference,https://www.scheller.gatech.edu/events/household-finance-conference/index.html,"Atlanta, Georgia",2026-11-18,Submission,2027-03-25,2027-03-26,2026-10-17T10:26:08Z,email:<0305B498-C50A-467B-A025-BBD94C631A6C@utdallas.edu>
 International Conference of the French Finance Association,https://affi2027.sciencesconf.org/,"Strasbourg, France",2027-01-15,Submission,2027-05-31,2027-06-02,2026-11-04T17:39:29Z,search:Conference of the French Finance Association
-Firn Household Finance Annual Conference,https://www.openconf.org/FIRN2027/track2/openconf.php,"Melbourne, Australia",2026-12-20,Submission,2027-04-09,2027-04-09,2026-10-17T10:26:08Z,email:<0305B498-C50A-467B-A025-BBD94C631A6C@utdallas.edu>
+Firn Household Finance Conference,https://www.openconf.org/FIRN2027/track2/openconf.php,"Melbourne, Australia",2026-12-20,Submission,2027-04-09,2027-04-09,2026-10-17T10:26:08Z,email:<0305B498-C50A-467B-A025-BBD94C631A6C@utdallas.edu>
 Financial Intermediation Research Society Conference,https://www.conftool.org/firs2027,"Glasgow, Scotland",2026-11-18,Submission,2027-06-03,2027-06-05,2026-10-17T10:26:08Z,email:<0E061282-E57F-4C66-9CAF-506A2FCB16B6@utdallas.edu>
-Eaere Annual Conference,https://eaere2027.org/,"Madrid, Spain",2027-01-31,Submission,2027-06-28,2027-07-01,2026-10-17T13:21:31Z,search:31st EAERE Annual Conference
+Eaere Conference,https://eaere2027.org/,"Madrid, Spain",2027-01-31,Submission,2027-06-28,2027-07-01,2026-10-17T13:21:31Z,search:31st EAERE Annual Conference
 Asian-Pacific Conference on International Accounting Issues,https://www.apconference.org,"Big Island, HI",2026-05-31,Participation,2026-11-15,2026-11-17,2026-10-17T13:21:31Z,search:35th Asian-Pacific Conference on International Accounting Issues
 American Taxation Association Midyear Meeting,https://www.aaahq.org/Submissions/2027-American-Taxation-Association-Midyear-Meeting,"Washington, DC",2026-10-16,Participation,2027-02-18,2027-02-20,2026-10-17T19:18:53Z,search:39th Annual American Taxation Association (ATA) Midyear Meeting
 AI in Finance Conference,https://www.conftool.net/ai-finance-2026,"Montréal, Canada",2026-06-05,Ended,2026-10-13,2026-10-15,2026-10-18T13:42:19Z,search:3rd AI in Finance Conference
 Iaee International Conference - International Association for Energy Economics,,"Nanjing, China",2027-03-22,Submission,2027-08-15,2027-08-18,2026-10-18T13:42:19Z,search:48th IAEE International Conference - International Association for Energy Economics
-European Finance Association Annual Meeting,https://www.european-finance.org/annual-meeting,"Aarhus, Denmark",2027-02-01,Submission,2027-08-18,2027-08-21,2026-10-18T13:42:19Z,search:54th EFA Annual Meeting 2027
+European Finance Association Meeting,https://www.european-finance.org/annual-meeting,"Aarhus, Denmark",2027-02-01,Submission,2027-08-18,2027-08-21,2026-10-18T13:42:19Z,search:54th EFA Annual Meeting 2027
 Mid-Atlantic Research Conference in Finance,https://www.villanova.edu/university/business/faculty-and-research/academic-departments/finance-real-estate/marc.html,"Villanova, PA",2026-12-18,Submission,2027-04-02,2027-04-02,2026-10-19T12:46:33Z,email:<DM6PR01MB5866D8662F42E3C5B31366188F992@DM6PR01MB5866.prod.exchangelabs.com>
-Annual Conference of the Australasian Agricultural & Resource Economics Society,https://www.aares.org.au/2027-conference/submission-guidelines/,"Melbourne, Australia",2026-08-23,Participation,2027-02-02,2027-02-05,2026-10-19T16:43:25Z,search:71st Annual Conference of AARES - Australasian Agricultural and Resource Economics Society
+Conference of the Australasian Agricultural & Resource Economics Society,https://www.aares.org.au/2027-conference/submission-guidelines/,"Melbourne, Australia",2026-08-23,Participation,2027-02-02,2027-02-05,2026-10-19T16:43:25Z,search:71st Annual Conference of AARES - Australasian Agricultural and Resource Economics Society
 Meeting of the Euro Working Group for Commodities and Financial Modelling,https://www.hostingminds.org/ewgcfm74,"La Romana, Dominican Republic",2026-07-31,Participation,2026-11-22,2026-11-24,2026-10-19T16:43:25Z,search:74th Meeting of the EURO Working Group for Commodities and Financial Modelling (EWGCFM)
-Annual Meetings of the Midwest Economics Association,https://mea.grinnell.edu,"Indianapolis, IN",2026-10-25,Participation,2027-04-02,2027-04-04,2026-10-19T16:43:25Z,search:91st Annual Meetings of the Midwest Economics Association
+Meetings of the Midwest Economics Association,https://mea.grinnell.edu,"Indianapolis, IN",2026-10-25,Participation,2027-04-02,2027-04-04,2026-10-19T16:43:25Z,search:91st Annual Meetings of the Midwest Economics Association
 Experimental Research in Management Accounting: Summer School,https://www.exrima.org/de/summerschool,"Bochum, Germany",2027-03-15,Submission,2027-06-22,2027-06-25,2026-10-20T11:15:16Z,email:<4BD132A4-1ED6-4A38-AC27-1B5F954B11A5@utdallas.edu>
 Accounting Behavior and Organizations Research Conference,https://aaahq.org/Meetings/2026/ABO-Research-Conference/Submissions,"Baltimore, MD",2026-06-03,Ended,2026-10-15,2026-10-17,2026-10-20T14:35:15Z,search:AAA ABO Research Conference 2026
 "Management Accounting Section Midyear Meeting: Research Conference, Ima Doctoral Colloquium, and Teaching and Practice Symposium",https://aaahq.org/Meetings/2027/MAS-Midyear-Meeting/Submissions,"Atlanta, GA",2026-08-17,Participation,2027-01-07,2027-01-09,2026-10-20T14:35:15Z,search:AAA MAS Midyear Meeting 2027
-Allied Social Science Associations Annual Meeting,https://www.aeaweb.org/conference,"Atlanta, GA",2027-04-15,Submission,2028-01-07,2028-01-09,2026-10-20T14:35:15Z,search:AEA/ASSA 2028 Annual Meeting
+Allied Social Science Associations Meeting,https://www.aeaweb.org/conference,"Atlanta, GA",2027-04-15,Submission,2028-01-07,2028-01-09,2026-10-20T14:35:15Z,search:AEA/ASSA 2028 Annual Meeting
 Asian Economic Development Conference,,Singapore,2027-01-15,Submission,2027-07-01,2027-07-02,2026-10-20T14:35:15Z,search:Asian Economic Development Conference 2027
-Allied Social Science Associations Annual Meeting,https://www.aeaweb.org/conference,"Washington, DC",2026-04-01,Participation,2027-01-03,2027-01-05,2026-10-30T16:26:12Z,search:Assa Conference
+Allied Social Science Associations Meeting,https://www.aeaweb.org/conference,"Washington, DC",2026-04-01,Participation,2027-01-03,2027-01-05,2026-10-30T16:26:12Z,search:Assa Conference
 Cesifo Area Conference on Behavioral Economics,https://www.cesifo.org/,"Munich, Germany",2026-06-21,Ended,2026-10-23,2026-10-24,2026-10-21T14:46:49Z,search:CESifo Area Conference on Behavioral Economics 2026
-Annual Conference on Macroeconomics and Monetary Policy,https://www.frbsf.org/economic-research/events/2025/february/macroeconomics-and-monetary-policy-conference/,"San Francisco, CA",2024-11-01,Ended,2025-02-21,2025-02-21,2026-10-21T14:46:49Z,search:Conference on Macroeconomic Policy
+Conference on Macroeconomics and Monetary Policy,https://www.frbsf.org/economic-research/events/2025/february/macroeconomics-and-monetary-policy-conference/,"San Francisco, CA",2024-11-01,Ended,2025-02-21,2025-02-21,2026-10-21T14:46:49Z,search:Conference on Macroeconomic Policy
 Biennial Conference on Macroeconomic Policy,https://cebra.org/news/cfp-6th-biennial-conference-on-macroeconomic-policy,"Warsaw, Poland",2026-04-15,Ended,2026-09-24,2026-09-25,2026-10-21T14:46:49Z,search:Conference on Macroeconomic Policy
 Conference on Macroeconomic Policy,https://economicmisfit.com/2024/07/26/call-for-papers-conference-on-macroeconomic-policy/,"Gerzensee, Switzerland",2026-03-31,Ended,2026-10-30,2026-10-31,2026-10-21T14:46:49Z,search:Conference on Macroeconomic Policy
 SNB Research Conference on Monetary Policy,http://editorialexpress.com/conference/RESCONF2026,"Zurich, Switzerland",2026-03-12,Ended,2026-10-02,2026-10-02,2026-10-21T14:46:49Z,search:Conference on Macroeconomic Policy
 Csae Conference: Economic Development in Africa,,"Oxford, United Kingdom",2026-09-13,Participation,2027-03-21,2027-03-23,2026-10-21T14:46:49Z,search:CSAE Conference 2027: Economic Development in Africa
 Eba'S Policy Research Workshop: Efficient and Proportionate Regulation for a Competitive Financial Sector,https://www.eba.europa.eu/eba-launches-call-papers-its-2026-policy-research-workshop,"Paris, France",2026-06-19,Participation,2026-11-18,2026-11-19,2026-10-22T14:47:04Z,search:EBA's 15th Policy Research Workshop: Efficient and proportionate regulation for a competitive financial sector
 Ecb Conference on Money Markets,,"Frankfurt am Main, Germany",2026-05-31,Participation,2026-11-05,2026-11-06,2026-10-22T14:47:04Z,search:ECB Money Market Conference 2026
-"International Banking, Economics, and Finance Association Annual Meeting at the Allied Social Science Associations Conference",https://www.conftool.pro/ibefa-assa2027,"Washington, DC",2026-03-30,Participation,2027-01-03,2027-01-05,2026-10-23T14:33:58Z,search:IBEFA Annual Meeting at the 2027 ASSA Conference
+"International Banking, Economics, and Finance Association Meeting at the Allied Social Science Associations Conference",https://www.conftool.pro/ibefa-assa2027,"Washington, DC",2026-03-30,Participation,2027-01-03,2027-01-05,2026-10-23T14:33:58Z,search:IBEFA Annual Meeting at the 2027 ASSA Conference
 India Finance Conference,http://indiafa.org/event/india-finance-conference-ifc-2021/?about=submit-paper,"Bengaluru, India",2026-08-23,Participation,2026-12-21,2026-12-23,2026-10-23T14:33:58Z,search:India Finance Conference (IFC) 2026
 "Journal of Accounting, Auditing and Finance Symposium (International)",,"Xiamen, China",2026-02-15,Ended,2026-06-05,2026-06-07,2026-10-23T14:33:58Z,"search:Journal of Accounting, Auditing and Finance (JAAF) Symposium 2026"
 Csef-Cepr Conference on Labor and Finance,https://hub.cepr.org/event/4984,"Anacapri, Italy",2026-03-01,Ended,2026-06-26,2026-06-27,2026-10-23T14:33:58Z,search:Labor & Finance Group Fall 2026 Conference
-"Annual Finance Conference, Isenberg School of Management Umass Amherst",https://general-umass.nbsstore.net/finance-conference-call-for-papers,"Amherst, MA",2027-01-15,Submission,2027-05-06,2027-05-07,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
+"Finance Conference, Isenberg School of Management Umass Amherst",https://general-umass.nbsstore.net/finance-conference-call-for-papers,"Amherst, MA",2027-01-15,Submission,2027-05-06,2027-05-07,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
 Workshop on Enterprise Foundations and Related Topics,st.cefs@cbs.dk,Copenhagen Business School,2027-03-01,Submission,2027-06-24,2027-06-25,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
 Uic Finance Conference,https://go.uic.edu/UICFinConfSubmit2027,"Chicago, IL",2026-11-20,Submission,2027-05-14,2027-05-14,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
 World Symposium on Investment Research,https://www.wsir.org,"Montreal, Canada",2026-11-20,Submission,2027-05-02,2027-05-03,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
@@ -1548,13 +1548,13 @@ Hkust Finance Symposium,https://www.conftool.net/hkustsymposium2027/,Hong Kong,2
 Ubc Winter Finance Conference,https://secure.touchnet.net/C20435_ustores/web/product_detail.jsp?PRODUCTID=2848&SINGLESTORE=true,"Whistler, BC, Canada",2026-11-18,Submission,2027-02-26,2027-02-28,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
 Adam Smith Workshop,https://www.eventbrite.com/e/adam-smith-conference-2027-call-for-papers-tickets-2002059543990?aff=oddtdtcreator&keep_tld=true,Imperial College,2026-12-06,Submission,2027-04-15,2027-04-16,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
 "Experiments in Behavioral Finance, Accounting and Auditing",marcoheimann@gmail.com,Lyon,2027-01-10,Submission,2027-03-25,2027-03-25,2026-10-24T10:40:23Z,email:<DM6PR01MB5866484298B0BA30786820DA8F642@DM6PR01MB5866.prod.exchangelabs.com>
-Annual Meeting of the Latin American and Caribbean Economic Association and the Latin American Meeting of the Econometric Society,https://www.lacealames2026.org/call-for-papers,"Lima, Peru",2026-05-31,Participation,2026-11-12,2026-11-14,2026-10-24T13:49:09Z,search:LACEA LAMES 2026 Annual Conference
-Royal Economic Society Annual Conference,https://www.res.org.uk/events/conference/res-annual-conference/call-for-submissions.html,"Reading, UK",2027-01-18,Submission,2027-06-28,2027-06-30,2026-10-24T13:49:09Z,search:Royal Economic Society 2027 Annual Conference
+Meeting of the Latin American and Caribbean Economic Association and the Latin American Meeting of the Econometric Society,https://www.lacealames2026.org/call-for-papers,"Lima, Peru",2026-05-31,Participation,2026-11-12,2026-11-14,2026-10-24T13:49:09Z,search:LACEA LAMES 2026 Annual Conference
+Royal Economic Society Conference,https://www.res.org.uk/events/conference/res-annual-conference/call-for-submissions.html,"Reading, UK",2027-01-18,Submission,2027-06-28,2027-06-30,2026-10-24T13:49:09Z,search:Royal Economic Society 2027 Annual Conference
 SFS Cavalcade North America,https://sfs.org,"Notre Dame, IN",2026-12-01,Submission,2027-05-18,2027-05-21,2026-10-26T16:23:45Z,search:SFS Cavalcade North America 2027
 Stigler Center-Cepr Political Economy of Finance Conference: Crony Capitalism in Century America,https://www.chicagobooth.edu/research/stigler/events/single-events/2026-political-economy-finance-conference,"Chicago, IL",2026-06-01,Participation,2026-11-06,2026-11-07,2026-10-27T15:38:39Z,search:Stigler Center-CEPR Political Economy of Finance Conference 2026: Crony Capitalism in 21st Century America
 "Joint Bank of Canada, European Central Bank, New York Fed, and Banxico Conference on Expectations Surveys: Expectations Measurement in Advanced and Emerging Economies",https://www.ecb.europa.eu/pub/conferences/html/20261113_conference_on_expectations_surveys.en.html,"Mexico City, Mexico",2026-08-01,Participation,2026-11-13,2026-11-14,2026-10-27T15:38:39Z,search:the Seventh Joint BoC–ECB–New York Fed - Banxico Conference on Expectations Surveys: Expectations Measurement in Advanced and Emerging Economies
 Biennial Conference on Auto Lending,https://www.philadelphiafed.org/surveillance-and-supervision/supervisory-research-forum/the-sixth-biennial-conference-on-auto-lending,"Philadelphia, PA",2026-07-15,Ended,2026-10-29,2026-10-30,2026-10-27T15:38:39Z,search:The Sixth Biennial Conference on Auto Lending: Call for Papers
-Annual Conference on Empirical Legal Studies,https://www.2025cels.org/,"Washington, DC",2025-06-27,Ended,2025-10-24,2025-10-25,2026-10-27T15:38:39Z,search:Annual Conference on Empirical Legal Studies
+Conference on Empirical Legal Studies,https://www.2025cels.org/,"Washington, DC",2025-06-27,Ended,2025-10-24,2025-10-25,2026-10-27T15:38:39Z,search:Annual Conference on Empirical Legal Studies
 Asu Sonoran Winter Finance Conference,https://finance.wpcarey.asu.edu/events/sonoran-winter-finance-conference/,"Scottsdale, AZ",2026-11-19,Submission,2027-02-04,2027-02-06,2026-10-31T15:34:58Z,search:Asu Sonoran Winter Finance Conference
 Business Valuation Challenge℠,https://www.valuationchallenge.org,"Atlanta, GA",2026-10-19,Participation,2026-11-13,2026-11-14,2026-10-31T15:34:58Z,search:Business Valuation Challenge
 University of Connecticut Finance Conference,https://finance.business.uconn.edu/finance-conference/,"Storrs, CT",2027-01-15,Submission,2027-05-14,2027-05-14,2026-11-01T12:37:06Z,url:https://finance.business.uconn.edu/finance-conference/
@@ -1565,6 +1565,6 @@ Central Bank Conference on the Microstructure of Financial Markets,https://www.c
 Cepr-Safe Frankfurt Hub Conference of Research Policy Networks,https://cepr.org/search?search_api_fulltext=CEPR-SAFE%20Frankfurt%20Hub%20Conference%20of%20RPNs,"Frankfurt am Main, Germany",2026-08-31,Ended,2026-09-10,2026-09-11,2026-11-02T19:54:51Z,search:CEPR-SAFE Frankfurt Hub Conference of RPNs
 Financial Economics Meeting,https://iblibrary.org/conferences/7th-financial-economics-meeting-fem-2026,"Paris, France",2026-09-30,Participation,2026-12-14,2026-12-16,2026-11-04T16:00:13Z,search:Conference in Financial Economics Research
 International Joint Conference on Computational and Financial Econometrics and Computational and Methodological Statistics (Cmstatistics),https://www.cfe-cmstatistics.org/CFECM2026/,"Berlin, Germany",2026-09-10,Participation,2026-12-12,2026-12-14,2026-11-04T16:00:13Z,search:Conference in Financial Economics Research
-Annual Labor and Accounting Group Conference,https://sites.google.com/view/labor-acc-group/home,"New York, NY",2026-12-04,Submission,2027-04-15,2027-04-16,2026-11-05T14:27:16Z,email:<DM6PR01MB58666FFC50A1AE7DAC40D34F8F682@DM6PR01MB5866.prod.exchangelabs.com>
+Labor and Accounting Group Conference,https://sites.google.com/view/labor-acc-group/home,"New York, NY",2026-12-04,Submission,2027-04-15,2027-04-16,2026-11-05T14:27:16Z,email:<DM6PR01MB58666FFC50A1AE7DAC40D34F8F682@DM6PR01MB5866.prod.exchangelabs.com>
 Sustainable and Impact Investments International Conference,https://socialimpactconference.confnow.eu/,"Hamburg, Germany",2025-10-01,Ended,2026-01-22,2026-01-23,2026-11-04T17:39:29Z,search:Conference in Sustainable and Socially Responsible Finance
 Conference on Auditing and Capital Markets,https://pcaobus.org/news-events/events/2026-conference-on-auditing-and-capital-markets--conference-announcement-and-call-for-papers,"Washington, DC",2026-05-15,Ended,2026-09-10,2026-09-11,2026-11-05T17:47:11Z,search:Conference on Auditing and Capital Markets
