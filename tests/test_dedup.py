@@ -283,6 +283,9 @@ def test_same_event_name_keeps_different_events_apart():
     # Same series, different field.
     assert not same_event_name("Asu Sonoran Winter Real Estate Conference",
                                "Asu Sonoran Winter Finance Conference")
+    # An acronym is not the same event when the kind of event differs.
+    assert not same_event_name("FIRS Conference",
+                               "Financial Intermediation Research Society Doctoral Workshop")
     # Same school, different conference.
     assert not same_event_name("NYU Stern Corporate Governance Conference",
                                "NYU Stern Women in Finance Conference")
@@ -348,5 +351,40 @@ def test_dedupe_drops_annual_from_stored_names_and_merges_on_it():
         rows = store.load()
         assert [r.name for r in rows] == ["Midwest Finance Association Meeting"]
         assert rows[0].contact == "https://www.mfa-2027.com"
+    finally:
+        os.path.exists(path) and os.unlink(path)
+
+
+def test_same_event_name_matches_acronym_to_spelled_out_name():
+    from conference_tracker.store import same_event_name
+
+    assert same_event_name("FIRS Conference",
+                           "Financial Intermediation Research Society Conference")
+    assert same_event_name("MIT GCFP Conference",
+                           "MIT Golub Center for Finance and Policy Conference: Financial Regulation")
+    assert same_event_name(
+        "CEAR-RSI Household Finance Workshop",
+        "Center for the Economic Analysis of Risk - Retirement and Savings Institute "
+        "Household Finance Workshop")
+
+
+def test_dedupe_merges_acronym_listing_same_city_and_day():
+    store, path = _store()
+    try:
+        store.save(
+            [
+                Conference(name="Financial Intermediation Research Society Conference",
+                           contact="https://www.conftool.org/firs2027",
+                           location="Glasgow, Scotland", submission_deadline="2026-11-18",
+                           start_date="2027-06-03", end_date="2027-06-05", source="email:x"),
+                Conference(name="FIRS Conference",
+                           contact="https://firsociety.org/conference/2027-conference/",
+                           location="Glasgow, UK", submission_deadline="2026-11-18",
+                           start_date="2027-06-03", end_date="2027-06-05",
+                           source="url:https://firsociety.org/conference/2027-conference/"),
+            ]
+        )
+        assert store.dedupe() == 1
+        assert len(store.load()) == 1
     finally:
         os.path.exists(path) and os.unlink(path)
