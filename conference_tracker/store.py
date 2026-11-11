@@ -80,16 +80,27 @@ _FILLER_WORDS = {
 }
 
 
-def _name_parts(name: str) -> Tuple[set, set]:
+def _name_tokens(name: str) -> Tuple[List[str], set]:
+    """A name's distinctive words, in order, and its kind-of-event words."""
     tokens = normalize_name(name).split()
     # "IBEFA Annual Meeting at ASSA" is a session held at a host meeting, not
     # the host meeting itself, so only the part before "at" identifies it.
     if "at" in tokens[1:]:
         tokens = tokens[:tokens.index("at", 1)]
     events = {t for t in tokens if t in _EVENT_WORDS}
-    core = {t for t in tokens
-            if t not in _EVENT_WORDS and t not in _FILLER_WORDS and not t.isdigit()}
+    core = [t for t in tokens
+            if t not in _EVENT_WORDS and t not in _FILLER_WORDS and not t.isdigit()]
     return core, events
+
+
+def _spells_acronym(short: List[str], long: List[str]) -> bool:
+    """True if a word of one name is an acronym of consecutive words of the other.
+
+    "FIRS" is "Financial Intermediation Research Society"; "GCFP" is "Golub
+    Center for Finance and Policy" (joining words don't count).
+    """
+    initials = "".join(w[0] for w in long)
+    return any(len(w) >= 3 and w not in long and w in initials for w in short)
 
 
 def same_event_name(a: str, b: str) -> bool:
@@ -101,10 +112,13 @@ def same_event_name(a: str, b: str) -> bool:
     Association Annual Meeting" and "European Financial Management Merton H.
     Miller Doctoral Student Seminar" do not (a meeting is not a seminar), nor
     do "ASU Sonoran Winter Real Estate Conference" and "ASU Sonoran Winter
-    Finance Conference" (different fields).
+    Finance Conference" (different fields). A name written as an acronym
+    matches its spelled-out form: "FIRS Conference" and "Financial
+    Intermediation Research Society Conference".
     """
-    core_a, events_a = _name_parts(a)
-    core_b, events_b = _name_parts(b)
+    words_a, events_a = _name_tokens(a)
+    words_b, events_b = _name_tokens(b)
+    core_a, core_b = set(words_a), set(words_b)
     if events_a and events_b and events_a.isdisjoint(events_b):
         return False
     fields_a = {_FIELD_WORDS[t] for t in core_a if t in _FIELD_WORDS}
@@ -113,7 +127,9 @@ def same_event_name(a: str, b: str) -> bool:
         return False
     if not core_a or not core_b:
         return False
-    return len(core_a & core_b) / min(len(core_a), len(core_b)) >= 0.6
+    if len(core_a & core_b) / min(len(core_a), len(core_b)) >= 0.6:
+        return True
+    return _spells_acronym(words_a, words_b) or _spells_acronym(words_b, words_a)
 
 
 def _city_key(location: str) -> str:

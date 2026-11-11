@@ -213,3 +213,13 @@ def test_garbled_location_never_overwrites_a_good_one():
         submission_deadline="2026-10-31", start_date="2027-04-09", end_date="2027-04-09"))
     store.upsert([incoming])
     assert store.load()[0].location == "Zürich, Switzerland"
+
+
+def test_gemini_client_uses_the_v1beta_api():
+    # google-genai 3.x defaults to "v1", where the system instructions every
+    # extraction sends are rejected.
+    from conference_tracker.cli import _client
+    from conference_tracker.config import Config
+
+    client = _client(Config(gemini_api_key="test-key"))
+    assert client._api_client._http_options.api_version == "v1beta"
