@@ -43,7 +43,7 @@ jobs:
           # on the published page.
           CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
         run: |
-          python -m conference_tracker update-email
+          python -m conference_tracker update-email || echo "GEMINI_ALL_FAILED=1" >> "$GITHUB_ENV"
           python -m conference_tracker dedupe
           python -m conference_tracker refresh-status
           python -m conference_tracker build-site docs/index.html
@@ -59,3 +59,12 @@ jobs:
           else
             echo "No changes to commit."
           fi
+
+      # Every Gemini call failing (or the update step crashing) means something
+      # is broken: an API change, a revoked key, a mailbox login. Fail the run
+      # after saving the rest, so GitHub emails the repository owner.
+      - name: Fail if every Gemini call failed
+        if: env.GEMINI_ALL_FAILED == '1'
+        run: |
+          echo "::error::Every Gemini call in this run failed, or the update step crashed; see its log above."
+          exit 1

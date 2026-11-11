@@ -183,6 +183,8 @@ class SearchSource:
         self.max_tokens = max_tokens
         # Names fully processed this run (filled in as documents succeed).
         self.searched: List[str] = []
+        # Names whose web research failed with an error other than quota.
+        self.failed: List[str] = []
 
     def _research(self, name: str) -> str:
         """Search the web for one conference name and return the gathered text."""
@@ -217,6 +219,7 @@ class SearchSource:
                           "stopping this run.")
                     return
                 print(f"  ! web search failed for {name!r}: {exc}")
+                self.failed.append(name)
                 continue
             if not text:
                 self.searched.append(name)

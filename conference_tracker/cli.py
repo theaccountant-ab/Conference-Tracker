@@ -78,6 +78,7 @@ def run_source(config: Config, source: Source) -> int:
 
     found: List[Conference] = []
     n_docs = 0
+    n_failed = 0
     skipped = 0
     for doc in source.iter_documents():
         n_docs += 1
@@ -93,6 +94,7 @@ def run_source(config: Config, source: Source) -> int:
                       f"{describe_quota_error(exc)}; stopping this run.")
                 break
             print(f"  ! extraction failed for {doc.origin}: {exc}")
+            n_failed += 1
             continue
         # Processed successfully — let the source finalize (mark email read).
         if doc.on_success is not None:
@@ -126,6 +128,16 @@ def run_source(config: Config, source: Source) -> int:
         f"{added} added, {updated} updated, {len(found)} conference(s) extracted, "
         f"{skipped} skipped for missing location/deadline."
     )
+    # Every Gemini call failing (not merely running out of quota) means
+    # something is broken, like the API change that silently stopped every
+    # run for six days. Exit non-zero so the workflow run fails and GitHub
+    # emails the repository owner.
+    source_failed = len(getattr(source, "failed", []))
+    attempted = n_docs + source_failed
+    if attempted and n_failed + source_failed == attempted:
+        print(f"\n! All {attempted} Gemini call(s) in this run failed; "
+              "see the errors above.")
+        return 1
     return 0
 
 
