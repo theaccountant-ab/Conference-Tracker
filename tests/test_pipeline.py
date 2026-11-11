@@ -223,3 +223,51 @@ def test_gemini_client_uses_the_v1beta_api():
 
     client = _client(Config(gemini_api_key="test-key"))
     assert client._api_client._http_options.api_version == "v1beta"
+
+
+def _bad_request(*_):
+    raise errors.ClientError(400, {"error": {
+        "code": 400, "status": "INVALID_ARGUMENT",
+        "message": "Developer instruction is not enabled for api version v1."}})
+
+
+def test_run_source_fails_when_every_gemini_call_fails(monkeypatch):
+    monkeypatch.setattr(extractor, "extract_conferences", _bad_request)
+    monkeypatch.setattr(cli, "_client", lambda config: None)
+    cfg = Config(csv_path=os.path.join(tempfile.mkdtemp(), "c.csv"))
+    src = _Src(["a", "b"])
+    assert cli.run_source(cfg, src) == 1
+    assert src.done == []  # left unread, so the next run retries them
+
+
+def test_run_source_succeeds_when_only_some_calls_fail(monkeypatch):
+    def flaky(client, model, text):
+        if text == "bad":
+            _bad_request()
+        return []
+
+    monkeypatch.setattr(extractor, "extract_conferences", flaky)
+    monkeypatch.setattr(cli, "_client", lambda config: None)
+    cfg = Config(csv_path=os.path.join(tempfile.mkdtemp(), "c.csv"))
+    assert cli.run_source(cfg, _Src(["bad", "ok"])) == 0
+
+
+def test_run_source_fails_when_every_web_search_fails(monkeypatch):
+    class _FailedSearch(_Src):
+        def __init__(self):
+            super().__init__([])
+            self.failed = ["Some Conference", "Other Conference"]
+
+    monkeypatch.setattr(cli, "_client", lambda config: None)
+    cfg = Config(csv_path=os.path.join(tempfile.mkdtemp(), "c.csv"))
+    assert cli.run_source(cfg, _FailedSearch()) == 1
+
+
+def test_running_out_of_quota_is_not_a_failure(monkeypatch):
+    def quota(*_):
+        raise _Quota()
+
+    monkeypatch.setattr(extractor, "extract_conferences", quota)
+    monkeypatch.setattr(cli, "_client", lambda config: None)
+    cfg = Config(csv_path=os.path.join(tempfile.mkdtemp(), "c.csv"))
+    assert cli.run_source(cfg, _Src(["a"])) == 0
