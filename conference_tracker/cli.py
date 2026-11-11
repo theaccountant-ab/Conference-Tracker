@@ -20,13 +20,22 @@ from .sources.base import Source
 from .store import CSVStore
 
 
+# The Gemini API version the calls are written for. google-genai 3.0 switched
+# its default to "v1", which rejects system instructions ("Developer
+# instruction is not enabled for api version v1"), so every extraction failed
+# until this was pinned.
+GEMINI_API_VERSION = "v1beta"
+
+
 def _client(config: Config):
     from google import genai
+    from google.genai import types
 
+    http_options = types.HttpOptions(api_version=GEMINI_API_VERSION)
     if not config.gemini_api_key:
         # The SDK also reads GEMINI_API_KEY / GOOGLE_API_KEY from the environment.
-        return genai.Client()
-    return genai.Client(api_key=config.gemini_api_key)
+        return genai.Client(http_options=http_options)
+    return genai.Client(api_key=config.gemini_api_key, http_options=http_options)
 
 
 # Longest plausible gap between a submission deadline and the conference start.
