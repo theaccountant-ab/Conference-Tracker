@@ -388,3 +388,28 @@ def test_dedupe_merges_acronym_listing_same_city_and_day():
         assert len(store.load()) == 1
     finally:
         os.path.exists(path) and os.unlink(path)
+
+
+def test_meeting_and_conference_are_the_same_kind_of_event():
+    from conference_tracker.store import same_event_name
+
+    assert same_event_name("Meeting of the Financial Research Association",
+                           "Financial Research Association Conference")
+    # A seminar, workshop or school is still a different event.
+    assert not same_event_name("European Financial Management Association Meeting",
+                               "European Financial Management Doctoral Seminar")
+
+
+def test_update_keeps_city_over_a_venue_name():
+    store, path = _store()
+    try:
+        store.save([Conference(name="UNC Duke Corporate Finance Conference",
+                               location="Chapel Hill, NC", start_date="2027-04-02",
+                               source="url:x")])
+        incoming = Conference(name="UNC Duke Corporate Finance Conference",
+                              location="Rizzo Conference Center at UNC",
+                              start_date="2027-04-02", source="url:x")
+        store.upsert([incoming])
+        assert store.load()[0].location == "Chapel Hill, NC"
+    finally:
+        os.path.exists(path) and os.unlink(path)

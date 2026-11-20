@@ -63,6 +63,17 @@ _EVENT_WORDS = {
     "conference", "meeting", "meetings", "symposium", "workshop", "seminar",
     "summit", "forum", "congress", "colloquium", "camp", "school",
 }
+# Event words that all name a society's or school's main event: "Meeting of
+# the Financial Research Association" is the Financial Research Association
+# Conference. A workshop, seminar or school is a different kind of event.
+_MAIN_EVENT_WORDS = {
+    "conference", "meeting", "meetings", "symposium", "summit", "forum",
+    "congress", "colloquium",
+}
+
+
+def _event_kinds(events: set) -> set:
+    return {"main" if e in _MAIN_EVENT_WORDS else e for e in events}
 # Subject words, mapped to the field they name. Two names on different
 # fields ("Real Estate" vs "Finance") are different events even when the
 # rest of the name is shared.
@@ -119,7 +130,7 @@ def same_event_name(a: str, b: str) -> bool:
     words_a, events_a = _name_tokens(a)
     words_b, events_b = _name_tokens(b)
     core_a, core_b = set(words_a), set(words_b)
-    if events_a and events_b and events_a.isdisjoint(events_b):
+    if events_a and events_b and _event_kinds(events_a).isdisjoint(_event_kinds(events_b)):
         return False
     fields_a = {_FIELD_WORDS[t] for t in core_a if t in _FIELD_WORDS}
     fields_b = {_FIELD_WORDS[t] for t in core_b if t in _FIELD_WORDS}
@@ -188,6 +199,10 @@ class CSVStore:
             new_val = (getattr(incoming, fieldname) or "").strip()
             if fieldname == "contact" and _is_web(existing.contact) and not _is_web(new_val):
                 continue  # a web page is a better link than a bare email address
+            if fieldname == "location" and "," in existing.location and "," not in new_val:
+                # "Chapel Hill, NC" is better than a venue like "Rizzo
+                # Conference Center at UNC" that a page sometimes gives instead.
+                continue
             if new_val and new_val != getattr(existing, fieldname):
                 setattr(existing, fieldname, new_val)
                 changed = True
