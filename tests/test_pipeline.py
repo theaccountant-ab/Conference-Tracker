@@ -271,3 +271,35 @@ def test_running_out_of_quota_is_not_a_failure(monkeypatch):
     monkeypatch.setattr(cli, "_client", lambda config: None)
     cfg = Config(csv_path=os.path.join(tempfile.mkdtemp(), "c.csv"))
     assert cli.run_source(cfg, _Src(["a"])) == 0
+
+
+def test_links_on_blocked_hosts_are_never_stored(monkeypatch):
+    from conference_tracker.models import Conference
+
+    monkeypatch.setenv("CT_BLOCKED_LINK_HOSTS", "listing.example, other.example")
+    blocked = Conference.from_extracted(ExtractedConference(
+        name="Some Finance Conference", url="https://www.listing.example/conferences/x",
+        submission_email="papers@uni.edu"), source="search:x")
+    assert blocked.contact == "papers@uni.edu"  # falls back, never the listing link
+    assert Conference.from_extracted(ExtractedConference(
+        name="Some Finance Conference", url="https://sub.other.example/x"),
+        source="search:x").contact == ""
+    assert Conference.from_extracted(ExtractedConference(
+        name="Some Finance Conference", url="https://www.conftool.org/x"),
+        source="search:x").contact == "https://www.conftool.org/x"
+
+
+def test_blocked_link_does_not_replace_an_official_one(monkeypatch):
+    from conference_tracker.models import Conference
+
+    monkeypatch.setenv("CT_BLOCKED_LINK_HOSTS", "listing.example")
+    store = CSVStore(os.path.join(tempfile.mkdtemp(), "c.csv"))
+    store.save([Conference(name="Jackson Hole Finance Group Conference",
+                           contact="https://www.conftool.org/jhfinance2027",
+                           location="Teton Village, WY", start_date="2027-01-15",
+                           source="email:x")])
+    update = Conference.from_extracted(ExtractedConference(
+        name="Jackson Hole Finance Group Conference", start_date="2027-01-15",
+        url="https://listing.example/conferences/jackson-hole"), source="search:x")
+    store.upsert([update])
+    assert store.load()[0].contact == "https://www.conftool.org/jhfinance2027"

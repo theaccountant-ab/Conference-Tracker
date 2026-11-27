@@ -26,6 +26,8 @@ jobs:
       - name: Fetch tracked URLs and refresh
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Hosts whose links are never stored (third-party listings); kept as a secret.
+          CT_BLOCKED_LINK_HOSTS: ${{ secrets.CT_BLOCKED_LINK_HOSTS }}
           CT_GA_MEASUREMENT_ID: G-X2ZFQPG4G7
         run: |
           python -m conference_tracker update-tracked || echo "GEMINI_ALL_FAILED=1" >> "$GITHUB_ENV"
