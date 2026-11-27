@@ -7,6 +7,7 @@ result + computed status + bookkeeping) that ends up as a row in the CSV.
 
 from __future__ import annotations
 
+import os
 import re
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional
@@ -32,6 +33,22 @@ _SAFELINK = re.compile(r"^https?://[\w.-]*safelinks\.protection\.outlook\.com/",
 _BARE_DOMAIN = re.compile(r"^(?:www\.)?[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}(?:[/?#]\S*)?$", re.I)
 
 
+def _blocked_link_hosts() -> set:
+    """Hosts whose links are never stored, e.g. third-party conference listings.
+
+    Read from the CT_BLOCKED_LINK_HOSTS environment variable (comma-separated
+    host names, set as a repository secret), so the list itself lives outside
+    the repository.
+    """
+    raw = os.environ.get("CT_BLOCKED_LINK_HOSTS", "")
+    return {h.strip().lower().removeprefix("www.") for h in raw.split(",") if h.strip()}
+
+
+def _is_blocked_link(url: str) -> bool:
+    host = (urlparse(url).hostname or "").lower().removeprefix("www.")
+    return any(host == h or host.endswith("." + h) for h in _blocked_link_hosts())
+
+
 def _clean_contact_url(url: Optional[str]) -> str:
     """Return a usable contact URL, or '' if it is junk.
 
@@ -48,6 +65,8 @@ def _clean_contact_url(url: Optional[str]) -> str:
         return ""
     if "@" not in u and "://" not in u and _BARE_DOMAIN.match(u):
         u = "https://" + u
+    if "://" in u and _is_blocked_link(u):
+        return ""
     return u
 
 
